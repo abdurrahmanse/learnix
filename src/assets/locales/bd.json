@@ -1,35 +1,34 @@
 {
   "header": {
-    "home": "বাড়ি",
-    "projects": "প্রকল্প",
-    "about": "সম্পর্কিত",
-    "contacts": "যোগাযোগ"
+    "home": "Home",
+    "projects": "Project",
+    "about": "About",
+    "contacts": "Contact"
   },
   "footer": {
-    "description": "বাংলাদেশী সফটওয়্যার ইঞ্জিনিয়ার",
-    "copyright": "আব্দুর রহমান. সর্বস্বত্ব সংরক্ষিত।",
-    "media": "আমার সাথে সংযোগ করুন"
+    "description": "Software Engineer based in Bangladesh",
+    "copyright": "AbdurRahman. All rights reserved.",
+    "media": "Connect with me"
   },
   "skills": {
-    "language": "ভাষা",
-    "Frontend": "ফ্রন্ট-এন্ড",
-    "StateManagement": "স্টেট ম্যানেজমেন্ট",
-    "backend": "ব্যাক-এন্ড",
-    "Stack": "stack",
-    "api": "এপিআই",
+    "programming": "Programming",
+    "Frontend": "Frontend",
+    "StateManagement": "State Management",
+    "backend": "Back-end",
+    "Stack": "My Stack",
     "ORM": "ORM",
-    "uiframework": "UI ফ্রেমওয়ার্ক",
-    "database": "ডাটাবেস",
-    "testing": "পরীক্ষামূলক",
-    "versionControl": "ভর্সন নিয়ন্ত্রণ",
-    "Deployment": "স্থাপনা",
-    "Design": "ডিজাইন",
-    "tool": "টুলস"
+    "api": "APIs",
+    "uiframework": "UI Frameworks",
+    "database": "Databases",
+    "testing": "Testing",
+    "versionControl": "Version Control",
+    "Deployment": "Deployments",
+    "Design": "Design",
+    "tool": "Tools"
   },
   "projects": {
     "financepro": {
       "name": "Finance Pro",
-<<<<<<< HEAD
       "description": "Finance Pro is a web application that helps you manage your company's finances "
     },
     "helpdesk": {
@@ -46,7 +45,7 @@
     },
     "mailbox": {
       "name": "mailbox",
-      "description": "Features: Authentication and Authorization - API Development - Use of JWT Token - Use of Socket.io"
+      "description": "Features: Authentication and Authorization - API Development - Use of JWT Token Use of Socket.io"
     },
     "ats": {
       "name": "ATS System",
@@ -85,65 +84,11 @@
     "rajouanulhaque": {
       "name": "rajouanulhaque",
       "description": "easy customizable Modern Personal Portfolio."
-=======
-      "description": "একটি অ্যাকাউন্ট অ্যাপ্লিকেশন যা প্রতিষ্ঠান ব্যবহারকারীদের অ্যাকাউন্ট অপারেশন পরিচালনা করতে সহায়তা করে"
-    },
-    "helpdesk": {
-      "name": "HelpDesk App",
-      "description": "একটি হেল্পডেস্ক অ্যাপ হল একটি টিকিটিং সিস্টেম যা সহায়তা কর্মীদের পরিচালনা এবং গ্রাহকদের সমাধান প্রদান করতে সহায়তা করে"
-    },
-    "employeemanagement": {
-      "name": "Employee management system",
-      "description": "কর্মচারী ম্যানেজমেন্ট সিস্টেম হল একটি ওয়েব অ্যাপ্লিকেশন যা কর্মীদের তথ্য পরিচালনা করতে সাহায্য করে"
-    },
-    "tsxgames": {
-      "name": "TSX Games",
-      "description": "একটি ইলেকট্রনিক হেলথ রেকর্ড (EHR) হল রোগীর কাগজের চার্টের একটি ডিজিটাল সংস্করণ ।"
-    },
-    "mailbox": {
-      "name": "mailbox",
-      "description": "প্রমাণীকরণ এবং অনুমোদন - API বিকাশ - JWT টোকেনের ব্যবহার - Socket.io এর ব্যবহার"
-    },
-    "ats": {
-      "name": "ATS System",
-      "description": "অ্যাপ্লিকেশন যা নিয়োগ এবং নিয়োগের প্রয়োজনীয়তার বৈদ্যুতিন পরিচালনা করতে সক্ষম করে।"
-    },
-    "chatapp": {
-      "name": "Chat Application",
-      "description": "একটি চ্যাট অ্যাপ্লিকেশন হল একটি মেসেজিং প্ল্যাটফর্ম যা ব্যবহারকারীদের টেক্সট।"
-    },
-    "fastfood": {
-      "name": "ফাস্ট ফুড",
-      "description": "PHP-এর সাথে একটি ফাস্ট ফুড অর্ডারিং সিস্টেম হল একটি ওয়েব-ভিত্তিক অ্যাপ্লিকেশন ।"
-    },
-    "carrental": {
-      "name": "গাড়ী ভাড়া",
-      "description": "ওয়েবসাইটটি গাড়ি অনুসন্ধান, তুলনা এবং সংরক্ষণের জন্য একটি ইন্টারফেস সরবরাহ করে।"
-    },
-    "ecommerce": {
-      "name": "ইকমার্স",
-      "description": "স্টোরটি ব্যবহারকারীর অভিজ্ঞতাকে অগ্রাধিকার দেয়, গ্রাহকদের তাদের প্রয়োজনীয় পণ্যগুলি খুঁজে পাওয়া এবং ক্রয় করা সহজ হয়৷"
-    },
-    "coindom": {
-      "name": "মুদ্রা",
-      "description": "Coindom একটি ওয়েবসাইট যা ব্যবহারকারীদের রিয়েল-টাইমে বিভিন্ন ক্রিপ্টোকারেন্সি সম্পর্কে তথ্য অনুসন্ধান করতে দেয়।"
-    },
-
-    "java": {
-      "name": "জাভা",
-      "description": " জাভা একটি অবজেক্ট-অরিয়েন্টেড প্রোগ্রামিং ভাষা যা সহজে শেখা যায় এবং ব্যবহার করা যেতে পারে।"
-    },
-
-    "rajouanulhaque": {
-      "name": "rajouanulhaque",
-      "description": "সহজ কাস্টমাইজযোগ্য আধুনিক ব্যক্তিগত পোর্টফোলিওর জন্য ব্যবহার করা যেতে পারে ।"
->>>>>>> 9f9706de (Initial commit)
     }
   },
   "pages": {
     "home": {
       "hero": {
-<<<<<<< HEAD
         "title": "👋 <span>A</span>bdur<span>R</span>ahman is a<span> Frontend</span> Software Enginner (<span>React</span> | <span>Next</span> | <span>Angular</span>)",
         "description": "🚀 He crafts responsive websites where technologies meet creativity With a keen eye for design aesthetics and a knack for crafting seamless user experiences, he bring digital ideas to life.",
         "button": "💌 Contact",
@@ -210,81 +155,11 @@
           "I often motor bike with my friends",
           "I like eating grill chicken and naan roti",
           "I'm still studying in University"
-=======
-        "title": "👋 আব্দুর রহমান একজন <span>UI/UX</span> ডিজাইনার এবং <span>ফ্রন্টেন্ড </span>সফটওয়্যার ইঞ্জিনিয়ার  (<span>React</span> | <span>Next</span> | <span>Angular</span>)",
-        "description": "🚀 তিনি প্রতিক্রিয়াশীল ওয়েবসাইটগুলি তৈরি করেন যেখানে প্রযুক্তিগুলি সৃজনশীলতার সাথে মিলিত হয় ডিজাইনের নান্দনিকতার প্রতি তীক্ষ্ণ দৃষ্টি এবং নিরবচ্ছিন্ন ব্যবহারকারীর অভিজ্ঞতা তৈরি করার দক্ষতার সাথে, তিনি ডিজিটাল ধারণাগুলিকে জীবন্ত করে তোলেন৷",
-        "button": "💬 যোগাযোগ",
-        "resume": "📄 জীবনবৃত্তান্ত",
-        "status": "কাজ চলছে"
-      },
-      "quote": {
-        "text": "সফল মানুষ সবসময় অন্যদের সাহায্য করার সুযোগ খুঁজে",
-        "author": "আব্দুর রহমান"
-      },
-      "motives": {
-        "motive": "আপনি যদি ব্যথা অনুভব করেন তবে আপনি বেঁচে আছেন। আপনি যদি অন্যের ব্যথা অনুভব করেন তবে আপনি একজন মানুষ 🥺",
-        "author": "আব্দুর রহমান"
-      },
-      "projects": {
-        "title": "প্রকল্প",
-        "button": "👩‍💻 আরো অন্বেষণ"
-      },
-      "skills": {
-        "title": "দক্ষতা"
-      },
-      "about": {
-        "title": "সম্পর্কিত",
-        "description": [
-          "🎨 আমি ঢাকা, বাংলাদেশে অবস্থিত একজন UI/UX ডিজাইনার এবং ফ্রন্টেন্ড সফটওয়্যার ইঞ্জিনিয়ার (React | Next | Angular)। React | Next | Angular ডেভেলপাররা প্রাথমিকভাবে ফ্রন্ট এন্ড ওয়েব আর্কিটেকচার তৈরি এবং ডিজাইন করার এবং একাধিক সিস্টেম থেকে ইন্টারেক্টিভ কনজিউমার ডেটা তৈরির দায়িত্বে রয়েছে। তারা উচ্চ-কর্মক্ষমতা পণ্য সমর্থন করার জন্য কোড আর্কিটেকচার সিদ্ধান্ত সংজ্ঞায়িত করে।",
-          "💡 আমার সৃজনশীলতা এবং জ্ঞানকে একটি ওয়েবসাইটে রূপান্তর করা এক বছরেরও বেশি সময় ধরে আমার আবেগ। আমি বিভিন্ন ক্লায়েন্টদের অনলাইনে তাদের উপস্থিতি প্রতিষ্ঠা করতে সহায়তা করছি। আমি সর্বদা নতুন প্রযুক্তি এবং কাঠামো সম্পর্কে জানার চেষ্টা করি। "
-        ],
-        "button": "📧 বিস্তারিত দেখুন"
-      },
-      "contacts": {
-        "title": "যোগাযোগ",
-        "text": "📞 আসুন একসাথে সুন্দর কিছু গড়ি! আমি ফ্রিল্যান্স সুযোগে আগ্রহী। যাইহোক, আপনার যদি অন্য অনুরোধ বা প্রশ্ন থাকে, আমার সাথে যোগাযোগ করতে দ্বিধা করবেন না",
-        "media": "এখানে আমাকে বার্তা পাঠান",
-        "donate": "আমাকে এখানে দান করুন"
-      }
-    },
-    "projects": {
-      "description": "🚀 উদ্ভাবন এবং কার্যকারিতার সংমিশ্রণ দেখতে আমার পোর্টফোলিও অন্বেষণ করুন। চিত্তাকর্ষক ব্যবহারকারী ইন্টারফেস থেকে প্রতিক্রিয়াশীল ওয়েব অ্যাপ্লিকেশন পর্যন্ত, আমি আপনার ডিজিটাল স্বপ্নকে বাস্তবে রূপ দিতে এখানে আছি।",
-      "decent": "শালীন",
-      "small": "ছোট",
-      "inProgress": "অসমাপ্ত"
-    },
-    "about": {
-      "description": "👋 ফ্রন্টেন্ড সফটওয়্যার ইঞ্জিনিয়ার (React | Next | Angular)",
-      "about": {
-        "description": [
-          "📍 আমি ঢাকা, বাংলাদেশে অবস্থিত একজন ফ্রন্টেন্ড সফটওয়্যার ইঞ্জিনিয়ার React | Next | Angular ডেভেলপাররা প্রাথমিকভাবে ফ্রন্ট এন্ড ওয়েব আর্কিটেকচার তৈরি এবং ডিজাইন করার এবং একাধিক সিস্টেম থেকে ইন্টারেক্টিভ কনজিউমার ডেটা তৈরির দায়িত্বে রয়েছে। তারা উচ্চ-কর্মক্ষমতা পণ্য সমর্থন করার জন্য কোড আর্কিটেকচার সিদ্ধান্ত সংজ্ঞায়িত করে।",
-          "💡 আমার সৃজনশীলতা এবং জ্ঞানকে একটি ওয়েবসাইটে রূপান্তর করা এক বছরেরও বেশি সময় ধরে আমার আবেগ। আমি বিভিন্ন ক্লায়েন্টদের অনলাইনে তাদের উপস্থিতি প্রতিষ্ঠা করতে সহায়তা করছি।",
-          "🌟 আমি সর্বদা নতুন প্রযুক্তি এবং কাঠামো সম্পর্কে জানার চেষ্টা করি। আসুন সহযোগিতা করি এবং আপনার ধারণাগুলিকে ব্যতিক্রমী ডিজিটাল সমাধানে পরিণত করি। উদ্ভাবনের প্রতি অঙ্গীকার এবং পিক্সেল-পরিপূর্ণতার জন্য একটি অনুরাগ সহ, আমি এখানে আপনার অনলাইন উপস্থিতি বাড়াতে এসেছি।",
-          "🌐 যখন আমি ডিজাইন এবং কোডে ডুবে থাকি না, তখন আপনি আমাকে নতুন প্রযুক্তিগত প্রবণতা অন্বেষণ করতে, কফিতে চুমুক দিতে এবং আমার চারপাশের বিশ্ব থেকে অনুপ্রেরণা খুঁজতে দেখতে পারেন।"
-        ]
-      },
-      "skills": {
-        "title": "দক্ষতা"
-      },
-      "facts": {
-        "title": "মজার ঘটনা",
-        "list": [
-          "আমি বই পড়তে পছন্দ করি",
-          "আমি ট্রেনে ভ্রমণ পছন্দ করি",
-          "আমি কোডিং এবং প্রোগ্রামিং পছন্দ করি",
-          "আমি প্রায়ই আমার বন্ধুদের সাথে মোটরবাইক চালাই",
-          "আমি গ্রিল চিকেন এবং নান রোটি খেতে পছন্দ করি",
-          "আমি এখনো বিশ্ববিদ্যালয়ে পড়ছি"
->>>>>>> 9f9706de (Initial commit)
         ]
       }
     },
     "contacts": {
-<<<<<<< HEAD
       "description": "I am here for you: Connect with me for any questions or concerns."
-=======
-      "description": "কিভাবে আমার সাথে যোগাযোগ করবেন"
->>>>>>> 9f9706de (Initial commit)
     }
   }
 }

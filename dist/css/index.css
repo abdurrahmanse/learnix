@@ -121,9 +121,8 @@ body {
   flex-direction: column;
   font-size: 2rem;
   font-weight: 600;
-  background-image: url(../images/8f9190d875c91d5c4a50.svg);
+  background-image: url(../images/7cc5575fd30f274cbf32.svg);
   background-color: var(--background);
-  background-size: cover;
   background-attachment: fixed;
 }
 
@@ -533,6 +532,6 @@ body {
   --primary-op: hsl(162 100% 63%/0.1);
   --gray: hsl(219 14% 71%);
   --gray-op: hsl(219 14% 71%/0.1);
-  --background: hsl(231.43deg 9.86% 13.92%);
+  --background: hsl(220 35% 10%);
   --white: hsl(0 0% 100%);
 }

@@ -72,6 +72,9 @@
   align-items: center;
   gap: 32px;
   flex-wrap: wrap;
+  background-image: url(../images/8f9190d875c91d5c4a50.svg);
+  background-position: center;
+  background-size: cover;
 }
 .hero .dots {
   position: absolute;
