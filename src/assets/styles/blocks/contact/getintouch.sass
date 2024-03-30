@@ -1,0 +1,57 @@
+// Variables
+$form-padding: 12px
+$form-border: 1px solid var(--gray)
+$form-border-radius: 4px
+$form-margin-top: 6px
+$form-margin-bottom: 16px
+$form-submit-background: var(--primary)
+$form-submit-hover-background: var(--primary)
+$form-container-background: var(--gray-op)
+$form-container-color: var(--white)
+$form-container-padding: 20px
+
+// Styles
+input[type=text], select, textarea
+  width: 100%
+  padding: $form-padding
+  border: $form-border
+  border-radius: $form-border-radius
+  box-sizing: border-box
+  margin-top: $form-margin-top
+  color: var(--white)
+  margin-bottom: $form-margin-bottom
+  resize: vertical
+  background-color: $form-container-background
+
+  &:focus
+    outline: none
+    border-color: var(--primary)
+    background-color: var(--background)
+
+input[type=email]
+  &:focus
+    background-color: none
+
+input[type=submit]
+  background-color: $form-submit-background
+  color: white
+  padding: 12px 20px
+  border: none
+  border-radius: $form-border-radius
+  cursor: pointer
+
+  &:hover
+    background-color: $form-submit-hover-background
+
+button
+  width: 100%
+  padding: 10px
+  background-color: var(--background)
+  color: #fff
+  border: 2px solid var(--gray)
+  border-radius: 2px
+  cursor: pointer
+  transition: background-color 0.3s ease
+
+  &:hover
+    background-color: var(--gray-op)

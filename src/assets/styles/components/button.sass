@@ -1,0 +1,29 @@
+.button
+    border-radius: 30px
+    border: 1px solid var(--gray)
+    box-shadow: -2px 5px 25px -11px var(--gray)
+    color: var(--gray)
+    cursor: pointer
+    display: inline-block
+    font-weight: 700
+    outline: none
+    padding: 2px 1.6rem
+    text-align: center
+    text-transform: uppercase
+    transition: background-color 0.2s ease-in-out
+    white-space: normal
+    width: max-content
+
+    &:hover
+        background-color: var(--primary-op)
+
+    &__secondary
+        border-color: var(--gray)
+        color: var(--gray)
+
+        &:hover
+            background-color: var(--gray-op)
+
+@media (max-width: $mobileScreen)
+    .button
+        padding: 2px 3rem

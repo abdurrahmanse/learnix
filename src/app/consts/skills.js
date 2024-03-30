@@ -1,0 +1,15 @@
+export default {
+  Design: ['figma', 'html', 'css'],
+  programming: ['js', 'ts', 'java'],
+  Frontend: ['react', 'next', 'angular'],
+  backend: ['node', 'express', 'nestjs'],
+  database: ['mysql', 'postgreSql', 'mongo'],
+  api: ['rest', 'graphql', 'json'],
+  ORM: ['prisma', 'mongoose', 'typeorm', 'sequelize'],
+  StateManagement: ['reduxtoolkit', 'zustand', 'rgrx'],
+  uiframework: ['mui', 'fluentui', 'tailwind', 'radix'],
+  versionControl: ['git', 'bitbucket', 'docker', 'jira'],
+  tool: ['postman', 'composer', 'jetbrains', 'xampp'],
+  Deployment: ['docker', 'aws', 'vercel', 'netlify'],
+  testing: ['ReactTestingLibrary', 'unitTesting', 'vitest'],
+}

@@ -1,0 +1,78 @@
+export default {
+  ts: 'TypeScript',
+  js: 'JavaScript',
+  java: 'Java',
+  python: 'Python',
+
+  dsa: 'DSA',
+  oop: 'OOP',
+
+  php: 'PHP',
+  node: 'Node',
+  tsnode: 'TS-Node',
+  express: 'Express',
+  nestjs: 'NestJS',
+
+  sequelize: 'Sequelize',
+  mongoose: 'Mongoose',
+  prisma: 'Prisma',
+  typeorm: 'TypeORM',
+
+  json: 'JSON',
+  rest: 'REST API',
+  graphql: 'GraphQL',
+
+  sql: 'SQL',
+  mysql: 'MySQL',
+  mongo: 'MongoDB',
+  postgreSql: 'PostgreSQL',
+
+  html: 'HTML',
+  css: 'CSS',
+  sass: 'SASS',
+  scss: 'SCSS',
+  ejs: 'EJS',
+
+  react: 'React',
+  next: 'Next',
+  remix: 'Remix',
+  angular: 'Angular',
+
+  redux: 'Redux',
+  reduxtoolkit: 'Redux Toolkit',
+  rgrx: 'NgRx',
+  zustand: 'Zustand',
+
+  mui: 'Material UI',
+  fluentui: 'Fluent UI',
+  radix: 'Radix UI',
+  daisyui: 'Daisy UI',
+  tailwind: 'Tailwind CSS',
+  bootstrap: 'Bootstrap',
+  antdesign: 'Ant Design',
+  chakra: 'Chakra UI',
+  shadcn: 'Shadcn UI',
+
+  Jest: 'Jest',
+  vitest: 'Vitest',
+  ReactTestingLibrary: 'React Testing LB',
+  unitTesting: 'Unit Testing',
+
+  Jasmine: 'Jasmine',
+  aws: 'AWS',
+  vercel: 'Vercel',
+  netlify: 'Netlify',
+
+  docker: 'Docker',
+  gitlab: 'GitLab',
+  bitbucket: 'BitBucket',
+  jira: 'Jira',
+
+  vscode: 'VSCode',
+  jetbrains: 'JetBrains',
+  postman: 'Postman',
+  composer: 'Composer',
+  xampp: 'XAMPP',
+  figma: 'Figma',
+  git: 'Git & GitHub',
+}

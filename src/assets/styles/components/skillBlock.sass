@@ -1,0 +1,35 @@
+.skill-block
+    border: 1px solid var(--gray)
+    display: inline-block
+    flex-basis: 0
+    flex-grow: 1
+    flex-shrink: 1
+    max-width: 30rem
+    min-width: 200px
+
+    &__name
+        background: var(--gray-op)
+        border-bottom: 1px solid var(--gray)
+        color: var(--gray)
+        font-weight: 700
+        padding: 0 1rem
+
+    &__listz
+        align-items: start
+        color: var(--gray)
+        display: block
+        flex-wrap: wrap
+        font-weight: 600
+        gap: 0.8rem
+        justify-content: start
+
+.skill-arrow
+    color: var(--gray)
+    margin: 0 0.2rem
+
+@media (max-width: $mobileScreen)
+    .skill-block
+        border: 1px solid var(--gray)
+        margin-bottom: 1.6rem
+        max-width: 100%
+        width: 100%

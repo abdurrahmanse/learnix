@@ -1,0 +1,10 @@
+$fonts: ("light": 300,"regular": 400,"medium": 500,"semibold": 600,"bold": 700)
+$format: "woff2"
+
+@each $name, $weight in $fonts
+    @font-face
+        font:
+            family: 'Rajdhani'
+            weight: $weight
+            style: normal
+        src: local("Trickster"), url("fonts/rajdhani-#{$name}.#{$format}") format($format)

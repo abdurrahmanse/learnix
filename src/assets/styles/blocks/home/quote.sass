@@ -1,0 +1,38 @@
+.quote
+    border: 1px solid var(--gray)
+    position: relative
+    border-radius: 0rem 10px
+    margin: 0
+
+    &::before, &::after
+        content: '"'
+        position: absolute
+        color: var(--gray)
+        font-size: 64px
+        font-weight: 700
+
+    &::before
+        top: -32px
+        left: 16px
+
+    &::after
+        bottom: -64px
+        right: 16px
+
+    &__text
+        padding: 32px
+        font-size: 2rem
+        font-weight: 600
+
+    &__author
+        position: absolute
+        color: var(--gray)
+        border: 1px solid var(--gray)
+        padding: 8px
+        right: -1px
+        font-size: 2rem
+        border-radius: 1rem 1px
+        background-color: var(--background)
+
+        &::before
+            content: "🖋️ "

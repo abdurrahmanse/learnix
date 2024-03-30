@@ -1,0 +1,165 @@
+{
+  "header": {
+    "home": "Home",
+    "projects": "Project",
+    "about": "About",
+    "contacts": "Contact"
+  },
+  "footer": {
+    "description": "Software Engineer based in Bangladesh",
+    "copyright": "AbdurRahman. All rights reserved.",
+    "media": "Connect with me"
+  },
+  "skills": {
+    "programming": "Programming",
+    "Frontend": "Frontend",
+    "StateManagement": "State Management",
+    "backend": "Back-end",
+    "Stack": "My Stack",
+    "ORM": "ORM",
+    "api": "APIs",
+    "uiframework": "UI Frameworks",
+    "database": "Databases",
+    "testing": "Testing",
+    "versionControl": "Version Control",
+    "Deployment": "Deployments",
+    "Design": "Design",
+    "tool": "Tools"
+  },
+  "projects": {
+    "financepro": {
+      "name": "Finance Pro",
+      "description": "Finance Pro is a web application that helps you manage your company's finances "
+    },
+    "helpdesk": {
+      "name": "HelpDesk App",
+      "description": "A helpdesk app is a ticketing system that helps support staff manage and deliver solutions to customers"
+    },
+    "employeemanagement": {
+      "name": "Employee management system",
+      "description": "Employee management system is a web application that helps to manage employee information"
+    },
+    "tsxgames": {
+      "name": "TSX Games",
+      "description": "TSX Games is a video game discovery web app that helps you find new and interesting games to play"
+    },
+    "mailbox": {
+      "name": "mailbox",
+      "description": "Features: Authentication and Authorization - API Development - Use of JWT Token - Use of Socket.io"
+    },
+    "ats": {
+      "name": "ATS System",
+      "description": "Enables the electronic handling of recruitment and hiring needs."
+    },
+    "chatapp": {
+      "name": "Chat Application",
+      "description": "Messaging platform that allows users to communicate."
+    },
+    "fastfood": {
+      "name": "Fast Food",
+      "description": "This project is entitled Fast Food Ordering System."
+    },
+    "carrental": {
+      "name": "Car Rental",
+      "description": "A car rental website is an online platform that allows users to rent cars."
+    },
+    "ecommerce": {
+      "name": "E-commerce",
+      "description": "easy for customers to find and purchase the products they need."
+    },
+    "coindom": {
+      "name": "Coindom",
+      "description": "real-time and most popular trade tracking and tax reporting platforms"
+    },
+
+    "java": {
+      "name": "java",
+      "description": "Landing page about service for viewing chess tournaments"
+    },
+
+    "cplusplus": {
+      "name": "cplusplus",
+      "description": "Minecraft and websites hosting with low prices"
+    },
+    "rajouanulhaque": {
+      "name": "rajouanulhaque",
+      "description": "easy customizable Modern Personal Portfolio."
+    }
+  },
+  "pages": {
+    "home": {
+      "hero": {
+        "title": "👋 <span>A</span>bdur<span>R</span>ahman is a<span> Frontend</span> Software Enginner (<span>React</span> | <span>Next</span> | <span>Angular</span>)",
+        "description": "🚀 He crafts responsive websites where technologies meet creativity With a keen eye for design aesthetics and a knack for crafting seamless user experiences, he bring digital ideas to life.",
+        "button": "💌 Contact",
+        "resume": "📑 Resume",
+        "status": "Currently working on "
+      },
+      "quote": {
+        "text": "🌟🎉 Successful people are always looking for opportunities to help others. 🥰",
+        "author": "Abdur Rahman"
+      },
+      "motives": {
+        "motive": "💘 If you feel pain, you're alive. If you feel other people'e pain, you're a human being 😊",
+        "author": "Abdur Rahman"
+      },
+
+      "projects": {
+        "title": "Projects",
+        "button": "💘 Explore All Projects"
+      },
+      "skills": {
+        "title": "Skills"
+      },
+      "about": {
+        "title": "About",
+        "description": [
+          " 🎨 I’m a Frontend Software Enginner (React | Next | Angular) based in Dhaka, Bangladesh. Angular developers are primarily in charge of developing and designing front end web architecture and building interactive consumer data from multiple systems. They define code architecture decisions to support high-performance products.",
+          "💡 Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks. "
+        ],
+        "button": "📧 View Details"
+      },
+      "contacts": {
+        "title": "Contacts",
+        "text": "📞 Let's build something beautiful together!. I’m interested in freelance opportunities. However, if you have other request or question, don’t hesitate to contact me.",
+        "media": "Message me here",
+        "donate": "Donate me here"
+      }
+    },
+    "projects": {
+      "description": "🚀 Explore my portfolio to witness the fusion of innovation and functionality. From captivating user interfaces to responsive web applications, I'm here to shape your digital dreams into reality.",
+      "decent": "Decent",
+      "small": "Small",
+      "inProgress": "unfinished"
+    },
+    "about": {
+      "description": "👋 Frontend Software Engineer (React | Next | Angular)",
+      "about": {
+        "description": [
+          "📍 I’m a self-taught React | Next | Angular Developer based in Dhaka, Bangladesh. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences. ",
+          "💡 Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. ",
+          "🌟 I always strive to learn about the newest technologies and frameworks. Let's collaborate and turn your ideas into exceptional digital solutions. With a commitment to innovation and a penchant for pixel-perfection, I'm here to elevate your online presence.",
+          "🌐 When I'm not immersed in design and code, you can find me exploring new tech trends, sipping coffee, and seeking inspiration from the world around me."
+        ]
+      },
+      "skills": {
+        "title": "skills"
+      },
+      "facts": {
+        "title": "fun-facts",
+        "list": [
+          "Goals Programming, Internet, Framework, Database, Git, API Design, Integration, Cloud",
+          "I like read books",
+          "I like travel in train",
+          "I like coding and programming",
+          "I often motor bike with my friends",
+          "I like eating grill chicken and naan roti",
+          "I'm still studying in University"
+        ]
+      }
+    },
+    "contacts": {
+      "description": "I am here for you: Connect with me for any questions or concerns."
+    }
+  }
+}
