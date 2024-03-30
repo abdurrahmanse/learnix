@@ -45,7 +45,7 @@
     },
     "mailbox": {
       "name": "mailbox",
-      "description": "Features: Authentication and Authorization - API Development - Use of JWT Token - Use of Socket.io"
+      "description": "Features: Authentication and Authorization - API Development - Use of JWT Token Use of Socket.io"
     },
     "ats": {
       "name": "ATS System",

@@ -1,32 +1,5 @@
 {
   "header": {
-<<<<<<< HEAD
-    "home": "Home",
-    "projects": "Project",
-    "about": "About",
-    "contacts": "Contact"
-  },
-  "footer": {
-    "description": "Software Engineer based in Bangladesh",
-    "copyright": "AbdurRahman. All rights reserved.",
-    "media": "Connect with me"
-  },
-  "skills": {
-    "programming": "Programming",
-    "Frontend": "Frontend",
-    "StateManagement": "State Management",
-    "backend": "Back-end",
-    "Stack": "My Stack",
-    "ORM": "ORM",
-    "api": "APIs",
-    "uiframework": "UI Frameworks",
-    "database": "Databases",
-    "testing": "Testing",
-    "versionControl": "Version Control",
-    "Deployment": "Deployments",
-    "Design": "Design",
-    "tool": "Tools"
-=======
     "home": "বাড়ি",
     "projects": "প্রকল্প",
     "about": "সম্পর্কিত",
@@ -52,7 +25,6 @@
     "Deployment": "স্থাপনা",
     "Design": "ডিজাইন",
     "tool": "টুলস"
->>>>>>> 9f9706de (Initial commit)
   },
   "projects": {
     "financepro": {
