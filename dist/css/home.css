@@ -8,6 +8,9 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  background-image: url(../images/468fd5e137294376025c.svg);
+  background-size: contain;
+  background-position: 50%;
 }
 .about__content {
   flex: 1 1 0;
