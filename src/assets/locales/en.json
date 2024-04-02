@@ -91,8 +91,11 @@
       "hero": {
         "title": "👋 <span>A</span>bdur<span>R</span>ahman is a<span> Frontend</span> Software Enginner (<span>React</span> | <span>Next</span> | <span>Angular</span>)",
         "description": "🚀 He crafts responsive websites where technologies meet creativity With a keen eye for design aesthetics and a knack for crafting seamless user experiences, he bring digital ideas to life.",
-        "button": "💌 Contact",
         "resume": "📑 Resume",
+        "projects": "💌 projects",
+        "skills": "💌 skills",
+        "about": "💌 about",
+        "contact": "💌 Contact",
         "status": "Currently working on "
       },
       "quote": {
