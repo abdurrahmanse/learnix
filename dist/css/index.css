@@ -369,7 +369,7 @@ body {
   font-weight: 700;
   outline: none;
   padding: 2px 1.6rem;
-  text-align: center;
+  margin: 0.5rem;
   text-transform: uppercase;
   transition: background-color 0.2s ease-in-out;
   white-space: normal;
