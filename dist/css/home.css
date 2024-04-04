@@ -157,7 +157,7 @@
   margin-bottom: 48px;
 }
 .projects__link {
-  text-decoration: underline;
+  text-decoration: none;
 }
 .projects__link:hover {
   color: var(--primary);
