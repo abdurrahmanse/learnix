@@ -4,6 +4,7 @@ Objective:
 A passionate and Frontend Software Engineer with a proven track record of crafting visually stunning and user-centric digital experiences using the React/Angular. Seeking to leverage my design and development expertise to contribute to innovative projects and create exceptional user interfaces.
 
 ## Skills
+
 - javascript
 - typescript
 - front-end development
@@ -15,8 +16,8 @@ A passionate and Frontend Software Engineer with a proven track record of crafti
 ## Contact
 
 - Email: [](mailto:abdurrahmansoftw@gmail.com)
-- LinkedIn: [ ](https://www.linkedin.com/in/abdurrahmansoftw)
-- Portfolio: [ ](https://abdurrahmans.netlify.app/)
+- LinkedIn: [](https://www.linkedin.com/in/arswe)
+- Portfolio: [](https://abdurrahman.live)
 
 Professional Summary:
 
