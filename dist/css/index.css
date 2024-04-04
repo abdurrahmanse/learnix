@@ -119,7 +119,7 @@ body {
   display: flex;
   gap: 112px;
   flex-direction: column;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
   background-image: url(../images/7cc5575fd30f274cbf32.svg);
   background-color: var(--background);
@@ -303,9 +303,9 @@ body {
   color: var(--white);
 }
 .header__link::before {
-  content: "</";
+  content: "😎 ";
   color: var(--primary);
-  font-weight: normal;
+  font-weight: bold;
 }
 .header__link:hover {
   color: var(--white);
