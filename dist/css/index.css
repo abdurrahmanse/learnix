@@ -121,9 +121,6 @@ body {
   flex-direction: column;
   font-size: 1.8rem;
   font-weight: 600;
-  background-image: url(../images/7cc5575fd30f274cbf32.svg);
-  background-color: var(--background);
-  background-attachment: fixed;
 }
 
 .dots {
