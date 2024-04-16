@@ -300,7 +300,7 @@ body {
   color: var(--white);
 }
 .header__link::before {
-  content: "😎 ";
+  content: "📷 ";
   color: var(--primary);
   font-weight: bold;
 }
