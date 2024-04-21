@@ -12,7 +12,7 @@
   },
   "skills": {
     "programming": "Programming",
-    "Frontend": "Frontend",
+    "Frontend": "Front-end",
     "StateManagement": "State Management",
     "backend": "Back-end",
     "Stack": "My Stack",
@@ -89,10 +89,10 @@
   "pages": {
     "home": {
       "hero": {
-        "title": "👋 <span>A</span>bdur<span>R</span>ahman is a<span> Frontend</span> Software Enginner (<span>React</span> | <span>Next</span> | <span>Angular</span>)",
+        "title": "👋 <span>A</span>bdur<span>R</span>ahman is a<span> Software</span>  Enginner (<span>React</span> | <span>Next</span> | <span>Angular</span>)",
         "description": "🚀 He crafts responsive websites where technologies meet creativity With a keen eye for design aesthetics and a knack for crafting seamless user experiences, he bring digital ideas to life.",
-        "button": "💌 Contact",
         "resume": "📑 Resume",
+        "contact": "💌 Contact",
         "status": "Currently working on "
       },
       "quote": {
@@ -114,7 +114,7 @@
       "about": {
         "title": "About",
         "description": [
-          " 🎨 I’m a Frontend Software Enginner (React | Next | Angular) based in Dhaka, Bangladesh. Angular developers are primarily in charge of developing and designing front end web architecture and building interactive consumer data from multiple systems. They define code architecture decisions to support high-performance products.",
+          " 🎨 I’m a Software Enginner (React | Next | Angular) based in Dhaka, Bangladesh. Angular developers are primarily in charge of developing and designing front end web architecture and building interactive consumer data from multiple systems. They define code architecture decisions to support high-performance products.",
           "💡 Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks. "
         ],
         "button": "📧 View Details"
@@ -133,7 +133,7 @@
       "inProgress": "unfinished"
     },
     "about": {
-      "description": "👋 Frontend Software Engineer (React | Next | Angular)",
+      "description": "👋 Software Engineer (React | Next | Angular)",
       "about": {
         "description": [
           "📍 I’m a self-taught React | Next | Angular Developer based in Dhaka, Bangladesh. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences. ",
