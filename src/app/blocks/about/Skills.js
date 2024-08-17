@@ -11,5 +11,5 @@ export default (t, t2) => {
                   .join('')}
             </div>
         </section>
-    `
+ `
 }

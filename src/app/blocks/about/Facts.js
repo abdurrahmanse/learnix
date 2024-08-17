@@ -13,7 +13,6 @@ export default (t) => {
                       .join('')}
                 </ul>
                 <div class="facts__illustrations">
-                    
                 </div>
             </div>
 
