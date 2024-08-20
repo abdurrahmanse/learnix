@@ -14,7 +14,6 @@ export default (t) => {
                             </div>
                             <a class="footer__email" target="_blank" href="${media.email}">${media.emailRaw}</a>
                         </div>
-
                         <p class="footer__description">${t.description}</p>
                     </div>
                     <div class="footer__media">

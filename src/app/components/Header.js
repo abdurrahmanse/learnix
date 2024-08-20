@@ -15,7 +15,6 @@ export default (t) => {
                 <span class="media-header__line"></span>
             </div>
 
-
             <div class="container">
                 <div class="header__inner">
                     <a class="logo" href="/">
