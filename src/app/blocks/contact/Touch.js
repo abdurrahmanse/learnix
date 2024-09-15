@@ -11,7 +11,7 @@ export default (t) => {
                 <textarea id="message" name="message" rows="5" cols="100"></textarea>
                 <div id="messageError" class="error"></div>
             
-                <button type="submit">Send Message</button>
+                <button type="submit"> 🚀 Send Message</button>
               </form>
             </div>
         </section>
