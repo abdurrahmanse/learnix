@@ -89,7 +89,7 @@
   "pages": {
     "home": {
       "hero": {
-        "title": "👋 <span>A</span>bdur<span>R</span>ahman is a<span> Software</span>  Enginner (<span>React</span> | <span>Next</span> | <span>Angular</span>)",
+        "title": "👋 <span>A</span>bdur<span>R</span>ahman is a<span> Fullstack Software</span>  Enginner (<span>Javascript</span> | <span>TypeScript</span>)",
         "description": "🚀 He crafts responsive websites where technologies meet creativity With a keen eye for design aesthetics and a knack for crafting seamless user experiences, he bring digital ideas to life.",
         "resume": "📑 Resume",
         "contact": "💌 Contact",
@@ -114,8 +114,8 @@
       "about": {
         "title": "About",
         "description": [
-          " 🎨 I’m a Software Enginner (React | Next | Angular) based in Dhaka, Bangladesh. Angular developers are primarily in charge of developing and designing front end web architecture and building interactive consumer data from multiple systems. They define code architecture decisions to support high-performance products.",
-          "💡 Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks. "
+          " 🎨 I’m a Fullstack Software Engineer ( JavaScript | TypeScript ) based in Dhaka, Bangladesh. Fullstack developers are primarily in charge of developing and designing FrontEnd and Backend architecture and building interactive consumer data from multiple systems. They define code architecture decisions to support high-performance products.",
+          "💡 Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks."
         ],
         "button": "📧 View Details"
       },
@@ -133,10 +133,10 @@
       "inProgress": "unfinished"
     },
     "about": {
-      "description": "👋 Software Engineer (React | Next | Angular)",
+      "description": "👋 Fullstack Software Engineer ( JavaScript | TypeScript )",
       "about": {
         "description": [
-          "📍 I’m a self-taught React | Next | Angular Developer based in Dhaka, Bangladesh. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences. ",
+          "📍 I’m a self-taught Fullstack Software ( JavaScript | TypeScript ) Engineer based in Dhaka, Bangladesh. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences. ",
           "💡 Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. ",
           "🌟 I always strive to learn about the newest technologies and frameworks. Let's collaborate and turn your ideas into exceptional digital solutions. With a commitment to innovation and a penchant for pixel-perfection, I'm here to elevate your online presence.",
           "🌐 When I'm not immersed in design and code, you can find me exploring new tech trends, sipping coffee, and seeking inspiration from the world around me."
