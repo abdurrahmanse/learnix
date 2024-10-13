@@ -40,6 +40,8 @@ module.exports = {
       patterns: [
         { from: 'src/assets/images', to: 'images' },
         { from: 'src/assets/locales', to: 'locales' },
+        { from: 'robots.txt', to: '.' },
+        { from: 'sitemap.xml', to: '.' },
       ],
     }),
   ],

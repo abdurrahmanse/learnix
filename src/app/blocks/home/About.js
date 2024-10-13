@@ -8,7 +8,7 @@ export default (t) => {
                 </div>
                 <a href="/about-me" class="button">${t.button} -></a>
             </div>
-            <img src="/images/hero.webp" alt="" class="about__image">
+            <img src="/images/hero.webp" alt="Abdur Rahman - Full Stack JavaScript Developer" class="about__image">
         </section>
     `
 }
