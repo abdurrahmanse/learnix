@@ -3,6 +3,18 @@
  */
 const projects = [
   {
+    id: 'rarebd',
+    techs: ['js', 'node', 'postgreSql'],
+    links: { github: '/RareBDLtd', live: 'rarebd.com' },
+    hasImage: true,
+  },
+  {
+    id: 'nufbd',
+    techs: ['js', 'next', 'postgreSql'],
+    links: { github: '/nuf-bd', live: 'nuf-bd.com' },
+    hasImage: true,
+  },
+  {
     id: 'financepro',
     techs: ['js', 'next', 'node', 'mysql'],
     links: { github: '/financepro', live: 'financepr.vercel.app' },

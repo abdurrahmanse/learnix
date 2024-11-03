@@ -27,6 +27,15 @@
     "tool": "Tools"
   },
   "projects": {
+    "rarebd": {
+      "name": "Rare Bangladesh Ltd",
+      "description": "RBL is a company that manufactures and sells different cooling and heating household and industrial appliances or devices."
+    },
+    "nufbd": {
+      "name": "Nari Unnoyon Forum (NUF)",
+      "description": "Nari Unnoyon Forum (NUF) is a Bengali name which stands for Women Development Forum"
+    },
+
     "financepro": {
       "name": "Finance Pro",
       "description": "Finance Pro is a web application that helps you manage your company's finances "
