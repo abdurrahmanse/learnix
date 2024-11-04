@@ -14,10 +14,10 @@
     "json-minimizer-webpack-plugin": "^5.0.0",
     "mini-css-extract-plugin": "^2.8.1",
     "node-sass": "^9.0.0",
-    "sass": "^1.72.0",
-    "sass-loader": "^14.1.1",
+    "sass": "^1.80.6",
+    "sass-loader": "^16.0.3",
     "style-loader": "^3.3.4",
-    "webpack": "^5.91.0",
+    "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
   },
