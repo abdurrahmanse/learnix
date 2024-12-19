@@ -26,5 +26,5 @@ export default (t) => {
                 <div class="footer__copyright">&copy; ${new Date().getFullYear()} ${t.copyright}</div>
             </div>
         </footer>
-         `
+    `
 }
