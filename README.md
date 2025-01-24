@@ -10,6 +10,7 @@ A passionate and Frontend Software Engineer with a proven track record of crafti
 - front-end development
 - React.js development
 - back-end development
+- MERN stack development
 - MEAN stack development
 - Programming
 
