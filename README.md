@@ -4,7 +4,7 @@ Objective:
 A passionate and Frontend Software Engineer with a proven track record of crafting visually stunning and user-centric digital experiences using React/Angular. Seeking to leverage my design and development expertise to contribute to innovative projects and create exceptional user interfaces.
 
 ## Skills
-
+- Java
 - JavaScript
 - TypeScript
 - Front-end development
