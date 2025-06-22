@@ -8,17 +8,17 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "copy-webpack-plugin": "^12.0.2",
+    "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
-    "json-minimizer-webpack-plugin": "^5.0.0",
+    "json-minimizer-webpack-plugin": "^5.0.1",
     "mini-css-extract-plugin": "^2.9.2",
-    "sass": "^1.81.1",
-    "sass-loader": "^16.0.3",
+    "sass": "^1.89.2",
+    "sass-loader": "^16.0.5",
     "style-loader": "^4.0.0",
-    "webpack": "^5.96.1",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.1.0"
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
   },
   "scripts": {
     "compile:sass": "sass ./style.scss ./style.css -w",
@@ -26,8 +26,8 @@
     "dev": "webpack serve"
   },
   "dependencies": {
-    "@vercel/speed-insights": "^1.1.0",
-    "npm-check-updates": "^17.1.11",
+    "@vercel/speed-insights": "^1.2.0",
+    "npm-check-updates": "^18.0.1",
     "update": "^0.7.4"
   }
 }
