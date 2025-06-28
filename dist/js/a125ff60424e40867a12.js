@@ -9,16 +9,6 @@
  */
 (self["webpackChunkabdurrahmans"] = self["webpackChunkabdurrahmans"] || []).push([["src_app_views_Contacts_js"],{
 
-/***/ "./src/assets/styles/pages/contact.sass":
-/*!**********************************************!*\
-  !*** ./src/assets/styles/pages/contact.sass ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://abdurrahmans/./src/assets/styles/pages/contact.sass?");
-
-/***/ }),
-
 /***/ "./src/app/blocks/contact/Touch.js":
 /*!*****************************************!*\
   !*** ./src/app/blocks/contact/Touch.js ***!
@@ -46,6 +36,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _blocks_contact_Touch_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/blocks/contact/Touch.js */ \"./src/app/blocks/contact/Touch.js\");\n/* harmony import */ var _components_Path_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/Path.js */ \"./src/app/components/Path.js\");\n/* harmony import */ var styles_pages_contact_sass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styles/pages/contact.sass */ \"./src/assets/styles/pages/contact.sass\");\n\n\n\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((t, locale) => {\n  return /*html*/ `\n        ${(0,_components_Path_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])({ description: t.description })}\n        ${(0,_blocks_contact_Touch_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(t.touch)}\n    `\n});\n\n\n//# sourceURL=webpack://abdurrahmans/./src/app/views/Contacts.js?");
+
+/***/ }),
+
+/***/ "./src/assets/styles/pages/contact.sass":
+/*!**********************************************!*\
+  !*** ./src/assets/styles/pages/contact.sass ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://abdurrahmans/./src/assets/styles/pages/contact.sass?");
 
 /***/ })
 

@@ -9,17 +9,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/assets/styles/styles.sass":
-/*!***************************************!*\
-  !*** ./src/assets/styles/styles.sass ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://abdurrahmans/./src/assets/styles/styles.sass?");
-
-/***/ }),
-
 /***/ "./src/app/components/Footer.js":
 /*!**************************************!*\
   !*** ./src/app/components/Footer.js ***!
@@ -152,6 +141,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/app/views lazy recursive ^\\.\\/.*$":
+/*!*******************************************************!*\
+  !*** ./src/app/views/ lazy ^\.\/.*$ namespace object ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("var map = {\n\t\"./About\": [\n\t\t\"./src/app/views/About.js\",\n\t\t\"src_app_views_About_js\"\n\t],\n\t\"./About.js\": [\n\t\t\"./src/app/views/About.js\",\n\t\t\"src_app_views_About_js\"\n\t],\n\t\"./Contacts\": [\n\t\t\"./src/app/views/Contacts.js\",\n\t\t\"src_app_views_Contacts_js\"\n\t],\n\t\"./Contacts.js\": [\n\t\t\"./src/app/views/Contacts.js\",\n\t\t\"src_app_views_Contacts_js\"\n\t],\n\t\"./Home\": [\n\t\t\"./src/app/views/Home.js\",\n\t\t\"src_app_views_Home_js\"\n\t],\n\t\"./Home.js\": [\n\t\t\"./src/app/views/Home.js\",\n\t\t\"src_app_views_Home_js\"\n\t],\n\t\"./Layout\": [\n\t\t\"./src/app/views/Layout.js\"\n\t],\n\t\"./Layout.js\": [\n\t\t\"./src/app/views/Layout.js\"\n\t],\n\t\"./PageNotFound\": [\n\t\t\"./src/app/views/PageNotFound.js\",\n\t\t\"src_app_views_PageNotFound_js\"\n\t],\n\t\"./PageNotFound.js\": [\n\t\t\"./src/app/views/PageNotFound.js\",\n\t\t\"src_app_views_PageNotFound_js\"\n\t],\n\t\"./Projects\": [\n\t\t\"./src/app/views/Projects.js\",\n\t\t\"src_app_views_Projects_js\"\n\t],\n\t\"./Projects.js\": [\n\t\t\"./src/app/views/Projects.js\",\n\t\t\"src_app_views_Projects_js\"\n\t]\n};\nfunction webpackAsyncContext(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\treturn Promise.resolve().then(() => {\n\t\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\t\te.code = 'MODULE_NOT_FOUND';\n\t\t\tthrow e;\n\t\t});\n\t}\n\n\tvar ids = map[req], id = ids[0];\n\treturn Promise.all(ids.slice(1).map(__webpack_require__.e)).then(() => {\n\t\treturn __webpack_require__(id);\n\t});\n}\nwebpackAsyncContext.keys = () => (Object.keys(map));\nwebpackAsyncContext.id = \"./src/app/views lazy recursive ^\\\\.\\\\/.*$\";\nmodule.exports = webpackAsyncContext;\n\n//# sourceURL=webpack://abdurrahmans/./src/app/views/_lazy_^\\.\\/.*$_namespace_object?");
+
+/***/ }),
+
 /***/ "./src/app/views/Layout.js":
 /*!*********************************!*\
   !*** ./src/app/views/Layout.js ***!
@@ -163,13 +162,14 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/app/views lazy recursive ^\\.\\/.*$":
-/*!*******************************************************!*\
-  !*** ./src/app/views/ lazy ^\.\/.*$ namespace object ***!
-  \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ "./src/assets/styles/styles.sass":
+/*!***************************************!*\
+  !*** ./src/assets/styles/styles.sass ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("var map = {\n\t\"./About\": [\n\t\t\"./src/app/views/About.js\",\n\t\t\"src_app_views_About_js\"\n\t],\n\t\"./About.js\": [\n\t\t\"./src/app/views/About.js\",\n\t\t\"src_app_views_About_js\"\n\t],\n\t\"./Contacts\": [\n\t\t\"./src/app/views/Contacts.js\",\n\t\t\"src_app_views_Contacts_js\"\n\t],\n\t\"./Contacts.js\": [\n\t\t\"./src/app/views/Contacts.js\",\n\t\t\"src_app_views_Contacts_js\"\n\t],\n\t\"./Home\": [\n\t\t\"./src/app/views/Home.js\",\n\t\t\"src_app_views_Home_js\",\n\t\t\"src_assets_styles_pages_home_sass\"\n\t],\n\t\"./Home.js\": [\n\t\t\"./src/app/views/Home.js\",\n\t\t\"src_app_views_Home_js\",\n\t\t\"src_assets_styles_pages_home_sass\"\n\t],\n\t\"./Layout\": [\n\t\t\"./src/app/views/Layout.js\"\n\t],\n\t\"./Layout.js\": [\n\t\t\"./src/app/views/Layout.js\"\n\t],\n\t\"./PageNotFound\": [\n\t\t\"./src/app/views/PageNotFound.js\",\n\t\t\"src_app_views_PageNotFound_js\"\n\t],\n\t\"./PageNotFound.js\": [\n\t\t\"./src/app/views/PageNotFound.js\",\n\t\t\"src_app_views_PageNotFound_js\"\n\t],\n\t\"./Projects\": [\n\t\t\"./src/app/views/Projects.js\",\n\t\t\"src_app_views_Projects_js\"\n\t],\n\t\"./Projects.js\": [\n\t\t\"./src/app/views/Projects.js\",\n\t\t\"src_app_views_Projects_js\"\n\t]\n};\nfunction webpackAsyncContext(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\treturn Promise.resolve().then(() => {\n\t\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\t\te.code = 'MODULE_NOT_FOUND';\n\t\t\tthrow e;\n\t\t});\n\t}\n\n\tvar ids = map[req], id = ids[0];\n\treturn Promise.all(ids.slice(1).map(__webpack_require__.e)).then(() => {\n\t\treturn __webpack_require__(id);\n\t});\n}\nwebpackAsyncContext.keys = () => (Object.keys(map));\nwebpackAsyncContext.id = \"./src/app/views lazy recursive ^\\\\.\\\\/.*$\";\nmodule.exports = webpackAsyncContext;\n\n//# sourceURL=webpack://abdurrahmans/./src/app/views/_lazy_^\\.\\/.*$_namespace_object?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://abdurrahmans/./src/assets/styles/styles.sass?");
 
 /***/ })
 
@@ -233,7 +233,7 @@ eval("var map = {\n\t\"./About\": [\n\t\t\"./src/app/views/About.js\",\n\t\t\"sr
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/" + {"src_app_views_About_js":"db8ca8ce28e4d425a90a","src_app_views_Contacts_js":"a125ff60424e40867a12","src_app_views_Home_js":"d8df8aaaf1d0f0243745","src_app_views_PageNotFound_js":"2bf6af8a435e4769b2b4","src_app_views_Projects_js":"dfd3354c47d5892fcbce"}[chunkId] + ".js";
+/******/ 			return "js/" + {"src_app_views_About_js":"db8ca8ce28e4d425a90a","src_app_views_Contacts_js":"a125ff60424e40867a12","src_app_views_Home_js":"b728405694a681ee8383","src_app_views_PageNotFound_js":"2bf6af8a435e4769b2b4","src_app_views_Projects_js":"dfd3354c47d5892fcbce"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -244,7 +244,7 @@ eval("var map = {\n\t\"./About\": [\n\t\t\"./src/app/views/About.js\",\n\t\t\"sr
 /******/ 			// return url for filenames not based on template
 /******/ 			if (chunkId === "src_app_views_About_js") return "css/about.css";
 /******/ 			if (chunkId === "src_app_views_Contacts_js") return "css/contacts.css";
-/******/ 			if (chunkId === "src_assets_styles_pages_home_sass") return "css/home.css";
+/******/ 			if (chunkId === "src_app_views_Home_js") return "css/home.css";
 /******/ 			if (chunkId === "src_app_views_Projects_js") return "css/projects.css";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
@@ -344,7 +344,7 @@ eval("var map = {\n\t\"./About\": [\n\t\t\"./src/app/views/About.js\",\n\t\t\"sr
 /******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
 /******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
 /******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
-/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		scriptUrl = scriptUrl.replace(/^blob:/, "").replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
 /******/ 		__webpack_require__.p = scriptUrl + "../";
 /******/ 	})();
 /******/ 	
@@ -415,7 +415,7 @@ eval("var map = {\n\t\"./About\": [\n\t\t\"./src/app/views/About.js\",\n\t\t\"sr
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.miniCss = (chunkId, promises) => {
-/******/ 			var cssChunks = {"src_app_views_About_js":1,"src_app_views_Contacts_js":1,"src_assets_styles_pages_home_sass":1,"src_app_views_Projects_js":1};
+/******/ 			var cssChunks = {"src_app_views_About_js":1,"src_app_views_Contacts_js":1,"src_app_views_Home_js":1,"src_app_views_Projects_js":1};
 /******/ 			if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 			else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 				promises.push(installedCssChunks[chunkId] = loadStylesheet(chunkId).then(() => {
@@ -454,7 +454,7 @@ eval("var map = {\n\t\"./About\": [\n\t\t\"./src/app/views/About.js\",\n\t\t\"sr
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if("src_assets_styles_pages_home_sass" != chunkId) {
+/******/ 						if(true) { // all chunks have JS
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);
@@ -479,7 +479,7 @@ eval("var map = {\n\t\"./About\": [\n\t\t\"./src/app/views/About.js\",\n\t\t\"sr
 /******/ 								}
 /******/ 							};
 /******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
-/******/ 						} else installedChunks[chunkId] = 0;
+/******/ 						}
 /******/ 					}
 /******/ 				}
 /******/ 		};
