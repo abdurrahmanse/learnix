@@ -1,10 +1,10 @@
-import media from '@/consts/media'
+import media from "@/consts/media";
 
 const contacts = [
-  { name: 'email', text: media.emailRaw },
-  { name: 'github', text: media.github },
-  { name: 'linkedIn', text: media.linkedIn },
-]
+  { name: "email", text: media.emailRaw },
+  { name: "github", text: media.github },
+  { name: "linkedIn", text: media.linkedIn },
+];
 
 export default (t) => {
   return /*html*/ `
@@ -18,16 +18,20 @@ export default (t) => {
                         ${contacts
                           .map(
                             (contact) => /*html*/ `
-                            <a class="contact" href="${media[contact.name]}" target="_blank">
-                                <img src="/images/icons/${contact.name}.svg" alt="">
+                            <a class="contact" href="${
+                              media[contact.name]
+                            }" target="_blank">
+                                <img src="/images/icons/${
+                                  contact.name
+                                }.svg" alt="">
                                 <div class="contact__name">${contact.text}</div>
                             </a>
                         `
                           )
-                          .join('')}
+                          .join("")}
                     </div>
                 </div>
             </div>
         </section>
-    `
-}
+    `;
+};

@@ -24,7 +24,8 @@
     "versionControl": "Version Control",
     "Deployment": "Deployments",
     "Design": "Design",
-    "tool": "Tools"
+    "tools": "Tools",
+    "digitalMarketing": "Digital Marketing"
   },
   "projects": {
     "rarebd": {

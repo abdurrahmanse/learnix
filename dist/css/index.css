@@ -529,6 +529,6 @@ body {
   --primary-op: hsl(162 100% 63%/0.1);
   --gray: hsl(219 14% 71%);
   --gray-op: hsl(219 14% 71%/0.1);
-  --background: hsl(220 37% 8%);
+  --background: hsl(210 14% 1%);
   --white: hsl(0 0% 100%);
 }

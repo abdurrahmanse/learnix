@@ -1,5 +1,6 @@
 .skills
     width: 100%
+    font-size: 1.5rem
 
     &__content
         display: flex
@@ -11,38 +12,36 @@
 
     &__list
         column-gap: 16px
-        columns: 3
+        columns: 4
 
-        @media (max-width: $tabletScreen) 
+        @media (max-width: $tabletScreen)
             columns: 2
 
-        @media (max-width: $mobileScreen) 
+        @media (max-width: $mobileScreen)
             columns: 1
-    
 
     &__illustrations, &__list
         flex: 1 1 0
 
 .illustrations
     position: relative
-    min-width: 300px
+    min-width: 100px
     min-height: 300px
 
     &__logo
         width: 14vmin
-        top: 30%
+        top: 40%
         position: absolute
-        left: 70%
+        left: 40%
 
     .dots:nth-of-type(2)
         width: 16vmin
-        top: 70%
-        left: 10%
+        top: 75%
+        left: 1%
         position: absolute
 
     .dots:nth-of-type(1)
         width: 10vmin
         top: 20%
-        left: 40%
+        left: 20%
         position: absolute
-    
