@@ -39,6 +39,8 @@ export default (t) => {
 
                         <div class="dropdown__list">
                             <div class="dropdown__option">bd</div>
+                            <div class="dropdown__option">ar</div>
+                            <div class="dropdown__option">hi</div>
                         </div>
                     </div>
 
