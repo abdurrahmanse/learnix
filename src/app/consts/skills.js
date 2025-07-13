@@ -1,9 +1,9 @@
 export default {
   Design: ['figma', 'html', 'css'],
   programming: ['js', 'ts', 'java'],
-  Frontend: ['react', 'next', 'angular'],
-  uiframework: ['tailwind', 'mui', 'fluentui', 'radix'],
-  StateManagement: ['redux', 'reduxtoolkit', 'zustand', 'rgrx'],
+  Frontend: ['react', 'next', 'Bootstrap'],
+  uiframework: ['tailwind', 'mui', 'radix'],
+  StateManagement: ['redux', 'reduxtoolkit', 'zustand'],
   backend: ['node', 'express', 'nestjs'],
   database: ['mysql', 'postgreSql', 'mongo'],
   api: ['rest', 'graphql', 'json'],

@@ -37,6 +37,7 @@ export default {
   next: "Next",
   remix: "Remix",
   angular: "Angular",
+  Bootstrap: "Bootstrap",
 
   redux: "Redux",
   reduxtoolkit: "Redux Toolkit",
