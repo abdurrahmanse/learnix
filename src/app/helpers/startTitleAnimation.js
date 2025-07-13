@@ -10,7 +10,7 @@ export default (pathName) => {
 
   function animation(timestamp) {
     if (lastTimestep + frameInterval < timestamp) {
-      document.title = `${steps[step++]} AbdurRahman | ${pathName}`
+      document.title = `${steps[step++]} Abdur Rahman | ${pathName}`
 
       step %= steps.length
       lastTimestep = timestamp

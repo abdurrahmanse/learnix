@@ -4,7 +4,6 @@ function setLocaleHander() {
   const options = document.querySelectorAll('.dropdown__option')
   const label = document.querySelector('.dropdown__label')
 
-  // biome-ignore lint/complexity/noForEach: <explanation>
   options.forEach((option) => {
     if (option.innerHTML === localStorage.locale)
       [label.innerHTML, option.innerHTML] = [localStorage.locale, label.innerHTML]

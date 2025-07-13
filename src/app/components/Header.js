@@ -1,7 +1,7 @@
 import routes from '@/consts/routes'
 import MediaIcon from './MediaIcon'
 
-const paths = ['/', '/about-me', '/projects', '/contacts']
+const paths = ['/', '/projects', '/about-me', '/contacts']
 
 export default (t) => {
   return /*html*/ `
@@ -9,17 +9,19 @@ export default (t) => {
             <input class="hamburger" type="checkbox" aria-label="Menu" />
 
             <div class="media-header">
+                <span class="media-header__line"></span>
                 <div class="media-header__links">
                     ${['linkedIn', 'github', 'email'].map((name) => MediaIcon({ name })).join('')}
                 </div>
-                <span class="media-header__line"></span>
             </div>
 
+
             <div class="container">
+
                 <div class="header__inner">
                     <a class="logo" href="/">
-                        <img class="logo__img" src="/images/logo.svg" alt="AbdurRahman logo">
-                        <span class="logo__name">AbdurRahman</span>
+                        <img class="logo__img" src="/images/logo.svg" alt="AbdurRahman, Full Stack Developer, JavaScript Developer, TypeScript Engineer, Software Engineer Portfolio, Frontend Developer, Backend Developer, Node.js, React, Next.js, Developer in Dhaka Bangladesh">
+                        <span class="logo__name">Abdur Rahman</span>
                     </a>
                     <div class="header__links">
                         ${paths
@@ -33,14 +35,17 @@ export default (t) => {
                           .join('')}
                     </div>
                     <div class="dropdown">
-                        <span class="dropdown__label">EN</span>
+                        <span class="dropdown__label">en</span>
+
                         <div class="dropdown__list">
-                            <div class="dropdown__option">BD</div>
+                            <div class="dropdown__option">bd</div>
                         </div>
                     </div>
 
                 </div>
             </div>
+            
+
         </header>
     `
 }
