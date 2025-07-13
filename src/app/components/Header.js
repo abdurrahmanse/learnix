@@ -46,8 +46,6 @@ export default (t) => {
 
                 </div>
             </div>
-            
-
         </header>
     `
 }

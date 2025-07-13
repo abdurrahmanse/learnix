@@ -34,6 +34,8 @@
 
 .contacts {
   width: 100%;
+  background-image: url(../images/d15bcda5f893cf9522c1.png);
+  background-size: contain;
 }
 .contacts__content {
   display: flex;
@@ -225,7 +227,7 @@
 
 .skills {
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 .skills__content {
   display: flex;
