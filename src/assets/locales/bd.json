@@ -1,174 +1,171 @@
 {
   "header": {
-    "home": "Home",
-    "projects": "Project",
-    "about": "About",
-    "contacts": "Contact"
+    "home": "হোম",
+    "projects": "প্রোজেক্ট",
+    "about": "আমার সম্পর্কে",
+    "contacts": "যোগাযোগ"
   },
   "footer": {
-    "description": "Software Engineer based in Bangladesh",
-    "copyright": "AbdurRahman. All rights reserved.",
-    "media": "Connect with me"
+    "description": "বাংলাদেশে অবস্থিত সফটওয়্যার ইঞ্জিনিয়ার",
+    "copyright": "আব্দুর রহমান। সর্বস্বত্ব সংরক্ষিত।",
+    "media": "আমার সাথে যুক্ত থাকুন"
   },
   "skills": {
-    "programming": "Programming",
-    "Frontend": "Front-end",
-    "StateManagement": "State Management",
-    "backend": "Back-end",
-    "Stack": "My Stack",
-    "ORM": "ORM",
-    "api": "APIs",
-    "uiframework": "UI Frameworks",
-    "database": "Databases",
-    "testing": "Testing",
-    "versionControl": "Version Control",
-    "Deployment": "Deployments",
-    "Design": "Design",
-    "tool": "Tools"
+    "programming": "প্রোগ্রামিং",
+    "Frontend": "ফ্রন্ট-এন্ড",
+    "StateManagement": "স্টেট ম্যানেজমেন্ট",
+    "backend": "ব্যাক-এন্ড",
+    "Stack": "আমার স্ট্যাক",
+    "ORM": "ওআরএম",
+    "api": "এপিআই",
+    "uiframework": "ইউআই ফ্রেমওয়ার্ক",
+    "database": "ডেটাবেস",
+    "testing": "টেস্টিং",
+    "versionControl": "ভার্সন কন্ট্রোল",
+    "Deployment": "ডিপ্লয়মেন্ট",
+    "Design": "ডিজাইন",
+    "tools": "টুলস",
+    "digitalMarketing": "ডিজিটাল মার্কেটিং"
   },
   "projects": {
     "rarebd": {
-      "name": "Rare Bangladesh Ltd",
-      "description": "RBL is a manufactures and sells different cooling and heating household and industrial appliances."
+      "name": "রেয়ার বাংলাদেশ লিমিটেড",
+      "description": "আরবিএল বিভিন্ন ঘরোয়া এবং শিল্পজাত ঠাণ্ডা ও গরম করার যন্ত্রপাতি তৈরি ও বিক্রয় করে।"
     },
     "nufbd": {
-      "name": "Nari Unnoyon Forum (NUF)",
-      "description": "Nari Unnoyon Forum (NUF) is a Bengali name which stands for Women Development Forum"
+      "name": "নারী উন্নয়ন ফোরাম (NUF)",
+      "description": "নারী উন্নয়ন ফোরাম (NUF) একটি বাংলা নাম যার অর্থ মহিলা উন্নয়ন ফোরাম।"
     },
-
     "financepro": {
-      "name": "Finance Pro",
-      "description": "Finance Pro is a web application that helps you manage your company's finances "
+      "name": "ফাইন্যান্স প্রো",
+      "description": "ফাইন্যান্স প্রো একটি ওয়েব অ্যাপ্লিকেশন যা আপনার কোম্পানির অর্থ পরিচালনায় সহায়তা করে।"
     },
     "helpdesk": {
-      "name": "HelpDesk App",
-      "description": "A helpdesk app is a ticketing system that helps support staff manage and deliver solutions to customers"
+      "name": "হেল্পডেস্ক অ্যাপ",
+      "description": "একটি টিকিটিং সিস্টেম যা কাস্টমারদের সমাধান দিতে সাপোর্ট স্টাফদের সহায়তা করে।"
     },
     "employeemanagement": {
-      "name": "Employee management system",
-      "description": "Employee management system is a web application that helps to manage employee information"
+      "name": "কর্মচারী ব্যবস্থাপনা সিস্টেম",
+      "description": "একটি ওয়েব অ্যাপ্লিকেশন যা কর্মচারী সম্পর্কিত তথ্য ব্যবস্থাপনায় সহায়তা করে।"
     },
     "tsxgames": {
-      "name": "TSX Games",
-      "description": "TSX Games is a video game discovery web app that helps you find new and interesting games to play"
+      "name": "TSX গেমস",
+      "description": "নতুন ও আকর্ষণীয় ভিডিও গেম খুঁজে পাওয়ার একটি ওয়েব অ্যাপ।"
     },
     "mailbox": {
-      "name": "mailbox",
-      "description": "Features: Authentication and Authorization - API Development - Use of JWT Token Use of Socket.io"
+      "name": "মেইলবক্স",
+      "description": "বৈশিষ্ট্য: অথেনটিকেশন ও অথরাইজেশন - এপিআই ডেভেলপমেন্ট - JWT টোকেন ও Socket.io ব্যবহার।"
     },
     "ats": {
-      "name": "ATS System",
-      "description": "Enables the electronic handling of recruitment and hiring needs."
+      "name": "এটিএস সিস্টেম",
+      "description": "চাকরির আবেদন ও নিয়োগ প্রক্রিয়া ইলেক্ট্রনিকভাবে পরিচালনা করে।"
     },
     "chatapp": {
-      "name": "Chat Application",
-      "description": "Messaging platform that allows users to communicate."
+      "name": "চ্যাট অ্যাপ্লিকেশন",
+      "description": "একটি বার্তা পাঠানোর প্ল্যাটফর্ম যেখানে ব্যবহারকারীরা যোগাযোগ করতে পারে।"
     },
     "fastfood": {
-      "name": "Fast Food",
-      "description": "This project is entitled Fast Food Ordering System."
+      "name": "ফাস্ট ফুড",
+      "description": "ফাস্ট ফুড অর্ডারিং সিস্টেম প্রজেক্ট।"
     },
     "carrental": {
-      "name": "Car Rental",
-      "description": "A car rental website is an online platform that allows users to rent cars."
+      "name": "গাড়ি ভাড়া",
+      "description": "একটি অনলাইন প্ল্যাটফর্ম যা ব্যবহারকারীদের গাড়ি ভাড়া করতে দেয়।"
     },
     "ecommerce": {
-      "name": "E-commerce",
-      "description": "easy for customers to find and purchase the products they need."
+      "name": "ই-কমার্স",
+      "description": "কাস্টমারদের প্রয়োজনীয় পণ্য সহজে খুঁজে এবং কিনতে সহায়তা করে।"
     },
     "coindom": {
-      "name": "Coindom",
-      "description": "real-time and most popular trade tracking and tax reporting platforms"
+      "name": "কয়েনডম",
+      "description": "রিয়েল-টাইম ট্রেড ট্র্যাকিং ও ট্যাক্স রিপোর্টিং প্ল্যাটফর্ম।"
     },
-
     "java": {
-      "name": "java",
-      "description": "Landing page about service for viewing chess tournaments"
+      "name": "জাভা",
+      "description": "চেস টুর্নামেন্ট দেখার জন্য সার্ভিস সংক্রান্ত ল্যান্ডিং পেজ।"
     },
-
     "cplusplus": {
-      "name": "cplusplus",
-      "description": "Minecraft and websites hosting with low prices"
+      "name": "সি-প্লাস-প্লাস",
+      "description": "কম দামে মাইনক্রাফ্ট ও ওয়েবসাইট হোস্টিং।"
     },
     "rajouanulhaque": {
-      "name": "rajouanulhaque",
-      "description": "easy customizable Modern Personal Portfolio."
+      "name": "রাজউনুল হক",
+      "description": "সহজে কাস্টমাইজযোগ্য আধুনিক পার্সোনাল পোর্টফোলিও।"
     }
   },
   "pages": {
     "home": {
       "hero": {
-        "title": "👋 <span>A</span>bdur<span>R</span>ahman is a<span> Fullstack Software</span> Engineer (<span>JavaScript</span> | <span>TypeScript</span>)",
-        "description": "🚀 He crafts responsive websites where technologies meet creativity With a keen eye for design aesthetics and a knack for crafting seamless user experiences, he bring digital ideas to life.",
-        "resume": "📑 Resume",
-        "contact": "💌 Contact",
-        "status": "Currently working on "
+        "title": "👋 <span>আ</span>ব্দুর <span>র</span>হমান একজন <span> ফুলস্ট্যাক সফটওয়্যার</span> ইঞ্জিনিয়ার (<span>জাভাস্ক্রিপ্ট</span> | <span>টাইপস্ক্রিপ্ট</span>)",
+        "description": "🚀 তিনি প্রযুক্তি ও সৃজনশীলতার সংমিশ্রণে রেসপন্সিভ ওয়েবসাইট তৈরি করেন। ডিজাইনের প্রতি দৃষ্টি ও সুনিপুণ ইউজার এক্সপেরিয়েন্স তৈরি করাই তাঁর লক্ষ্য।",
+        "resume": "📑 জীবনবৃত্তান্ত",
+        "contact": "💌 যোগাযোগ",
+        "status": "বর্তমানে কাজ করছেন"
       },
       "quote": {
-        "text": "🌟🎉 Successful people are always looking for opportunities to help others. 🥰",
-        "author": "Abdur Rahman"
+        "text": "🌟🎉 সফল মানুষ সবসময় অন্যদের সাহায্য করার সুযোগ খোঁজে 🥰",
+        "author": "আব্দুর রহমান"
       },
       "motives": {
-        "motive": "💘 If you feel pain, you're alive. If you feel other people'e pain, you're a human being 😊",
-        "author": "Abdur Rahman"
+        "motive": "💘 যদি তুমি ব্যথা অনুভব করো, তুমি বেঁচে আছো। যদি অন্যের ব্যথা অনুভব করো, তুমি একজন মানুষ 😊",
+        "author": "আব্দুর রহমান"
       },
-
       "projects": {
-        "title": "Projects",
-        "button": "💘 Explore All Projects"
+        "title": "প্রোজেক্টসমূহ",
+        "button": "💘 সব প্রোজেক্ট দেখুন"
       },
       "skills": {
-        "title": "Skills"
+        "title": "দক্ষতা"
       },
       "about": {
-        "title": "About",
+        "title": "আমার সম্পর্কে",
         "description": [
-          " 🎨 I’m a Fullstack Software Engineer ( JavaScript | TypeScript ) based in Dhaka, Bangladesh. Fullstack developers are primarily in charge of developing and designing FrontEnd and Backend architecture and building interactive consumer data from multiple systems. They define code architecture decisions to support high-performance products.",
-          "💡 Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks. "
+          "🎨 আমি একজন ফুলস্ট্যাক সফটওয়্যার ইঞ্জিনিয়ার (JavaScript | TypeScript), অবস্থান ঢাকা, বাংলাদেশ। আমি ফ্রন্টএন্ড ও ব্যাকএন্ড আর্কিটেকচার ডিজাইন ও ডেভেলপ করে থাকি।",
+          "💡 আমার সৃজনশীলতা ও জ্ঞানকে ওয়েবসাইটে রূপান্তর করাই আমার ভালোবাসা। আমি বিভিন্ন ক্লায়েন্টকে অনলাইনে উপস্থিতি তৈরি করতে সহায়তা করছি। আমি সর্বদা নতুন প্রযুক্তি ও ফ্রেমওয়ার্ক শিখতে আগ্রহী।"
         ],
-        "button": "📧 View Details"
+        "button": "📧 বিস্তারিত দেখুন"
       },
       "contacts": {
-        "title": "Contacts",
-        "text": "📞 Let's build something beautiful together!. I’m interested in freelance opportunities. However, if you have other request or question, don’t hesitate to contact me.",
-        "media": "Message me here",
-        "donate": "Donate me here"
+        "title": "যোগাযোগ",
+        "text": "📞 চলুন কিছু চমৎকার তৈরি করি একসাথে! আমি ফ্রিল্যান্স প্রজেক্টে আগ্রহী। অন্য কোন প্রশ্ন থাকলে নির্দ্বিধায় যোগাযোগ করুন।",
+        "media": "এখানে বার্তা দিন",
+        "donate": "আমাকে সহায়তা করুন"
       }
     },
     "projects": {
-      "description": "🚀 Explore my portfolio to witness the fusion of innovation and functionality. From captivating user interfaces to responsive web applications, I'm here to shape your digital dreams into reality.",
-      "decent": "Decent",
-      "small": "Small",
-      "inProgress": "unfinished"
+      "description": "🚀 আমার পোর্টফোলিও ঘুরে দেখুন যেখানে সৃজনশীলতা ও কার্যকারিতার মিশ্রণ রয়েছে। আকর্ষণীয় ইন্টারফেস থেকে রেসপন্সিভ অ্যাপস – আপনার স্বপ্ন আমি বাস্তবে রূপ দিতে প্রস্তুত।",
+      "decent": "ভালো মানের",
+      "small": "ছোট",
+      "inProgress": "চলমান"
     },
     "about": {
-      "description": "👋 Software Engineer (React | Next | Angular)",
+      "description": "👋 ফুলস্ট্যাক সফটওয়্যার ইঞ্জিনিয়ার (জাভাস্ক্রিপ্ট | টাইপস্ক্রিপ্ট)",
       "about": {
         "description": [
-          "📍 I’m a self-taught Fullstack Software ( JavaScript | TypeScript ) Engineer based in Dhaka, Bangladesh. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences. ",
-          "💡 Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. ",
-          "🌟 I always strive to learn about the newest technologies and frameworks. Let's collaborate and turn your ideas into exceptional digital solutions. With a commitment to innovation and a penchant for pixel-perfection, I'm here to elevate your online presence.",
-          "🌐 When I'm not immersed in design and code, you can find me exploring new tech trends, sipping coffee, and seeking inspiration from the world around me."
+          "📍 আমি একজন স্বশিক্ষিত ফুলস্ট্যাক সফটওয়্যার ইঞ্জিনিয়ার, অবস্থান ঢাকা, বাংলাদেশ। আমি শুরু থেকে ওয়েবসাইট তৈরি করতে পারি এবং তা আধুনিক ব্যবহারকারী বান্ধব রূপে রূপান্তর করি।",
+          "💡 ওয়েবসাইট তৈরিতে আমার সৃজনশীলতা ও জ্ঞান প্রয়োগ করাই আমার আবেগ। আমি বিভিন্ন ক্লায়েন্টের অনলাইন উপস্থিতি তৈরি করতে সহায়তা করছি।",
+          "🌟 আমি সবসময় নতুন প্রযুক্তি ও ফ্রেমওয়ার্ক শিখতে আগ্রহী। চলুন একসাথে কাজ করি ও আপনার আইডিয়াগুলো বাস্তব করে তুলি।",
+          "🌐 যখন কোড বা ডিজাইনে ডুবে থাকি না, তখন নতুন প্রযুক্তি খুঁজি, কফি খাই, আর আশেপাশের দুনিয়া থেকে অনুপ্রেরণা নিই।"
         ]
       },
       "skills": {
-        "title": "skills"
+        "title": "দক্ষতা"
       },
       "facts": {
-        "title": "fun-facts",
+        "title": "মজার তথ্য",
         "list": [
-          "Goals Programming, Internet, Framework, Database, Git, API Design, Integration, Cloud",
-          "I like read books",
-          "I like travel in train",
-          "I like coding and programming",
-          "I often motor bike with my friends",
-          "I like eating grill chicken and naan roti",
-          "I'm still studying in University"
+          "লক্ষ্য: প্রোগ্রামিং, ইন্টারনেট, ফ্রেমওয়ার্ক, ডেটাবেস, গিট, এপিআই ডিজাইন, ইন্টিগ্রেশন, ক্লাউড",
+          "আমি বই পড়তে ভালোবাসি",
+          "আমি ট্রেনে ভ্রমণ করতে ভালোবাসি",
+          "আমি কোডিং ও প্রোগ্রামিং উপভোগ করি",
+          "আমি বন্ধুদের সাথে মোটরবাইকে ঘুরতে যাই",
+          "আমি গ্রিল চিকেন ও নান রুটি খেতে ভালোবাসি",
+          "আমি এখনো বিশ্ববিদ্যালয়ে পড়াশোনা করছি"
         ]
       }
     },
     "contacts": {
-      "description": "I am here for you: Connect with me for any questions or concerns."
+      "description": "আমি আপনার জন্যই এখানে: যেকোনো প্রশ্ন বা পরামর্শে আমার সাথে যোগাযোগ করুন।"
     }
   }
 }
