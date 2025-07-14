@@ -1,3 +1,5 @@
+@use '../../default/_variables.scss' as variables;
+
 .quote
     border: 1px solid var(--gray)
     position: relative
@@ -36,3 +38,29 @@
 
         &::before
             content: "🖋️ "
+
+    @media (max-width: variables.$tabletScreen)
+        &__text
+            font-size: 1.8rem
+            padding: 24px
+
+        &__author
+            font-size: 1.8rem
+
+    @media (max-width: variables.$mobileScreen)
+        &::before
+            font-size: 48px
+            top: -24px
+            left: 8px
+
+        &::after
+            font-size: 48px
+            bottom: -48px
+            right: 8px
+
+        &__text
+            font-size: 1.6rem
+            padding: 16px
+
+        &__author
+            font-size: 1.6rem

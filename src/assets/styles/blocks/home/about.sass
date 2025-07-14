@@ -1,3 +1,5 @@
+@use '../../default/_variables.scss' as variables;
+
 .about
     display: flex
     gap: 32px
@@ -26,3 +28,17 @@
         flex: 1 1 0
         max-width: 340px
         border-bottom: 1px solid var(--primary)
+
+    @media (max-width: variables.$tabletScreen)
+        flex-direction: column
+        text-align: center
+
+        &__image
+            max-width: 100%
+
+        &__content
+            min-width: unset
+            width: 100%
+
+        &__text
+            align-items: center

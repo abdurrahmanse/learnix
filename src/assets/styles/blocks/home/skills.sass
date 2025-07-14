@@ -16,6 +16,9 @@
         column-gap: 16px
         columns: 4
 
+        @media (max-width: variables.$desktopScreen)
+            columns: 3
+
         @media (max-width: variables.$tabletScreen)
             columns: 2
 
@@ -24,6 +27,10 @@
 
     &__illustrations, &__list
         flex: 1 1 0
+
+    @media (max-width: variables.$tabletScreen)
+        &__illustrations
+            display: none
 
 .illustrations
     position: relative

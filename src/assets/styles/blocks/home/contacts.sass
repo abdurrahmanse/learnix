@@ -1,3 +1,5 @@
+@use '../../default/_variables.scss' as variables;
+
 .contacts
     width: 100%
     background-image: url(../../images/grid-bg.png)
@@ -34,3 +36,19 @@
 
     &:hover
         filter: brightness(0) invert(1)
+
+@media (max-width: variables.$tabletScreen)
+    .contacts
+        &__content
+            flex-direction: column
+            align-items: center
+            text-align: center
+
+        &__description
+            max-width: 100%
+
+        &__media
+            width: 100%
+
+    .contact
+        justify-content: center

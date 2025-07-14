@@ -1,4 +1,6 @@
 @use "sass:color";
+@use '../../default/_variables.scss' as variables;
+
 // Variables for a modern look
 $primary-color: #007bff
 $secondary-color: #6c757d
@@ -154,7 +156,7 @@ $transition-speed: 0.3s ease
       color: color.adjust($primary-color, $lightness: 20%)
       text-decoration: underline
 
-@media (max-width: 768px)
+@media (max-width: variables.$tabletScreen)
   .contact-content
     flex-direction: column
 

@@ -1,4 +1,4 @@
-@use '../default/variables' as variables;
+@use '../default/_variables.scss' as variables;
 
 .project
     border: 1px solid var(--gray)
@@ -49,6 +49,9 @@
     width: 100%
     display: grid
     grid-template-columns: repeat(3, 1fr)
+
+    @media (max-width: variables.$laptopScreen)
+        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr))
 
     @media (max-width: variables.$desktopScreen)
         align-items: start

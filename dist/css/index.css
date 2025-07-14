@@ -151,6 +151,11 @@ body {
   background-color: var(--black);
 }
 
+@media (max-width: 1280px) {
+  body {
+    font-size: 1.7rem;
+  }
+}
 @media (max-width: 768px) {
   body {
     font-size: 1.6rem;
@@ -355,6 +360,25 @@ body {
   font-weight: 600;
   font-size: 24px;
 }
+@media (max-width: 1280px) {
+  .footer__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .footer__header {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 500px) {
+  .footer__list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 .button {
   border-radius: 30px;
@@ -496,6 +520,11 @@ body {
   max-width: 1024px;
   margin: 0 auto;
   position: relative;
+}
+@media (max-width: 1280px) {
+  .container {
+    max-width: 960px;
+  }
 }
 @media (max-width: 1024px) {
   .container {

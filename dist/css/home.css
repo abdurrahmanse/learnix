@@ -31,6 +31,22 @@
   max-width: 340px;
   border-bottom: 1px solid var(--primary);
 }
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about__image {
+    max-width: 100%;
+  }
+  .about__content {
+    min-width: unset;
+    width: 100%;
+  }
+  .about__text {
+    align-items: center;
+  }
+}
 
 .contacts {
   width: 100%;
@@ -71,6 +87,22 @@
   filter: brightness(0) invert(1);
 }
 
+@media (max-width: 768px) {
+  .contacts__content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .contacts__description {
+    max-width: 100%;
+  }
+  .contacts__media {
+    width: 100%;
+  }
+  .contact {
+    justify-content: center;
+  }
+}
 .hero {
   display: flex;
   justify-content: space-between;
@@ -184,6 +216,15 @@
 .projects__link:hover {
   color: var(--primary);
 }
+@media (max-width: 768px) {
+  .projects__header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .projects__link {
+    margin-top: 16px;
+  }
+}
 
 .quote {
   border: 1px solid var(--gray);
@@ -224,6 +265,34 @@
 .quote__author::before {
   content: "🖋️ ";
 }
+@media (max-width: 768px) {
+  .quote__text {
+    font-size: 1.8rem;
+    padding: 24px;
+  }
+  .quote__author {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 500px) {
+  .quote::before {
+    font-size: 48px;
+    top: -24px;
+    left: 8px;
+  }
+  .quote::after {
+    font-size: 48px;
+    bottom: -48px;
+    right: 8px;
+  }
+  .quote__text {
+    font-size: 1.6rem;
+    padding: 16px;
+  }
+  .quote__author {
+    font-size: 1.6rem;
+  }
+}
 
 .skills {
   width: 100%;
@@ -241,6 +310,11 @@
   column-gap: 16px;
   columns: 4;
 }
+@media (max-width: 1024px) {
+  .skills__list {
+    columns: 3;
+  }
+}
 @media (max-width: 768px) {
   .skills__list {
     columns: 2;
@@ -253,6 +327,11 @@
 }
 .skills__illustrations, .skills__list {
   flex: 1 1 0;
+}
+@media (max-width: 768px) {
+  .skills__illustrations {
+    display: none;
+  }
 }
 
 .illustrations {
@@ -327,6 +406,11 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 1280px) {
+  .project-list {
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  }
 }
 @media (max-width: 1024px) {
   .project-list {

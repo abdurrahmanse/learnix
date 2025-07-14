@@ -1,3 +1,5 @@
+@use '../../default/_variables.scss' as variables;
+
 .fact 
     padding: 8px
     color: var(--gray)
@@ -15,3 +17,20 @@
         gap: 16px
         align-items: start
         flex-wrap: wrap
+
+    @media (max-width: variables.$laptopScreen)
+        &__list
+            gap: 12px
+
+    @media (max-width: variables.$tabletScreen)
+        &__content
+            flex-direction: column
+            align-items: center
+
+        &__list
+            flex-direction: column
+            align-items: center
+
+    @media (max-width: variables.$mobileScreen)
+        .fact
+            font-size: 1.4rem

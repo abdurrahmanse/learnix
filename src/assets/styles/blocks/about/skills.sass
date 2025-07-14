@@ -1,3 +1,5 @@
+@use '../../default/_variables.scss' as variables;
+
 .skills 
     &__content
         margin-top: 48px
@@ -6,3 +8,16 @@
         flex-wrap: wrap
         align-items: start
         font-size: 1.6rem
+
+    @media (max-width: variables.$laptopScreen)
+        &__content
+            gap: 12px
+
+    @media (max-width: variables.$tabletScreen)
+        &__content
+            flex-direction: column
+            align-items: center
+
+    @media (max-width: variables.$mobileScreen)
+        &__content
+            font-size: 1.4rem

@@ -1,3 +1,5 @@
+@use '../../default/_variables.scss' as variables;
+
 .projects
     &__header
         display: flex
@@ -11,3 +13,11 @@
 
         &:hover
             color: var(--primary)
+
+    @media (max-width: variables.$tabletScreen)
+        &__header
+            flex-direction: column
+            text-align: center
+
+        &__link
+            margin-top: 16px
