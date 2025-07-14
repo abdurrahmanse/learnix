@@ -1,3 +1,5 @@
+@use './variables' as variables;
+
 html
     font-size: 62.5%
 
@@ -34,11 +36,11 @@ body
 *::-webkit-scrollbar-thumb:active
     background-color: var(--black)
 
-@media (max-width: $tabletScreen)
+@media (max-width: variables.$tabletScreen)
     body
         font-size: 1.6rem
 
-@media (max-width: $mobileScreen)
+@media (max-width: variables.$mobileScreen)
     body
         font-size: 1.4rem
         text-align: justify

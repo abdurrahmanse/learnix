@@ -1,3 +1,5 @@
+@use '../default/variables' as variables;
+
 .skill-block
     border: 1px solid var(--gray)
     display: inline-block
@@ -27,7 +29,7 @@
     color: var(--gray)
     margin: 0 0.2rem
 
-@media (max-width: $mobileScreen)
+@media (max-width: variables.$mobileScreen)
     .skill-block
         border: 1px solid var(--gray)
         margin-bottom: 1.6rem
