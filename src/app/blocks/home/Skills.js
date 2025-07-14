@@ -8,7 +8,7 @@ export default (t, t2) => {
             <h2 class="h2 skill-header">${t.title}</h2>
             <div class="skills__content">
                 <div class="skills__illustrations illustrations">
-                    <img src="/images/logo-outline.svg" alt="" class="illustrations__logo">
+                    <img src="/images/logo-outline.svg" alt="Outline of AbdurRahman's logo" class="illustrations__logo">
                     ${Dots({ width: 3, height: 3 })}
                     ${Dots({ width: 4, height: 4 })}
                 </div>

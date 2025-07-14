@@ -13,7 +13,7 @@ module.exports = {
     filename: 'js/[name].js',
     chunkFilename: 'js/[chunkhash].js',
   },
-  mode: 'development',
+  mode: 'production',
   plugins: [
     new plugins.html({
       template: 'src/templates/index.ejs',

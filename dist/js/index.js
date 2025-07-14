@@ -1,175 +1,341 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/app/components/Footer.js":
-/*!**************************************!*\
-  !*** ./src/app/components/Footer.js ***!
-  \**************************************/
+/***/ 175:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _consts_media__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/consts/media */ \"./src/app/consts/media.js\");\n/* harmony import */ var _MediaIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MediaIcon */ \"./src/app/components/MediaIcon.js\");\n\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((t) => {\n  return /*html*/ `\n        <footer class=\"footer\">\n            <div class=\"container\">\n                <div class=\"footer__inner\">\n                    <div class=\"footer__info\">\n                        <div class=\"footer__header\">\n                            <div class=\"logo\">\n                                <img src=\"/images/logo.svg\" alt=\"logo\" class=\"logo__img\">\n                                <div class=\"logo__name\">AbdurRahman</div>\n                            </div>\n                            <a class=\"footer__email\" target=\"_blank\" href=\"${_consts_media__WEBPACK_IMPORTED_MODULE_0__[\"default\"].email}\">${_consts_media__WEBPACK_IMPORTED_MODULE_0__[\"default\"].emailRaw}</a>\n                        </div>\n                        <p class=\"footer__description\">${t.description}</p>\n                    </div>\n                    <div class=\"footer__media\">\n                        <div class=\"footer__title\">${t.media}</div>\n                        <div class=\"footer__list\">\n                            ${['linkedIn', 'github', 'discord'].map((name) => (0,_MediaIcon__WEBPACK_IMPORTED_MODULE_1__[\"default\"])({ name })).join('')}\n                        </div>\n                    </div>\n                </div>\n                <div class=\"footer__copyright\">&copy; ${new Date().getFullYear()} ${t.copyright}</div>\n            </div>\n        </footer>\n    `\n});\n\n\n//# sourceURL=webpack://abdurrahmans/./src/app/components/Footer.js?");
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  discord: 'discord.com/users/',
+  linkedIn: 'linkedin.com/in/',
+  github: 'github.com/',
+  figma: 'figma.com/@',
+  replit: 'replit.com/@',
+  stackOverflow: 'stackoverflow.com/users/',
+  codewars: 'codewars.com/users/',
+  devTo: 'dev.to/',
+  cssBattle: 'cssbattle.dev/player/',
+  codepen: 'codepen.io/',
+  dribble: 'dribbble.com/',
+  email: 'mailto:',
+});
+
 
 /***/ }),
 
-/***/ "./src/app/components/Header.js":
-/*!**************************************!*\
-  !*** ./src/app/components/Header.js ***!
-  \**************************************/
+/***/ 669:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _consts_routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/consts/routes */ \"./src/app/consts/routes.js\");\n/* harmony import */ var _MediaIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MediaIcon */ \"./src/app/components/MediaIcon.js\");\n\n\n\nconst paths = ['/', '/about-me', '/projects', '/contacts']\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((t) => {\n  return /*html*/ `\n        <header class=\"header\">\n            <input class=\"hamburger\" type=\"checkbox\" aria-label=\"Menu\" />\n\n            <div class=\"media-header\">\n                <span class=\"media-header__line\"></span>\n                <div class=\"media-header__links\">\n                    ${['linkedIn', 'github', 'email'].map((name) => (0,_MediaIcon__WEBPACK_IMPORTED_MODULE_1__[\"default\"])({ name })).join('')}\n                </div>\n            </div>\n\n\n            <div class=\"container\">\n\n                <div class=\"header__inner\">\n                    <a class=\"logo\" href=\"/\">\n                        <img class=\"logo__img\" src=\"/images/logo.svg\" alt=\"AbdurRahman, Full Stack Developer, JavaScript Developer, TypeScript Engineer, Software Engineer Portfolio, Frontend Developer, Backend Developer, Node.js, React, Next.js, Developer in Dhaka Bangladesh\">\n                        <span class=\"logo__name\">Abdur Rahman</span>\n                    </a>\n                    <div class=\"header__links\">\n                        ${paths\n                          .map(\n                            (path) => /*html*/ `\n                                <a href=\"${path}\" class=\"header__link ${\n                              window.location.pathname === path ? 'header__link_active' : ''\n                            }\">${t[_consts_routes__WEBPACK_IMPORTED_MODULE_0__[\"default\"][path].name]}</a>\n                            `\n                          )\n                          .join('')}\n                    </div>\n                    <div class=\"dropdown\">\n                        <span class=\"dropdown__label\">en</span>\n\n                        <div class=\"dropdown__list\">\n                            <div class=\"dropdown__option\">bd</div>\n                            <div class=\"dropdown__option\">ar</div>\n                            <div class=\"dropdown__option\">hi</div>\n                        </div>\n                    </div>\n\n                </div>\n            </div>\n        </header>\n    `\n});\n\n\n//# sourceURL=webpack://abdurrahmans/./src/app/components/Header.js?");
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ Layout)
+});
+
+// EXTERNAL MODULE: ./src/app/consts/media.js + 1 modules
+var media = __webpack_require__(934);
+;// ./src/app/components/MediaIcon.js
+
+
+/* harmony default export */ const MediaIcon = (({ name }) => {
+  return /*html*/ `
+        <a href="${media/* default */.A[name]}" class="media">
+            <img src="/images/icons/${name}.svg" alt="${name}" class="media__icon"/>
+        </a>`
+});
+
+;// ./src/app/components/Footer.js
+
+
+
+/* harmony default export */ const Footer = ((t) => {
+  return /*html*/ `
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__inner">
+                    <div class="footer__info">
+                        <div class="footer__header">
+                            <div class="logo">
+                                <img src="/images/logo.svg" alt="logo" class="logo__img">
+                                <div class="logo__name">AbdurRahman</div>
+                            </div>
+                            <a class="footer__email" target="_blank" href="${media/* default */.A.email}">${media/* default */.A.emailRaw}</a>
+                        </div>
+                        <p class="footer__description">${t.description}</p>
+                    </div>
+                    <div class="footer__media">
+                        <div class="footer__title">${t.media}</div>
+                        <div class="footer__list">
+                            ${['linkedIn', 'github', 'discord'].map((name) => MediaIcon({ name })).join('')}
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__copyright">&copy; ${new Date().getFullYear()} ${t.copyright}</div>
+            </div>
+        </footer>
+    `
+});
+
+// EXTERNAL MODULE: ./src/app/consts/routes.js
+var routes = __webpack_require__(739);
+;// ./src/app/components/Header.js
+
+
+
+const paths = ['/', '/about-me', '/projects', '/contacts']
+
+/* harmony default export */ const Header = ((t) => {
+  return /*html*/ `
+        <header class="header">
+            <input class="hamburger" type="checkbox" aria-label="Menu" />
+
+            <div class="media-header">
+                <span class="media-header__line"></span>
+                <div class="media-header__links">
+                    ${['linkedIn', 'github', 'email'].map((name) => MediaIcon({ name })).join('')}
+                </div>
+            </div>
+
+
+            <div class="container">
+
+                <div class="header__inner">
+                    <a class="logo" href="/">
+                        <img class="logo__img" src="/images/logo.svg" alt="AbdurRahman Logo">
+                        <span class="logo__name">Abdur Rahman</span>
+                    </a>
+                    <div class="header__links">
+                        ${paths
+                          .map(
+                            (path) => /*html*/ `
+                                <a href="${path}" class="header__link ${
+                              window.location.pathname === path ? 'header__link_active' : ''
+                            }">${t[routes/* default */.A[path].name]}</a>
+                            `
+                          )
+                          .join('')}
+                    </div>
+                    <div class="dropdown">
+                        <span class="dropdown__label">en</span>
+
+                        <div class="dropdown__list">
+                            <div class="dropdown__option">bd</div>
+                            <div class="dropdown__option">ar</div>
+                            <div class="dropdown__option">hi</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+    `
+});
+
+// EXTERNAL MODULE: ./src/app/helpers/localeHandler.js
+var localeHandler = __webpack_require__(788);
+;// ./src/app/views/Layout.js
+
+
+
+
+/* harmony default export */ const Layout = (async (content, path) => {
+  const locale = await (0,localeHandler/* getLocale */.J)()
+
+  return /*html*/ `
+        ${Header(locale.header)}
+        <div class="container content">
+            ${content(locale.pages[path.name], locale)}
+        </div>
+        ${Footer(locale.footer)}
+    `
+});
+
 
 /***/ }),
 
-/***/ "./src/app/components/MediaIcon.js":
-/*!*****************************************!*\
-  !*** ./src/app/components/MediaIcon.js ***!
-  \*****************************************/
+/***/ 739:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _consts_media__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/consts/media */ \"./src/app/consts/media.js\");\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (({ name }) => {\n  return /*html*/ `\n        <a href=\"${_consts_media__WEBPACK_IMPORTED_MODULE_0__[\"default\"][name]}\" class=\"media\">\n            <img src=\"/images/icons/${name}.svg\" alt=\"${name}\" class=\"media__icon\"/>\n        </a>`\n});\n\n\n//# sourceURL=webpack://abdurrahmans/./src/app/components/MediaIcon.js?");
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * @type {import("../../types/Routes").Routes}
+ */
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  '/': { name: 'home', element: 'Home' },
+  '/projects': { name: 'projects', element: 'Projects' },
+  '/about-me': { name: 'about', element: 'About' },
+  '/404': { name: '404', element: 'PageNotFound' },
+  '/contacts': { name: 'contacts', element: 'Contacts' },
+});
+
 
 /***/ }),
 
-/***/ "./src/app/consts/media.js":
-/*!*********************************!*\
-  !*** ./src/app/consts/media.js ***!
-  \*********************************/
+/***/ 788:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _proxies_media__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../proxies/media */ \"./src/app/proxies/media.js\");\n\n\nconst media = {\n  discord: { id: '914240860101681163', tag: '!abdurrahman#2396' },\n  stackOverflow: { id: '19758208', name: 'AbdurRahman' },\n  twitter: 'abdurrahmanse',\n  linkedIn: 'abdurrahmanse',\n  github: 'abdurrahmanse',\n  figma: 'abdurrahmanse',\n  replit: 'abdurrahmanse',\n  codewars: 'abdurrahmanse',\n  devTo: 'abdurrahmanse',\n  cssBattle: 'abdurrahmanse',\n  codepen: 'abdurrahmanse',\n  dribble: 'abdurrahmanse',\n  email: 'abdurrahmansoftw@gmail.com',\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Proxy(media, _proxies_media__WEBPACK_IMPORTED_MODULE_0__[\"default\"]));\n\n\n//# sourceURL=webpack://abdurrahmans/./src/app/consts/media.js?");
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   J: () => (/* binding */ getLocale)
+/* harmony export */ });
+const defaultLocale = 'en'
+
+function setLocaleHander() {
+  const options = document.querySelectorAll('.dropdown__option')
+  const label = document.querySelector('.dropdown__label')
+
+  options.forEach((option) => {
+    if (option.innerHTML === localStorage.locale)
+      [label.innerHTML, option.innerHTML] = [localStorage.locale, label.innerHTML]
+
+    option.addEventListener('click', () => {
+      localStorage.locale = option.innerHTML
+
+      window.location.reload()
+    })
+  })
+}
+
+async function getLocale() {
+  const locale = localStorage.locale ?? defaultLocale
+
+  return fetch(`/locales/${locale}.json`).then((res) => res.json())
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (setLocaleHander);
+
+
 
 /***/ }),
 
-/***/ "./src/app/consts/routes.js":
-/*!**********************************!*\
-  !*** ./src/app/consts/routes.js ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/**\n * @type {import(\"../../types/Routes\").Routes}\n */\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\n  '/': { name: 'home', element: 'Home' },\n  '/projects': { name: 'projects', element: 'Projects' },\n  '/about-me': { name: 'about', element: 'About' },\n  '/404': { name: '404', element: 'PageNotFound' },\n  '/contacts': { name: 'contacts', element: 'Contacts' },\n});\n\n\n//# sourceURL=webpack://abdurrahmans/./src/app/consts/routes.js?");
-
-/***/ }),
-
-/***/ "./src/app/consts/websites.js":
-/*!************************************!*\
-  !*** ./src/app/consts/websites.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\n  discord: 'discord.com/users/',\n  linkedIn: 'linkedin.com/in/',\n  github: 'github.com/',\n  figma: 'figma.com/@',\n  replit: 'replit.com/@',\n  stackOverflow: 'stackoverflow.com/users/',\n  codewars: 'codewars.com/users/',\n  devTo: 'dev.to/',\n  cssBattle: 'cssbattle.dev/player/',\n  codepen: 'codepen.io/',\n  dribble: 'dribbble.com/',\n  email: 'mailto:',\n});\n\n\n//# sourceURL=webpack://abdurrahmans/./src/app/consts/websites.js?");
-
-/***/ }),
-
-/***/ "./src/app/helpers/loadCssFile.js":
-/*!****************************************!*\
-  !*** ./src/app/helpers/loadCssFile.js ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((pathName) => {\n  const link = document.createElement('link')\n  link.href = `/css/${pathName}.css`\n  link.rel = 'stylesheet'\n\n  document.head.appendChild(link)\n});\n\n\n//# sourceURL=webpack://abdurrahmans/./src/app/helpers/loadCssFile.js?");
-
-/***/ }),
-
-/***/ "./src/app/helpers/localeHandler.js":
-/*!******************************************!*\
-  !*** ./src/app/helpers/localeHandler.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__),\n/* harmony export */   getLocale: () => (/* binding */ getLocale)\n/* harmony export */ });\nconst defaultLocale = 'en'\n\nfunction setLocaleHander() {\n  const options = document.querySelectorAll('.dropdown__option')\n  const label = document.querySelector('.dropdown__label')\n\n  options.forEach((option) => {\n    if (option.innerHTML === localStorage.locale)\n      [label.innerHTML, option.innerHTML] = [localStorage.locale, label.innerHTML]\n\n    option.addEventListener('click', () => {\n      localStorage.locale = option.innerHTML\n\n      window.location.reload()\n    })\n  })\n}\n\nasync function getLocale() {\n  const locale = localStorage.locale ?? defaultLocale\n\n  return fetch(`/locales/${locale}.json`).then((res) => res.json())\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (setLocaleHander);\n\n\n\n//# sourceURL=webpack://abdurrahmans/./src/app/helpers/localeHandler.js?");
-
-/***/ }),
-
-/***/ "./src/app/helpers/replacePath.js":
-/*!****************************************!*\
-  !*** ./src/app/helpers/replacePath.js ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// From https://github.com/rafgraph/spa-github-pages\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (async () => {\n  const l = window.location\n\n  if (l.search[1] === '/') {\n    let decoded = l.search\n      .slice(1)\n      .split('&')\n      .map((s) => s.replace(/~and~/g, '&'))\n      .join('?')\n\n    window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash)\n  }\n});\n\n\n//# sourceURL=webpack://abdurrahmans/./src/app/helpers/replacePath.js?");
-
-/***/ }),
-
-/***/ "./src/app/helpers/startTitleAnimation.js":
-/*!************************************************!*\
-  !*** ./src/app/helpers/startTitleAnimation.js ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst steps = '/-\\\\|'\nconst FPS = 2\nconst frameInterval = 1000 / FPS\n\nlet step = 0\nlet lastTimestep = 0\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((pathName) => {\n  window.requestAnimationFrame(animation)\n\n  function animation(timestamp) {\n    if (lastTimestep + frameInterval < timestamp) {\n      document.title = `${steps[step++]} Abdur Rahman | ${pathName}`\n\n      step %= steps.length\n      lastTimestep = timestamp\n    }\n\n    window.requestAnimationFrame(animation)\n  }\n});\n\n\n//# sourceURL=webpack://abdurrahmans/./src/app/helpers/startTitleAnimation.js?");
-
-/***/ }),
-
-/***/ "./src/app/index.js":
-/*!**************************!*\
-  !*** ./src/app/index.js ***!
-  \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _consts_routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./consts/routes */ \"./src/app/consts/routes.js\");\n/* harmony import */ var _helpers_loadCssFile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/loadCssFile */ \"./src/app/helpers/loadCssFile.js\");\n/* harmony import */ var _helpers_localeHandler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/localeHandler */ \"./src/app/helpers/localeHandler.js\");\n/* harmony import */ var _helpers_replacePath__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/replacePath */ \"./src/app/helpers/replacePath.js\");\n/* harmony import */ var _helpers_startTitleAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/startTitleAnimation */ \"./src/app/helpers/startTitleAnimation.js\");\n/* harmony import */ var _views_Layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/Layout */ \"./src/app/views/Layout.js\");\n/* harmony import */ var styles_styles_sass__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! styles/styles.sass */ \"./src/assets/styles/styles.sass\");\n\n\n\n\n\n\n\n\n\nconst rootId = 'root'\nasync function render() {\n  const path = _consts_routes__WEBPACK_IMPORTED_MODULE_0__[\"default\"][window.location.pathname] ?? _consts_routes__WEBPACK_IMPORTED_MODULE_0__[\"default\"]['/404']\n\n  ;(0,_helpers_loadCssFile__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(path.name)\n  ;(0,_helpers_startTitleAnimation__WEBPACK_IMPORTED_MODULE_4__[\"default\"])(path.name)\n\n  document.getElementById(rootId).innerHTML = await (0,_views_Layout__WEBPACK_IMPORTED_MODULE_5__[\"default\"])((await __webpack_require__(\"./src/app/views lazy recursive ^\\\\.\\\\/.*$\")(`./${path.element}`)).default, path)\n}\n\n(0,_helpers_replacePath__WEBPACK_IMPORTED_MODULE_3__[\"default\"])()\n  .then(() => render())\n  .then(() => (0,_helpers_localeHandler__WEBPACK_IMPORTED_MODULE_2__[\"default\"])())\n\n\n//# sourceURL=webpack://abdurrahmans/./src/app/index.js?");
-
-/***/ }),
-
-/***/ "./src/app/proxies/media.js":
-/*!**********************************!*\
-  !*** ./src/app/proxies/media.js ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _consts_websites__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../consts/websites */ \"./src/app/consts/websites.js\");\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\n  get(target, name) {\n    if (name === 'emailRaw') return target.email\n\n    if (name === 'discord') return `https://${_consts_websites__WEBPACK_IMPORTED_MODULE_0__[\"default\"].discord}${target.discord.id}`\n    if (name === 'discordTag') return target.discord.tag\n\n    return `${name === 'email' ? '' : 'https://'}${_consts_websites__WEBPACK_IMPORTED_MODULE_0__[\"default\"][name] ?? ''}${target[name]}`\n  },\n});\n\n\n//# sourceURL=webpack://abdurrahmans/./src/app/proxies/media.js?");
-
-/***/ }),
-
-/***/ "./src/app/views lazy recursive ^\\.\\/.*$":
-/*!*******************************************************!*\
-  !*** ./src/app/views/ lazy ^\.\/.*$ namespace object ***!
-  \*******************************************************/
+/***/ 887:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var map = {\n\t\"./About\": [\n\t\t\"./src/app/views/About.js\",\n\t\t\"src_app_views_About_js\"\n\t],\n\t\"./About.js\": [\n\t\t\"./src/app/views/About.js\",\n\t\t\"src_app_views_About_js\"\n\t],\n\t\"./Contacts\": [\n\t\t\"./src/app/views/Contacts.js\",\n\t\t\"src_app_views_Contacts_js\"\n\t],\n\t\"./Contacts.js\": [\n\t\t\"./src/app/views/Contacts.js\",\n\t\t\"src_app_views_Contacts_js\"\n\t],\n\t\"./Home\": [\n\t\t\"./src/app/views/Home.js\",\n\t\t\"src_app_views_Home_js\"\n\t],\n\t\"./Home.js\": [\n\t\t\"./src/app/views/Home.js\",\n\t\t\"src_app_views_Home_js\"\n\t],\n\t\"./Layout\": [\n\t\t\"./src/app/views/Layout.js\"\n\t],\n\t\"./Layout.js\": [\n\t\t\"./src/app/views/Layout.js\"\n\t],\n\t\"./PageNotFound\": [\n\t\t\"./src/app/views/PageNotFound.js\",\n\t\t\"src_app_views_PageNotFound_js\"\n\t],\n\t\"./PageNotFound.js\": [\n\t\t\"./src/app/views/PageNotFound.js\",\n\t\t\"src_app_views_PageNotFound_js\"\n\t],\n\t\"./Projects\": [\n\t\t\"./src/app/views/Projects.js\",\n\t\t\"src_app_views_Projects_js\"\n\t],\n\t\"./Projects.js\": [\n\t\t\"./src/app/views/Projects.js\",\n\t\t\"src_app_views_Projects_js\"\n\t]\n};\nfunction webpackAsyncContext(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\treturn Promise.resolve().then(() => {\n\t\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\t\te.code = 'MODULE_NOT_FOUND';\n\t\t\tthrow e;\n\t\t});\n\t}\n\n\tvar ids = map[req], id = ids[0];\n\treturn Promise.all(ids.slice(1).map(__webpack_require__.e)).then(() => {\n\t\treturn __webpack_require__(id);\n\t});\n}\nwebpackAsyncContext.keys = () => (Object.keys(map));\nwebpackAsyncContext.id = \"./src/app/views lazy recursive ^\\\\.\\\\/.*$\";\nmodule.exports = webpackAsyncContext;\n\n//# sourceURL=webpack://abdurrahmans/./src/app/views/_lazy_^\\.\\/.*$_namespace_object?");
+var map = {
+	"./About": [
+		548,
+		548
+	],
+	"./About.js": [
+		548,
+		548
+	],
+	"./Contacts": [
+		340,
+		340
+	],
+	"./Contacts.js": [
+		340,
+		340
+	],
+	"./Home": [
+		13,
+		13
+	],
+	"./Home.js": [
+		13,
+		13
+	],
+	"./Layout": [
+		669
+	],
+	"./Layout.js": [
+		669
+	],
+	"./PageNotFound": [
+		573,
+		573
+	],
+	"./PageNotFound.js": [
+		573,
+		573
+	],
+	"./Projects": [
+		847,
+		847
+	],
+	"./Projects.js": [
+		847,
+		847
+	]
+};
+function webpackAsyncContext(req) {
+	if(!__webpack_require__.o(map, req)) {
+		return Promise.resolve().then(() => {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		});
+	}
+
+	var ids = map[req], id = ids[0];
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(() => {
+		return __webpack_require__(id);
+	});
+}
+webpackAsyncContext.keys = () => (Object.keys(map));
+webpackAsyncContext.id = 887;
+module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ "./src/app/views/Layout.js":
-/*!*********************************!*\
-  !*** ./src/app/views/Layout.js ***!
-  \*********************************/
+/***/ 934:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _components_Footer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/Footer.js */ \"./src/app/components/Footer.js\");\n/* harmony import */ var _components_Header_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/Header.js */ \"./src/app/components/Header.js\");\n/* harmony import */ var _helpers_localeHandler_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/helpers/localeHandler.js */ \"./src/app/helpers/localeHandler.js\");\n\n\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (async (content, path) => {\n  const locale = await (0,_helpers_localeHandler_js__WEBPACK_IMPORTED_MODULE_2__.getLocale)()\n\n  return /*html*/ `\n        ${(0,_components_Header_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(locale.header)}\n        <div class=\"container content\">\n            ${content(locale.pages[path.name], locale)}\n        </div>\n        ${(0,_components_Footer_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(locale.footer)}\n    `\n});\n\n\n//# sourceURL=webpack://abdurrahmans/./src/app/views/Layout.js?");
 
-/***/ }),
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (/* binding */ consts_media)
+});
 
-/***/ "./src/assets/styles/styles.sass":
-/*!***************************************!*\
-  !*** ./src/assets/styles/styles.sass ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+// EXTERNAL MODULE: ./src/app/consts/websites.js
+var websites = __webpack_require__(175);
+;// ./src/app/proxies/media.js
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://abdurrahmans/./src/assets/styles/styles.sass?");
+
+/* harmony default export */ const media = ({
+  get(target, name) {
+    if (name === 'emailRaw') return target.email
+
+    if (name === 'discord') return `https://${websites/* default */.A.discord}${target.discord.id}`
+    if (name === 'discordTag') return target.discord.tag
+
+    return `${name === 'email' ? '' : 'https://'}${websites/* default */.A[name] ?? ''}${target[name]}`
+  },
+});
+
+;// ./src/app/consts/media.js
+
+
+const media_media = {
+  discord: { id: '914240860101681163', tag: '!abdurrahman#2396' },
+  stackOverflow: { id: '19758208', name: 'AbdurRahman' },
+  twitter: 'abdurrahmanse',
+  linkedIn: 'abdurrahmanse',
+  github: 'abdurrahmanse',
+  figma: 'abdurrahmanse',
+  replit: 'abdurrahmanse',
+  codewars: 'abdurrahmanse',
+  devTo: 'abdurrahmanse',
+  cssBattle: 'abdurrahmanse',
+  codepen: 'abdurrahmanse',
+  dribble: 'abdurrahmanse',
+  email: 'abdurrahmansoftw@gmail.com',
+}
+
+/* harmony default export */ const consts_media = (new Proxy(media_media, media));
+
 
 /***/ })
 
@@ -233,7 +399,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/" + {"src_app_views_About_js":"f60ee69e25d7c2c13f6f","src_app_views_Contacts_js":"1f0b0d958e49caf662bf","src_app_views_Home_js":"5ab0c4248f81717a345f","src_app_views_PageNotFound_js":"2bf6af8a435e4769b2b4","src_app_views_Projects_js":"0e3e0fd0861642e22eee"}[chunkId] + ".js";
+/******/ 			return "js/" + {"13":"5b23616bd1c9db0c3185","340":"3f79210c5428a0bef5b2","548":"9eed17cf7d6a2eeb071a","573":"0586f88788158a5d5f08","847":"fdd24163dbfc994963c2"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -242,10 +408,10 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.miniCssF = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if (chunkId === "src_app_views_About_js") return "css/about.css";
-/******/ 			if (chunkId === "src_app_views_Contacts_js") return "css/contacts.css";
-/******/ 			if (chunkId === "src_app_views_Home_js") return "css/home.css";
-/******/ 			if (chunkId === "src_app_views_Projects_js") return "css/projects.css";
+/******/ 			if (chunkId === 548) return "css/548.css";
+/******/ 			if (chunkId === 340) return "css/340.css";
+/******/ 			if (chunkId === 13) return "css/13.css";
+/******/ 			if (chunkId === 847) return "css/847.css";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
@@ -411,11 +577,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 		}
 /******/ 		// object to store loaded CSS chunks
 /******/ 		var installedCssChunks = {
-/******/ 			"index": 0
+/******/ 			57: 0
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.miniCss = (chunkId, promises) => {
-/******/ 			var cssChunks = {"src_app_views_About_js":1,"src_app_views_Contacts_js":1,"src_app_views_Home_js":1,"src_app_views_Projects_js":1};
+/******/ 			var cssChunks = {"13":1,"340":1,"548":1,"847":1};
 /******/ 			if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 			else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 				promises.push(installedCssChunks[chunkId] = loadStylesheet(chunkId).then(() => {
@@ -442,7 +608,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"index": 0
+/******/ 			57: 0
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.j = (chunkId, promises) => {
@@ -525,11 +691,90 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/app/index.js");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
+(() => {
+"use strict";
+
+// EXTERNAL MODULE: ./src/app/consts/routes.js
+var routes = __webpack_require__(739);
+;// ./src/app/helpers/loadCssFile.js
+/* harmony default export */ const loadCssFile = ((pathName) => {
+  const link = document.createElement('link')
+  link.href = `/css/${pathName}.css`
+  link.rel = 'stylesheet'
+
+  document.head.appendChild(link)
+});
+
+// EXTERNAL MODULE: ./src/app/helpers/localeHandler.js
+var localeHandler = __webpack_require__(788);
+;// ./src/app/helpers/replacePath.js
+// From https://github.com/rafgraph/spa-github-pages
+/* harmony default export */ const replacePath = (async () => {
+  const l = window.location
+
+  if (l.search[1] === '/') {
+    let decoded = l.search
+      .slice(1)
+      .split('&')
+      .map((s) => s.replace(/~and~/g, '&'))
+      .join('?')
+
+    window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash)
+  }
+});
+
+;// ./src/app/helpers/startTitleAnimation.js
+const steps = '/-\\|'
+const FPS = 2
+const frameInterval = 1000 / FPS
+
+let step = 0
+let lastTimestep = 0
+
+/* harmony default export */ const startTitleAnimation = ((pathName) => {
+  window.requestAnimationFrame(animation)
+
+  function animation(timestamp) {
+    if (lastTimestep + frameInterval < timestamp) {
+      document.title = `${steps[step++]} Abdur Rahman | ${pathName}`
+
+      step %= steps.length
+      lastTimestep = timestamp
+    }
+
+    window.requestAnimationFrame(animation)
+  }
+});
+
+// EXTERNAL MODULE: ./src/app/views/Layout.js + 3 modules
+var Layout = __webpack_require__(669);
+;// ./src/app/index.js
+
+
+
+
+
+
+
+
+
+const rootId = 'root'
+async function render() {
+  const path = routes/* default */.A[window.location.pathname] ?? routes/* default */.A['/404']
+
+  loadCssFile(path.name)
+  startTitleAnimation(path.name)
+
+  document.getElementById(rootId).innerHTML = await (0,Layout["default"])((await __webpack_require__(887)(`./${path.element}`)).default, path)
+}
+
+replacePath()
+  .then(() => render())
+  .then(() => (0,localeHandler/* default */.A)())
+
+})();
+
 /******/ })()
 ;

@@ -10,7 +10,7 @@ export default (t) => {
                 <a class="button button__primary" href="#contacts">📞 ${t.contact} </a>
             </div>
             <div class="hero__illustrations">
-                <img src="/images/logo-outline.svg" alt="Abdur Rahman - Full Stack JavaScript Developer" class="hero__logo">
+                <img src="/images/logo-outline.svg" alt="AbdurRahman Logo" class="hero__logo">
                 <img src="/images/heroImage.webp" alt="AbdurRahman" class="hero__image">
                 <div class="hero__status">${t.status} <a href="https://abdurrahmans.netlify.app">Portfolio</a></div>
                 ${Dots({})}

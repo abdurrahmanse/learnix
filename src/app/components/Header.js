@@ -20,7 +20,7 @@ export default (t) => {
 
                 <div class="header__inner">
                     <a class="logo" href="/">
-                        <img class="logo__img" src="/images/logo.svg" alt="AbdurRahman, Full Stack Developer, JavaScript Developer, TypeScript Engineer, Software Engineer Portfolio, Frontend Developer, Backend Developer, Node.js, React, Next.js, Developer in Dhaka Bangladesh">
+                        <img class="logo__img" src="/images/logo.svg" alt="AbdurRahman Logo">
                         <span class="logo__name">Abdur Rahman</span>
                     </a>
                     <div class="header__links">
