@@ -34,39 +34,38 @@ var media = __webpack_require__(934);
 
 
 const contacts = [
-  { name: "email", text: media/* default */.A.emailRaw },
-  { name: "github", text: media/* default */.A.github },
-  { name: "linkedIn", text: media/* default */.A.linkedIn },
-];
+  { name: 'email', text: media/* default */.A.emailRaw },
+  { name: 'github', text: media/* default */.A.github },
+  { name: 'linkedIn', text: media/* default */.A.linkedIn },
+]
 
 /* harmony default export */ const Contacts = ((t) => {
   return /*html*/ `
         <section class="contacts" id="contacts">
             <h2 class="h2">${t.title}</h2>
             <div class="contacts__content">
-                <p class="contacts__description">${t.text}</p>
+                <p class="contacts__description">
+                ${t.text}
+                </p>
+       
                 <div class="contacts__media">
                     <h3 class="contacts__title">${t.media}</h3>
                     <div class="contacts__list">
                         ${contacts
                           .map(
                             (contact) => /*html*/ `
-                            <a class="contact" href="${
-                              media/* default */.A[contact.name]
-                            }" target="_blank">
-                                <img src="/images/icons/${
-                                  contact.name
-                                }.svg" alt="">
+                            <a class="contact" href="${media/* default */.A[contact.name]}" target="_blank">
+                                <img src="/images/icons/${contact.name}.svg" alt="">
                                 <div class="contact__name">${contact.text}</div>
                             </a>
                         `
                           )
-                          .join("")}
+                          .join('')}
                     </div>
                 </div>
             </div>
         </section>
-    `;
+    `
 });
 
 ;// ./src/app/components/Dots.js
@@ -105,7 +104,9 @@ const gap = 16
             <div class="hero__content">
                 <h1 class="hero__title">💻 ${t.title}</h1>
                 <div class="hero__description">${t.description}</div>
-                <a class="button button__primary" href="https://drive.google.com/file/d/1g7BZg10Wluy_9iIGpDN_DeLgjVrXdL5A/view?usp=sharing" download target="_blank" rel="noopener noreferrer">📄 ${t.resume} </a>
+                <a class="button button__primary" href="https://drive.google.com/file/d/1g7BZg10Wluy_9iIGpDN_DeLgjVrXdL5A/view?usp=sharing" download target="_blank" rel="noopener noreferrer"> ${
+                  t.resume
+                } </a>
                 <a class="button button__primary" href="#contacts">📞 ${t.contact} </a>
             </div>
             <div class="hero__illustrations">

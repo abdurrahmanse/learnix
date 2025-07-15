@@ -68,7 +68,7 @@ export default (t) => {
                         </div>
                         <div class="form-group">
                             <label for="message">💬 Message:</label>
-                            <textarea id="message" name="message" rows="7" placeholder="Your Message"></textarea>
+                            <textarea id="message" name="message" rows="4" placeholder="Your Message"></textarea>
                             <div id="messageError" class="error"></div>
                         </div>
                         <button type="submit" class="submit-button">🚀 Send Message</button>
