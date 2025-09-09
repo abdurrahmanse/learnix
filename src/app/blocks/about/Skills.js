@@ -7,7 +7,7 @@ export default (t, t2) => {
             <h2 class="h2">⚙️ ${t.title}</h2>
             <div class="skills__content">
                 ${Object.keys(skills)
-                  .map((id) => `⭐` + SkillBlock({ id }, t2))
+                  .map((id) => SkillBlock({ id }, t2))
                   .join('')}
             </div>
         </section>

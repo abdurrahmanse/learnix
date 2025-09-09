@@ -3,9 +3,15 @@
  */
 const projects = [
   {
-    id: 'rarebd',
-    techs: ['js', 'node', 'postgreSql'],
-    links: { github: '/RareBDLtd', live: 'rarebd.com' },
+    id: 'radhuni',
+    techs: ['js', 'ts', 'react'],
+    links: { github: '/radhuni', live: 'radhuni-zeta.vercel.app' },
+    hasImage: true,
+  },
+  {
+    id: 'tofazzalhossainbhuiyan',
+    techs: ['js', 'ts', 'react'],
+    links: { github: '/profiles', live: 'tofazzal-hossain-bhuiyan.vercel.app' },
     hasImage: true,
   },
   {
@@ -15,16 +21,28 @@ const projects = [
     hasImage: true,
   },
   {
+    id: 'rarebd',
+    techs: ['js', 'node', 'postgreSql'],
+    links: { github: '/rareBDLtd', live: 'rarebd.com' },
+    hasImage: true,
+  },
+  {
+    id: 'gazisazzadhossain',
+    techs: ['js', 'ts', 'react'],
+    links: { github: '/profiles', live: 'gazi-sazzad-hossain.vercel.app' },
+    hasImage: true,
+  },
+  {
     id: 'financepro',
     techs: ['js', 'next', 'node', 'mysql'],
     links: { github: '/financepro', live: 'financepr.vercel.app' },
-    hasImage: true,
+    isSmall: true,
   },
   {
     id: 'helpdesk',
     techs: ['ts', 'next', 'prisma', 'mysql'],
     links: { github: '/helpdesk', live: 'helpdesk-ecru.vercel.app' },
-    hasImage: true,
+    isSmall: true,
   },
   {
     id: 'employeemanagement',
@@ -33,7 +51,7 @@ const projects = [
       github: '/employee-management',
       live: 'employeemanagementsystem.vercel.app/dashboard',
     },
-    hasImage: true,
+    isSmall: true,
   },
   {
     id: 'tsxgames',

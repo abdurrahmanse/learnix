@@ -28,10 +28,25 @@
     "digitalMarketing": "Digital Marketing"
   },
   "projects": {
+    "radhuni": {
+      "name": "Radhuni app",
+      "description": "Managing chef and party event services platform."
+    },
+    "tofazzalhossainbhuiyan": {
+      "name": "Dr. Tofazzal Hossain Bhuiyan",
+      "description": "Dr. Tofazzal Hossain Bhuiyan's personal website."
+    },
+
     "rarebd": {
       "name": "Rare Bangladesh Ltd",
       "description": "Platform for cooling/heating appliance manufacturer."
     },
+
+    "gazisazzadhossain": {
+      "name": "Dr. Gazi Sazzad Hossain",
+      "description": "Dr. Gazi Sazzad Hossain's personal website."
+    },
+
     "nufbd": {
       "name": "Nari Unnoyon Forum (NUF)",
       "description": "Digital presence for Women Development Forum."
@@ -173,4 +188,3 @@
     }
   }
 }
-
