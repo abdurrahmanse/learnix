@@ -37,7 +37,9 @@ export default ({ id }, t) => {
       <div class="project__content">
   <div class="project__name">${t[id].name}</div>
   <div class="project__description">${t[id].description}</div>
-     <div class="project__links">${mapLinks(links)} ${t[id]?.caseStudy ? `<a class="button button__secondary" href="/case-study?id=${id}">Case study →</a>` : ''}</div>
+     <div class="project__links">${mapLinks(links)} ${
+    t[id]?.caseStudy ? `<a class="button button__secondary" href="/case-study?id=${id}">Case study →</a>` : ''
+  }</div>
       </div>
         </div> 
     `

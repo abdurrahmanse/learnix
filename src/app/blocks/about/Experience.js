@@ -25,8 +25,9 @@ export default (t = {}) => {
           )
           .join('')}
       </div>
-      ${steps.length
-        ? `<div class="experience__how">
+      ${
+        steps.length
+          ? `<div class="experience__how">
             <h3>${howTitle}</h3>
             <ol class="experience__steps" role="list">
               ${steps
@@ -40,7 +41,8 @@ export default (t = {}) => {
                 .join('')}
             </ol>
           </div>`
-        : ''}
+          : ''
+      }
     </section>
   `
 }
