@@ -114,8 +114,8 @@
   "pages": {
     "home": {
       "hero": {
-        "title": "👋 <span>A</span>bdur<span>R</span>ahman: A<span> Fullstack Software</span> Engineer (<span>JavaScript</span> | <span>TypeScript</span>)",
-        "description": "🚀 I craft responsive, high-performance web applications where cutting-edge technology meets intuitive design. With a keen eye for detail and a passion for seamless user experiences, I transform complex ideas into elegant digital solutions.",
+        "title": "👋 <span>A</span>bdur<span>R</span>ahman — <span>Full‑Stack</span> Software Engineer (JavaScript | TypeScript)",
+        "description": "🚀 I design and build high‑performance, accessible web applications that turn ideas into production‑ready products. I specialize in modern JavaScript/TypeScript stacks, scalable front‑end architectures, and pragmatic back‑end services that accelerate delivery and elevate user experience.",
         "resume": "📑 Resume",
         "contact": "💌 Contact",
         "status": "Currently building "
