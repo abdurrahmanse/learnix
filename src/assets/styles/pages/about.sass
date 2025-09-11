@@ -4,3 +4,81 @@
 @use '../blocks/about/about'
 @use '../blocks/about/skills'
 @use '../blocks/about/facts'
+
+.experience
+	margin-top: 56px
+	padding: 24px
+	background: hsl(var(--bg, 210 14% 1%))
+	border: 1px solid hsl(var(--gray) / .15)
+	border-radius: 16px
+	box-shadow: 0 6px 24px hsl(var(--gray) / .08)
+	@media (max-width: variables.$tabletScreen)
+		padding: 16px
+	&__list
+		display: grid
+		grid-template-columns: repeat(3, minmax(0, 1fr))
+		gap: 20px
+		margin-top: 20px
+		@media (max-width: variables.$laptopScreen)
+			grid-template-columns: repeat(2, minmax(0, 1fr))
+		@media (max-width: variables.$tabletScreen)
+			grid-template-columns: 1fr
+	&__item
+		background: hsl(var(--white) / .01)
+		border: 1px solid hsl(var(--gray) / .18)
+		border-radius: 12px
+		padding: 16px
+		transition: border-color .2s ease, transform .2s ease
+		&:hover
+			border-color: hsl(var(--primary))
+			transform: translateY(-2px)
+	&__role
+		font-weight: 700
+		letter-spacing: .2px
+		margin-bottom: 2px
+	&__period
+		color: var(--gray)
+		margin: 2px 0 8px
+	&__location
+		color: var(--gray)
+		font-style: italic
+		margin-bottom: 8px
+	&__impact
+		color: var(--gray)
+		padding-left: 18px
+		li
+			margin: 4px 0
+	&__how
+		margin-top: 28px
+		padding-top: 12px
+		border-top: 1px dashed hsl(var(--gray) / .2)
+		& > h3
+			margin-bottom: 12px
+		& .experience__steps
+			display: grid
+			grid-template-columns: repeat(3, minmax(0, 1fr))
+			gap: 12px
+			list-style: none
+			padding: 0
+			@media (max-width: variables.$tabletScreen)
+				grid-template-columns: 1fr
+		& .experience__step
+			display: flex
+			align-items: center
+			gap: 10px
+			border: 1px solid hsl(var(--gray) / .18)
+			border-radius: 10px
+			padding: 10px 12px
+			background: hsl(var(--white) / .01)
+		& .experience__stepIndex
+			display: inline-flex
+			align-items: center
+			justify-content: center
+			width: 28px
+			height: 28px
+			border-radius: 999px
+			background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end))
+			color: #000
+			font-weight: 700
+		& .experience__stepTitle
+			font-weight: 600

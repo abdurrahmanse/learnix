@@ -7,7 +7,7 @@ export const initializeContactForm = () => {
   const subjectError = document.getElementById('subjectError')
   const messageError = document.getElementById('messageError')
 
-  if (!form) return; // Ensure form exists before attaching listeners
+  if (!form) return // Ensure form exists before attaching listeners
 
   form.addEventListener('submit', function (event) {
     let isValid = true

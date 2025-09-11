@@ -12,7 +12,9 @@ export default (t) => {
                                 <img src="/images/logo.svg" alt="logo" class="logo__img" loading="lazy">
                                 <div class="logo__name">AbdurRahman</div>
                             </div>
-                            <a class="footer__email" target="_blank" rel="noopener noreferrer" href="${media.email}">${media.emailRaw}</a>
+                            <a class="footer__email" target="_blank" rel="noopener noreferrer" href="${media.email}">${
+    media.emailRaw
+  }</a>
                         </div>
                         <p class="footer__description">${t.description}</p>
                     </div>

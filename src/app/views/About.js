@@ -1,4 +1,5 @@
 import About from '@/blocks/about/About.js'
+import Experience from '@/blocks/about/Experience.js'
 import Facts from '@/blocks/about/Facts.js'
 import Skills from '@/blocks/about/Skills.js'
 import Path from '@/components/Path.js'
@@ -9,6 +10,7 @@ export default (t, locale) => {
   return /*html*/ `
         ${Path({ description: t.description })}
         ${About(t.about)}
+        ${Experience(locale.pages.experience)}
         ${Skills(t.skills, locale.skills)}
         ${Facts(t.facts)}
     `

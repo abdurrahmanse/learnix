@@ -20,7 +20,7 @@ async function render() {
   document.getElementById(rootId).innerHTML = html
 
   const t = await getLocale()
-  applyMeta(path.name, t.pages)
+  applyMeta(path.name, t)
   applyHtmlLang(localStorage.locale)
 }
 

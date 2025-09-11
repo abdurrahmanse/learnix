@@ -156,7 +156,8 @@
       "description": "🚀 Explore my portfolio: a collection of projects showcasing innovative design and robust functionality. From intuitive UIs to scalable web apps, I transform digital visions into reality.",
       "decent": "Decent",
       "small": "Small",
-      "inProgress": "In Progress"
+      "inProgress": "In Progress",
+      "backToProjects": "Back to Projects"
     },
     "about": {
       "description": "👋 Fullstack Software Engineer | JavaScript & TypeScript Enthusiast",
@@ -187,8 +188,79 @@
         ]
       }
     },
+    "experience": {
+      "title": "Experience",
+      "timeline": [
+        {
+          "role": "Junior Software Engineer — Tanvir Constructions Ltd",
+          "period": "2021-06-01 — 2023-09-03",
+          "location": "10th Floor, Rahman’s Regnum Centre, 191/1 Bir Uttam Mir Shawkat Sarak, Dhaka 1208",
+          "impact": [
+            "Wrote and maintained production code across features and fixes",
+            "Debugged issues and improved stability and performance",
+            "Assisted in software design and implementation",
+            "Participated in code reviews to uphold best practices",
+            "Collaborated with cross‑functional teams to deliver on deadlines"
+          ]
+        },
+        {
+          "role": "Digital Marketing Expert — Servier Bangladesh",
+          "period": "2024-08-01 — Present",
+          "location": "Grameen Bank Bhaban, 15th Floor, Mirpur 2, Dhaka, Bangladesh",
+          "impact": [
+            "Created, executed, and monitored online campaigns",
+            "Leveraged social, email, and search channels to grow reach",
+            "Optimized creatives and targeting using analytics and experiments",
+            "Drove product and service awareness while aligning with brand"
+          ]
+        },
+        {
+          "role": "Full‑Stack Engineer (Freelance)",
+          "period": "2020 — Present",
+          "location": "Remote — Dhaka, Bangladesh",
+          "impact": [
+            "Build web apps for clients from idea to deployment.",
+            "Create responsive UIs and connect to REST APIs.",
+            "Write clean, reusable code and simple documentation.",
+            "Fix bugs and improve page speed and accessibility.",
+            "Set up basic tests and CI to ship with confidence.",
+            "Work with designers and stakeholders to deliver on time."
+          ],
+          "stack": ["JavaScript", "TypeScript", "React", "Node.js", "Express", "PostgreSQL", "MongoDB", "Jest", "Docker", "Vercel"]
+        }
+      ],
+      "howIWork": {
+        "title": "How I Work",
+        "steps": [
+          "Understand goals and plan the features",
+          "Sketch simple flows and UI",
+          "Build the app step by step",
+          "Test, fix bugs, and improve",
+          "Deploy and track results"
+        ]
+      }
+    },
     "contacts": {
       "description": "I'm always open to new opportunities and collaborations. Feel free to connect with me for any inquiries, project discussions, or just to say hello!"
+    }
+  },
+  "case": {
+    "notFound": "Case study not found",
+    "backToProjects": "Back to Projects"
+  },
+  "caseStudies": {
+    "financepro": {
+      "title": "Finance Pro — Enterprise Finance Management",
+      "summary": "Designed and built a modular finance dashboard enabling teams to track KPIs and generate reports with confidence.",
+      "problem": "Stakeholders lacked unified visibility into key financial metrics, slowing decisions and increasing manual reporting.",
+      "role": "Full‑stack engineer responsible for front‑end architecture, API integration, and CI/CD.",
+      "stack": "TypeScript, Node.js, Express, PostgreSQL, Prisma, Webpack, Jest, Docker, Vercel",
+      "solution": "Implemented a performant, accessible UI with role‑based access; designed REST endpoints and data caching; automated deployments.",
+      "metrics": [
+        "↓ Time to insight by ~35% via real‑time KPIs",
+        "↑ Report generation speed 3× with precomputed views",
+        "↓ Deployment friction via CI/CD with preview builds"
+      ]
     }
   }
 }
