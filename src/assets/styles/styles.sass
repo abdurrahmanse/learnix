@@ -1,5 +1,5 @@
 @use 'default/font'
-@use 'default/_variables.scss' as variables;
+@use 'default/_variables.scss' as variables
 @use 'default/reset'
 @use 'default/default'
 
@@ -12,7 +12,12 @@
 @use 'components/h2'
 @use 'components/container'
 @use 'components/logo'
+@use 'components/gradientText'
 
 :root
     @each $key, $value in variables.$colors
         --#{"" + $key}: hsl(#{$value})
+
+    /* Title gradient colors */
+    --title-gradient-from: var(--primary)
+    --title-gradient-to: hsla(202, 100%, 49%, 1.00)
