@@ -17,10 +17,10 @@
         <div class="skill-block">
             <div class="skill-block__name"> ${t[id]}</div>
             <ul class="skill-block__list">
-            ${(_consts_skills__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A[id].length === 2 ? _consts_techs__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.slice(..._consts_skills__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A[id]) : _consts_skills__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A[id].map((techIndex) => _consts_techs__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A[techIndex]))
+            ${_consts_skills__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A[id]
               .map(
-                (tech, index) =>
-                  /*html*/ `<li class="skill-block__skill"> <span class="skill-arrow">➞</span> ${tech}</li>`
+                (techKey) =>
+                  /*html*/ `<li class="skill-block__skill"> <span class="skill-arrow">➞</span> ${_consts_techs__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A[techKey]}</li>`
               )
               .join('')}
             </ul>
@@ -119,7 +119,7 @@ var skills = __webpack_require__(515);
             <h2 class="h2">⚙️ ${t.title}</h2>
             <div class="skills__content">
                 ${Object.keys(skills/* default */.A)
-                  .map((id) => `⭐` + (0,SkillBlock/* default */.A)({ id }, t2))
+                  .map((id) => (0,SkillBlock/* default */.A)({ id }, t2))
                   .join('')}
             </div>
         </section>

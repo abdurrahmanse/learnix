@@ -30,11 +30,11 @@ export default ({ id }, t) => {
                 ${projectTech.map((tech) => /*html*/ `<li class="project__tech"> ➞ ${techs[tech]}</li>`).join('')}
             </ul> 
 
-            <div class="project__content">
-                <div class="project__name">${t[id].name}</div>
-                <div class="project__description">${t[id].description}</div>
-                 <div class="project__links">${mapLinks(links)}</div>
-            </div>
+      <div class="project__content">
+  <div class="project__name">${t[id].name}</div>
+  <div class="project__description">${t[id].description}</div>
+         <div class="project__links">${mapLinks(links)}</div>
+      </div>
         </div> 
     `
 }

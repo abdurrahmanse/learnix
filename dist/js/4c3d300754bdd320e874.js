@@ -164,9 +164,22 @@ const projects = [
     hasImage: true,
   },
   {
+    id: 'financepro',
+    techs: ['js', 'next', 'node', 'mysql'],
+    links: { github: '/financepro', live: 'financepr.vercel.app' },
+    hasImage: true,
+  },
+  {
     id: 'tofazzalhossainbhuiyan',
     techs: ['js', 'ts', 'react'],
     links: { github: '/profiles', live: 'tofazzal-hossain-bhuiyan.vercel.app' },
+    hasImage: true,
+  },
+
+  {
+    id: 'rarebd',
+    techs: ['js', 'node', 'postgreSql'],
+    links: { github: '/rareBDLtd', live: 'rarebd.com' },
     hasImage: true,
   },
   {
@@ -176,23 +189,12 @@ const projects = [
     hasImage: true,
   },
   {
-    id: 'rarebd',
-    techs: ['js', 'node', 'postgreSql'],
-    links: { github: '/rareBDLtd', live: 'rarebd.com' },
-    hasImage: true,
-  },
-  {
     id: 'gazisazzadhossain',
     techs: ['js', 'ts', 'react'],
     links: { github: '/profiles', live: 'gazi-sazzad-hossain.vercel.app' },
-    hasImage: true,
-  },
-  {
-    id: 'financepro',
-    techs: ['js', 'next', 'node', 'mysql'],
-    links: { github: '/financepro', live: 'financepr.vercel.app' },
     isSmall: true,
   },
+
   {
     id: 'helpdesk',
     techs: ['ts', 'next', 'prisma', 'mysql'],
@@ -331,11 +333,11 @@ function mapLinks(links) {
                 ${projectTech.map((tech) => /*html*/ `<li class="project__tech"> ➞ ${techs/* default */.A[tech]}</li>`).join('')}
             </ul> 
 
-            <div class="project__content">
-                <div class="project__name">${t[id].name}</div>
-                <div class="project__description">${t[id].description}</div>
-                 <div class="project__links">${mapLinks(links)}</div>
-            </div>
+      <div class="project__content">
+  <div class="project__name">${t[id].name}</div>
+  <div class="project__description">${t[id].description}</div>
+         <div class="project__links">${mapLinks(links)}</div>
+      </div>
         </div> 
     `
 });

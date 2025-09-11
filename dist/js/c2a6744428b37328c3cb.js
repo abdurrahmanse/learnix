@@ -362,10 +362,10 @@ injectSpeedInsights()
         <div class="skill-block">
             <div class="skill-block__name"> ${t[id]}</div>
             <ul class="skill-block__list">
-            ${(_consts_skills__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A[id].length === 2 ? _consts_techs__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.slice(..._consts_skills__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A[id]) : _consts_skills__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A[id].map((techIndex) => _consts_techs__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A[techIndex]))
+            ${_consts_skills__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A[id]
               .map(
-                (tech, index) =>
-                  /*html*/ `<li class="skill-block__skill"> <span class="skill-arrow">➞</span> ${tech}</li>`
+                (techKey) =>
+                  /*html*/ `<li class="skill-block__skill"> <span class="skill-arrow">➞</span> ${_consts_techs__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A[techKey]}</li>`
               )
               .join('')}
             </ul>
@@ -516,15 +516,9 @@ var media = __webpack_require__(934);
  */
 const projects = [
   {
-    id: 'rarebd',
-    techs: ['js', 'node', 'postgreSql'],
-    links: { github: '/RareBDLtd', live: 'rarebd.com' },
-    hasImage: true,
-  },
-  {
-    id: 'nufbd',
-    techs: ['js', 'next', 'postgreSql'],
-    links: { github: '/nuf-bd', live: 'nuf-bd.com' },
+    id: 'radhuni',
+    techs: ['js', 'ts', 'react'],
+    links: { github: '/radhuni', live: 'radhuni-zeta.vercel.app' },
     hasImage: true,
   },
   {
@@ -534,10 +528,36 @@ const projects = [
     hasImage: true,
   },
   {
+    id: 'tofazzalhossainbhuiyan',
+    techs: ['js', 'ts', 'react'],
+    links: { github: '/profiles', live: 'tofazzal-hossain-bhuiyan.vercel.app' },
+    hasImage: true,
+  },
+
+  {
+    id: 'rarebd',
+    techs: ['js', 'node', 'postgreSql'],
+    links: { github: '/rareBDLtd', live: 'rarebd.com' },
+    hasImage: true,
+  },
+  {
+    id: 'nufbd',
+    techs: ['js', 'next', 'postgreSql'],
+    links: { github: '/nuf-bd', live: 'nuf-bd.com' },
+    hasImage: true,
+  },
+  {
+    id: 'gazisazzadhossain',
+    techs: ['js', 'ts', 'react'],
+    links: { github: '/profiles', live: 'gazi-sazzad-hossain.vercel.app' },
+    isSmall: true,
+  },
+
+  {
     id: 'helpdesk',
     techs: ['ts', 'next', 'prisma', 'mysql'],
     links: { github: '/helpdesk', live: 'helpdesk-ecru.vercel.app' },
-    hasImage: true,
+    isSmall: true,
   },
   {
     id: 'employeemanagement',
@@ -546,7 +566,7 @@ const projects = [
       github: '/employee-management',
       live: 'employeemanagementsystem.vercel.app/dashboard',
     },
-    hasImage: true,
+    isSmall: true,
   },
   {
     id: 'tsxgames',
@@ -671,11 +691,11 @@ function mapLinks(links) {
                 ${projectTech.map((tech) => /*html*/ `<li class="project__tech"> ➞ ${techs/* default */.A[tech]}</li>`).join('')}
             </ul> 
 
-            <div class="project__content">
-                <div class="project__name">${t[id].name}</div>
-                <div class="project__description">${t[id].description}</div>
-                 <div class="project__links">${mapLinks(links)}</div>
-            </div>
+      <div class="project__content">
+  <div class="project__name">${t[id].name}</div>
+  <div class="project__description">${t[id].description}</div>
+         <div class="project__links">${mapLinks(links)}</div>
+      </div>
         </div> 
     `
 });
