@@ -9,8 +9,10 @@ export default {
   api: ['rest', 'graphql', 'json'],
   ORM: ['prisma', 'mongoose', 'typeorm'],
   versionControl: ['git', 'bitbucket', 'docker'],
-  Deployment: ['docker', 'aws', 'vercel', 'netlify'],
+  Deployment: ['docker', 'aws', 'vercel'],
   testing: ['ReactTestingLibrary', 'unitTesting', 'vitest'],
-  tools: ['terminal', 'vscode', 'postman', 'composer', 'jetbrains', 'xampp'],
-  digitalMarketing: ['videoediting', 'SEO', 'googleads', 'facebookads', 'promotion'],
+  digitalMarketing: ['SEO', 'googleads', 'facebookads', 'promotion', 'emailmarketing'],
+  others: ['wordpress', 'woocommerce', 'canva', 'videoediting'],
+  tools: ['terminal', 'vscode', 'postman', 'jetbrains', 'xampp'],
+  softSkills: ['communication', 'teamwork', 'creativity', 'adaptability', 'problem-solving'],
 }

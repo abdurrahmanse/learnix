@@ -15,7 +15,6 @@
     "Frontend": "Front-end",
     "StateManagement": "State Management",
     "backend": "Back-end",
-    "Stack": "My Stack",
     "ORM": "ORM",
     "api": "APIs",
     "uiframework": "UI Frameworks",
@@ -23,9 +22,11 @@
     "testing": "Testing",
     "versionControl": "Version Control",
     "Deployment": "Deployments",
-    "Design": "Design",
+    "Design": "Design Systems",
     "tools": "Tools",
-    "digitalMarketing": "Digital Marketing"
+    "digitalMarketing": "Digital Marketing",
+    "softSkills": "Soft Skills",
+    "others": "Others"
   },
   "projects": {
     "radhuni": {

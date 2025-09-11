@@ -10,6 +10,7 @@ module.exports = {
   entry: { index: './src/app/index.js', spaHandler: './src/app/spaHandler.js' },
   output: {
     path: resolve(__dirname, 'dist'),
+    publicPath: '/',
     filename: 'js/[name].js',
     chunkFilename: 'js/[chunkhash].js',
   },
@@ -75,7 +76,7 @@ module.exports = {
   devServer: {
     static: { directory: join(__dirname, 'dist') },
     port: 9000,
-    historyApiFallback: { rewrites: [{ from: /./, to: '/404.html' }] },
+    historyApiFallback: true,
   },
 
   resolve: {
