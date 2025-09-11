@@ -9,10 +9,10 @@ export default (t) => {
                     <div class="footer__info">
                         <div class="footer__header">
                             <div class="logo">
-                                <img src="/images/logo.svg" alt="logo" class="logo__img">
+                                <img src="/images/logo.svg" alt="logo" class="logo__img" loading="lazy">
                                 <div class="logo__name">AbdurRahman</div>
                             </div>
-                            <a class="footer__email" target="_blank" href="${media.email}">${media.emailRaw}</a>
+                            <a class="footer__email" target="_blank" rel="noopener noreferrer" href="${media.email}">${media.emailRaw}</a>
                         </div>
                         <p class="footer__description">${t.description}</p>
                     </div>

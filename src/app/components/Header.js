@@ -20,7 +20,7 @@ export default (t) => {
 
                 <div class="header__inner">
                     <a class="logo" href="/">
-                        <img class="logo__img" src="/images/logo.svg" alt="AbdurRahman Logo">
+                        <img class="logo__img" src="/images/logo.svg" alt="AbdurRahman Logo" loading="lazy">
                         <span class="logo__name">Abdur Rahman</span>
                     </a>
                     <div class="header__links">

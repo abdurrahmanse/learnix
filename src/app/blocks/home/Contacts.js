@@ -21,8 +21,8 @@ export default (t) => {
                         ${contacts
                           .map(
                             (contact) => /*html*/ `
-                            <a class="contact" href="${media[contact.name]}" target="_blank">
-                                <img src="/images/icons/${contact.name}.svg" alt="">
+              <a class="contact" href="${media[contact.name]}" target="_blank" rel="noopener noreferrer">
+                                <img src="/images/icons/${contact.name}.svg" alt="" loading="lazy">
                                 <div class="contact__name">${contact.text}</div>
                             </a>
                         `

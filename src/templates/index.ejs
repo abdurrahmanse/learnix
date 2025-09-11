@@ -22,6 +22,7 @@
     />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="en" />
+  <link rel="canonical" href="https://abdurrahman.live/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="AbdurRahman | Portfolio" />
@@ -36,7 +37,7 @@
     <meta property="og:image" content="https://abdurrahman.live/images/meta/abdurrahmanswe.webp" />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content=" AbdurRahman | Full Stack Developer | JavaScript & TypeScript Expert" />
+  <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="AbdurRahman | Portfolio" />
     <meta
       name="twitter:description"
@@ -47,9 +48,17 @@
     <!-- Google Site Verification -->
     <meta name="google-site-verification" content="M3IBz90OMWhqygFGixfdtiWBUvl8y2VuJG3pM9a0mmc" />
 
-    <!-- Sitemap and Robots -->
-    <link rel="sitemap" type="application/xml" href="https://abdurrahman.live/sitemap.xml" />
-    <meta name="robots" content="index, follow" />
+  <!-- Sitemap -->
+  <link rel="sitemap" type="application/xml" href="https://abdurrahman.live/sitemap.xml" />
+
+  <!-- Preload critical images -->
+  <link rel="preload" as="image" href="/images/heroImage.webp" />
+  <link rel="preload" as="image" href="/images/me.webp" />
+
+  <!-- Open Graph image details -->
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Abdur Rahman — Full‑Stack Software Engineer" />
 
     <!-- Analytics -->
     <script>
@@ -75,6 +84,35 @@
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9223539369799360"
      crossorigin="anonymous"></script>
+
+    <!-- Structured Data: Person + WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Abdur Rahman",
+        "url": "https://abdurrahman.live",
+        "image": "https://abdurrahman.live/images/meta/abdurrahmanswe.webp",
+        "jobTitle": "Full-Stack Software Engineer",
+        "sameAs": [
+          "https://github.com/abdurrahmanse",
+          "https://linkedin.com/in/abdurrahmanse"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "AbdurRahman Portfolio",
+        "url": "https://abdurrahman.live",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://abdurrahman.live/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
   </head>
 
   <body id="root">

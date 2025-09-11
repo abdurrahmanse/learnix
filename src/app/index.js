@@ -1,6 +1,7 @@
 import routes from './consts/routes'
 import loadCssFile from './helpers/loadCssFile'
-import localeHandler from './helpers/localeHandler'
+import localeHandler, { getLocale } from './helpers/localeHandler'
+import applyMeta, { applyHtmlLang } from './helpers/meta'
 import replacePath from './helpers/replacePath'
 import startTitleAnimation from './helpers/startTitleAnimation'
 import Layout from './views/Layout'
@@ -14,7 +15,13 @@ async function render() {
   loadCssFile(path.name)
   startTitleAnimation(path.name)
 
-  document.getElementById(rootId).innerHTML = await Layout((await import(`./views/${path.element}`)).default, path)
+  const view = (await import(`./views/${path.element}`)).default
+  const html = await Layout(view, path)
+  document.getElementById(rootId).innerHTML = html
+
+  const t = await getLocale()
+  applyMeta(path.name, t.pages)
+  applyHtmlLang(localStorage.locale)
 }
 
 replacePath()

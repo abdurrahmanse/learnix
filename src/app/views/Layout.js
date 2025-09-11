@@ -6,8 +6,9 @@ export default async (content, path) => {
   const locale = await getLocale()
 
   return /*html*/ `
+        <a class="skip-link" href="#main">Skip to content</a>
         ${Header(locale.header)}
-        <div class="container content">
+        <div class="container content" id="main">
             ${content(locale.pages[path.name], locale)}
         </div>
         ${Footer(locale.footer)}

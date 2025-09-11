@@ -13,7 +13,7 @@ function mapLinks(links) {
     const className = link === 'cached' ? 'button__secondary' : ''
     const name = `${link[0].toUpperCase()}${link.slice(1)}`
 
-    return /*html*/ `<a href="${href}" target="_blank" class="button ${className}">${name} =></a>`
+    return /*html*/ `<a href="${href}" target="_blank" rel="noopener noreferrer" class="button ${className}">${name} =></a>`
   }
 
   return Object.keys(links).map(map).join('')
@@ -24,7 +24,11 @@ export default ({ id }, t) => {
 
   return /*html*/ `
         <div class="project">
-            ${hasImage ? `<img src="/images/projects/${id}.webp" alt="${t[id].name}" class="project__image">` : ''}
+            ${
+              hasImage
+                ? `<img src="/images/projects/${id}.webp" alt="${t[id].name}" class="project__image" loading="lazy">`
+                : ''
+            }
             
             <ul class="project__techs">
                 ${projectTech.map((tech) => /*html*/ `<li class="project__tech"> ➞ ${techs[tech]}</li>`).join('')}

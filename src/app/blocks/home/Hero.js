@@ -12,8 +12,8 @@ export default (t) => {
                 <a class="button button__primary" href="#contacts">📞 ${t.contact} </a>
             </div>
             <div class="hero__illustrations">
-                <img src="/images/logo-outline.svg" alt="AbdurRahman Logo" class="hero__logo">
-                <img src="/images/heroImage.webp" alt="AbdurRahman" class="hero__image">
+                <img src="/images/logo-outline.svg" alt="AbdurRahman Logo" class="hero__logo" loading="lazy">
+                <img src="/images/heroImage.webp" alt="AbdurRahman" class="hero__image" loading="lazy">
                 <div class="hero__status">${t.status} <a href="https://abdurrahmans.netlify.app">Portfolio</a></div>
                 ${Dots({})}
             </div>

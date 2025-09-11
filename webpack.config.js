@@ -5,14 +5,15 @@ const plugins = {
   copy: require('copy-webpack-plugin'),
   json: require('json-minimizer-webpack-plugin'),
 }
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 module.exports = {
   entry: { index: './src/app/index.js', spaHandler: './src/app/spaHandler.js' },
   output: {
     path: resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'js/[name].js',
-    chunkFilename: 'js/[chunkhash].js',
+    filename: 'js/[name].[contenthash].js',
+    chunkFilename: 'js/[id].[contenthash].js',
   },
   mode: 'production',
   plugins: [
@@ -29,7 +30,7 @@ module.exports = {
       chunks: ['spaHandler'],
     }),
     new plugins.css({
-      filename: 'css/[name].css',
+      filename: 'css/[name].[contenthash].css',
       chunkFilename: (pathData) => {
         if (typeof pathData.chunk.id === 'number') return 'css/[name].css'
         const name = pathData.chunk.id.split('_').at(-2).toLowerCase()
@@ -86,5 +87,5 @@ module.exports = {
       fonts: resolve(__dirname, 'src/assets/fonts/Rajdhani/'),
     },
   },
-  optimization: { minimize: true, minimizer: [new plugins.json()] },
+  optimization: { minimize: true, minimizer: ['...', new CssMinimizerPlugin(), new plugins.json()] },
 }
