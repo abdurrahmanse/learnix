@@ -190,7 +190,7 @@
             "degree": "B.Sc in Computer Science & Engineering",
             "year": "2024 - 4 years program",
             "institution": "Green University of Bangladesh",
-            "description": "Focused on programming, data structures, databases, and web development."
+            "description": "Focused on programming, data structures, databases, and Software Engineering."
           },
           {
             "degree": "Diploma‑in‑Engineering",
@@ -263,11 +263,11 @@
       "howIWork": {
         "title": "How I Work",
         "steps": [
-          "Understand goals and plan the features",
-          "Sketch simple flows and UI",
-          "Build the app step by step",
-          "Test, fix bugs, and improve",
-          "Deploy and track results"
+          "Clarify goals, scope, and success metrics",
+          "Plan milestones and the feature set",
+          "Design simple flows and accessible UI",
+          "Build iteratively with reviews",
+          "Test, optimize, deploy, and monitor"
         ]
       }
     },
