@@ -33,7 +33,10 @@
 
     &__list
         display: flex
-        gap: 8px
+        flex-wrap: wrap
+        gap: 8px 12px
+        align-items: center
+        justify-content: flex-start
 
     &__title
         font:
@@ -53,5 +56,5 @@
 
     @media (max-width: variables.$mobileScreen)
         &__list
-            flex-direction: column
-            align-items: center
+            flex-direction: row
+            justify-content: center
