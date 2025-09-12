@@ -6,9 +6,9 @@
     "contacts": "Contact"
   },
   "footer": {
-    "description": "I design and build useful web apps.",
+    "description": "I build fast, accessible web apps with JavaScript/TypeScript. Open to freelance and remote work.",
     "copyright": "AbdurRahman. All rights reserved.",
-    "media": "Connect with me"
+    "media": "Let’s connect"
   },
   "skills": {
     "programming": "Programming",
@@ -187,7 +187,7 @@
         "title": "Education",
         "items": [
           {
-            "degree": "B.Sc in Computer Science & Engineering",
+            "degree": "Bachelor of Science in Computer Science",
             "year": "2024 - 4 years program",
             "institution": "Green University of Bangladesh",
             "description": "Focused on programming, data structures, databases, and Software Engineering."

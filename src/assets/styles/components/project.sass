@@ -12,6 +12,8 @@
     &__image
         border-bottom: 1px solid var(--gray)
         aspect-ratio: 16/9
+        width: 100%
+        height: auto
 
     &__content
         padding: 1rem
@@ -49,12 +51,16 @@
     width: 100%
     display: grid
     grid-template-columns: repeat(3, 1fr)
+    gap: 1.6rem
 
     @media (max-width: variables.$laptopScreen)
-        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr))
+        grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr))
 
     @media (max-width: variables.$desktopScreen)
         align-items: start
         gap: 1.6rem
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr))
+        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr))
         margin-top: 4.8rem
+
+    @media (max-width: variables.$tabletScreen)
+        grid-template-columns: 1fr
