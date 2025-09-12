@@ -49,7 +49,7 @@
     "gazisazzadhossain": {
       "name": "Dr. Gazi Sazzad Hossain",
       "description": "Professional portfolio highlighting biography and research.",
-      "caseStudy": true
+      "caseStudy": false
     },
 
     "nufbd": {
@@ -66,58 +66,58 @@
     "helpdesk": {
       "name": "HelpDesk",
       "description": "Support ticketing system with routing and analytics.",
-      "caseStudy": true
+      "caseStudy": false
     },
     "employeemanagement": {
       "name": "Employee Management",
       "description": "HR system for profiles, attendance, and role-based permissions.",
-      "caseStudy": true
+      "caseStudy": false
     },
     "tsxgames": {
       "name": "TSX Games",
       "description": "Interactive platform for discovering and exploring games.",
-      "caseStudy": true
+      "caseStudy": false
     },
     "mailbox": {
       "name": "Mailbox",
       "description": "Secure real-time messaging platform with persistent history.",
-      "caseStudy": true
+      "caseStudy": false
     },
     "ats": {
       "name": "ATS",
       "description": "Applicant tracking system with scheduling and progress tracking.",
-      "caseStudy": true
+      "caseStudy": false
     },
     "chatapp": {
       "name": "Chat App",
       "description": "Low-latency real-time messaging with presence indicators.",
-      "caseStudy": true
+      "caseStudy": false
     },
     "fastfood": {
       "name": "FastFood System",
       "description": "Ordering platform for quick-service restaurants with menu and order tracking.",
-      "caseStudy": true
+      "caseStudy": false
     },
     "carrental": {
       "name": "Car Rental",
       "description": "Customer-facing rental platform with booking and fleet management.",
-      "caseStudy": true
+      "caseStudy": false
     },
     "ecommerce": {
       "name": "E-commerce",
       "description": "Performance-focused commerce platform with responsive checkout.",
-      "caseStudy": true
+      "caseStudy": false
     },
     "coindom": {
       "name": "Coindom",
       "description": "Real-time crypto portfolio and trade tracking with exportable reports.",
-      "caseStudy": true
+      "caseStudy": false
     },
 
     "java": {
       "name": "Chess Viewer",
       "description": "Landing page for viewing chess tournaments and live matches.",
-      "caseStudy": true
+      "caseStudy": false
     },
 
     "cplusplus": {
@@ -127,7 +127,7 @@
     "rajouanulhaque": {
       "name": "Personal Portfolio",
       "description": "Modern, customizable personal portfolio template for showcasing projects and contact info.",
-      "caseStudy": true
+      "caseStudy": false
     }
   },
   "pages": {
@@ -468,6 +468,5 @@
       "solution": "Fast static page with clear content blocks.",
       "metrics": ["Better clarity", "Quicker signups", "Lower bounce"]
     }
-
-}
+  }
 }
