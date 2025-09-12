@@ -31,26 +31,31 @@
   "projects": {
     "radhuni": {
       "name": "Radhuni",
-      "description": "Chef and private event booking platform with scheduling and secure payments."
+      "description": "Chef and private event booking platform with scheduling and secure payments.",
+      "caseStudy": true
     },
     "tofazzalhossainbhuiyan": {
       "name": "Dr. Tofazzal Hossain Bhuiyan",
-      "description": "Professional personal website showcasing biography and publications."
+      "description": "Professional personal website showcasing biography and publications.",
+      "caseStudy": true
     },
 
     "rarebd": {
       "name": "Rare Bangladesh Ltd",
-      "description": "Corporate site for HVAC products with catalog and dealer information."
+      "description": "Corporate site for HVAC products with catalog and dealer information.",
+      "caseStudy": true
     },
 
     "gazisazzadhossain": {
       "name": "Dr. Gazi Sazzad Hossain",
-      "description": "Professional portfolio highlighting biography and research."
+      "description": "Professional portfolio highlighting biography and research.",
+      "caseStudy": true
     },
 
     "nufbd": {
       "name": "Nari Unnoyon Forum (NUF)",
-      "description": "Organization site with events, news, and resources for community engagement."
+      "description": "Organization site with events, news, and resources for community engagement.",
+      "caseStudy": true
     },
 
     "financepro": {
@@ -60,48 +65,59 @@
     },
     "helpdesk": {
       "name": "HelpDesk",
-      "description": "Support ticketing system with routing and analytics."
+      "description": "Support ticketing system with routing and analytics.",
+      "caseStudy": true
     },
     "employeemanagement": {
       "name": "Employee Management",
-      "description": "HR system for profiles, attendance, and role-based permissions."
+      "description": "HR system for profiles, attendance, and role-based permissions.",
+      "caseStudy": true
     },
     "tsxgames": {
       "name": "TSX Games",
-      "description": "Interactive platform for discovering and exploring games."
+      "description": "Interactive platform for discovering and exploring games.",
+      "caseStudy": true
     },
     "mailbox": {
       "name": "Mailbox",
-      "description": "Secure real-time messaging platform with persistent history."
+      "description": "Secure real-time messaging platform with persistent history.",
+      "caseStudy": true
     },
     "ats": {
       "name": "ATS",
-      "description": "Applicant tracking system with scheduling and progress tracking."
+      "description": "Applicant tracking system with scheduling and progress tracking.",
+      "caseStudy": true
     },
     "chatapp": {
       "name": "Chat App",
-      "description": "Low-latency real-time messaging with presence indicators."
+      "description": "Low-latency real-time messaging with presence indicators.",
+      "caseStudy": true
     },
     "fastfood": {
       "name": "FastFood System",
-      "description": "Ordering platform for quick-service restaurants with menu and order tracking."
+      "description": "Ordering platform for quick-service restaurants with menu and order tracking.",
+      "caseStudy": true
     },
     "carrental": {
       "name": "Car Rental",
-      "description": "Customer-facing rental platform with booking and fleet management."
+      "description": "Customer-facing rental platform with booking and fleet management.",
+      "caseStudy": true
     },
     "ecommerce": {
       "name": "E-commerce",
-      "description": "Performance-focused commerce platform with responsive checkout."
+      "description": "Performance-focused commerce platform with responsive checkout.",
+      "caseStudy": true
     },
     "coindom": {
       "name": "Coindom",
-      "description": "Real-time crypto portfolio and trade tracking with exportable reports."
+      "description": "Real-time crypto portfolio and trade tracking with exportable reports.",
+      "caseStudy": true
     },
 
     "java": {
       "name": "Chess Viewer",
-      "description": "Landing page for viewing chess tournaments and live matches."
+      "description": "Landing page for viewing chess tournaments and live matches.",
+      "caseStudy": true
     },
 
     "cplusplus": {
@@ -110,7 +126,8 @@
     },
     "rajouanulhaque": {
       "name": "Personal Portfolio",
-      "description": "Modern, customizable personal portfolio template for showcasing projects and contact info."
+      "description": "Modern, customizable personal portfolio template for showcasing projects and contact info.",
+      "caseStudy": true
     }
   },
   "pages": {
@@ -288,6 +305,169 @@
       "stack": "TypeScript, Node.js, Express, PostgreSQL, Prisma, Webpack, Jest, Vercel",
       "solution": "Clean UI with role‑based access, fast pages, and easy reports.",
       "metrics": ["Faster access to data", "Quicker report generation", "Smoother releases"]
+    },
+    "radhuni": {
+      "title": "Radhuni — Chef Booking Platform",
+      "summary": "Book private chefs for events with schedules and secure payments.",
+      "problem": "Hosts needed a simple way to find, compare, and book chefs.",
+      "role": "Designed flows, built the front‑end, and set up booking logic.",
+      "stack": "React, TypeScript, Node.js, Express, PostgreSQL",
+      "solution": "Profile pages, calendar‑based booking, and a smooth checkout experience.",
+      "metrics": ["Faster bookings", "Fewer support messages", "Higher conversion"]
+    },
+    "tofazzalhossainbhuiyan": {
+      "title": "Dr. T. H. Bhuiyan — Personal Site",
+      "summary": "Clean personal website to present profile, research, and publications.",
+      "problem": "Needed a modern, easy‑to‑update personal site.",
+      "role": "Developed the UI, content structure, and simple CMS‑ready layout.",
+      "stack": "React, TypeScript, Webpack, Vercel",
+      "solution": "Fast pages with clear sections and accessible design.",
+      "metrics": ["Improved readability", "Better SEO basics", "Easier updates"]
+    },
+    "rarebd": {
+      "title": "RareBD — HVAC Product Site",
+      "summary": "Corporate site with product catalog and dealer information.",
+      "problem": "Buyers needed clear product info and ways to connect with dealers.",
+      "role": "Built catalog pages, search, and dealer contact flows.",
+      "stack": "Node.js, JavaScript, PostgreSQL, Sass",
+      "solution": "Structured catalog, filters, and mobile‑first pages.",
+      "metrics": ["Faster product discovery", "More dealer inquiries", "Lower bounce rate"]
+    },
+    "nufbd": {
+      "title": "NUF — Organization Website",
+      "summary": "Events, news, and resources for community engagement.",
+      "problem": "The team needed a place to publish updates and resources.",
+      "role": "Implemented pages, listings, and basic admin‑friendly structure.",
+      "stack": "Next.js, JavaScript, PostgreSQL, Sass",
+      "solution": "Simple content model with fast, responsive pages.",
+      "metrics": ["More content updates", "Better engagement", "Improved navigation"]
+    },
+    "gazisazzadhossain": {
+      "title": "Dr. G. S. Hossain — Portfolio",
+      "summary": "Professional profile with biography and research highlights.",
+      "problem": "Needed a clean, credible online presence.",
+      "role": "Designed layout and built the site with fast, readable pages.",
+      "stack": "React, TypeScript, Webpack",
+      "solution": "Focused content sections with accessible typography.",
+      "metrics": ["Improved credibility", "Faster page loads", "Better SEO setup"]
+    },
+    "helpdesk": {
+      "title": "HelpDesk — Support Ticketing",
+      "summary": "Ticketing system with routing, status tracking, and analytics.",
+      "problem": "Support needed an organized way to triage and track issues.",
+      "role": "Built core tickets, assignment, and reporting pages.",
+      "stack": "Next.js, TypeScript, Prisma, MySQL",
+      "solution": "Simple ticket flows with filters and role‑based views.",
+      "metrics": ["Faster response time", "Clearer ownership", "Reduced backlog"]
+    },
+    "employeemanagement": {
+      "title": "Employee Management — HR Tools",
+      "summary": "Manage profiles, attendance, and permissions in one place.",
+      "problem": "HR needed a simple system to track employee data.",
+      "role": "Built dashboards, forms, and role‑based access.",
+      "stack": "Next.js, TypeScript, shadcn/ui",
+      "solution": "Clean UI with reusable components and clear data models.",
+      "metrics": ["Less manual work", "Fewer data errors", "Faster onboarding"]
+    },
+    "tsxgames": {
+      "title": "TSX Games — Game Explorer",
+      "summary": "Browse and explore games with a fast, minimal UI.",
+      "problem": "Users wanted quick discovery with simple filters.",
+      "role": "Built the UI, state store, and search flow.",
+      "stack": "React, TypeScript, Zustand",
+      "solution": "Snappy list pages with client‑side state and caching.",
+      "metrics": ["Quicker discovery", "Lower bounce", "Smooth navigation"]
+    },
+    "mailbox": {
+      "title": "Mailbox — Real‑Time Messaging",
+      "summary": "Secure messaging with threads and message history.",
+      "problem": "Teams needed a simple tool for quick, reliable chats.",
+      "role": "Implemented messaging UI and server integration.",
+      "stack": "Angular, TypeScript, Node.js",
+      "solution": "Real‑time updates with stable persistence and clean UX.",
+      "metrics": ["Lower message delays", "Higher reliability", "Better adoption"]
+    },
+    "ats": {
+      "title": "ATS — Applicant Tracking",
+      "summary": "Track candidates, schedule interviews, and monitor progress.",
+      "problem": "Recruiters needed a single view of candidate status.",
+      "role": "Built candidate lists, pipelines, and schedule pages.",
+      "stack": "React, Node.js, MongoDB",
+      "solution": "Clear stages with search, filters, and status history.",
+      "metrics": ["Faster hiring steps", "Fewer missed updates", "Better visibility"]
+    },
+    "chatapp": {
+      "title": "Chat App — Real‑Time Chat",
+      "summary": "Lightweight chat with rooms, presence, and history.",
+      "problem": "Needed a simple, low‑latency chat for small teams.",
+      "role": "Built server, sockets, and a minimal UI.",
+      "stack": "Node.js, Express, MongoDB, EJS",
+      "solution": "Stable real‑time messaging with readable UI.",
+      "metrics": ["Low latency", "Stable connections", "Happy users"]
+    },
+    "carrental": {
+      "title": "Car Rental — Booking UI",
+      "summary": "Customer‑facing site to browse cars and make bookings.",
+      "problem": "Visitors needed an easy way to compare options and book.",
+      "role": "Built listing, details, and booking forms.",
+      "stack": "React, Redux, Sass",
+      "solution": "Responsive pages with clear filters and checkout flow.",
+      "metrics": ["Higher engagement", "Fewer drop‑offs", "Faster booking"]
+    },
+    "ecommerce": {
+      "title": "E‑commerce — Minimal Storefront",
+      "summary": "Simple store with responsive layout and smooth checkout.",
+      "problem": "Needed a clean, fast shopping experience.",
+      "role": "Implemented product views, cart, and checkout UI.",
+      "stack": "React, Redux, Sass",
+      "solution": "Mobile‑first pages with basic state and routing.",
+      "metrics": ["Faster page loads", "Fewer cart abandons", "Better UX"]
+    },
+    "coindom": {
+      "title": "Coindom — Crypto Tracker",
+      "summary": "Track crypto prices and portfolios in real time.",
+      "problem": "Users wanted quick price checks and simple portfolio views.",
+      "role": "Built price lists, details, and saved views.",
+      "stack": "React, Sass",
+      "solution": "Fast search with readable charts and lists.",
+      "metrics": ["Quicker lookups", "Lower CPU usage", "Better retention"]
+    },
+    "fastfood": {
+      "title": "FastFood — Ordering System",
+      "summary": "Menu browsing and order tracking for quick‑service restaurants.",
+      "problem": "Needed a basic online ordering flow.",
+      "role": "Built menu, cart, and order status pages.",
+      "stack": "PHP, MySQL, JavaScript",
+      "solution": "Straightforward UI with clear steps from menu to order.",
+      "metrics": ["Fewer phone orders", "Faster checkout", "Higher accuracy"]
+    },
+    "rajouanulhaque": {
+      "title": "Portfolio — Personal Website",
+      "summary": "A clean portfolio to showcase work and contact info.",
+      "problem": "Needed a simple personal site with a flexible layout.",
+      "role": "Wrote the layout, sections, and responsive styles.",
+      "stack": "HTML, CSS, Sass, JavaScript",
+      "solution": "Fast static pages with a friendly design.",
+      "metrics": ["Better SEO", "Easy maintenance", "Faster loads"]
+    },
+    "java": {
+      "title": "Chess Viewer — Tournament Pages",
+      "summary": "Landing pages to browse tournaments and live matches.",
+      "problem": "Fans needed a place to quickly see schedules and results.",
+      "role": "Built pages and basic data views.",
+      "stack": "Java, Data Structures",
+      "solution": "Simple views with readable tables and lists.",
+      "metrics": ["Faster lookups", "Cleaner UI", "Less confusion"]
+    },
+    "cplusplus": {
+      "title": "CPlusPlus Hosting — Landing",
+      "summary": "Hosting landing for game servers and small websites.",
+      "problem": "Visitors needed clear pricing and a simple overview.",
+      "role": "Wrote the landing sections and CTA flow.",
+      "stack": "JavaScript, HTML, CSS",
+      "solution": "Fast static page with clear content blocks.",
+      "metrics": ["Better clarity", "Quicker signups", "Lower bounce"]
     }
-  }
+
+}
 }

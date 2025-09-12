@@ -1,13 +1,13 @@
 @use '../default/_variables.scss' as variables
 
 .button
-    border-radius: 10px
+    border-radius: 0.5rem
     border: 1px solid var(--gray)
-    box-shadow: -2px 5px 25px -11px var(--gray)
+    box-shadow: 1px 3px 15px 0px var(--gray)
     color: var(--gray)
     cursor: pointer
     display: inline-block
-    font-weight: 700
+    font-weight: 600
     outline: none
     padding: 2px 1.6rem
     margin: 0.5rem
@@ -15,7 +15,12 @@
     transition: background-color 0.2s ease-in-out
     white-space: normal
     width: max-content
+    max-width: 20rem
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
     background-color: var(--gray-op)
+    font-size: 1.4rem
 
     &:hover
         background-color: var(--primary-op)

@@ -3,9 +3,11 @@
 .project
     border: 1px solid var(--gray)
     margin: 18px 6px
+    overflow: hidden
 
     &__links
         display: flex
+        flex-wrap: wrap
         gap: 0.8rem
 
     &__image
@@ -41,25 +43,18 @@
         align-content: center
         font-size: 1.6rem
 
-    &:hover
-        box-shadow: 1rem
-        transform: scale(1.04)
-        transition: transform 0.15s ease-in
+    @media (hover: hover)
+        &:hover
+            transform: scale(1.02)
+            transition: transform 0.15s ease-in
 
 .project-list
     width: 100%
     display: grid
-    grid-template-columns: repeat(3, 1fr)
     gap: 1.6rem
-
-    @media (max-width: variables.$laptopScreen)
-        grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr))
-
-    @media (max-width: variables.$desktopScreen)
-        align-items: start
-        gap: 1.6rem
-        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr))
-        margin-top: 4.8rem
+    grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr))
+    align-items: start
+    margin-top: 4.8rem
 
     @media (max-width: variables.$tabletScreen)
         grid-template-columns: 1fr
