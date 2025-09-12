@@ -188,20 +188,20 @@
         "items": [
           {
             "degree": "Bachelor of Science in Computer Science",
-            "year": "2024 - 4 years program",
+            "year": "2020 - 2024: 4 years program",
             "institution": "Green University of Bangladesh",
             "description": "Focused on programming, data structures, databases, and Software Engineering."
           },
           {
             "degree": "Diploma‑in‑Engineering",
             "program": "Computer Science Technology",
-            "year": "2019 - 4 years program",
+            "year": "2015 - 2019: 4 years program",
             "institution": "Thakurgaon Polytechnic Institute",
             "description": "Learned core CS topics, practical labs, and basic software projects."
           },
           {
             "degree": "Secondary School Certificate (SSC)",
-            "year": "2015 - 2 years program",
+            "year": "2013 - 2015: 2 years program",
             "institution": "Dr. Major (Retd.) Tanbiruzzaman High School",
             "description": "Completed secondary education with strong interest in computers."
           }
