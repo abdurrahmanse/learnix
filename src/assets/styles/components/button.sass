@@ -9,23 +9,29 @@
     display: inline-block
     font-weight: 600
     outline: none
+    padding: 0.3rem 1rem
+    text-align: center
+    text-decoration: none
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out
+    white-space: normal
+    width: max-content
     &:focus
         outline: 2px solid hsl(var(--primary))
         outline-offset: 2px
         background-color: var(--white)
         color: hsl(var(--primary))
-    padding: 2px 1.6rem
-    margin: 0.5rem
-    text-transform: uppercase
-    transition: background-color 0.2s ease-in-out
-    white-space: normal
-    width: max-content
-    max-width: 20rem
-    overflow: hidden
-    text-overflow: ellipsis
-    white-space: nowrap
-    background-color: var(--gray-op)
-    font-size: 1.4rem
+        padding: 2px 1.6rem
+        margin: 0.5rem
+        text-transform: uppercase
+        transition: background-color 0.2s ease-in-out
+        white-space: normal
+        width: max-content
+        max-width: 20rem
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+        background-color: var(--gray-op)
+        font-size: 1.4rem
 
     &:hover
         background-color: var(--primary-op)
