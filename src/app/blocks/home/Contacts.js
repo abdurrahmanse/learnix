@@ -8,7 +8,7 @@ const contacts = [
 
 export default (t) => {
   return /*html*/ `
-        <section class="contacts" id="contacts">
+  <section class="contacts" id="contacts" aria-label="Contact information">
             <h2 class="h2">${t.title}</h2>
             <div class="contacts__content">
                 <p class="contacts__description">
@@ -22,7 +22,9 @@ export default (t) => {
                           .map(
                             (contact) => /*html*/ `
               <a class="contact" href="${media[contact.name]}" target="_blank" rel="noopener noreferrer">
-                                <img src="/images/icons/${contact.name}.svg" alt="" loading="lazy">
+                  <img src="/images/icons/${contact.name}.svg" alt="${
+                              contact.name.charAt(0).toUpperCase() + contact.name.slice(1)
+                            } icon" loading="lazy">
                                 <div class="contact__name">${contact.text}</div>
                             </a>
                         `

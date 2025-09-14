@@ -26,7 +26,7 @@ export default ({ id }, t) => {
         <div class="project">
             ${
               hasImage
-                ? `<img src="/images/projects/${id}.webp" alt="${t[id].name}" class="project__image" loading="lazy">`
+                ? `<img src="/images/projects/${id}.webp" alt="${t[id].name}" class="project__image" loading="lazy" width="640" height="360">`
                 : ''
             }
             

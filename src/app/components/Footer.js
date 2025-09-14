@@ -3,7 +3,7 @@ import MediaIcon from './MediaIcon'
 
 export default (t) => {
   return /*html*/ `
-        <footer class="footer">
+    <footer class="footer" role="contentinfo">
             <div class="container">
                 <div class="footer__inner">
                     <div class="footer__info">

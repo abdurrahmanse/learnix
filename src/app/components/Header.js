@@ -5,7 +5,7 @@ const paths = ['/', '/about-me', '/projects', '/contacts']
 
 export default (t) => {
   return /*html*/ `
-        <header class="header">
+    <header class="header" role="banner">
             <input class="hamburger" type="checkbox" aria-label="Menu" />
 
             <div class="media-header">

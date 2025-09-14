@@ -2,7 +2,7 @@ import Dots from '@/components/Dots'
 
 export default (t) => {
   return /*html*/ `
-        <section class="hero">
+    <section class="hero" aria-label="Hero section">
             <div class="hero__content">
                 <h1 class="hero__title">💻 ${t.title}</h1>
                 <div class="hero__description">${t.description}</div>
