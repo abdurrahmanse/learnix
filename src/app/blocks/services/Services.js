@@ -9,7 +9,7 @@ export default (input) => {
       <div class="services-list">
         ${items
           .map((service, idx) => {
-            const icon = ['⚡️','🎨','🚀'][idx % 3]
+            const icon = ['⚡️', '🎨', '🚀'][idx % 3]
             const highlights = Array.isArray(service.highlights)
               ? `<ul class="service-highlights">${service.highlights
                   .map((h) => `<li><span class="dot">•</span>${h}</li>`)

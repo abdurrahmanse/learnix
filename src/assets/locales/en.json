@@ -1,11 +1,7 @@
 {
   "caseStudies": {
     "ats": {
-      "metrics": [
-        "Faster hiring steps",
-        "Fewer missed updates",
-        "Better visibility"
-      ],
+      "metrics": ["Faster hiring steps", "Fewer missed updates", "Better visibility"],
       "problem": "Recruiters needed one place to see candidate status.",
       "role": "Built candidate lists, pipelines, and schedule pages.",
       "solution": "Clear stages with search/filter and status history.",
@@ -14,11 +10,7 @@
       "title": "ATS — Applicant Tracking"
     },
     "carrental": {
-      "metrics": [
-        "Higher engagement",
-        "Lower drop‑off",
-        "Faster booking"
-      ],
+      "metrics": ["Higher engagement", "Lower drop‑off", "Faster booking"],
       "problem": "Visitors needed an easy way to compare cars and book.",
       "role": "Built listings, details pages, and a booking form.",
       "solution": "Responsive pages with filters and a simple checkout flow.",
@@ -27,11 +19,7 @@
       "title": "Car Rental — Booking UI"
     },
     "chatapp": {
-      "metrics": [
-        "Low latency",
-        "Stable connections",
-        "Happier users"
-      ],
+      "metrics": ["Low latency", "Stable connections", "Happier users"],
       "problem": "Teams needed a simple, reliable real‑time chat.",
       "role": "Built the server, sockets, and a minimal chat UI.",
       "solution": "Stable real‑time messaging with a readable interface.",
@@ -40,11 +28,7 @@
       "title": "Chat App — Real‑Time Chat"
     },
     "coindom": {
-      "metrics": [
-        "Faster lookups",
-        "Lower CPU usage",
-        "Better retention"
-      ],
+      "metrics": ["Faster lookups", "Lower CPU usage", "Better retention"],
       "problem": "Users needed fast price checks and a simple portfolio view.",
       "role": "Built price lists, details, and a saved view.",
       "solution": "Fast search with readable charts and lists.",
@@ -53,11 +37,7 @@
       "title": "Coindom — Crypto Tracker"
     },
     "cplusplus": {
-      "metrics": [
-        "Better clarity",
-        "Quicker signups",
-        "Lower bounce"
-      ],
+      "metrics": ["Better clarity", "Quicker signups", "Lower bounce"],
       "problem": "Visitors needed clear pricing and a simple overview.",
       "role": "Wrote the landing sections and CTA flow.",
       "solution": "Fast static page with clear content blocks.",
@@ -66,11 +46,7 @@
       "title": "CPlusPlus Hosting — Landing"
     },
     "ecommerce": {
-      "metrics": [
-        "Faster page loads",
-        "Fewer cart abandons",
-        "Better UX"
-      ],
+      "metrics": ["Faster page loads", "Fewer cart abandons", "Better UX"],
       "problem": "Needed a clean, fast shopping experience.",
       "role": "Implemented product views, cart, and checkout UI.",
       "solution": "Mobile‑first pages with basic state and routing.",
@@ -79,11 +55,7 @@
       "title": "E‑commerce — Minimal Storefront"
     },
     "employeemanagement": {
-      "metrics": [
-        "Less manual work",
-        "Fewer data errors",
-        "Faster onboarding"
-      ],
+      "metrics": ["Less manual work", "Fewer data errors", "Faster onboarding"],
       "problem": "HR needed a simple system to track employee data.",
       "role": "Built dashboards, forms, and role‑based access.",
       "solution": "Clean UI with reusable components and clear data models.",
@@ -92,11 +64,7 @@
       "title": "Employee Management — HR Tools"
     },
     "fastfood": {
-      "metrics": [
-        "Fewer phone orders",
-        "Faster checkout",
-        "Higher accuracy"
-      ],
+      "metrics": ["Fewer phone orders", "Faster checkout", "Higher accuracy"],
       "problem": "Needed a basic online ordering flow.",
       "role": "Built menu, cart, and order status pages.",
       "solution": "Straightforward UI with clear steps from menu to order.",
@@ -105,11 +73,7 @@
       "title": "FastFood — Ordering System"
     },
     "financepro": {
-      "metrics": [
-        "Faster access to data",
-        "Quicker report generation",
-        "Smoother releases"
-      ],
+      "metrics": ["Faster access to data", "Quicker report generation", "Smoother releases"],
       "problem": "Teams needed a clear view of numbers without manual work.",
       "role": "Built the front‑end, connected APIs, and set up basic CI.",
       "solution": "Clean UI with role‑based access, fast pages, and easy reports.",
@@ -118,11 +82,7 @@
       "title": "Finance Pro — Finance Dashboard"
     },
     "gazisazzadhossain": {
-      "metrics": [
-        "Improved credibility",
-        "Faster page loads",
-        "Better SEO setup"
-      ],
+      "metrics": ["Improved credibility", "Faster page loads", "Better SEO setup"],
       "problem": "Needed a clean, credible online presence.",
       "role": "Designed layout and built the site with fast, readable pages.",
       "solution": "Focused content sections with accessible typography.",
@@ -131,11 +91,7 @@
       "title": "Dr. G. S. Hossain — Portfolio"
     },
     "helpdesk": {
-      "metrics": [
-        "Faster response time",
-        "Clearer ownership",
-        "Reduced backlog"
-      ],
+      "metrics": ["Faster response time", "Clearer ownership", "Reduced backlog"],
       "problem": "Support needed an organized way to triage and track issues.",
       "role": "Built core tickets, assignment, and reporting pages.",
       "solution": "Simple ticket flows with filters and role‑based views.",
@@ -144,11 +100,7 @@
       "title": "HelpDesk — Support Ticketing"
     },
     "java": {
-      "metrics": [
-        "Faster lookups",
-        "Cleaner UI",
-        "Less confusion"
-      ],
+      "metrics": ["Faster lookups", "Cleaner UI", "Less confusion"],
       "problem": "Fans needed a place to quickly see schedules and results.",
       "role": "Built pages and basic data views.",
       "solution": "Simple views with readable tables and lists.",
@@ -157,11 +109,7 @@
       "title": "Chess Viewer — Tournament Pages"
     },
     "mailbox": {
-      "metrics": [
-        "Lower message delays",
-        "Higher reliability",
-        "Better adoption"
-      ],
+      "metrics": ["Lower message delays", "Higher reliability", "Better adoption"],
       "problem": "Teams needed a simple tool for quick, reliable chats.",
       "role": "Implemented messaging UI and server integration.",
       "solution": "Real‑time updates with stable persistence and clean UX.",
@@ -170,11 +118,7 @@
       "title": "Mailbox — Real‑Time Messaging"
     },
     "nufbd": {
-      "metrics": [
-        "More content updates",
-        "Better engagement",
-        "Improved navigation"
-      ],
+      "metrics": ["More content updates", "Better engagement", "Improved navigation"],
       "problem": "The team needed a place to publish updates and resources.",
       "role": "Implemented pages, listings, and basic admin‑friendly structure.",
       "solution": "Simple content model with fast, responsive pages.",
@@ -183,11 +127,7 @@
       "title": "NUF — Organization Website"
     },
     "radhuni": {
-      "metrics": [
-        "Faster bookings",
-        "Fewer support messages",
-        "Higher conversion"
-      ],
+      "metrics": ["Faster bookings", "Fewer support messages", "Higher conversion"],
       "problem": "Hosts needed a simple way to find, compare, and book chefs.",
       "role": "Designed flows, built the front‑end, and set up booking logic.",
       "solution": "Profile pages, calendar‑based booking, and a smooth checkout experience.",
@@ -196,11 +136,7 @@
       "title": "Radhuni — Chef Booking Platform"
     },
     "rajouanulhaque": {
-      "metrics": [
-        "Better SEO",
-        "Easy maintenance",
-        "Faster loads"
-      ],
+      "metrics": ["Better SEO", "Easy maintenance", "Faster loads"],
       "problem": "Needed a simple personal site with a flexible layout.",
       "role": "Wrote the layout, sections, and responsive styles.",
       "solution": "Fast static pages with a friendly design.",
@@ -209,11 +145,7 @@
       "title": "Portfolio — Personal Website"
     },
     "rarebd": {
-      "metrics": [
-        "Faster product discovery",
-        "More dealer inquiries",
-        "Lower bounce rate"
-      ],
+      "metrics": ["Faster product discovery", "More dealer inquiries", "Lower bounce rate"],
       "problem": "Buyers needed clear product info and ways to connect with dealers.",
       "role": "Built catalog pages, search, and dealer contact flows.",
       "solution": "Structured catalog, filters, and mobile‑first pages.",
@@ -222,11 +154,7 @@
       "title": "RareBD — HVAC Product Site"
     },
     "tofazzalhossainbhuiyan": {
-      "metrics": [
-        "Improved readability",
-        "Better SEO basics",
-        "Easier updates"
-      ],
+      "metrics": ["Improved readability", "Better SEO basics", "Easier updates"],
       "problem": "Needed a modern, easy‑to‑update personal site.",
       "role": "Developed the UI, content structure, and simple CMS‑ready layout.",
       "solution": "Fast pages with clear sections and accessible design.",
@@ -235,11 +163,7 @@
       "title": "Dr. T. H. Bhuiyan — Personal Site"
     },
     "tsxgames": {
-      "metrics": [
-        "Quicker discovery",
-        "Lower bounce",
-        "Smooth navigation"
-      ],
+      "metrics": ["Quicker discovery", "Lower bounce", "Smooth navigation"],
       "problem": "Users wanted quick discovery with simple filters.",
       "role": "Built the UI, state store, and search flow.",
       "solution": "Snappy list pages with client‑side state and caching.",
@@ -455,56 +379,32 @@
       "items": [
         {
           "description": "Responsive, mobile‑friendly websites with a focus on UX and clean design.",
-          "highlights": [
-            "HTML, CSS, JavaScript, TypeScript",
-            "React and Next.js",
-            "Accessible, responsive UI"
-          ],
+          "highlights": ["HTML, CSS, JavaScript, TypeScript", "React and Next.js", "Accessible, responsive UI"],
           "title": "Frontend Development"
         },
         {
           "description": "Secure and scalable server‑side apps with fast APIs and solid data models.",
-          "highlights": [
-            "Node.js, Express, NestJS",
-            "REST and GraphQL APIs",
-            "SQL & MongoDB"
-          ],
+          "highlights": ["Node.js, Express, NestJS", "REST and GraphQL APIs", "SQL & MongoDB"],
           "title": "Backend Development"
         },
         {
           "description": "Complete web solutions from UI to database with smooth integration.",
-          "highlights": [
-            "MERN / MEAN stacks",
-            "End‑to‑end delivery",
-            "Modern best practices"
-          ],
+          "highlights": ["MERN / MEAN stacks", "End‑to‑end delivery", "Modern best practices"],
           "title": "Fullstack Development"
         },
         {
           "description": "Targeted social campaigns to grow reach and engagement with clear results.",
-          "highlights": [
-            "Facebook, Instagram, LinkedIn",
-            "Brand awareness & engagement",
-            "Analytics‑driven ROI"
-          ],
+          "highlights": ["Facebook, Instagram, LinkedIn", "Brand awareness & engagement", "Analytics‑driven ROI"],
           "title": "Digital Marketing"
         },
         {
           "description": "Creative ads and campaigns that reach the right audience and convert.",
-          "highlights": [
-            "Ad copy and visuals",
-            "Campaign management",
-            "Conversion‑focused design"
-          ],
+          "highlights": ["Ad copy and visuals", "Campaign management", "Conversion‑focused design"],
           "title": "Advertisement"
         },
         {
           "description": "Professional edits for ads, social media, and branding with strong storytelling.",
-          "highlights": [
-            "Transitions and effects",
-            "Motion graphics",
-            "Engaging visual stories"
-          ],
+          "highlights": ["Transitions and effects", "Motion graphics", "Engaging visual stories"],
           "title": "Video Editing"
         }
       ],
