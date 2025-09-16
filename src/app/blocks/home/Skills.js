@@ -1,6 +1,6 @@
-import Dots from "@/components/Dots";
-import SkillBlock from "@/components/SkillBlock";
-import skills from "@/consts/skills";
+import Dots from '@/components/Dots'
+import SkillBlock from '@/components/SkillBlock'
+import skills from '@/consts/skills'
 
 export default (t, t2) => {
   return /*html*/ `
@@ -14,12 +14,12 @@ export default (t, t2) => {
                 </div>
                 <div class="skills__list">
                     ${Object.keys(skills)
-                      .filter((id) => id !== "tool")
+                      .filter((id) => id !== 'tool')
                       .map((id) => SkillBlock({ id }, t2))
-                      .join("")}
+                      .join('')}
                 </div>
 
             </div>
         </sections>
-    `;
-};
+    `
+}

@@ -24,7 +24,9 @@
   "scripts": {
     "compile:sass": "sass ./style.scss ./style.css -w",
     "build": "webpack",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+  "validate:locales": "node scripts/validate-locales.js",
+  "format:json": "node scripts/format-json.js"
   },
   "dependencies": {
     "@vercel/speed-insights": "^1.2.0",

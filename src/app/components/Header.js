@@ -1,7 +1,7 @@
 import routes from '@/consts/routes'
 import MediaIcon from './MediaIcon'
 
-const paths = ['/', '/about-me', '/projects', '/contacts']
+const paths = ['/', '/about-me', '/projects', '/services', '/contacts']
 
 export default (t) => {
   return /*html*/ `

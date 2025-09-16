@@ -14,7 +14,7 @@ export default (t, locale) => {
       ${Education(t.education)}
       ${Experience(locale.pages.experience)}
   
-        ${Skills(t.skills, locale.skills)}
+        ${Skills(t.skills, locale.skills, t.services)}
         ${Facts(t.facts)}
     `
 }
