@@ -1,0 +1,58 @@
+@use '../default/_variables.scss' as variables
+
+.pricing-page
+  padding-top: 3rem
+
+  .pricing-hero
+    text-align: center
+    margin-bottom: 2rem
+    .lead
+      color: var(--gray)
+
+  .pricing-grid
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 1.5rem
+
+  .pricing-card
+    border: 1px solid var(--gray)
+    border-style: solid
+    border-radius: .75rem
+    padding: 1.25rem
+    background: var(--background)
+    box-shadow: 0 4px 16px 0 var(--gray-op)
+    display: flex
+    flex-direction: column
+    gap: .75rem
+
+    .pricing-title
+      font-size: 1.25rem
+      font-weight: 700
+
+    .pricing-price
+      display: flex
+      align-items: center
+      gap: .5rem
+      .period
+        color: var(--gray)
+        font-weight: 600
+        text-transform: none
+      .amount
+        font-size: 1.9rem
+        font-weight: 700
+        color: var(--white)
+
+    .features
+      margin: .5rem 0 1rem
+      padding-left: 1rem
+      display: grid
+      gap: .25rem
+      color: var(--gray)
+      li
+        list-style: disc
+        margin-left: 1rem
+
+@media (max-width: variables.$tabletScreen)
+  .pricing-page
+    .pricing-grid
+      grid-template-columns: 1fr

@@ -182,7 +182,8 @@
     "contacts": "Contact",
     "home": "Home",
     "projects": "Project",
-    "services": "Services"
+    "services": "Services",
+    "pricing": "Pricing"
   },
   "pages": {
     "about": {
@@ -409,6 +410,59 @@
         }
       ],
       "title": "My Services"
+    },
+    "pricing": {
+      "title": "Pricing",
+      "description": "Pick a plan that fits your needs.",
+      "tiers": [
+        {
+          "title": "Basic frontend",
+          "price": "$100",
+          "period": "Starts at",
+          "features": [
+            "Up to 5 pages with custom UI",
+            "Responsive layout for mobile/Desktop",
+            "Basic SEO setup (meta tags, sitemap)",
+            "Contact form with email delivery",
+            "Deployed to Vercel or Netlify",
+            "1 round of revisions",
+            "1 month of maintenance"
+          ],
+          "cta": { "text": "Start Basic", "link": "/contacts" }
+        },
+        {
+          "title": "Standard fullstack",
+          "price": "$499",
+          "period": "Starts at",
+          "features": [
+            "Up to 10 pages with custom UI",
+            "User authentication (signup, login, profile)",
+            "Database integration (PostgreSQL or MongoDB)",
+            "Basic admin panel for content management",
+            "Performance optimization and SEO",
+            "Deployed to Vercel, Render, or Heroku",
+            "2 rounds of revisions",
+            "3 months of maintenance"
+          ],
+          "cta": { "text": "Choose Standard", "link": "/contacts" }
+        },
+        {
+          "title": "Enterprise custom",
+          "price": "Custom",
+          "period": "Starts at",
+          "features": [
+            "Unlimited pages & advanced workflows",
+            "Integrations (payments, CRM, email)",
+            "Role-based access & audit trails",
+            "Performance budgeting & monitoring",
+            "Dedicated support and SLAs",
+            "Custom deployment & scaling solutions",
+            "Unlimited revisions",
+            "Ongoing maintenance & updates"
+          ],
+          "cta": { "text": "Contact Sales", "link": "/contacts" }
+        }
+      ]
     }
   },
   "projects": {

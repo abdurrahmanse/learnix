@@ -34,6 +34,9 @@ export default function applyMeta(routeName, locale) {
     } else {
       title = 'Case Study — Abdur Rahman'
     }
+  } else if (routeName === 'pricing') {
+    title = 'Pricing — Abdur Rahman'
+    description = pages.pricing?.description || description
   }
 
   const url = window.location.origin + window.location.pathname + window.location.search + window.location.hash

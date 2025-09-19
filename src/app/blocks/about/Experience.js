@@ -19,7 +19,7 @@ export default (t = {}) => {
             <div class="experience__period">${it.period}</div>
             ${it.location ? `<div class="experience__location">${it.location}</div>` : ''}
             <ul class="experience__impact">
-              ${(it.impact || []).map((i) => `<li>➜ ${i}</li>`).join('')}
+              ${(it.impact || []).map((i) => `<li>${i}</li>`).join('')}
             </ul>
           </div>`
           )

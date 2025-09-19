@@ -21,3 +21,21 @@
     /* Title gradient colors */
     --title-gradient-from: var(--primary)
     --title-gradient-to: hsla(301, 100%, 49%, 1.00)
+    /* Global border gradient */
+    --border-gradient: linear-gradient(90deg, var(--title-gradient-from), var(--title-gradient-to))
+
+/* Apply gradient borders to buttons and card-like components */
+.button,
+.project,
+.project__image,
+.project__techs,
+.service-item,
+.pricing-card,
+.skill-block,
+.quote,
+.quote__author
+    border-image: var(--border-gradient) 1
+
+/* Apply gradient border to all elements site-wide */
+*:not(svg):not(path)
+    border-image: var(--border-gradient) 1

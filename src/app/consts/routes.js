@@ -9,4 +9,5 @@ export default {
   '/404': { name: '404', element: 'PageNotFound' },
   '/contacts': { name: 'contacts', element: 'Contacts' },
   '/services': { name: 'services', element: 'Service' },
+  '/pricing': { name: 'pricing', element: 'Pricing' },
 }
