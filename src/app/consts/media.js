@@ -1,4 +1,4 @@
-import proxy from '../proxies/media'
+import proxy from '../lib/media'
 
 const media = {
   discord: { id: '914240860101681163', tag: '!abdurrahman#2396' },

@@ -1,5 +1,5 @@
-import skills from '@/consts/skills'
-import techs from '@/consts/techs'
+import skills from 'constants/skills'
+import techs from 'constants/techs'
 
 export default ({ id }, t) => {
   return /*html*/ `

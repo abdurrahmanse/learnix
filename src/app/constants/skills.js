@@ -1,0 +1,18 @@
+export default {
+  Design: ['figma', 'html', 'css'],
+  programming: ['js', 'ts', 'java'],
+  Frontend: ['react', 'next', 'Bootstrap'],
+  uiframework: ['tailwind', 'mui', 'radix'],
+  StateManagement: ['redux', 'reduxtoolkit', 'zustand'],
+  backend: ['node', 'express', 'nestjs'],
+  database: ['mysql', 'postgreSql', 'mongo'],
+  api: ['rest', 'graphql', 'json'],
+  ORM: ['prisma', 'mongoose', 'typeorm'],
+  versionControl: ['git', 'bitbucket', 'docker'],
+  Deployment: ['docker', 'aws', 'vercel'],
+  testing: ['ReactTestingLibrary', 'unitTesting', 'vitest'],
+  digitalMarketing: ['SEO', 'googleads', 'facebookads', 'promotion', 'emailmarketing'],
+  others: ['wordpress', 'woocommerce', 'canva', 'videoediting'],
+  tools: ['terminal', 'vscode', 'postman', 'jetbrains', 'xampp'],
+  softSkills: ['communication', 'teamwork', 'creativity', 'adaptability', 'problem-solving'],
+}

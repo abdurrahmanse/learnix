@@ -1,4 +1,4 @@
-import media from '@/consts/media'
+import media from 'constants/media'
 import MediaIcon from './MediaIcon'
 
 export default (t) => {

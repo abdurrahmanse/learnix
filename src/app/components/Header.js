@@ -1,4 +1,4 @@
-import routes from '@/consts/routes'
+import routes from 'constants/routes'
 import MediaIcon from './MediaIcon'
 
 const paths = ['/', '/about-me', '/projects', '/services', '/pricing', '/contacts']

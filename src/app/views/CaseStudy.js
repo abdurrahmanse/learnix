@@ -1,5 +1,5 @@
-import projects from '@/consts/projects'
-import websites from '@/consts/websites'
+import projects from 'constants/projects'
+import websites from 'constants/websites'
 import 'styles/pages/projects.sass'
 
 function getParam(name) {

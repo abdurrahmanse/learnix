@@ -1,4 +1,4 @@
-import media from '@/consts/media'
+import media from 'constants/media'
 
 const contacts = [
   { name: 'email', text: media.emailRaw },
