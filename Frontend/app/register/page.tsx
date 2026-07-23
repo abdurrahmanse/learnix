@@ -17,6 +17,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { PasswordInput } from "@/components/ui/password-input"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import {
   InputOTP,
@@ -190,7 +191,7 @@ export default function RegisterPage() {
                         <FormControl>
                           <div className="relative">
                             <Lock className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
-                            <Input type="password" placeholder="Password" className="pl-10 h-12 rounded-xl" {...field} disabled={isLoading} />
+                            <PasswordInput placeholder="Password" className="pl-10 h-12 rounded-xl" {...field} disabled={isLoading} />
                           </div>
                         </FormControl>
                         <FormMessage />
@@ -205,7 +206,7 @@ export default function RegisterPage() {
                         <FormControl>
                           <div className="relative">
                             <KeyRound className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
-                            <Input type="password" placeholder="Confirm Password" className="pl-10 h-12 rounded-xl" {...field} disabled={isLoading} />
+                            <PasswordInput placeholder="Confirm Password" className="pl-10 h-12 rounded-xl" {...field} disabled={isLoading} />
                           </div>
                         </FormControl>
                         <FormMessage />

@@ -1,11 +1,12 @@
 import asyncio
-import asyncpg
+from app.db.session import AsyncSessionLocal
+from sqlalchemy import text
 
-async def main():
-    conn = await asyncpg.connect('postgresql://postgres:45683968@localhost:5432/learnix')
-    await conn.execute('DROP TABLE IF EXISTS alembic_version CASCADE;')
-    await conn.execute('DROP TABLE IF EXISTS otp_codes CASCADE;')
-    await conn.execute('DROP TABLE IF EXISTS users CASCADE;')
-    await conn.close()
+async def clear_db():
+    async with AsyncSessionLocal() as session:
+        await session.execute(text("TRUNCATE TABLE users CASCADE;"))
+        await session.commit()
+        print("Cleared users table.")
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(clear_db())

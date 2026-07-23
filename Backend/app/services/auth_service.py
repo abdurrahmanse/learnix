@@ -1,5 +1,6 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
+from app.repositories.user_repository import UserRepository
 from fastapi import HTTPException, status
 from app.db.models.user import User
 from app.schemas.user import UserCreate
@@ -10,14 +11,13 @@ class AuthService:
     def __init__(self, db: AsyncSession):
         self.db = db
         self.otp_service = OTPService(db)
+        self.user_repo = UserRepository(db)
 
     async def get_user_by_email(self, email: str) -> User | None:
-        result = await self.db.execute(select(User).where(User.email == email))
-        return result.scalars().first()
+        return await self.user_repo.get_by_email(email)
 
     async def get_user_by_username(self, username: str) -> User | None:
-        result = await self.db.execute(select(User).where(User.username == username))
-        return result.scalars().first()
+        return await self.user_repo.get_by_username(username)
 
     async def register_user(self, user_in: UserCreate) -> User:
         if await self.get_user_by_email(user_in.email):
@@ -33,9 +33,7 @@ class AuthService:
             is_active=False,
             is_verified=False
         )
-        self.db.add(new_user)
-        await self.db.commit()
-        await self.db.refresh(new_user)
+        new_user = await self.user_repo.create(new_user)
 
         # Generate and send OTP
         otp = await self.otp_service.create_otp(new_user, "registration")

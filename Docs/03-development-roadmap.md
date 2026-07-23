@@ -136,7 +136,32 @@ Do not implement frontend.
 Stop after API implementation.
 Generate API testing checklist.
 
-### Phase 1.4 — Login API
+### Phase 1.4 — Email Verification API
+Follow all project documents.
+
+Implement ONLY Email Verification.
+
+Requirements:
+- Generate 6-digit OTP
+- Store OTP securely
+- OTP expiry (5 minutes)
+- Send OTP using Resend
+- Verify OTP
+- Mark account verified
+- Prevent OTP reuse
+- Rate limiting
+- Error handling
+- Validation
+
+Endpoints:
+POST /auth/send-verification
+POST /auth/verify-email
+POST /auth/resend-otp
+
+Stop after Email Verification module.
+Generate API testing checklist.
+
+### Phase 1.5 — Login API
 Follow all project documents.
 
 Implement ONLY the Login API.
@@ -153,7 +178,7 @@ Do not implement frontend.
 Stop after API implementation.
 Generate API testing checklist.
 
-### Phase 1.5 — Frontend Authentication UI
+### Phase 1.6 — Frontend Authentication UI
 Follow all project documents.
 
 Implement ONLY the frontend Frontend Authentication UI.
@@ -169,7 +194,7 @@ Requirements:
 Do not connect APIs.
 Stop after frontend UI.
 
-### Phase 1.6 — API Integration
+### Phase 1.7 — API Integration
 Follow all project documents.
 
 Implement ONLY the API Integration.
@@ -186,7 +211,7 @@ Do not implement frontend.
 Stop after API implementation.
 Generate API testing checklist.
 
-### Phase 1.7 — Browser Testing
+### Phase 1.8 — Browser Testing
 Follow all project documents.
 
 Review the Authentication module.
@@ -197,7 +222,7 @@ Include all happy paths and error states.
 
 Wait for my confirmation before continuing.
 
-### Phase 1.8 — Final Review
+### Phase 1.9 — Final Review
 Follow all project documents.
 
 Review the Authentication module.
