@@ -4,6 +4,8 @@ import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
+import { useMutation } from "@tanstack/react-query"
+import { toast } from "sonner"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { authService, handleApiError } from "@/lib/api/auth"
@@ -25,7 +27,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp"
 
-import { Mail, KeyRound, ArrowLeft, Lock, ArrowRight, CheckCircle2 } from "lucide-react"
+import { Mail, KeyRound, ArrowLeft, Lock, ArrowRight } from "lucide-react"
 
 const emailSchema = z.object({
   email: z.string().email({
@@ -46,10 +48,6 @@ const resetSchema = z.object({
 export default function ForgotPasswordPage() {
   const router = useRouter()
   const [step, setStep] = useState<'email' | 'otp' | 'reset'>('email')
-  
-  const [error, setError] = useState<string | null>(null)
-  const [success, setSuccess] = useState<string | null>(null)
-  const [isLoading, setIsLoading] = useState(false)
   const [otp, setOtp] = useState("")
 
   const emailForm = useForm<z.infer<typeof emailSchema>>({
@@ -62,27 +60,41 @@ export default function ForgotPasswordPage() {
     defaultValues: { password: "", confirmPassword: "" },
   })
 
+  const emailMutation = useMutation({
+    mutationFn: async (values: z.infer<typeof emailSchema>) => {
+      return await authService.forgotPassword({ email: values.email })
+    },
+    onSuccess: () => {
+      setStep('otp')
+    },
+    onError: (err: unknown) => {
+      toast.error(handleApiError(err))
+    }
+  })
+
+  const resetMutation = useMutation({
+    mutationFn: async (data: { email: string; otp_code: string; new_password: string }) => {
+      return await authService.resetPassword(data)
+    },
+    onSuccess: () => {
+      toast.success("Password successfully reset! Redirecting to login...")
+      setTimeout(() => router.push("/login"), 1500)
+    },
+    onError: (err: unknown) => {
+      toast.error(handleApiError(err))
+    }
+  })
+
   // Step 1: Request OTP
   async function onSubmitEmail(values: z.infer<typeof emailSchema>) {
-    setIsLoading(true)
-    setError(null)
-    setSuccess(null)
-
-    try {
-      await authService.forgotPassword({ email: values.email })
-      setStep('otp')
-    } catch (err) {
-      setError(handleApiError(err))
-    } finally {
-      setIsLoading(false)
-    }
+    emailMutation.mutate(values)
   }
 
   // Step 2: Verify OTP
   async function handleVerifyOTP(e: React.FormEvent) {
     e.preventDefault()
     if (otp.length !== 6) {
-      setError("Please enter a valid 6-digit code.")
+      toast.error("Please enter a valid 6-digit code.")
       return
     }
 
@@ -92,23 +104,15 @@ export default function ForgotPasswordPage() {
 
   // Step 3: Reset Password
   async function onSubmitReset(values: z.infer<typeof resetSchema>) {
-    setIsLoading(true)
-    setError(null)
-
-    try {
-      await authService.resetPassword({
-        email: emailForm.getValues().email,
-        otp_code: otp,
-        new_password: values.password
-      })
-      setSuccess("Password successfully reset! Redirecting to login...")
-      setTimeout(() => router.push("/login"), 1500)
-    } catch (err) {
-      setError(handleApiError(err))
-    } finally {
-      setIsLoading(false)
-    }
+    resetMutation.mutate({
+      email: emailForm.getValues().email,
+      otp_code: otp,
+      new_password: values.password
+    })
   }
+
+  const isLoading = emailMutation.isPending || resetMutation.isPending
+  const isSuccess = resetMutation.isSuccess
 
   return (
     <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center p-4 relative overflow-hidden">
@@ -152,12 +156,6 @@ export default function ForgotPasswordPage() {
                       </FormItem>
                     )}
                   />
-
-                  {error && (
-                    <div className="p-3 text-sm font-medium text-destructive-foreground bg-destructive/10 rounded-md">
-                      {error}
-                    </div>
-                  )}
 
                   <Button className="w-full h-12 rounded-xl mt-4" type="submit" disabled={isLoading}>
                     {isLoading ? (
@@ -213,12 +211,6 @@ export default function ForgotPasswordPage() {
                   </InputOTPGroup>
                 </InputOTP>
 
-                {error && (
-                  <div className="p-3 w-full text-center text-sm font-medium text-destructive-foreground bg-destructive/10 rounded-md">
-                    {error}
-                  </div>
-                )}
-
                 <Button className="w-full h-12 rounded-xl" type="submit" disabled={isLoading || otp.length !== 6}>
                   {isLoading ? "Verifying..." : "Verify Code"}
                 </Button>
@@ -261,7 +253,7 @@ export default function ForgotPasswordPage() {
                         <FormControl>
                           <div className="relative">
                             <Lock className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
-                            <PasswordInput placeholder="New Password" className="pl-10 h-12 rounded-xl" {...field} disabled={isLoading || !!success} />
+                            <PasswordInput placeholder="New Password" className="pl-10 h-12 rounded-xl" {...field} disabled={isLoading || isSuccess} />
                           </div>
                         </FormControl>
                         <FormMessage />
@@ -276,7 +268,7 @@ export default function ForgotPasswordPage() {
                         <FormControl>
                           <div className="relative">
                             <KeyRound className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
-                            <PasswordInput placeholder="Confirm New Password" className="pl-10 h-12 rounded-xl" {...field} disabled={isLoading || !!success} />
+                            <PasswordInput placeholder="Confirm New Password" className="pl-10 h-12 rounded-xl" {...field} disabled={isLoading || isSuccess} />
                           </div>
                         </FormControl>
                         <FormMessage />
@@ -284,20 +276,7 @@ export default function ForgotPasswordPage() {
                     )}
                   />
 
-                  {error && (
-                    <div className="p-3 text-sm font-medium text-destructive-foreground bg-destructive/10 rounded-md">
-                      {error}
-                    </div>
-                  )}
-
-                  {success && (
-                    <div className="p-3 w-full text-center text-sm font-medium text-emerald-800 bg-emerald-100 rounded-md dark:text-emerald-200 dark:bg-emerald-900/30 flex items-center justify-center gap-2">
-                      <CheckCircle2 className="h-5 w-5" />
-                      {success}
-                    </div>
-                  )}
-
-                  <Button className="w-full h-12 rounded-xl mt-4" type="submit" disabled={isLoading || !!success}>
+                  <Button className="w-full h-12 rounded-xl mt-4" type="submit" disabled={isLoading || isSuccess}>
                     {isLoading ? (
                       "Resetting Password..."
                     ) : (

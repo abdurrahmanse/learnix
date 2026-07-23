@@ -4,6 +4,8 @@ import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
+import { useMutation } from "@tanstack/react-query"
+import { toast } from "sonner"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { authService, handleApiError } from "@/lib/api/auth"
@@ -25,7 +27,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp"
 
-import { UserPlus, Mail, Lock, KeyRound, ArrowRight, CheckCircle2, User, AtSign } from "lucide-react"
+import { UserPlus, Mail, Lock, KeyRound, ArrowRight, User, AtSign } from "lucide-react"
 
 const registerSchema = z.object({
   email: z.string().email({
@@ -50,9 +52,6 @@ export default function RegisterPage() {
   const router = useRouter()
 
   const [step, setStep] = useState<'form' | 'otp'>('form')
-  const [error, setError] = useState<string | null>(null)
-  const [success, setSuccess] = useState<string | null>(null)
-  const [isLoading, setIsLoading] = useState(false)
   const [otp, setOtp] = useState("")
 
   const form = useForm<z.infer<typeof registerSchema>>({
@@ -66,50 +65,57 @@ export default function RegisterPage() {
     },
   })
 
-  // Submit initial form (Step 1)
-  async function onSubmit(values: z.infer<typeof registerSchema>) {
-    setIsLoading(true)
-    setError(null)
-    
-    try {
-      await authService.register({
+  const registerMutation = useMutation({
+    mutationFn: async (values: z.infer<typeof registerSchema>) => {
+      return await authService.register({
         email: values.email,
         username: values.username,
         full_name: values.full_name,
         password: values.password
       })
+    },
+    onSuccess: () => {
       setStep('otp')
-    } catch (err) {
-      setError(handleApiError(err))
-    } finally {
-      setIsLoading(false)
+    },
+    onError: (err: unknown) => {
+      toast.error(handleApiError(err))
     }
+  })
+
+  const verifyMutation = useMutation({
+    mutationFn: async (data: { email: string; otp_code: string }) => {
+      return await authService.verifyRegistration(data)
+    },
+    onSuccess: () => {
+      toast.success("Account successfully verified and created! Redirecting...")
+      setTimeout(() => router.push("/login"), 1500)
+    },
+    onError: (err: unknown) => {
+      toast.error(handleApiError(err))
+    }
+  })
+
+  // Submit initial form (Step 1)
+  async function onSubmit(values: z.infer<typeof registerSchema>) {
+    registerMutation.mutate(values)
   }
 
   // Verify OTP (Step 2)
   async function handleVerifyOTP(e: React.FormEvent) {
     e.preventDefault()
     if (otp.length !== 6) {
-      setError("Please enter a valid 6-digit code.")
+      toast.error("Please enter a valid 6-digit code.")
       return
     }
 
-    setIsLoading(true)
-    setError(null)
-
-    try {
-      await authService.verifyRegistration({
-        email: form.getValues().email,
-        otp_code: otp
-      })
-      setSuccess("Account successfully verified and created! Redirecting...")
-      setTimeout(() => router.push("/login"), 1500)
-    } catch (err) {
-      setError(handleApiError(err))
-    } finally {
-      setIsLoading(false)
-    }
+    verifyMutation.mutate({
+      email: form.getValues().email,
+      otp_code: otp
+    })
   }
+
+  const isLoading = registerMutation.isPending || verifyMutation.isPending
+  const isSuccess = verifyMutation.isSuccess
 
   return (
     <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center p-4 relative overflow-hidden">
@@ -214,12 +220,6 @@ export default function RegisterPage() {
                     )}
                   />
 
-                  {error && (
-                    <div className="p-3 text-sm font-medium text-destructive-foreground bg-destructive/10 rounded-md">
-                      {error}
-                    </div>
-                  )}
-
                   <Button className="w-full h-12 rounded-xl mt-4" type="submit" disabled={isLoading}>
                     {isLoading ? (
                       "Sending Code..."
@@ -260,7 +260,7 @@ export default function RegisterPage() {
                   maxLength={6}
                   value={otp}
                   onChange={(value) => setOtp(value)}
-                  disabled={isLoading || !!success}
+                  disabled={isLoading || isSuccess}
                 >
                   <InputOTPGroup>
                     <InputOTPSlot index={0} className="h-12 w-12 text-lg sm:h-14 sm:w-14 sm:text-xl" />
@@ -272,20 +272,7 @@ export default function RegisterPage() {
                   </InputOTPGroup>
                 </InputOTP>
 
-                {error && (
-                  <div className="p-3 w-full text-center text-sm font-medium text-destructive-foreground bg-destructive/10 rounded-md">
-                    {error}
-                  </div>
-                )}
-                
-                {success && (
-                  <div className="p-3 w-full text-center text-sm font-medium text-emerald-800 bg-emerald-100 rounded-md dark:text-emerald-200 dark:bg-emerald-900/30 flex items-center justify-center gap-2">
-                    <CheckCircle2 className="h-5 w-5" />
-                    {success}
-                  </div>
-                )}
-
-                <Button className="w-full h-12 rounded-xl" type="submit" disabled={isLoading || otp.length !== 6 || !!success}>
+                <Button className="w-full h-12 rounded-xl" type="submit" disabled={isLoading || otp.length !== 6 || isSuccess}>
                   {isLoading ? "Verifying..." : "Verify & Create Account"}
                 </Button>
               </form>
@@ -296,7 +283,7 @@ export default function RegisterPage() {
                 <button 
                   type="button"
                   className="font-semibold text-primary hover:underline"
-                  disabled={isLoading || !!success}
+                  disabled={isLoading || isSuccess}
                   onClick={() => setStep('form')} // Allow going back to check email
                 >
                   Change email

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { api } from "@/lib/axios";
 
 interface HealthCheckResponse {
@@ -10,28 +10,15 @@ interface HealthCheckResponse {
 }
 
 export default function Home() {
-  const [data, setData] = useState<HealthCheckResponse | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { data, isLoading: loading, error: queryError } = useQuery({
+    queryKey: ['health'],
+    queryFn: async () => {
+      const res = await api.get<HealthCheckResponse>("/health");
+      return res.data;
+    }
+  });
 
-  useEffect(() => {
-    const fetchHealth = async () => {
-      try {
-        const res = await api.get("/health");
-        setData(res.data);
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("Backend is unreachable");
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchHealth();
-  }, []);
+  const error = queryError ? (queryError instanceof Error ? queryError.message : "Backend is unreachable") : null;
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-background">

@@ -2,8 +2,8 @@
 
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useState } from "react"
 import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useMutation } from "@tanstack/react-query"
@@ -38,9 +38,6 @@ export default function LoginPage() {
   const router = useRouter()
   const setAuth = useAuthStore((state) => state.setAuth)
 
-  const [error, setError] = useState<string | null>(null)
-  const [success, setSuccess] = useState<string | null>(null)
-
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -54,8 +51,7 @@ export default function LoginPage() {
       return await authService.login(values.email, values.password)
     },
     onSuccess: async (data) => {
-      setSuccess("Successfully logged in! Redirecting...")
-      setError(null)
+      toast.success("Successfully logged in! Redirecting...")
       
       try {
         const userResponse = await authService.getMe()
@@ -70,8 +66,7 @@ export default function LoginPage() {
       }
     },
     onError: (err: unknown) => {
-      setSuccess(null)
-      setError(handleApiError(err))
+      toast.error(handleApiError(err))
     },
   })
 
@@ -135,18 +130,6 @@ export default function LoginPage() {
                   </FormItem>
                 )}
               />
-
-              {error && (
-                <div className="p-3 text-sm font-medium text-destructive-foreground bg-destructive/10 rounded-md">
-                  {error}
-                </div>
-              )}
-              
-              {success && (
-                <div className="p-3 text-sm font-medium text-emerald-800 bg-emerald-100 rounded-md dark:text-emerald-200 dark:bg-emerald-900/30">
-                  {success}
-                </div>
-              )}
 
               <Button className="w-full h-12 rounded-xl mt-4" type="submit" disabled={isLoading}>
                 {isLoading ? (
