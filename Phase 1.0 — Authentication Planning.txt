@@ -1,0 +1,205 @@
+Phase 1.0 — Authentication Planning
+প্রথম Prompt:
+
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
+
+We are starting Phase 1: Authentication.
+
+Before writing any code:
+
+1. Analyze the Authentication requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the authentication flow.
+6. Explain the refresh token flow.
+7. Explain the folder structure.
+8. List every file that will be created.
+9. Explain dependencies between files.
+10. Create an implementation plan.
+
+Do NOT write any code.
+
+Stop after the planning document.
+
+
+Phase 1.1 — Database
+Follow all project documents.
+Implement ONLY the database layer for Authentication.
+Tasks:
+
+- Create the User model.
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
+
+Do NOT implement APIs.
+
+Stop after the database layer.
+
+Generate a testing checklist.
+
+
+Phase 1.2 — Authentication Service
+Implement ONLY the Authentication Service.
+Requirements:
+- Password hashing
+- Password verification
+- JWT Access Token
+- Refresh Token
+- Token validation
+
+Do NOT create API routes.
+
+Do NOT create frontend.
+
+Stop after the service layer.
+
+Generate unit testing checklist.
+
+
+Phase 1.3 — Register API
+Implement ONLY the Register API.
+
+Requirements:
+
+- Request Schema
+- Response Schema
+- Validation
+- Email uniqueness
+- Password hashing
+- Save user
+- Proper HTTP status codes
+- Error handling
+
+Do not implement Login.
+
+Stop after Register API.
+
+Generate API testing checklist.
+
+Phase 1.4 - Email Verification API
+Implement ONLY Email Verification.
+
+Requirements:
+- Generate 6-digit OTP
+- Store OTP securely
+- OTP expiry (5 minutes)
+- Send OTP using Resend
+- Verify OTP
+- Mark account verified
+- Prevent OTP reuse
+- Rate limiting
+- Error handling
+- Validation
+
+Endpoints:
+POST /auth/send-verification
+POST /auth/verify-email
+POST /auth/resend-otp
+Stop after Email Verification module.
+Generate API testing checklist.
+
+Phase 1.5 — Login API
+Implement ONLY the Login API.
+
+Requirements:
+
+- Email login
+- Password verification
+- JWT generation
+- Refresh Token
+- HTTP-only Cookie (if applicable)
+- Response schema
+- Error handling
+
+Do not implement logout.
+
+Stop after Login API.
+
+Generate testing checklist.
+
+
+Phase 1.6 — Frontend Authentication UI
+Implement ONLY the frontend Authentication pages.
+
+Requirements:
+
+- Login page
+- Register page
+- React Hook Form
+- Zod validation
+- Loading state
+- Error state
+- Success state
+- Responsive UI
+
+Do not connect APIs.
+
+Stop after frontend UI.
+
+Phase 1.7 — API Integration
+Connect ONLY the frontend Authentication pages with the backend APIs.
+
+Requirements:
+
+- Axios
+- TanStack Query
+- Zustand
+- Loading state
+- Error handling
+- Success handling
+
+Do not add new features.
+
+Stop after integration.
+
+
+Phase 1.8 — Browser Testing
+Review the Authentication module.
+
+Generate a complete browser testing checklist.
+
+Include:
+
+□ Register
+□ Login
+□ Validation
+□ Wrong password
+□ Duplicate email
+□ JWT
+□ Refresh Token
+□ Logout
+□ Protected Route
+
+Wait for my confirmation before continuing.
+
+
+Phase 1.9 — Final Review
+Review the Authentication module.
+
+Check:
+
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+
+Generate a final Authentication Report.
+
+If everything is correct,
+
+Mark Phase 1 as COMPLETE.

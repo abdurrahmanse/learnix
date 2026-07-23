@@ -298,10 +298,10 @@ Do NOT create frontend.
 Stop after the service layer.
 Generate unit testing checklist.
 
-### Phase 2.3 — Profile API
+### Phase 2.3 — Get Profile API
 Follow all project documents.
 
-Implement ONLY the Profile API.
+Implement ONLY the Get Profile API.
 
 Requirements:
 - Request Schema.
@@ -315,7 +315,24 @@ Do not implement frontend.
 Stop after API implementation.
 Generate API testing checklist.
 
-### Phase 2.4 — Avatar Upload API
+### Phase 2.4 — Update Profile API
+Follow all project documents.
+
+Implement ONLY the Update Profile API.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 2.5 — Avatar Upload API
 Follow all project documents.
 
 Implement ONLY the Avatar Upload API.
@@ -332,7 +349,24 @@ Do not implement frontend.
 Stop after API implementation.
 Generate API testing checklist.
 
-### Phase 2.5 — Frontend UI
+### Phase 2.6 — Change Password API
+Follow all project documents.
+
+Implement ONLY the Change Password API.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 2.7 — Frontend UI
 Follow all project documents.
 
 Implement ONLY the frontend Frontend UI.
@@ -348,7 +382,7 @@ Requirements:
 Do not connect APIs.
 Stop after frontend UI.
 
-### Phase 2.6 — API Integration
+### Phase 2.8 — API Integration
 Follow all project documents.
 
 Implement ONLY the API Integration.
@@ -365,7 +399,7 @@ Do not implement frontend.
 Stop after API implementation.
 Generate API testing checklist.
 
-### Phase 2.7 — Browser Testing
+### Phase 2.9 — Browser Testing
 Follow all project documents.
 
 Review the User Profile module.
@@ -376,7 +410,7 @@ Include all happy paths and error states.
 
 Wait for my confirmation before continuing.
 
-### Phase 2.8 — Final Review
+### Phase 2.10 — Final Review
 Follow all project documents.
 
 Review the User Profile module.

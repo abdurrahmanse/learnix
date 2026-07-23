@@ -16,5 +16,8 @@ class User(Base):
     is_active = Column(Boolean, default=False)
     is_verified = Column(Boolean, default=False)
     avatar_url = Column(Text, nullable=True)
+    bio = Column(Text, nullable=True)
+    location = Column(String(100), nullable=True)
+    phone_number = Column(String(20), nullable=True, unique=True, index=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)

@@ -1,5 +1,5 @@
+###########
 Follow the Project Constitution strictly.
-
 Never change architecture.
 Never change folder structure.
 Never rename files.
@@ -10,9 +10,14 @@ Never change coding standards.
 
 Follow the Constitution exactly.
 
-
+##################
+From now on, follow the Project Constitution and AI Development Rules strictly.
+Never violate these documents unless I explicitly approve a change.
+Treat these documents as the permanent source of truth for this project.
 Project Health Report: Build Entire Projects and Check
 
+
+##################
 Frontend Running
 Backend Running
 Database Connected
@@ -27,5 +32,16 @@ No Network Errors
 Give me Project Status:
 
 
+##################
+Backend Running
+API Tested
+Frontend Running
+API Connected
+Browser Tested
+No Console Error
+No Backend Error
+Responsive Checked
+Git Commit Completed
 
-admin@example.com / ChangeMe123!
+Admin: admin@example.com / Admin123!
+Users (1-4): user1@example.com / User123!

@@ -1,0 +1,14 @@
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
+Follow the Project Context.
+
+Do not violate these documents.
+
+Never change the project architecture.
+Never change the folder structure.
+Never introduce new dependencies without approval.
+Never modify completed modules.
+Implement only the requested task.
+Write clean, production-ready code.
+Stop after completing the requested task.

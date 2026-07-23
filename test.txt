@@ -1,0 +1,40 @@
+
+##################
+Create a Browser Testing Checklist.
+
+Include every user action.
+
+For each test provide:
+
+- Action
+- Expected Result
+- Pass/Fail
+
+Do not continue until I complete the checklist.
+
+##################
+
+I found a bug.
+
+Error:
+(Paste the error)
+Analyze the root cause.
+Fix only this issue.
+Do not modify unrelated files.
+
+
+################
+Review this module.
+
+Verify:
+
+- Code Quality
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Architecture
+
+Generate a Module Completion Report.
+
+If everything is complete, mark the module as DONE.
