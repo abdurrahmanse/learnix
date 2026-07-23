@@ -1,7 +1,7 @@
-# DataSci Academy — E-Learning Platform MVP
+# Learnix — E-Learning Platform MVP
 ### Complete Software Architecture Blueprint
 
-> **Stack**: React + TypeScript + Vite + Tailwind CSS (Frontend) · FastAPI + PostgreSQL + SQLAlchemy (Backend)
+> **Stack**: Next + TypeScript + Vite + Tailwind CSS (Frontend) · FastAPI + PostgreSQL + SQLAlchemy (Backend)
 > **Author**: Senior Software Architect · Production-Ready MVP Design
 > **Date**: July 2026
 
@@ -35,7 +35,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    DataSci Academy MVP                       │
+│                    Learnix MVP                               │
 │                                                              │
 │   PUBLIC        STUDENT DASHBOARD       ADMIN PANEL         │
 │   ─────────     ─────────────────       ──────────          │

@@ -1,373 +1,2197 @@
 # Development Roadmap
 
-This document outlines the logical, phased execution plan for the E-Learning Platform, from initial setup to production deployment. Each phase is constructed to ensure dependencies are met before moving to subsequent features, adhering to the Project Constitution and AI Development Rules.
-
----
+This document outlines the strict, sub-phased execution plan for the E-Learning Platform. Each sub-phase must be executed exactly as instructed, stopping precisely where told before moving to the next.
 
 ## Phase 0: Project Setup
 
-**Objective:** Initialize the monorepo or dual-repo structure, configure environments, and establish the foundational CI/CD pipelines.
-**Why this phase is placed here:** Foundational scaffolding is required before any feature development can occur.
-**What must be completed before starting:** Project Constitution and Architecture specifications approved.
-**What cannot start before this phase:** All subsequent development phases.
+### Phase 0.0 — Project Setup Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** Infrastructure, Configuration.
-- **Database Tasks:** Provision Neon PostgreSQL instance, configure Alembic for migrations, create base `Base` declarative model.
-- **Backend Tasks:** Initialize FastAPI project, configure CORS, setup dependency injection for DB sessions, setup `pydantic-settings`.
-- **API Tasks:** Create health-check (`/api/health`) endpoint.
-- **Frontend Tasks:** Initialize Next.js (App Router) project, install Tailwind CSS and shadcn/ui, configure standard layouts.
-- **Testing Tasks:** Setup Pytest (backend) and Vitest (frontend) environments. Ensure dummy tests pass.
-- **Dependencies:** None.
+We are starting Phase 0: Project Setup.
 
-### Success & Completion
-- **Success Criteria:** Both backend and frontend servers run locally. Health endpoint returns 200 OK. Database connects successfully.
-- **Definition of Done:** Repositories initialized, CI/CD basic linting pipelines running, environment variable templates (`.env.example`) documented.
+Before writing any code:
+1. Analyze the Project Setup requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 0.1 — Infrastructure Setup
+Follow all project documents.
+
+Execute the Infrastructure Setup tasks.
+
+Stop after completion.
+
+### Phase 0.2 — Backend Scaffolding
+Follow all project documents.
+
+Implement ONLY the frontend Backend Scaffolding.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 0.3 — Frontend Scaffolding
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Scaffolding.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
 
 ## Phase 1: Authentication
 
-**Objective:** Implement secure user registration, login, and session management using JWTs and HTTP-only cookies.
-**Why this phase is placed here:** Identity is the core requirement for personalization, purchasing, and roles.
-**What must be completed before starting:** Phase 0.
-**What cannot start before this phase:** Any user-specific or protected modules (Profiles, Subscriptions, Courses).
+### Phase 1.0 — Authentication Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** Auth, User Identity.
-- **Database Tasks:** Create `users` table with email, hashed password, and role columns. Generate initial Alembic migration.
-- **Backend Tasks:** Implement Passlib for password hashing, configure PyJWT for token generation, create authentication services.
-- **API Tasks:** Build `/auth/register`, `/auth/login`, `/auth/refresh`, and `/auth/logout` endpoints.
-- **Frontend Tasks:** Build Login and Registration forms using React Hook Form and Zod. Create Auth context/store to manage global user state. Implement Protected Route wrappers.
-- **Testing Tasks:** Unit test JWT generation, hash validation. Integration test registration and login APIs. E2E test the login flow.
-- **Dependencies:** Phase 0.
+We are starting Phase 1: Authentication.
 
-### Success & Completion
-- **Success Criteria:** Users can securely register, log in, maintain a session across page reloads via refresh tokens, and log out.
-- **Definition of Done:** `users` table exists. APIs return correct JWTs. Frontend properly restricts access to protected routes based on Auth state.
+Before writing any code:
+1. Analyze the Authentication requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 1.1 — Database
+Follow all project documents.
+
+Implement ONLY the database layer for Authentication.
+
+Tasks:
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
+
+Do NOT implement APIs.
+Stop after the database layer.
+Generate a testing checklist.
+
+### Phase 1.2 — Authentication Service
+Follow all project documents.
+
+Implement ONLY the Authentication Service.
+
+Requirements:
+- Core business logic.
+- Validation.
+- Error handling.
+
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the service layer.
+Generate unit testing checklist.
+
+### Phase 1.3 — Register API
+Follow all project documents.
+
+Implement ONLY the Register API.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 1.4 — Login API
+Follow all project documents.
+
+Implement ONLY the Login API.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 1.5 — Frontend Authentication UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Authentication UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 1.6 — API Integration
+Follow all project documents.
+
+Implement ONLY the API Integration.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 1.7 — Browser Testing
+Follow all project documents.
+
+Review the Authentication module.
+
+Generate a complete browser testing checklist.
+
+Include all happy paths and error states.
+
+Wait for my confirmation before continuing.
+
+### Phase 1.8 — Final Review
+Follow all project documents.
+
+Review the Authentication module.
+
+Check:
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+Generate a final report.
+If everything is correct, mark Phase complete.
 
 ## Phase 2: User Profile
 
-**Objective:** Allow users to manage their personal information, update passwords, and upload avatars.
-**Why this phase is placed here:** Extends the Auth module to provide a complete identity management suite before complex user interactions occur.
-**What must be completed before starting:** Phase 1 (Authentication).
-**What cannot start before this phase:** Student Dashboard personalization, Review attribution.
+### Phase 2.0 — User Profile Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** Profile Management.
-- **Database Tasks:** Expand `users` table or create `profiles` table (if 1:1 mapped) for avatars and bios.
-- **Backend Tasks:** Integrate AWS S3 / Cloudflare R2 SDK for avatar uploads via pre-signed URLs.
-- **API Tasks:** Build `/users/me` (GET/PATCH), `/users/me/avatar`, and password update endpoints.
-- **Frontend Tasks:** Create Profile settings page, avatar upload component, and password change forms.
-- **Testing Tasks:** Test pre-signed URL generation. Test profile data validation rules.
-- **Dependencies:** Phase 1, S3/R2 Bucket provisioning.
+We are starting Phase 2: User Profile.
 
-### Success & Completion
-- **Success Criteria:** Users can view and modify their profile details and upload a profile picture.
-- **Definition of Done:** Avatar URLs correctly save to the DB, frontend reflects updated state immediately via TanStack Query cache invalidation.
+Before writing any code:
+1. Analyze the User Profile requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 2.1 — Database
+Follow all project documents.
+
+Implement ONLY the database layer for User Profile.
+
+Tasks:
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
+
+Do NOT implement APIs.
+Stop after the database layer.
+Generate a testing checklist.
+
+### Phase 2.2 — Profile Service
+Follow all project documents.
+
+Implement ONLY the Profile Service.
+
+Requirements:
+- Core business logic.
+- Validation.
+- Error handling.
+
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the service layer.
+Generate unit testing checklist.
+
+### Phase 2.3 — Profile API
+Follow all project documents.
+
+Implement ONLY the Profile API.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 2.4 — Avatar Upload API
+Follow all project documents.
+
+Implement ONLY the Avatar Upload API.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 2.5 — Frontend UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 2.6 — API Integration
+Follow all project documents.
+
+Implement ONLY the API Integration.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 2.7 — Browser Testing
+Follow all project documents.
+
+Review the User Profile module.
+
+Generate a complete browser testing checklist.
+
+Include all happy paths and error states.
+
+Wait for my confirmation before continuing.
+
+### Phase 2.8 — Final Review
+Follow all project documents.
+
+Review the User Profile module.
+
+Check:
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+Generate a final report.
+If everything is correct, mark Phase complete.
 
 ## Phase 3: Course Management
 
-**Objective:** Enable Admins/Instructors to create, edit, and publish course metadata.
-**Why this phase is placed here:** Core domain entity. Lessons, subscriptions, and payments all hinge on the existence of Courses.
-**What must be completed before starting:** Phase 1.
-**What cannot start before this phase:** Lesson Management, Classroom, Payments.
+### Phase 3.0 — Course Management Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** Course CRUD.
-- **Database Tasks:** Create `courses` table (title, slug, description, price, published status).
-- **Backend Tasks:** Create Course services and repositories. Implement slug generation and uniqueness validation.
-- **API Tasks:** Build `/courses` (GET - public), `/courses` (POST - admin), `/courses/{id}` (PATCH, DELETE - admin).
-- **Frontend Tasks:** Create Public Course Catalog page, Course Details page, and Admin Course creation forms.
-- **Testing Tasks:** Unit test slug uniqueness logic. Integration test Admin-only RBAC protection on POST/PATCH endpoints.
-- **Dependencies:** Phase 1.
+We are starting Phase 3: Course Management.
 
-### Success & Completion
-- **Success Criteria:** Admins can draft and publish courses. Guests can view published courses in the catalog.
-- **Definition of Done:** `courses` table migrated. Frontend accurately lists courses. RBAC correctly blocks non-admins from creating courses.
+Before writing any code:
+1. Analyze the Course Management requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 3.1 — Database
+Follow all project documents.
+
+Implement ONLY the database layer for Course Management.
+
+Tasks:
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
+
+Do NOT implement APIs.
+Stop after the database layer.
+Generate a testing checklist.
+
+### Phase 3.2 — Course Service
+Follow all project documents.
+
+Implement ONLY the Course Service.
+
+Requirements:
+- Core business logic.
+- Validation.
+- Error handling.
+
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the service layer.
+Generate unit testing checklist.
+
+### Phase 3.3 — Course CRUD APIs
+Follow all project documents.
+
+Implement ONLY the Course CRUD APIs.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 3.4 — Frontend Admin UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Admin UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 3.5 — Frontend Public UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Public UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 3.6 — API Integration
+Follow all project documents.
+
+Implement ONLY the API Integration.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 3.7 — Browser Testing
+Follow all project documents.
+
+Review the Course Management module.
+
+Generate a complete browser testing checklist.
+
+Include all happy paths and error states.
+
+Wait for my confirmation before continuing.
+
+### Phase 3.8 — Final Review
+Follow all project documents.
+
+Review the Course Management module.
+
+Check:
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+Generate a final report.
+If everything is correct, mark Phase complete.
 
 ## Phase 4: Lesson Management
 
-**Objective:** Allow Instructors to attach sections, lessons, and resources to Courses.
-**Why this phase is placed here:** Courses are empty shells without structured content.
-**What must be completed before starting:** Phase 3 (Course Management).
-**What cannot start before this phase:** Classroom, Assignment, Student Progress Tracking.
+### Phase 4.0 — Lesson Management Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** Curriculum Builder.
-- **Database Tasks:** Create `sections`, `lessons`, and `resources` tables with foreign keys cascading from `courses`.
-- **Backend Tasks:** Implement hierarchical data retrieval logic (Course -> Sections -> Lessons). Integrate video streaming CDN webhooks if applicable.
-- **API Tasks:** Build `/courses/{id}/sections` and `/sections/{id}/lessons` CRUD endpoints. 
-- **Frontend Tasks:** Build Admin curriculum builder (drag-and-drop ordering). Build public-facing course syllabus accordion.
-- **Testing Tasks:** Test cascading deletes (deleting a section deletes its lessons).
-- **Dependencies:** Phase 3.
+We are starting Phase 4: Lesson Management.
 
-### Success & Completion
-- **Success Criteria:** A course can be populated with an ordered list of sections and lessons containing video URLs.
-- **Definition of Done:** Curriculum hierarchal structure is cleanly retrievable via API and successfully rendered on the Course Details page.
+Before writing any code:
+1. Analyze the Lesson Management requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 4.1 — Database
+Follow all project documents.
+
+Implement ONLY the database layer for Lesson Management.
+
+Tasks:
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
+
+Do NOT implement APIs.
+Stop after the database layer.
+Generate a testing checklist.
+
+### Phase 4.2 — Lesson Service
+Follow all project documents.
+
+Implement ONLY the Lesson Service.
+
+Requirements:
+- Core business logic.
+- Validation.
+- Error handling.
+
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the service layer.
+Generate unit testing checklist.
+
+### Phase 4.3 — Lesson CRUD APIs
+Follow all project documents.
+
+Implement ONLY the Lesson CRUD APIs.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 4.4 — Frontend Curriculum Builder UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Curriculum Builder UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 4.5 — Frontend Syllabus UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Syllabus UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 4.6 — API Integration
+Follow all project documents.
+
+Implement ONLY the API Integration.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 4.7 — Browser Testing
+Follow all project documents.
+
+Review the Lesson Management module.
+
+Generate a complete browser testing checklist.
+
+Include all happy paths and error states.
+
+Wait for my confirmation before continuing.
+
+### Phase 4.8 — Final Review
+Follow all project documents.
+
+Review the Lesson Management module.
+
+Check:
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+Generate a final report.
+If everything is correct, mark Phase complete.
 
 ## Phase 5: Classroom
 
-**Objective:** The core learning environment where students consume lesson content (video/text) and track progress.
-**Why this phase is placed here:** Requires Courses and Lessons to exist. Needs to exist before Subscriptions so we know what is being unlocked.
-**What must be completed before starting:** Phase 4.
-**What cannot start before this phase:** Student Dashboard (Continue Learning).
+### Phase 5.0 — Classroom Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** Video Player, Progress Tracking.
-- **Database Tasks:** Create `progress` table to track completed lessons and watch positions.
-- **Backend Tasks:** Create progress update services. Logic to determine if a user has access to a lesson (Preview vs Locked).
-- **API Tasks:** Build `/lessons/{id}` (fetching content), `/progress/{lesson_id}` (POST/PATCH).
-- **Frontend Tasks:** Build the Classroom Layout (Sidebar with curriculum, main area with Video Player). Implement progress checkboxes.
-- **Testing Tasks:** Test access control (unauthorized users cannot fetch locked lesson content).
-- **Dependencies:** Phase 4.
+We are starting Phase 5: Classroom.
 
-### Success & Completion
-- **Success Criteria:** Authorized users can watch videos and mark them as complete.
-- **Definition of Done:** Progress is saved to the database. The frontend correctly updates completion badges in the sidebar.
+Before writing any code:
+1. Analyze the Classroom requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 5.1 — Database
+Follow all project documents.
+
+Implement ONLY the database layer for Classroom.
+
+Tasks:
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
+
+Do NOT implement APIs.
+Stop after the database layer.
+Generate a testing checklist.
+
+### Phase 5.2 — Progress Service
+Follow all project documents.
+
+Implement ONLY the Progress Service.
+
+Requirements:
+- Core business logic.
+- Validation.
+- Error handling.
+
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the service layer.
+Generate unit testing checklist.
+
+### Phase 5.3 — Classroom APIs
+Follow all project documents.
+
+Implement ONLY the Classroom APIs.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 5.4 — Frontend Video Player UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Video Player UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 5.5 — Frontend Progress UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Progress UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 5.6 — API Integration
+Follow all project documents.
+
+Implement ONLY the API Integration.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 5.7 — Browser Testing
+Follow all project documents.
+
+Review the Classroom module.
+
+Generate a complete browser testing checklist.
+
+Include all happy paths and error states.
+
+Wait for my confirmation before continuing.
+
+### Phase 5.8 — Final Review
+Follow all project documents.
+
+Review the Classroom module.
+
+Check:
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+Generate a final report.
+If everything is correct, mark Phase complete.
 
 ## Phase 6: Subscription
 
-**Objective:** Implement subscription plans (Monthly/Annual) to grant access to the entire platform or specific tiers.
-**Why this phase is placed here:** Access control mechanisms must be in place before we integrate the actual payment gateway.
-**What must be completed before starting:** Phase 1, Phase 5.
-**What cannot start before this phase:** Payment gateway integration.
+### Phase 6.0 — Subscription Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** Subscription Logic.
-- **Database Tasks:** Create `subscriptions` table (plan type, status, expiry date).
-- **Backend Tasks:** Implement logic to bypass course-level locks if a user has an active subscription.
-- **API Tasks:** Build endpoints to check active subscription status.
-- **Frontend Tasks:** Build Pricing page comparing plans. Update Classroom to check for global subscription state before locking content.
-- **Testing Tasks:** Unit test subscription expiration logic. Test content access based on active vs expired states.
-- **Dependencies:** Phase 1.
+We are starting Phase 6: Subscription.
 
-### Success & Completion
-- **Success Criteria:** The system accurately identifies who is a subscriber and conditionally grants access to premium content.
-- **Definition of Done:** `subscriptions` table is active; RBAC/Middleware checks subscription status during lesson data retrieval.
+Before writing any code:
+1. Analyze the Subscription requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 6.1 — Database
+Follow all project documents.
+
+Implement ONLY the database layer for Subscription.
+
+Tasks:
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
+
+Do NOT implement APIs.
+Stop after the database layer.
+Generate a testing checklist.
+
+### Phase 6.2 — Subscription Service
+Follow all project documents.
+
+Implement ONLY the Subscription Service.
+
+Requirements:
+- Core business logic.
+- Validation.
+- Error handling.
+
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the service layer.
+Generate unit testing checklist.
+
+### Phase 6.3 — Subscription APIs
+Follow all project documents.
+
+Implement ONLY the Subscription APIs.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 6.4 — Frontend Pricing UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Pricing UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 6.5 — Frontend Paywall UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Paywall UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 6.6 — API Integration
+Follow all project documents.
+
+Implement ONLY the API Integration.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 6.7 — Browser Testing
+Follow all project documents.
+
+Review the Subscription module.
+
+Generate a complete browser testing checklist.
+
+Include all happy paths and error states.
+
+Wait for my confirmation before continuing.
+
+### Phase 6.8 — Final Review
+Follow all project documents.
+
+Review the Subscription module.
+
+Check:
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+Generate a final report.
+If everything is correct, mark Phase complete.
 
 ## Phase 7: Payment
 
-**Objective:** Integrate Stripe/Paddle to process actual transactions for Subscriptions or single Course Purchases.
-**Why this phase is placed here:** Monetization requires the database structures for Subscriptions and Courses to already be stable.
-**What must be completed before starting:** Phase 3, Phase 6.
-**What cannot start before this phase:** Checkout flows, Coupons.
+### Phase 7.0 — Payment Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** Stripe Integration, Webhooks.
-- **Database Tasks:** Create `payments` and `enrollments` tables.
-- **Backend Tasks:** Integrate Stripe Python SDK. Build secure webhook handlers to listen for `checkout.session.completed`.
-- **API Tasks:** Build `/payments/create-checkout-session` and `/payments/webhook`.
-- **Frontend Tasks:** Implement Stripe Checkout redirect. Build Success and Cancel pages.
-- **Testing Tasks:** Stripe CLI webhook testing. E2E test successful and failed payment flows.
-- **Dependencies:** Phase 6, Stripe Account.
+We are starting Phase 7: Payment.
 
-### Success & Completion
-- **Success Criteria:** Users can pay for a course or subscription, and their account is automatically provisioned upon successful payment.
-- **Definition of Done:** Webhooks successfully parse Stripe events and insert records into `enrollments` and `subscriptions` tables without manual intervention.
+Before writing any code:
+1. Analyze the Payment requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 7.1 — Database
+Follow all project documents.
+
+Implement ONLY the database layer for Payment.
+
+Tasks:
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
+
+Do NOT implement APIs.
+Stop after the database layer.
+Generate a testing checklist.
+
+### Phase 7.2 — Stripe Service
+Follow all project documents.
+
+Implement ONLY the Stripe Service.
+
+Requirements:
+- Core business logic.
+- Validation.
+- Error handling.
+
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the service layer.
+Generate unit testing checklist.
+
+### Phase 7.3 — Checkout API
+Follow all project documents.
+
+Implement ONLY the Checkout API.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 7.4 — Webhook API
+Follow all project documents.
+
+Implement ONLY the Webhook API.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 7.5 — Frontend Checkout UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Checkout UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 7.6 — API Integration
+Follow all project documents.
+
+Implement ONLY the API Integration.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 7.7 — Browser Testing
+Follow all project documents.
+
+Review the Payment module.
+
+Generate a complete browser testing checklist.
+
+Include all happy paths and error states.
+
+Wait for my confirmation before continuing.
+
+### Phase 7.8 — Final Review
+Follow all project documents.
+
+Review the Payment module.
+
+Check:
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+Generate a final report.
+If everything is correct, mark Phase complete.
 
 ## Phase 8: Student Dashboard
 
-**Objective:** Provide a personalized hub for students to view their enrolled courses, progress, and active subscriptions.
-**Why this phase is placed here:** Depends entirely on Enrollments, Progress, and Subscriptions being operational.
-**What must be completed before starting:** Phase 5, Phase 7.
-**What cannot start before this phase:** Certificates.
+### Phase 8.0 — Student Dashboard Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** Student Analytics, Enrolled Courses.
-- **Database Tasks:** Optimize queries for joining `enrollments`, `courses`, and `progress`.
-- **Backend Tasks:** Aggregate progress percentages per enrolled course.
-- **API Tasks:** Build `/users/me/dashboard` data aggregator endpoint.
-- **Frontend Tasks:** Build Dashboard UI, "Continue Learning" widget, and active subscription status banner.
-- **Testing Tasks:** Test aggregation math (ensure progress % doesn't exceed 100).
-- **Dependencies:** Phase 5, Phase 7.
+We are starting Phase 8: Student Dashboard.
 
-### Success & Completion
-- **Success Criteria:** Students see an accurate reflection of what they own and where they left off.
-- **Definition of Done:** Dashboard heavily utilizes TanStack Query for fast data fetching and accurately routes users back to their last unwatched lesson.
+Before writing any code:
+1. Analyze the Student Dashboard requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 8.1 — Database Queries
+Follow all project documents.
+
+Implement ONLY the database layer for Student Dashboard.
+
+Tasks:
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
+
+Do NOT implement APIs.
+Stop after the database layer.
+Generate a testing checklist.
+
+### Phase 8.2 — Dashboard Service
+Follow all project documents.
+
+Implement ONLY the Dashboard Service.
+
+Requirements:
+- Core business logic.
+- Validation.
+- Error handling.
+
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the service layer.
+Generate unit testing checklist.
+
+### Phase 8.3 — Dashboard API
+Follow all project documents.
+
+Implement ONLY the Dashboard API.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 8.4 — Frontend Dashboard UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Dashboard UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 8.5 — API Integration
+Follow all project documents.
+
+Implement ONLY the API Integration.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 8.6 — Browser Testing
+Follow all project documents.
+
+Review the Student Dashboard module.
+
+Generate a complete browser testing checklist.
+
+Include all happy paths and error states.
+
+Wait for my confirmation before continuing.
+
+### Phase 8.7 — Final Review
+Follow all project documents.
+
+Review the Student Dashboard module.
+
+Check:
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+Generate a final report.
+If everything is correct, mark Phase complete.
 
 ## Phase 9: Assignment
 
-**Objective:** Allow instructors to attach assignments to lessons, and students to submit them for grading.
-**Why this phase is placed here:** An extension of the Classroom experience.
-**What must be completed before starting:** Phase 5 (Classroom).
-**What cannot start before this phase:** Advanced Admin Grading flows.
+### Phase 9.0 — Assignment Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** Assignments, Submissions.
-- **Database Tasks:** Create `assignments` and `submissions` tables.
-- **Backend Tasks:** Handle file uploads for submissions via S3/R2.
-- **API Tasks:** Build `/lessons/{id}/assignments` and `/assignments/{id}/submit`.
-- **Frontend Tasks:** Build Assignment UI in the Classroom. Build file dropzone for students.
-- **Testing Tasks:** Test file type validation (preventing executable uploads).
-- **Dependencies:** Phase 5.
+We are starting Phase 9: Assignment.
 
-### Success & Completion
-- **Success Criteria:** Students can upload homework, and instructors can view it.
-- **Definition of Done:** Submissions are securely stored and linked to both the user and the lesson.
+Before writing any code:
+1. Analyze the Assignment requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 9.1 — Database
+Follow all project documents.
+
+Implement ONLY the database layer for Assignment.
+
+Tasks:
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
+
+Do NOT implement APIs.
+Stop after the database layer.
+Generate a testing checklist.
+
+### Phase 9.2 — Assignment Service
+Follow all project documents.
+
+Implement ONLY the Assignment Service.
+
+Requirements:
+- Core business logic.
+- Validation.
+- Error handling.
+
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the service layer.
+Generate unit testing checklist.
+
+### Phase 9.3 — Assignment APIs
+Follow all project documents.
+
+Implement ONLY the Assignment APIs.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 9.4 — Submission APIs
+Follow all project documents.
+
+Implement ONLY the Submission APIs.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 9.5 — Frontend Assignment UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Assignment UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 9.6 — API Integration
+Follow all project documents.
+
+Implement ONLY the API Integration.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 9.7 — Browser Testing
+Follow all project documents.
+
+Review the Assignment module.
+
+Generate a complete browser testing checklist.
+
+Include all happy paths and error states.
+
+Wait for my confirmation before continuing.
+
+### Phase 9.8 — Final Review
+Follow all project documents.
+
+Review the Assignment module.
+
+Check:
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+Generate a final report.
+If everything is correct, mark Phase complete.
 
 ## Phase 10: Certificate
 
-**Objective:** Auto-generate PDF certificates when a student hits 100% completion on a course.
-**Why this phase is placed here:** Requires granular progress tracking to exist.
-**What must be completed before starting:** Phase 5 (Progress), Phase 8.
-**What cannot start before this phase:** None.
+### Phase 10.0 — Certificate Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** PDF Generation.
-- **Database Tasks:** Create `certificates` table (verification hash, issue date).
-- **Backend Tasks:** Integrate a PDF generation library (e.g., ReportLab or Playwright HTML-to-PDF).
-- **API Tasks:** Build `/certificates/generate` (triggered on 100% completion) and `/certificates/{hash}` (public verification).
-- **Frontend Tasks:** Build Certificate display page and download buttons in the Student Dashboard.
-- **Testing Tasks:** Test completion triggers. Ensure certificates are immutable once generated.
-- **Dependencies:** Phase 5, Phase 8.
+We are starting Phase 10: Certificate.
 
-### Success & Completion
-- **Success Criteria:** Students receive a downloadable PDF upon finishing all lessons in an enrolled course.
-- **Definition of Done:** Certificate API generates PDFs dynamically based on user and course data.
+Before writing any code:
+1. Analyze the Certificate requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 10.1 — Database
+Follow all project documents.
+
+Implement ONLY the database layer for Certificate.
+
+Tasks:
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
+
+Do NOT implement APIs.
+Stop after the database layer.
+Generate a testing checklist.
+
+### Phase 10.2 — PDF Generation Service
+Follow all project documents.
+
+Implement ONLY the PDF Generation Service.
+
+Requirements:
+- Core business logic.
+- Validation.
+- Error handling.
+
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the service layer.
+Generate unit testing checklist.
+
+### Phase 10.3 — Certificate APIs
+Follow all project documents.
+
+Implement ONLY the Certificate APIs.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 10.4 — Frontend Certificate UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Certificate UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 10.5 — API Integration
+Follow all project documents.
+
+Implement ONLY the API Integration.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 10.6 — Browser Testing
+Follow all project documents.
+
+Review the Certificate module.
+
+Generate a complete browser testing checklist.
+
+Include all happy paths and error states.
+
+Wait for my confirmation before continuing.
+
+### Phase 10.7 — Final Review
+Follow all project documents.
+
+Review the Certificate module.
+
+Check:
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+Generate a final report.
+If everything is correct, mark Phase complete.
 
 ## Phase 11: Reviews
 
-**Objective:** Allow students to leave ratings (1-5 stars) and textual reviews on completed or enrolled courses.
-**Why this phase is placed here:** Enhances course catalog trust. Requires Enrollments to prevent spam reviews.
-**What must be completed before starting:** Phase 7 (Enrollments).
-**What cannot start before this phase:** None.
+### Phase 11.0 — Reviews Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** Rating System.
-- **Database Tasks:** Create `reviews` table with `user_id` and `course_id` unique constraints. Add aggregate `average_rating` to `courses` table.
-- **Backend Tasks:** Implement review submission logic verifying the user is actually enrolled.
-- **API Tasks:** Build `/courses/{id}/reviews` (GET, POST).
-- **Frontend Tasks:** Build Star Rating component. Integrate reviews into the Course Details page.
-- **Testing Tasks:** Ensure non-enrolled users receive a 403 Forbidden when attempting to review.
-- **Dependencies:** Phase 7.
+We are starting Phase 11: Reviews.
 
-### Success & Completion
-- **Success Criteria:** Authentic reviews populate the course pages, influencing average ratings.
-- **Definition of Done:** Database triggers or background tasks successfully recalculate course average ratings upon new review insertions.
+Before writing any code:
+1. Analyze the Reviews requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 11.1 — Database
+Follow all project documents.
+
+Implement ONLY the database layer for Reviews.
+
+Tasks:
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
+
+Do NOT implement APIs.
+Stop after the database layer.
+Generate a testing checklist.
+
+### Phase 11.2 — Review Service
+Follow all project documents.
+
+Implement ONLY the Review Service.
+
+Requirements:
+- Core business logic.
+- Validation.
+- Error handling.
+
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the service layer.
+Generate unit testing checklist.
+
+### Phase 11.3 — Review APIs
+Follow all project documents.
+
+Implement ONLY the Review APIs.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 11.4 — Frontend Review UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Review UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 11.5 — API Integration
+Follow all project documents.
+
+Implement ONLY the API Integration.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 11.6 — Browser Testing
+Follow all project documents.
+
+Review the Reviews module.
+
+Generate a complete browser testing checklist.
+
+Include all happy paths and error states.
+
+Wait for my confirmation before continuing.
+
+### Phase 11.7 — Final Review
+Follow all project documents.
+
+Review the Reviews module.
+
+Check:
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+Generate a final report.
+If everything is correct, mark Phase complete.
 
 ## Phase 12: Coupon
 
-**Objective:** Enable Admins to create discount codes (percentage or fixed amount) for checkout.
-**Why this phase is placed here:** Modifies the Payment phase logic.
-**What must be completed before starting:** Phase 7 (Payment).
-**What cannot start before this phase:** None.
+### Phase 12.0 — Coupon Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** Discounts.
-- **Database Tasks:** Create `coupons` table (code, discount_type, value, max_uses, expires_at).
-- **Backend Tasks:** Sync coupons with Stripe API or handle logic locally before generating the checkout session.
-- **API Tasks:** Build `/coupons/validate` endpoint for the frontend.
-- **Frontend Tasks:** Add "Apply Coupon" input on the checkout/pricing page.
-- **Testing Tasks:** Test edge cases (expired coupons, over-usage).
-- **Dependencies:** Phase 7.
+We are starting Phase 12: Coupon.
 
-### Success & Completion
-- **Success Criteria:** Users can apply valid promo codes to reduce their cart total.
-- **Definition of Done:** Stripe Checkout accurately reflects the discounted price utilizing the applied coupon ID.
+Before writing any code:
+1. Analyze the Coupon requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 12.1 — Database
+Follow all project documents.
+
+Implement ONLY the database layer for Coupon.
+
+Tasks:
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
+
+Do NOT implement APIs.
+Stop after the database layer.
+Generate a testing checklist.
+
+### Phase 12.2 — Coupon Service
+Follow all project documents.
+
+Implement ONLY the Coupon Service.
+
+Requirements:
+- Core business logic.
+- Validation.
+- Error handling.
+
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the service layer.
+Generate unit testing checklist.
+
+### Phase 12.3 — Validation API
+Follow all project documents.
+
+Implement ONLY the Validation API.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 12.4 — Frontend Coupon UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Coupon UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 12.5 — API Integration
+Follow all project documents.
+
+Implement ONLY the API Integration.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 12.6 — Browser Testing
+Follow all project documents.
+
+Review the Coupon module.
+
+Generate a complete browser testing checklist.
+
+Include all happy paths and error states.
+
+Wait for my confirmation before continuing.
+
+### Phase 12.7 — Final Review
+Follow all project documents.
+
+Review the Coupon module.
+
+Check:
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+Generate a final report.
+If everything is correct, mark Phase complete.
 
 ## Phase 13: Notifications
 
-**Objective:** Alert users of system events (payment success, new course published, assignment graded).
-**Why this phase is placed here:** Touches almost every other module; acts as the connective communication tissue.
-**What must be completed before starting:** Phase 9 (Assignments), Phase 7 (Payments).
-**What cannot start before this phase:** None.
+### Phase 13.0 — Notifications Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** In-App Alerts, Emails.
-- **Database Tasks:** Create `notifications` table (user_id, type, message, is_read).
-- **Backend Tasks:** Implement Resend SDK for transactional emails. Hook into existing services to trigger notifications.
-- **API Tasks:** Build `/notifications` (GET, PATCH mark-as-read).
-- **Frontend Tasks:** Build Notification Bell and dropdown in the Navbar.
-- **Testing Tasks:** Unit test email dispatch logic (mocked).
-- **Dependencies:** Resend API Key.
+We are starting Phase 13: Notifications.
 
-### Success & Completion
-- **Success Criteria:** Users receive contextual alerts in-app and via email for critical events.
-- **Definition of Done:** Notification state synchronizes accurately (marking as read updates the badge count globally).
+Before writing any code:
+1. Analyze the Notifications requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 13.1 — Database
+Follow all project documents.
+
+Implement ONLY the database layer for Notifications.
+
+Tasks:
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
+
+Do NOT implement APIs.
+Stop after the database layer.
+Generate a testing checklist.
+
+### Phase 13.2 — Email Service
+Follow all project documents.
+
+Implement ONLY the Email Service.
+
+Requirements:
+- Core business logic.
+- Validation.
+- Error handling.
+
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the service layer.
+Generate unit testing checklist.
+
+### Phase 13.3 — Notification APIs
+Follow all project documents.
+
+Implement ONLY the Notification APIs.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 13.4 — Frontend Notification Bell UI
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Notification Bell UI.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 13.5 — API Integration
+Follow all project documents.
+
+Implement ONLY the API Integration.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 13.6 — Browser Testing
+Follow all project documents.
+
+Review the Notifications module.
+
+Generate a complete browser testing checklist.
+
+Include all happy paths and error states.
+
+Wait for my confirmation before continuing.
+
+### Phase 13.7 — Final Review
+Follow all project documents.
+
+Review the Notifications module.
+
+Check:
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+Generate a final report.
+If everything is correct, mark Phase complete.
 
 ## Phase 14: Admin Panel
 
-**Objective:** A centralized CMS and reporting dashboard for platform owners.
-**Why this phase is placed here:** While CRUD for courses was built early, the *holistic* admin panel requires all data to exist (Payments, Users, Reviews).
-**What must be completed before starting:** All previous phases.
-**What cannot start before this phase:** Final Deployment.
+### Phase 14.0 — Admin Panel Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
 
-### Tasks Breakdown
-- **Modules:** Admin Dashboard, Reporting.
-- **Database Tasks:** Complex aggregations for MRR (Monthly Recurring Revenue) and user growth.
-- **Backend Tasks:** Build highly restricted analytics services.
-- **API Tasks:** Build `/admin/analytics`, `/admin/transactions`.
-- **Frontend Tasks:** Build Admin Layout, Data Tables, and Charts (e.g., Recharts) for financial insights.
-- **Testing Tasks:** Strict RBAC verification on all `/admin/*` routes.
-- **Dependencies:** Phase 1-13.
+We are starting Phase 14: Admin Panel.
 
-### Success & Completion
-- **Success Criteria:** Platform owners can view financial health, manage all users, and moderate content from a single interface.
-- **Definition of Done:** Admin UI is fully functional, isolated from student views, and strictly secured.
+Before writing any code:
+1. Analyze the Admin Panel requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
 
----
+Do NOT write any code.
+Stop after the planning document.
 
-## Phase 15: Testing
+### Phase 14.1 — Database Aggregations
+Follow all project documents.
 
-**Objective:** Comprehensive Quality Assurance, Load Testing, and Security Auditing prior to launch.
-**Why this phase is placed here:** Code must be feature-complete before final QA.
-**What must be completed before starting:** Phases 1-14.
-**What cannot start before this phase:** Deployment.
+Implement ONLY the database layer for Admin Panel.
 
-### Tasks Breakdown
-- **Modules:** QA, Security.
-- **Backend Tasks:** Run full Pytest suite. Ensure 80%+ coverage. Address any N+1 queries.
-- **Frontend Tasks:** Run Lighthouse audits for accessibility and performance.
-- **Testing Tasks:** Execute E2E Playwright test suite against a staging database.
-- **Dependencies:** Feature freeze.
+Tasks:
+- Configure SQLAlchemy models.
+- Create Alembic migration.
+- Add database indexes.
+- Add constraints.
+- Create timestamps.
+- Verify migration works.
 
-### Success & Completion
-- **Success Criteria:** Zero critical bugs. Application passes OWASP Top 10 basic checks.
-- **Definition of Done:** All test suites pass in the staging CI pipeline.
+Do NOT implement APIs.
+Stop after the database layer.
+Generate a testing checklist.
 
----
+### Phase 14.2 — Analytics Service
+Follow all project documents.
 
-## Phase 16: Deployment
+Implement ONLY the Analytics Service.
 
-**Objective:** Push the E-Learning platform to production infrastructure.
-**Why this phase is placed here:** The final step of the SDLC.
-**What must be completed before starting:** Phase 15 (Testing).
-**What cannot start before this phase:** N/A (Project Complete).
+Requirements:
+- Core business logic.
+- Validation.
+- Error handling.
 
-### Tasks Breakdown
-- **Modules:** DevOps.
-- **Database Tasks:** Provision Production Neon DB. Apply production migrations.
-- **Backend Tasks:** Deploy FastAPI container (e.g., to AWS ECS, Render, or Railway).
-- **Frontend Tasks:** Deploy Next.js app (e.g., to Vercel).
-- **Dependencies:** Production Domain Names, SSL Certificates, Production API Keys (Stripe Live).
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the service layer.
+Generate unit testing checklist.
 
-### Success & Completion
-- **Success Criteria:** End-users can access the platform, register, pay, and consume content on the live domain.
-- **Definition of Done:** Application is fully live, monitorable via logs, and accessible globally.
+### Phase 14.3 — Admin APIs
+Follow all project documents.
+
+Implement ONLY the Admin APIs.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 14.4 — Frontend Admin Layout
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Admin Layout.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 14.5 — Frontend Data Tables
+Follow all project documents.
+
+Implement ONLY the frontend Frontend Data Tables.
+
+Requirements:
+- React components.
+- Tailwind styling.
+- Loading state.
+- Error state.
+- Success state.
+- Responsive UI.
+
+Do not connect APIs.
+Stop after frontend UI.
+
+### Phase 14.6 — API Integration
+Follow all project documents.
+
+Implement ONLY the API Integration.
+
+Requirements:
+- Request Schema.
+- Response Schema.
+- Validation.
+- Connect to Service layer.
+- Proper HTTP status codes.
+- Error handling.
+
+Do not implement frontend.
+Stop after API implementation.
+Generate API testing checklist.
+
+### Phase 14.7 — Browser Testing
+Follow all project documents.
+
+Review the Admin Panel module.
+
+Generate a complete browser testing checklist.
+
+Include all happy paths and error states.
+
+Wait for my confirmation before continuing.
+
+### Phase 14.8 — Final Review
+Follow all project documents.
+
+Review the Admin Panel module.
+
+Check:
+- Architecture
+- Folder Structure
+- Security
+- Validation
+- Performance
+- Clean Code
+- SOLID
+- DRY
+- API Design
+- Error Handling
+
+Fix every issue found.
+Generate a final report.
+If everything is correct, mark Phase complete.
+
+## Phase 15: Testing & Deployment
+
+### Phase 15.0 — Testing & Deployment Planning
+Follow the Project Constitution.
+Follow the AI Development Rules.
+Follow the Development Roadmap.
+
+We are starting Phase 15: Testing & Deployment.
+
+Before writing any code:
+1. Analyze the Testing & Deployment requirements.
+2. List all functional requirements.
+3. List all API endpoints.
+4. Design the database schema.
+5. Explain the data flow.
+6. Explain the folder structure.
+7. List every file that will be created.
+8. Explain dependencies between files.
+9. Create an implementation plan.
+
+Do NOT write any code.
+Stop after the planning document.
+
+### Phase 15.1 — Backend Pytest
+Follow all project documents.
+
+Execute the Backend Pytest tasks.
+
+Stop after completion.
+
+### Phase 15.2 — Frontend Vitest
+Follow all project documents.
+
+Execute the Frontend Vitest tasks.
+
+Stop after completion.
+
+### Phase 15.3 — E2E Playwright
+Follow all project documents.
+
+Execute the E2E Playwright tasks.
+
+Stop after completion.
+
+### Phase 15.4 — Production DB Provisioning
+Follow all project documents.
+
+Execute the Production DB Provisioning tasks.
+
+Stop after completion.
+
+### Phase 15.5 — Backend Deployment
+Follow all project documents.
+
+Execute the Backend Deployment tasks.
+
+Stop after completion.
+
+### Phase 15.6 — Frontend Deployment
+Follow all project documents.
+
+Execute the Frontend Deployment tasks.
+
+Stop after completion.
+

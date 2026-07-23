@@ -9,7 +9,8 @@ from app.core.database import get_db
 from app.core.security import create_access_token, create_refresh_token, verify_refresh_token
 from app.schemas.user import UserCreate, UserRead
 from app.schemas.token import Token
-from app.services.auth_service import authenticate_user, create_user
+from app.schemas.auth import VerifyOTP, ForgotPassword, ResetPassword
+from app.services.auth_service import AuthService
 from app.api.deps import get_current_user
 from app.models.user import User
 
@@ -18,10 +19,20 @@ router = APIRouter()
 @router.post("/register", response_model=UserRead, status_code=status.HTTP_201_CREATED)
 async def register(user_in: UserCreate, db: AsyncSession = Depends(get_db)):
     """
-    Create new user.
+    Create new user and send OTP.
     """
-    user = await create_user(db, user_in)
+    auth_service = AuthService(db)
+    user = await auth_service.register_user(user_in.model_dump())
     return user
+
+@router.post("/verify-registration", status_code=status.HTTP_200_OK)
+async def verify_registration(data: VerifyOTP, db: AsyncSession = Depends(get_db)):
+    """
+    Verify user registration with OTP.
+    """
+    auth_service = AuthService(db)
+    await auth_service.verify_registration(data.email, data.otp_code)
+    return {"message": "User verified successfully"}
 
 
 @router.post("/login", response_model=Token)
@@ -33,19 +44,13 @@ async def login(
     """
     OAuth2 compatible token login, get an access token for future requests.
     """
-    user = await authenticate_user(db, email=form_data.username, password=form_data.password)
-    if not user:
-        raise HTTPException(status_code=400, detail="Incorrect email or password")
-    elif not user.is_active:
-        raise HTTPException(status_code=400, detail="Inactive user")
-        
-    access_token = create_access_token(user.id)
-    refresh_token = create_refresh_token(user.id)
+    auth_service = AuthService(db)
+    tokens = await auth_service.authenticate_user(email=form_data.username, password=form_data.password)
     
     # Set HTTP-only cookie for refresh token
     response.set_cookie(
         key="refresh_token",
-        value=refresh_token,
+        value=tokens["refresh_token"],
         httponly=True,
         secure=True,
         samesite="lax",
@@ -53,7 +58,7 @@ async def login(
     )
     
     return {
-        "access_token": access_token,
+        "access_token": tokens["access_token"],
         "token_type": "bearer"
     }
 
@@ -108,3 +113,21 @@ async def read_users_me(current_user: User = Depends(get_current_user)):
     Get current user.
     """
     return current_user
+
+@router.post("/forgot-password", status_code=status.HTTP_200_OK)
+async def forgot_password(data: ForgotPassword, db: AsyncSession = Depends(get_db)):
+    """
+    Initiate password reset flow by sending OTP to email.
+    """
+    auth_service = AuthService(db)
+    await auth_service.initiate_password_reset(data.email)
+    return {"message": "If that email exists in our system, a password reset OTP has been sent."}
+
+@router.post("/reset-password", status_code=status.HTTP_200_OK)
+async def reset_password(data: ResetPassword, db: AsyncSession = Depends(get_db)):
+    """
+    Reset user password using OTP.
+    """
+    auth_service = AuthService(db)
+    await auth_service.reset_password(data.email, data.otp_code, data.new_password)
+    return {"message": "Password successfully reset"}

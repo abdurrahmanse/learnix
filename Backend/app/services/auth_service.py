@@ -1,42 +1,92 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
-from fastapi import HTTPException
+from sqlalchemy.future import select
+from fastapi import HTTPException, status
 from app.models.user import User
-from app.schemas.user import UserCreate
-from app.core.security import get_password_hash, verify_password
+from app.core.security import get_password_hash, verify_password, create_access_token, create_refresh_token
+from app.services.otp_service import OTPService
 
-async def authenticate_user(session: AsyncSession, email: str, password: str) -> User | None:
-    result = await session.execute(select(User).where(User.email == email))
-    user = result.scalar_one_or_none()
-    if not user:
-        return None
-    if not verify_password(password, user.hashed_password):
-        return None
-    return user
+class AuthService:
+    def __init__(self, db: AsyncSession):
+        self.db = db
+        self.otp_service = OTPService(db)
 
-async def get_user_by_email(session: AsyncSession, email: str) -> User | None:
-    result = await session.execute(select(User).where(User.email == email))
-    return result.scalar_one_or_none()
+    async def get_user_by_email(self, email: str) -> User | None:
+        result = await self.db.execute(select(User).where(User.email == email))
+        return result.scalars().first()
 
-async def create_user(session: AsyncSession, user_in: UserCreate) -> User:
-    db_user = await get_user_by_email(session, email=user_in.email)
-    if db_user:
-        raise HTTPException(
-            status_code=400,
-            detail="The user with this email already exists in the system.",
+    async def get_user_by_username(self, username: str) -> User | None:
+        result = await self.db.execute(select(User).where(User.username == username))
+        return result.scalars().first()
+
+    async def register_user(self, data: dict) -> User:
+        if await self.get_user_by_email(data['email']):
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email already registered")
+        if await self.get_user_by_username(data['username']):
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Username already taken")
+
+        new_user = User(
+            email=data['email'],
+            username=data['username'],
+            full_name=data['full_name'],
+            hashed_password=get_password_hash(data['password']),
+            is_active=False,
+            is_verified=False
         )
-    
-    # Check if this is the first user, make them admin
-    result = await session.execute(select(User).limit(1))
-    first_user = result.scalar_one_or_none()
-    role = "admin" if first_user is None else "user"
+        self.db.add(new_user)
+        await self.db.commit()
+        await self.db.refresh(new_user)
+
+        # Generate and send OTP
+        otp = await self.otp_service.create_otp(new_user, "registration")
+        await self.otp_service.send_otp_email(new_user, otp.otp_code, "registration")
+
+        return new_user
+
+    async def verify_registration(self, email: str, otp_code: str) -> bool:
+        user = await self.get_user_by_email(email)
+        if not user:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
+        if user.is_verified:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="User already verified")
+
+        is_valid = await self.otp_service.verify_otp(user, "registration", otp_code)
+        if not is_valid:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid or expired OTP")
+
+        user.is_active = True
+        user.is_verified = True
+        await self.db.commit()
+        return True
+
+    async def authenticate_user(self, email: str, password: str) -> dict:
+        user = await self.get_user_by_email(email)
+        if not user or not verify_password(password, user.hashed_password):
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
+        if not user.is_active or not user.is_verified:
+            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Account is not active or not verified")
+
+        return {
+            "access_token": create_access_token(user.id),
+            "refresh_token": create_refresh_token(user.id),
+            "user": user
+        }
+
+    async def initiate_password_reset(self, email: str):
+        user = await self.get_user_by_email(email)
+        if not user:
+            return  # Fail silently to prevent user enumeration
         
-    db_obj = User(
-        email=user_in.email,
-        hashed_password=get_password_hash(user_in.password),
-        role=role,
-    )
-    session.add(db_obj)
-    await session.commit()
-    await session.refresh(db_obj)
-    return db_obj
+        otp = await self.otp_service.create_otp(user, "password_reset")
+        await self.otp_service.send_otp_email(user, otp.otp_code, "password_reset")
+
+    async def reset_password(self, email: str, otp_code: str, new_password: str):
+        user = await self.get_user_by_email(email)
+        if not user:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
+
+        is_valid = await self.otp_service.verify_otp(user, "password_reset", otp_code)
+        if not is_valid:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid or expired OTP")
+
+        user.hashed_password = get_password_hash(new_password)
+        await self.db.commit()

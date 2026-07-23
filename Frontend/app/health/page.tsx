@@ -33,19 +33,19 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-gray-50">
-      <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 max-w-md w-full">
-        <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">Learnix Integration Test</h1>
+    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-background">
+      <div className="bg-card text-card-foreground p-8 rounded-xl shadow-lg border max-w-md w-full">
+        <h1 className="text-2xl font-bold mb-6 text-center">Learnix Integration Test</h1>
         
         {loading && (
           <div className="flex flex-col items-center justify-center py-8">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600 mb-4"></div>
-            <p className="text-gray-500 font-medium">Connecting to backend...</p>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mb-4"></div>
+            <p className="text-muted-foreground font-medium">Connecting to backend...</p>
           </div>
         )}
 
         {error && (
-          <div className="bg-red-50 text-red-700 p-4 rounded-lg border border-red-200">
+          <div className="bg-destructive/10 text-destructive p-4 rounded-lg border border-destructive/20">
             <div className="font-semibold text-lg mb-1 flex items-center">
               <span className="mr-2">❌</span> Connection Failed
             </div>
@@ -55,24 +55,24 @@ export default function Home() {
 
         {data && (
           <div className="space-y-4">
-            <div className="bg-green-50 text-green-700 p-4 rounded-lg border border-green-200">
+            <div className="bg-green-500/10 text-green-600 dark:text-green-500 p-4 rounded-lg border border-green-500/20">
               <div className="font-semibold text-lg mb-1 flex items-center">
                 <span className="mr-2">✅</span> Connection Successful
               </div>
             </div>
             
-            <div className="space-y-2 text-sm text-gray-700">
-              <div className="flex justify-between border-b border-gray-100 pb-2">
-                <span className="font-medium text-gray-500">Status:</span>
-                <span className="font-mono bg-gray-100 px-2 py-0.5 rounded">{data.success ? "true" : "false"}</span>
+            <div className="space-y-2 text-sm text-foreground">
+              <div className="flex justify-between border-b pb-2">
+                <span className="font-medium text-muted-foreground">Status:</span>
+                <span className="font-mono bg-muted px-2 py-0.5 rounded">{data.success ? "true" : "false"}</span>
               </div>
-              <div className="flex justify-between border-b border-gray-100 pb-2">
-                <span className="font-medium text-gray-500">Message:</span>
+              <div className="flex justify-between border-b pb-2">
+                <span className="font-medium text-muted-foreground">Message:</span>
                 <span className="font-medium">{data.message}</span>
               </div>
               <div className="flex justify-between">
-                <span className="font-medium text-gray-500">Version:</span>
-                <span className="font-mono bg-blue-50 text-blue-700 px-2 py-0.5 rounded">{data.version}</span>
+                <span className="font-medium text-muted-foreground">Version:</span>
+                <span className="font-mono bg-primary/10 text-primary px-2 py-0.5 rounded">{data.version}</span>
               </div>
             </div>
           </div>

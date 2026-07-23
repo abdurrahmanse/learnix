@@ -1,9 +1,9 @@
 # Project Context
 
-This document provides the high-level business and functional context for the **DataSci Academy** E-Learning Platform MVP. It serves as a primer for all developers and stakeholders to understand *what* we are building, *who* we are building it for, and the core mechanics of the platform.
+This document provides the high-level business and functional context for the **Learnix** E-Learning Platform MVP. It serves as a primer for all developers and stakeholders to understand *what* we are building, *who* we are building it for, and the core mechanics of the platform.
 
 ## 1. Project Background
-DataSci Academy is designed to be a premium educational platform specializing in delivering high-quality video courses and resources. The platform aims to bridge the gap between expert instructors and eager learners by offering a seamless, high-performance environment for content discovery, purchase, and consumption.
+Learnix is designed to be a premium educational platform specializing in delivering high-quality video courses and resources. The platform aims to bridge the gap between expert instructors and eager learners by offering a seamless, high-performance environment for content discovery, purchase, and consumption.
 
 ## 2. Core Value Proposition
 The platform monetizes educational content through a dual-model approach:

@@ -3,11 +3,12 @@
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
+import { useForm } from "react-hook-form"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useMutation } from "@tanstack/react-query"
-import { api } from "@/lib/axios"
 import { useAuthStore } from "@/store/authStore"
+import { authService, handleApiError } from "@/lib/api/auth"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -20,6 +21,8 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+
+import { LogIn, Mail, Lock, KeyRound } from "lucide-react"
 
 const loginSchema = z.object({
   email: z.string().email({
@@ -47,37 +50,24 @@ export default function LoginPage() {
 
   const loginMutation = useMutation({
     mutationFn: async (values: z.infer<typeof loginSchema>) => {
-      // Backend expects OAuth2 password format
-      const formData = new URLSearchParams()
-      formData.append('username', values.email)
-      formData.append('password', values.password)
-
-      const response = await api.post("/auth/login", formData, {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
-      })
-      return response.data
+      return await authService.login(values.email, values.password)
     },
     onSuccess: async (data) => {
       setSuccess("Successfully logged in! Redirecting...")
       setError(null)
       
-      // We don't have user object directly from login, fetch it
       try {
-        const userResponse = await api.get("/auth/me", {
-          headers: { Authorization: `Bearer ${data.access_token}` }
-        })
-        setAuth(userResponse.data, data.access_token)
+        const userResponse = await authService.getMe()
+        setAuth(userResponse, data.access_token)
         setTimeout(() => router.push("/"), 1000)
       } catch (err) {
-        setAuth({ id: 0, email: form.getValues().email, role: "user", is_active: true }, data.access_token)
+        setAuth({ id: "temp", email: form.getValues().email, username: "", full_name: "", role: "user", is_active: true }, data.access_token)
         setTimeout(() => router.push("/"), 1000)
       }
     },
-    onError: (err: any) => {
+    onError: (err: unknown) => {
       setSuccess(null)
-      setError(err.response?.data?.detail || "Invalid email or password.")
+      setError(handleApiError(err))
     },
   })
 
@@ -88,10 +78,14 @@ export default function LoginPage() {
   const isLoading = loginMutation.isPending
 
   return (
-    <div className="flex min-h-screen items-center justify-center p-4 bg-muted/40">
-      <Card className="w-full max-w-md shadow-lg">
-        <CardHeader className="space-y-1 text-center">
-          <CardTitle className="text-3xl font-bold tracking-tight">Welcome back</CardTitle>
+    <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center p-4 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10 opacity-50 pointer-events-none" />
+      <Card className="w-full max-w-md shadow-2xl shadow-primary/5 border-border/40 bg-background/60 backdrop-blur-xl rounded-2xl">
+        <CardHeader className="space-y-2 text-center pb-8 pt-8">
+          <div className="mx-auto bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+            <KeyRound className="h-8 w-8 text-primary" />
+          </div>
+          <CardTitle className="text-4xl font-extrabold tracking-tight">Welcome Back</CardTitle>
           <CardDescription>
             Enter your email to sign in to your account
           </CardDescription>
@@ -104,9 +98,11 @@ export default function LoginPage() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="name@example.com" {...field} disabled={isLoading} />
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
+                        <Input placeholder="Email Address" className="pl-10 h-12 rounded-xl" {...field} disabled={isLoading} />
+                      </div>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -117,17 +113,19 @@ export default function LoginPage() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <div className="flex items-center justify-between">
-                      <FormLabel>Password</FormLabel>
+                    <div className="flex justify-end mb-1">
                       <Link
                         href="/forgot-password"
-                        className="text-sm font-medium text-muted-foreground hover:text-primary"
+                        className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                       >
                         Forgot password?
                       </Link>
                     </div>
                     <FormControl>
-                      <Input type="password" placeholder="••••••••" {...field} disabled={isLoading} />
+                      <div className="relative">
+                        <Lock className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
+                        <Input type="password" placeholder="Password" className="pl-10 h-12 rounded-xl" {...field} disabled={isLoading} />
+                      </div>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -146,8 +144,15 @@ export default function LoginPage() {
                 </div>
               )}
 
-              <Button className="w-full" type="submit" disabled={isLoading}>
-                {isLoading ? "Signing in..." : "Sign in"}
+              <Button className="w-full h-12 rounded-xl mt-4" type="submit" disabled={isLoading}>
+                {isLoading ? (
+                  "Signing in..."
+                ) : (
+                  <>
+                    <LogIn className="mr-2 h-5 w-5" />
+                    Sign in
+                  </>
+                )}
               </Button>
             </form>
           </Form>
