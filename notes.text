@@ -1,3 +1,16 @@
+Follow the Project Constitution strictly.
+
+Never change architecture.
+Never change folder structure.
+Never rename files.
+Never change naming conventions.
+Never introduce new libraries without my approval.
+Never change API response format.
+Never change coding standards.
+
+Follow the Constitution exactly.
+
+
 Project Health Report: Build Entire Projects and Check
 
 Frontend Running
@@ -12,3 +25,7 @@ No Runtime Errors
 No Network Errors
 
 Give me Project Status:
+
+
+
+admin@example.com / ChangeMe123!

@@ -4,8 +4,8 @@ import resend
 from datetime import datetime, timedelta, timezone
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from app.models.otp import OTPCode
-from app.models.user import User
+from app.db.models.otp import OTPCode
+from app.db.models.user import User
 from app.core.config import settings
 import logging
 
@@ -48,12 +48,14 @@ class OTPService:
         return new_otp
 
     async def send_otp_email(self, user: User, otp: str, purpose: str):
+        from app.core.email_templates import get_otp_html_template
+        
         if purpose == "registration":
             subject = "Your Learnix Verification Code"
-            html_content = f"<p>Welcome to Learnix! Your verification code is: <strong>{otp}</strong></p><p>This code expires in 15 minutes.</p>"
         else:
             subject = "Reset Your Learnix Password"
-            html_content = f"<p>Your password reset code is: <strong>{otp}</strong></p><p>This code expires in 15 minutes.</p>"
+            
+        html_content = get_otp_html_template(otp_code=otp, user_name=user.full_name or user.username, purpose=purpose)
 
         if not settings.RESEND_API_KEY:
             logger.warning(f"RESEND_API_KEY not set. Simulated email to {user.email}: {otp}")

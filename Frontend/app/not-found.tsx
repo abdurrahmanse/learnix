@@ -15,7 +15,7 @@ export default function NotFound() {
         </div>
         
         <p className="text-muted-foreground">
-          Oops! The page you're looking for doesn't exist, has been moved, or is temporarily unavailable.
+          Oops! The page you&apos;re looking for doesn&apos;t exist, has been moved, or is temporarily unavailable.
         </p>
         
         <div className="flex justify-center pt-4">

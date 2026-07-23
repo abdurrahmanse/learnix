@@ -24,7 +24,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp"
 
-import { Mail, KeyRound, Send, ArrowLeft, Lock, ArrowRight, CheckCircle2 } from "lucide-react"
+import { Mail, KeyRound, ArrowLeft, Lock, ArrowRight, CheckCircle2 } from "lucide-react"
 
 const emailSchema = z.object({
   email: z.string().email({
@@ -190,7 +190,7 @@ export default function ForgotPasswordPage() {
               </div>
               <CardTitle className="text-4xl font-extrabold tracking-tight">Check your email</CardTitle>
               <CardDescription className="text-base font-light">
-                We've sent a 6-digit reset code to <br/>
+                We&apos;ve sent a 6-digit reset code to <br/>
                 <span className="font-medium text-foreground">{emailForm.getValues().email}</span>
               </CardDescription>
             </CardHeader>

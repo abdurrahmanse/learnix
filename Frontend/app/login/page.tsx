@@ -16,7 +16,7 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
+  
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
@@ -59,9 +59,12 @@ export default function LoginPage() {
       try {
         const userResponse = await authService.getMe()
         setAuth(userResponse, data.access_token)
-        setTimeout(() => router.push("/"), 1000)
-      } catch (err) {
-        setAuth({ id: "temp", email: form.getValues().email, username: "", full_name: "", role: "user", is_active: true }, data.access_token)
+        
+        setTimeout(() => {
+          router.push("/")
+        }, 1000)
+      } catch {
+        setAuth({ id: "temp", email: form.getValues().email, username: "", full_name: "", role: "student", is_active: true }, data.access_token)
         setTimeout(() => router.push("/"), 1000)
       }
     },

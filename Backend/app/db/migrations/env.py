@@ -23,8 +23,8 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from app.core.config import settings
-from app.core.database import Base
-from app.models.user import User
+from app.db.base import Base
+from app.db.models.user import User
 
 # add your model's MetaData object here
 # for 'autogenerate' support

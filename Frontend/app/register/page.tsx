@@ -249,7 +249,7 @@ export default function RegisterPage() {
               </div>
               <CardTitle className="text-4xl font-extrabold tracking-tight">Check your email</CardTitle>
               <CardDescription className="text-base font-light">
-                We've sent a 6-digit verification code to <br/>
+                We&apos;ve sent a 6-digit verification code to <br/>
                 <span className="font-medium text-foreground">{form.getValues().email}</span>
               </CardDescription>
             </CardHeader>
@@ -291,7 +291,7 @@ export default function RegisterPage() {
             </CardContent>
             <CardFooter className="flex flex-col space-y-4 pb-8">
               <div className="text-sm text-center text-muted-foreground">
-                Didn't receive the code?{" "}
+                Didn&apos;t receive the code?{" "}
                 <button 
                   type="button"
                   className="font-semibold text-primary hover:underline"

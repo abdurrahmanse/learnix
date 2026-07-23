@@ -10,15 +10,27 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+from contextlib import asynccontextmanager
+from app.db.init_db import init_admin_user
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Run at startup
+    await init_admin_user()
+    yield
+    # Run at shutdown
+    pass
+
 # Initialize FastAPI (Task 4)
 # Configure development settings (Task 13)
 app = FastAPI(
     title=settings.PROJECT_NAME,
     openapi_url=f"{settings.API_V1_STR}/openapi.json",
     debug=settings.DEBUG,
+    lifespan=lifespan,
 )
 
-from app.api.routers import auth
+from app.api.routers import auth, users
 
 # Configure CORS (Task 9)
 app.add_middleware(
@@ -30,6 +42,7 @@ app.add_middleware(
 )
 
 app.include_router(auth.router, prefix=f"{settings.API_V1_STR}/auth", tags=["auth"])
+app.include_router(users.router, prefix=f"{settings.API_V1_STR}/users", tags=["users"])
 
 # Create a health check API
 @app.get(f"{settings.API_V1_STR}/health")

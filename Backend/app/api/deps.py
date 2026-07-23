@@ -5,9 +5,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 
 from app.core.config import settings
-from app.core.database import get_db
+from app.db.session import get_db
 from app.core.security import verify_access_token
-from app.models.user import User
+from app.db.models.user import User
 from app.schemas.token import TokenPayload
 
 reusable_oauth2 = OAuth2PasswordBearer(
@@ -23,14 +23,16 @@ async def get_current_user(
         token_data = TokenPayload(**payload)
     except JWTError:
         raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
+            status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Could not validate credentials",
+            headers={"WWW-Authenticate": "Bearer"},
         )
     
     if token_data.sub is None:
         raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
+            status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Could not validate credentials",
+            headers={"WWW-Authenticate": "Bearer"},
         )
         
     result = await db.execute(select(User).where(User.id == token_data.sub))

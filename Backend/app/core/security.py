@@ -1,34 +1,32 @@
 from datetime import datetime, timedelta, timezone
-from passlib.context import CryptContext
-from jose import jwt
+import bcrypt
+from jose import jwt, JWTError
 from app.core.config import settings
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
 def verify_password(plain_password: str, hashed_password: str) -> bool:
-    return pwd_context.verify(plain_password, hashed_password)
+    return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password.encode('utf-8'))
 
 def get_password_hash(password: str) -> str:
-    return pwd_context.hash(password)
+    salt = bcrypt.gensalt()
+    return bcrypt.hashpw(password.encode('utf-8'), salt).decode('utf-8')
 
-def create_access_token(subject: str | int, expires_delta: timedelta | None = None) -> str:
+def create_access_token(subject: str | int, role: str, expires_delta: timedelta | None = None) -> str:
     if expires_delta:
         expire = datetime.now(timezone.utc) + expires_delta
     else:
         expire = datetime.now(timezone.utc) + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
     
-    to_encode = {"exp": expire, "sub": str(subject)}
+    to_encode = {"exp": expire, "sub": str(subject), "role": role}
     encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
     return encoded_jwt
 
-def create_refresh_token(subject: str | int) -> str:
+def create_refresh_token(subject: str | int, role: str) -> str:
     expire = datetime.now(timezone.utc) + timedelta(days=settings.REFRESH_TOKEN_EXPIRE_DAYS)
-    to_encode = {"exp": expire, "sub": str(subject), "type": "refresh"}
+    to_encode = {"exp": expire, "sub": str(subject), "role": role, "type": "refresh"}
     encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
     return encoded_jwt
 
 def verify_access_token(token: str) -> dict:
-    from jose import JWTError
     try:
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
         if payload.get("type") == "refresh":
@@ -38,7 +36,6 @@ def verify_access_token(token: str) -> dict:
         raise
 
 def verify_refresh_token(token: str) -> dict:
-    from jose import JWTError
     try:
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
         if payload.get("type") != "refresh":

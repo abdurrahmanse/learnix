@@ -5,14 +5,14 @@ from jose import jwt, JWTError
 
 from app.core.config import settings
 
-from app.core.database import get_db
+from app.db.session import get_db
 from app.core.security import create_access_token, create_refresh_token, verify_refresh_token
 from app.schemas.user import UserCreate, UserRead
 from app.schemas.token import Token
 from app.schemas.auth import VerifyOTP, ForgotPassword, ResetPassword
 from app.services.auth_service import AuthService
 from app.api.deps import get_current_user
-from app.models.user import User
+from app.db.models.user import User
 
 router = APIRouter()
 
@@ -22,7 +22,7 @@ async def register(user_in: UserCreate, db: AsyncSession = Depends(get_db)):
     Create new user and send OTP.
     """
     auth_service = AuthService(db)
-    user = await auth_service.register_user(user_in.model_dump())
+    user = await auth_service.register_user(user_in)
     return user
 
 @router.post("/verify-registration", status_code=status.HTTP_200_OK)
@@ -45,7 +45,7 @@ async def login(
     OAuth2 compatible token login, get an access token for future requests.
     """
     auth_service = AuthService(db)
-    tokens = await auth_service.authenticate_user(email=form_data.username, password=form_data.password)
+    tokens = await auth_service.authenticate_user(identifier=form_data.username, password=form_data.password)
     
     # Set HTTP-only cookie for refresh token
     response.set_cookie(
@@ -74,15 +74,16 @@ async def refresh_token(request: Request, response: Response):
     try:
         payload = verify_refresh_token(refresh_token)
         user_id = payload.get("sub")
-        if not user_id:
+        role = payload.get("role")
+        if not user_id or not role:
             raise HTTPException(status_code=401, detail="Invalid token payload")
             
     except JWTError:
         raise HTTPException(status_code=401, detail="Invalid refresh token")
 
     # Issue new tokens
-    access_token = create_access_token(user_id)
-    new_refresh_token = create_refresh_token(user_id)
+    access_token = create_access_token(user_id, role)
+    new_refresh_token = create_refresh_token(user_id, role)
     
     # Set HTTP-only cookie for new refresh token
     response.set_cookie(
