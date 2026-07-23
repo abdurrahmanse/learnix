@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Rajdhani } from "next/font/google";
-import "./globals.css";
+import "@/styles/globals.css";
 import { Providers } from "./providers";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -33,7 +33,7 @@ export default function RootLayout({
       className={`${rajdhani.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col" suppressHydrationWarning>
         <Providers>
           <Header routes={routes} />
           <main className="flex-1">

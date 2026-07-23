@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -19,6 +20,12 @@ export function Header({ routes = [] }: { routes?: NavRoute[] }) {
   const { isAuthenticated, logout } = useAuthStore();
   const router = useRouter();
   const pathname = usePathname();
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleLogout = () => {
     logout();
@@ -53,7 +60,12 @@ export function Header({ routes = [] }: { routes?: NavRoute[] }) {
         
         <div className="flex items-center space-x-3">
           <nav className="flex items-center space-x-2">
-            {!isAuthenticated ? (
+            {!mounted ? (
+              <div className="flex items-center space-x-2">
+                <div className="h-10 w-24 bg-muted animate-pulse rounded-full" />
+                <div className="h-10 w-24 bg-muted animate-pulse rounded-full" />
+              </div>
+            ) : !isAuthenticated ? (
               <>
                 <Button variant="ghost" className="rounded-full px-5 text-muted-foreground hover:text-foreground transition-all flex items-center space-x-2" asChild>
                   <Link href="/login">
