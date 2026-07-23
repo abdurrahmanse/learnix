@@ -4,7 +4,7 @@ from app.db.session import get_db
 from app.services.import_service import ImportService
 from app.api.deps import get_current_admin, get_current_user
 from app.db.models.user import User
-from app.schemas.user import UserRead
+from app.schemas.user import UserRead, UserUpdate
 
 from app.services.profile_service import ProfileService
 
@@ -20,6 +20,18 @@ async def get_my_profile(
     """
     profile_service = ProfileService(db)
     return await profile_service.get_profile(current_user)
+
+@router.patch("/me", response_model=UserRead)
+async def update_my_profile(
+    update_data: UserUpdate,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    Update current user's profile.
+    """
+    profile_service = ProfileService(db)
+    return await profile_service.update_profile(current_user, update_data)
 
 @router.post("/import")
 async def import_users(
