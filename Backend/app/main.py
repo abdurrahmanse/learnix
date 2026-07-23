@@ -1,15 +1,25 @@
-"""
-app/main.py
-────────────────────────────────────────────────────────
-FastAPI Application Entry Point
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from app.core.config import settings
+from app.routes import auth
 
-Responsibilities:
-  - Create and configure the FastAPI application instance
-  - Register all API routers under /api/v1
-  - Mount middleware (CORS, GZip, Rate Limit, Logging)
-  - Register custom exception handlers
-  - Lifespan events (startup: DB pool, shutdown: cleanup)
+app = FastAPI(
+    title=settings.PROJECT_NAME,
+    openapi_url="/api/v1/openapi.json"
+)
 
-Usage:
-  uvicorn app.main:app --reload --port 8000
-"""
+# Set up CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.CORS_ORIGINS,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Register routers
+app.include_router(auth.router, prefix="/api/v1")
+
+@app.get("/health")
+async def health_check():
+    return {"status": "ok"}

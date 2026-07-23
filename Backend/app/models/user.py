@@ -1,16 +1,20 @@
-"""
-app/models/user.py — User ORM Model
+import uuid
+from sqlalchemy import Column, String, Boolean, DateTime
+from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.sql import func
+from app.core.database import Base
 
-Table: users
-Columns: id, email, username, full_name, password_hash,
-         role (enum: student|admin), avatar_url,
-         is_active, is_verified, created_at, updated_at
+class User(Base):
+    __tablename__ = "users"
 
-Relationships:
-  courses_created  → Course (back_populates="creator")
-  enrollments      → Enrollment (back_populates="user")
-  progress         → Progress (back_populates="user")
-  subscriptions    → Subscription (back_populates="user")
-  payments         → Payment (back_populates="user")
-  blog_posts       → BlogPost (back_populates="author")
-"""
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, index=True)
+    email = Column(String(255), unique=True, index=True, nullable=False)
+    username = Column(String(100), unique=True, index=True, nullable=False)
+    full_name = Column(String(255), nullable=True)
+    password_hash = Column(String(255), nullable=False)
+    role = Column(String(50), default="student", nullable=False)
+    avatar_url = Column(String(500), nullable=True)
+    is_active = Column(Boolean, default=True)
+    is_verified = Column(Boolean, default=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now())

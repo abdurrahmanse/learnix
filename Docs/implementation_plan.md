@@ -41,7 +41,7 @@
 │   ─────────     ─────────────────       ──────────          │
 │   Home          Dashboard               Courses CRUD         │
 │   Pricing       My Courses              Lessons & Videos     │
-│   Blog          Continue Learning       Blog CRUD            │
+│   about         Continue Learning       system settings        │
 │   Login         Subscription            User Management      │
 │   Register      Profile                 Purchases            │
 │                                         Subscriptions        │
