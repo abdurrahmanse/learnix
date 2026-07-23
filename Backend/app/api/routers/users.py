@@ -6,16 +6,20 @@ from app.api.deps import get_current_admin, get_current_user
 from app.db.models.user import User
 from app.schemas.user import UserRead
 
+from app.services.profile_service import ProfileService
+
 router = APIRouter()
 
 @router.get("/me", response_model=UserRead)
 async def get_my_profile(
-    current_user: User = Depends(get_current_user)
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db)
 ):
     """
     Get current user's profile.
     """
-    return current_user
+    profile_service = ProfileService(db)
+    return await profile_service.get_profile(current_user)
 
 @router.post("/import")
 async def import_users(

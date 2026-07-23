@@ -17,6 +17,14 @@ class ProfileService:
         # Ensure upload directory exists
         os.makedirs(UPLOAD_DIR, exist_ok=True)
 
+    async def get_profile(self, user: User) -> User:
+        """
+        Retrieves the user's profile.
+        Future-proofed in case we need to join other tables (like preferences, statistics).
+        """
+        # Currently, all profile fields are on the User model itself.
+        return user
+
     async def update_profile(self, user: User, update_data: UserUpdate) -> User:
         """
         Updates the user's basic profile information.
