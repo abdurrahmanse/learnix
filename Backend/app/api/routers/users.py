@@ -33,6 +33,18 @@ async def update_my_profile(
     profile_service = ProfileService(db)
     return await profile_service.update_profile(current_user, update_data)
 
+@router.post("/me/avatar", response_model=UserRead)
+async def upload_avatar(
+    file: UploadFile = File(...),
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    Upload and update user's avatar.
+    """
+    profile_service = ProfileService(db)
+    return await profile_service.upload_avatar(current_user, file)
+
 @router.post("/import")
 async def import_users(
     file: UploadFile = File(...),
