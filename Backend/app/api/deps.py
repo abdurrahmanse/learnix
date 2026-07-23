@@ -1,4 +1,4 @@
-import jwt
+from jose import jwt, JWTError
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -6,6 +6,7 @@ from sqlalchemy import select
 
 from app.core.config import settings
 from app.core.database import get_db
+from app.core.security import verify_access_token
 from app.models.user import User
 from app.schemas.token import TokenPayload
 
@@ -18,11 +19,9 @@ async def get_current_user(
     token: str = Depends(reusable_oauth2)
 ) -> User:
     try:
-        payload = jwt.decode(
-            token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM]
-        )
+        payload = verify_access_token(token)
         token_data = TokenPayload(**payload)
-    except jwt.InvalidTokenError:
+    except JWTError:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Could not validate credentials",
