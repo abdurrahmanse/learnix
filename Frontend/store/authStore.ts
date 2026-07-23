@@ -1,13 +1,7 @@
 import { create } from 'zustand';
 
-interface User {
-  id: string;
-  email: string;
-  username: string;
-  full_name: string;
-  role: string;
-  is_active: boolean;
-}
+import { User } from "@/types/auth";
+import { storage } from "@/lib/storage";
 
 interface AuthState {
   user: User | null;
@@ -18,21 +12,16 @@ interface AuthState {
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
-  user: typeof window !== "undefined" ? JSON.parse(localStorage.getItem("user") || "null") : null,
-  token: typeof window !== "undefined" ? localStorage.getItem("access_token") : null,
-  isAuthenticated: typeof window !== "undefined" ? !!localStorage.getItem("access_token") : false,
+  user: storage.getUser(),
+  token: storage.getToken(),
+  isAuthenticated: !!storage.getToken(),
   setAuth: (user, token) => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("access_token", token);
-      localStorage.setItem("user", JSON.stringify(user));
-    }
+    storage.setToken(token);
+    storage.setUser(user);
     set({ user, token, isAuthenticated: true });
   },
   logout: () => {
-    if (typeof window !== "undefined") {
-      localStorage.removeItem("access_token");
-      localStorage.removeItem("user");
-    }
+    storage.clearAuth();
     set({ user: null, token: null, isAuthenticated: false });
   },
 }));

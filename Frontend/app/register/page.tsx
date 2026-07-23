@@ -19,6 +19,8 @@ import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
 import { OTPInputGroup } from "@/components/common/OTPInputGroup"
 import { useRegisterMutation, useVerifyRegistrationMutation } from "@/features/auth/hooks/useAuthMutations"
 
+import { GuestGuard } from "@/components/auth/GuestGuard"
+
 export default function RegisterPage() {
   const router = useRouter()
   const [step, setStep] = useState<'register' | 'otp'>('register')
@@ -59,8 +61,9 @@ export default function RegisterPage() {
   const isSuccess = verifyMutation.isSuccess
 
   return (
-    <AuthWrapper>
-      <Card className="w-full max-w-md shadow-2xl shadow-primary/5 border-border/40 bg-background/60 backdrop-blur-xl rounded-2xl overflow-hidden relative">
+    <GuestGuard>
+      <AuthWrapper>
+        <Card className="w-full max-w-md shadow-2xl shadow-primary/5 border-border/40 bg-background/60 backdrop-blur-xl rounded-2xl overflow-hidden relative">
         <div className="absolute top-0 left-0 w-full h-1 bg-muted">
           <div 
             className="h-full bg-primary transition-all duration-500 ease-in-out"
@@ -175,6 +178,7 @@ export default function RegisterPage() {
           </div>
         )}
       </Card>
-    </AuthWrapper>
+      </AuthWrapper>
+    </GuestGuard>
   )
 }

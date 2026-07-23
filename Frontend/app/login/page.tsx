@@ -14,6 +14,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { FormInputWithIcon } from "@/components/common/FormInputWithIcon"
 import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
 import { useLoginMutation } from "@/features/auth/hooks/useAuthMutations"
+import { GuestGuard } from "@/components/auth/GuestGuard"
 
 export default function LoginPage() {
   const form = useForm<z.infer<typeof loginSchema>>({
@@ -33,8 +34,9 @@ export default function LoginPage() {
   const isLoading = loginMutation.isPending
 
   return (
-    <AuthWrapper>
-      <Card className="w-full max-w-md shadow-2xl shadow-primary/5 border-border/40 bg-background/60 backdrop-blur-xl rounded-2xl">
+    <GuestGuard>
+      <AuthWrapper>
+        <Card className="w-full max-w-md shadow-2xl shadow-primary/5 border-border/40 bg-background/60 backdrop-blur-xl rounded-2xl">
         <AuthCardHeader 
           icon={KeyRound} 
           title="Welcome Back" 
@@ -90,5 +92,6 @@ export default function LoginPage() {
         </CardFooter>
       </Card>
     </AuthWrapper>
+    </GuestGuard>
   )
 }

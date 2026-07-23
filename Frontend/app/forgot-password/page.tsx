@@ -21,6 +21,8 @@ import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
 import { OTPInputGroup } from "@/components/common/OTPInputGroup"
 import { useForgotPasswordMutation, useResetPasswordMutation } from "@/features/auth/hooks/useAuthMutations"
 
+import { GuestGuard } from "@/components/auth/GuestGuard"
+
 export default function ForgotPasswordPage() {
   const router = useRouter()
   const [step, setStep] = useState<'email' | 'otp' | 'reset'>('email')
@@ -67,8 +69,9 @@ export default function ForgotPasswordPage() {
   const isSuccess = resetMutation.isSuccess
 
   return (
-    <AuthWrapper>
-      <Card className="w-full max-w-md shadow-2xl shadow-primary/5 border-border/40 bg-background/60 backdrop-blur-xl rounded-2xl relative overflow-hidden">
+    <GuestGuard>
+      <AuthWrapper>
+        <Card className="w-full max-w-md shadow-2xl shadow-primary/5 border-border/40 bg-background/60 backdrop-blur-xl rounded-2xl relative overflow-hidden">
         
         {/* Step Indicator Line */}
         <div className="absolute top-0 left-0 w-full h-1 bg-muted">
@@ -198,6 +201,7 @@ export default function ForgotPasswordPage() {
           </div>
         )}
       </Card>
-    </AuthWrapper>
+      </AuthWrapper>
+    </GuestGuard>
   )
 }

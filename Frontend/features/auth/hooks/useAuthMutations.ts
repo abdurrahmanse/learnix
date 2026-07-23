@@ -1,17 +1,16 @@
-import { useMutation } from "@tanstack/react-query";
 import { authService } from "@/lib/api/auth";
-import { handleApiError } from "@/lib/api/utils";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/store/authStore";
 import { z } from "zod";
 import { loginSchema, registerSchema, emailSchema } from "@/lib/validations/auth";
+import { useApiMutation } from "@/hooks/useApiMutation";
 
 export function useLoginMutation() {
   const router = useRouter();
   const setAuth = useAuthStore((state) => state.setAuth);
 
-  return useMutation({
+  return useApiMutation({
     mutationFn: async (values: z.infer<typeof loginSchema>) => {
       return await authService.login(values.email, values.password);
     },
@@ -26,14 +25,11 @@ export function useLoginMutation() {
         setTimeout(() => router.push("/"), 1000);
       }
     },
-    onError: (err: unknown) => {
-      toast.error(handleApiError(err));
-    },
   });
 }
 
 export function useRegisterMutation(onSuccessCallback: () => void) {
-  return useMutation({
+  return useApiMutation({
     mutationFn: async (values: z.infer<typeof registerSchema>) => {
       return await authService.register({
         email: values.email,
@@ -45,50 +41,38 @@ export function useRegisterMutation(onSuccessCallback: () => void) {
     onSuccess: () => {
       onSuccessCallback();
     },
-    onError: (err: unknown) => {
-      toast.error(handleApiError(err));
-    },
   });
 }
 
 export function useVerifyRegistrationMutation(onSuccessCallback: () => void) {
-  return useMutation({
+  return useApiMutation({
     mutationFn: async (data: { email: string; otp_code: string }) => {
       return await authService.verifyRegistration(data);
     },
     onSuccess: () => {
       onSuccessCallback();
     },
-    onError: (err: unknown) => {
-      toast.error(handleApiError(err));
-    },
   });
 }
 
 export function useForgotPasswordMutation(onSuccessCallback: () => void) {
-  return useMutation({
+  return useApiMutation({
     mutationFn: async (values: z.infer<typeof emailSchema>) => {
       return await authService.forgotPassword({ email: values.email });
     },
     onSuccess: () => {
       onSuccessCallback();
     },
-    onError: (err: unknown) => {
-      toast.error(handleApiError(err));
-    },
   });
 }
 
 export function useResetPasswordMutation(onSuccessCallback: () => void) {
-  return useMutation({
+  return useApiMutation({
     mutationFn: async (data: { email: string; otp_code: string; new_password: string }) => {
       return await authService.resetPassword(data);
     },
     onSuccess: () => {
       onSuccessCallback();
-    },
-    onError: (err: unknown) => {
-      toast.error(handleApiError(err));
     },
   });
 }

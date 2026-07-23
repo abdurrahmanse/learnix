@@ -298,7 +298,7 @@ Do NOT create frontend.
 Stop after the service layer.
 Generate unit testing checklist.
 
-### Phase 2.3 — Get Profile API
+### ✅ Phase 2.3 — Get Profile API
 Follow all project documents.
 
 Implement ONLY the Get Profile API.
@@ -315,7 +315,7 @@ Do not implement frontend.
 Stop after API implementation.
 Generate API testing checklist.
 
-### Phase 2.4 — Update Profile API
+### ✅ Phase 2.4 — Update Profile API
 Follow all project documents.
 
 Implement ONLY the Update Profile API.
@@ -332,7 +332,7 @@ Do not implement frontend.
 Stop after API implementation.
 Generate API testing checklist.
 
-### Phase 2.5 — Avatar Upload API
+### ✅ Phase 2.5 — Avatar Upload API
 Follow all project documents.
 
 Implement ONLY the Avatar Upload API.
@@ -349,7 +349,7 @@ Do not implement frontend.
 Stop after API implementation.
 Generate API testing checklist.
 
-### Phase 2.6 — Change Password API
+### ✅ Phase 2.6 — Change Password API
 Follow all project documents.
 
 Implement ONLY the Change Password API.
