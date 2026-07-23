@@ -1,22 +1,9 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
-import { api } from "@/lib/axios";
+import { useSystemHealth } from "@/hooks/useSystemHealth";
 
-interface HealthCheckResponse {
-  success: boolean;
-  message: string;
-  version: string;
-}
-
-export default function Home() {
-  const { data, isLoading: loading, error: queryError } = useQuery({
-    queryKey: ['health'],
-    queryFn: async () => {
-      const res = await api.get<HealthCheckResponse>("/health");
-      return res.data;
-    }
-  });
+export default function HealthPage() {
+  const { data, isLoading: loading, error: queryError } = useSystemHealth();
 
   const error = queryError ? (queryError instanceof Error ? queryError.message : "Backend is unreachable") : null;
 

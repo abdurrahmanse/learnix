@@ -1,6 +1,4 @@
 import { api } from "../axios";
-import { AxiosError } from "axios";
-
 // ==========================================
 // Types & Schemas
 // ==========================================
@@ -46,17 +44,6 @@ export interface TokenResponse {
 export interface MessageResponse {
   message: string;
 }
-
-// ==========================================
-// Error Handling
-// ==========================================
-
-export const handleApiError = (error: unknown): string => {
-  if (error instanceof AxiosError) {
-    return error.response?.data?.detail || error.message || "An error occurred";
-  }
-  return "An unexpected error occurred";
-};
 
 // ==========================================
 // API Services

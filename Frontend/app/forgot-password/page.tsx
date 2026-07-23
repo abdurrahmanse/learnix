@@ -4,39 +4,27 @@ import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { useMutation } from "@tanstack/react-query"
 import { toast } from "sonner"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { authService, handleApiError } from "@/lib/api/auth"
 
-import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { PasswordInput } from "@/components/ui/password-input"
+import { Form } from "@/components/ui/form"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-} from "@/components/ui/input-otp"
 
 import { Mail, KeyRound, ArrowLeft, Lock, ArrowRight } from "lucide-react"
 
 import { emailSchema, resetSchema } from "@/lib/validations/auth"
 import { AuthWrapper } from "@/components/layout/AuthWrapper"
 import { AuthCardHeader } from "@/components/layout/AuthCardHeader"
+import { FormInputWithIcon } from "@/components/common/FormInputWithIcon"
+import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
+import { OTPInputGroup } from "@/components/common/OTPInputGroup"
+import { useForgotPasswordMutation, useResetPasswordMutation } from "@/features/auth/hooks/useAuthMutations"
 
 export default function ForgotPasswordPage() {
   const router = useRouter()
   const [step, setStep] = useState<'email' | 'otp' | 'reset'>('email')
-  const [otp, setOtp] = useState("")
+  const [otp, setOtp] = useState('')
 
   const emailForm = useForm<z.infer<typeof emailSchema>>({
     resolver: zodResolver(emailSchema),
@@ -48,49 +36,25 @@ export default function ForgotPasswordPage() {
     defaultValues: { password: "", confirmPassword: "" },
   })
 
-  const emailMutation = useMutation({
-    mutationFn: async (values: z.infer<typeof emailSchema>) => {
-      return await authService.forgotPassword({ email: values.email })
-    },
-    onSuccess: () => {
-      setStep('otp')
-    },
-    onError: (err: unknown) => {
-      toast.error(handleApiError(err))
-    }
+  const emailMutation = useForgotPasswordMutation(() => setStep('otp'))
+  const resetMutation = useResetPasswordMutation(() => {
+    toast.success("Password successfully reset! Redirecting to login...")
+    setTimeout(() => router.push("/login"), 1500)
   })
 
-  const resetMutation = useMutation({
-    mutationFn: async (data: { email: string; otp_code: string; new_password: string }) => {
-      return await authService.resetPassword(data)
-    },
-    onSuccess: () => {
-      toast.success("Password successfully reset! Redirecting to login...")
-      setTimeout(() => router.push("/login"), 1500)
-    },
-    onError: (err: unknown) => {
-      toast.error(handleApiError(err))
-    }
-  })
-
-  // Step 1: Request OTP
   async function onSubmitEmail(values: z.infer<typeof emailSchema>) {
     emailMutation.mutate(values)
   }
 
-  // Step 2: Verify OTP
   async function handleVerifyOTP(e: React.FormEvent) {
     e.preventDefault()
     if (otp.length !== 6) {
       toast.error("Please enter a valid 6-digit code.")
       return
     }
-
-    // Moving straight to reset form, backend handles actual verification during reset payload
     setStep('reset')
   }
 
-  // Step 3: Reset Password
   async function onSubmitReset(values: z.infer<typeof resetSchema>) {
     resetMutation.mutate({
       email: emailForm.getValues().email,
@@ -124,32 +88,23 @@ export default function ForgotPasswordPage() {
             <CardContent>
               <Form {...emailForm}>
                 <form onSubmit={emailForm.handleSubmit(onSubmitEmail)} className="space-y-4">
-                  <FormField
+                  <FormInputWithIcon
                     control={emailForm.control}
                     name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <div className="relative">
-                            <Mail className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
-                            <Input placeholder="Email Address" className="pl-10 h-12 rounded-xl" {...field} disabled={isLoading} />
-                          </div>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                    icon={Mail}
+                    placeholder="Email Address"
+                    type="email"
+                    disabled={isLoading}
                   />
 
-                  <Button className="w-full h-12 rounded-xl mt-4" type="submit" disabled={isLoading}>
-                    {isLoading ? (
-                      "Sending..."
-                    ) : (
-                      <>
-                        Continue
-                        <ArrowRight className="ml-2 h-5 w-5" />
-                      </>
-                    )}
-                  </Button>
+                  <SubmitAuthButton
+                    isLoading={isLoading}
+                    loadingText="Sending Code..."
+                    defaultText="Send Reset Code"
+                    icon={ArrowRight}
+                    iconPosition="right"
+                    disabled={isLoading}
+                  />
                 </form>
               </Form>
             </CardContent>
@@ -178,25 +133,14 @@ export default function ForgotPasswordPage() {
             />
             <CardContent>
               <form onSubmit={handleVerifyOTP} className="space-y-6 flex flex-col items-center">
-                <InputOTP
-                  maxLength={6}
-                  value={otp}
-                  onChange={(value) => setOtp(value)}
-                  disabled={isLoading}
-                >
-                  <InputOTPGroup>
-                    <InputOTPSlot index={0} className="h-12 w-12 text-lg sm:h-14 sm:w-14 sm:text-xl" />
-                    <InputOTPSlot index={1} className="h-12 w-12 text-lg sm:h-14 sm:w-14 sm:text-xl" />
-                    <InputOTPSlot index={2} className="h-12 w-12 text-lg sm:h-14 sm:w-14 sm:text-xl" />
-                    <InputOTPSlot index={3} className="h-12 w-12 text-lg sm:h-14 sm:w-14 sm:text-xl" />
-                    <InputOTPSlot index={4} className="h-12 w-12 text-lg sm:h-14 sm:w-14 sm:text-xl" />
-                    <InputOTPSlot index={5} className="h-12 w-12 text-lg sm:h-14 sm:w-14 sm:text-xl" />
-                  </InputOTPGroup>
-                </InputOTP>
+                <OTPInputGroup value={otp} onChange={(value) => setOtp(value)} disabled={isLoading} />
 
-                <Button className="w-full h-12 rounded-xl" type="submit" disabled={isLoading || otp.length !== 6}>
-                  {isLoading ? "Verifying..." : "Verify Code"}
-                </Button>
+                <SubmitAuthButton
+                  isLoading={isLoading}
+                  loadingText="Verifying..."
+                  defaultText="Verify Code"
+                  disabled={otp.length !== 6 || isLoading}
+                />
               </form>
             </CardContent>
             <CardFooter className="flex flex-col space-y-4 pb-8">
@@ -224,44 +168,30 @@ export default function ForgotPasswordPage() {
             <CardContent>
               <Form {...resetForm}>
                 <form onSubmit={resetForm.handleSubmit(onSubmitReset)} className="space-y-4">
-                  <FormField
+                  <FormInputWithIcon
                     control={resetForm.control}
                     name="password"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <div className="relative">
-                            <Lock className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
-                            <PasswordInput placeholder="New Password" className="pl-10 h-12 rounded-xl" {...field} disabled={isLoading || isSuccess} />
-                          </div>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={resetForm.control}
-                    name="confirmPassword"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <div className="relative">
-                            <KeyRound className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
-                            <PasswordInput placeholder="Confirm New Password" className="pl-10 h-12 rounded-xl" {...field} disabled={isLoading || isSuccess} />
-                          </div>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                    icon={Lock}
+                    placeholder="New Password"
+                    type="password"
+                    disabled={isLoading || isSuccess}
                   />
 
-                  <Button className="w-full h-12 rounded-xl mt-4" type="submit" disabled={isLoading || isSuccess}>
-                    {isLoading ? (
-                      "Resetting Password..."
-                    ) : (
-                      "Reset Password"
-                    )}
-                  </Button>
+                  <FormInputWithIcon
+                    control={resetForm.control}
+                    name="confirmPassword"
+                    icon={KeyRound}
+                    placeholder="Confirm New Password"
+                    type="password"
+                    disabled={isLoading || isSuccess}
+                  />
+
+                  <SubmitAuthButton
+                    isLoading={isLoading}
+                    loadingText="Resetting Password..."
+                    defaultText="Reset Password"
+                    disabled={isLoading || isSuccess}
+                  />
                 </form>
               </Form>
             </CardContent>
