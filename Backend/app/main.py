@@ -1,25 +1,34 @@
+import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
-from app.routes import auth
 
+# Configure logging (Task 12)
+logging.basicConfig(
+    level=logging.DEBUG if settings.DEBUG else logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+)
+logger = logging.getLogger(__name__)
+
+# Initialize FastAPI (Task 4)
+# Configure development settings (Task 13)
 app = FastAPI(
     title=settings.PROJECT_NAME,
-    openapi_url="/api/v1/openapi.json"
+    openapi_url=f"{settings.API_V1_STR}/openapi.json",
+    debug=settings.DEBUG,
 )
 
-# Set up CORS middleware
+# Configure CORS (Task 9)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ORIGINS,
+    allow_origins=["http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Register routers
-app.include_router(auth.router, prefix="/api/v1")
-
-@app.get("/health")
+# Create a health check API (Task 11)
+@app.get("/api/health")
 async def health_check():
-    return {"status": "ok"}
+    logger.info("Health check endpoint called")
+    return {"status": "ok", "message": "Learnix API is healthy"}
