@@ -2,6 +2,7 @@
 
 This document outlines the strict, sub-phased execution plan for the E-Learning Platform. Each sub-phase must be executed exactly as instructed, stopping precisely where told before moving to the next.
 
+
 ## Phase 0: Project Setup
 
 ### Phase 0.0 — Project Setup Planning
@@ -60,6 +61,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -190,6 +194,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -200,15 +207,13 @@ Follow all project documents.
 Implement ONLY the API Integration.
 
 Requirements:
-- Request Schema.
-- Response Schema.
-- Validation.
-- Connect to Service layer.
-- Proper HTTP status codes.
-- Error handling.
+- Connect frontend UI to backend APIs.
+- Apply Phase X TanStack Query and Axios API layer standardization.
+- Integrate Zustand State Management for data flow.
+- Handle loading, success, and error states globally.
 
-Do not implement frontend.
-Stop after API implementation.
+Implement frontend API connection logic.
+Stop after API integration is verified.
 Generate API testing checklist.
 
 ### Phase 1.8 — Browser Testing
@@ -366,7 +371,7 @@ Do not implement frontend.
 Stop after API implementation.
 Generate API testing checklist.
 
-### Phase 2.7 — Frontend UI
+### ✅ Phase 2.7 — Frontend UI
 Follow all project documents.
 
 Implement ONLY the frontend Frontend UI.
@@ -378,25 +383,26 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
 
-### Phase 2.8 — API Integration
+### ✅ Phase 2.8 — API Integration
 Follow all project documents.
 
 Implement ONLY the API Integration.
 
 Requirements:
-- Request Schema.
-- Response Schema.
-- Validation.
-- Connect to Service layer.
-- Proper HTTP status codes.
-- Error handling.
+- Connect frontend UI to backend APIs.
+- Apply Phase X TanStack Query and Axios API layer standardization.
+- Integrate Zustand State Management for data flow.
+- Handle loading, success, and error states globally.
 
-Do not implement frontend.
-Stop after API implementation.
+Implement frontend API connection logic.
+Stop after API integration is verified.
 Generate API testing checklist.
 
 ### Phase 2.9 — Browser Testing
@@ -515,6 +521,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -531,6 +540,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -541,15 +553,13 @@ Follow all project documents.
 Implement ONLY the API Integration.
 
 Requirements:
-- Request Schema.
-- Response Schema.
-- Validation.
-- Connect to Service layer.
-- Proper HTTP status codes.
-- Error handling.
+- Connect frontend UI to backend APIs.
+- Apply Phase X TanStack Query and Axios API layer standardization.
+- Integrate Zustand State Management for data flow.
+- Handle loading, success, and error states globally.
 
-Do not implement frontend.
-Stop after API implementation.
+Implement frontend API connection logic.
+Stop after API integration is verified.
 Generate API testing checklist.
 
 ### Phase 3.7 — Browser Testing
@@ -668,6 +678,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -684,6 +697,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -694,15 +710,13 @@ Follow all project documents.
 Implement ONLY the API Integration.
 
 Requirements:
-- Request Schema.
-- Response Schema.
-- Validation.
-- Connect to Service layer.
-- Proper HTTP status codes.
-- Error handling.
+- Connect frontend UI to backend APIs.
+- Apply Phase X TanStack Query and Axios API layer standardization.
+- Integrate Zustand State Management for data flow.
+- Handle loading, success, and error states globally.
 
-Do not implement frontend.
-Stop after API implementation.
+Implement frontend API connection logic.
+Stop after API integration is verified.
 Generate API testing checklist.
 
 ### Phase 4.7 — Browser Testing
@@ -821,6 +835,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -837,6 +854,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -847,15 +867,13 @@ Follow all project documents.
 Implement ONLY the API Integration.
 
 Requirements:
-- Request Schema.
-- Response Schema.
-- Validation.
-- Connect to Service layer.
-- Proper HTTP status codes.
-- Error handling.
+- Connect frontend UI to backend APIs.
+- Apply Phase X TanStack Query and Axios API layer standardization.
+- Integrate Zustand State Management for data flow.
+- Handle loading, success, and error states globally.
 
-Do not implement frontend.
-Stop after API implementation.
+Implement frontend API connection logic.
+Stop after API integration is verified.
 Generate API testing checklist.
 
 ### Phase 5.7 — Browser Testing
@@ -974,6 +992,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -990,6 +1011,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -1000,15 +1024,13 @@ Follow all project documents.
 Implement ONLY the API Integration.
 
 Requirements:
-- Request Schema.
-- Response Schema.
-- Validation.
-- Connect to Service layer.
-- Proper HTTP status codes.
-- Error handling.
+- Connect frontend UI to backend APIs.
+- Apply Phase X TanStack Query and Axios API layer standardization.
+- Integrate Zustand State Management for data flow.
+- Handle loading, success, and error states globally.
 
-Do not implement frontend.
-Stop after API implementation.
+Implement frontend API connection logic.
+Stop after API integration is verified.
 Generate API testing checklist.
 
 ### Phase 6.7 — Browser Testing
@@ -1144,6 +1166,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -1154,15 +1179,13 @@ Follow all project documents.
 Implement ONLY the API Integration.
 
 Requirements:
-- Request Schema.
-- Response Schema.
-- Validation.
-- Connect to Service layer.
-- Proper HTTP status codes.
-- Error handling.
+- Connect frontend UI to backend APIs.
+- Apply Phase X TanStack Query and Axios API layer standardization.
+- Integrate Zustand State Management for data flow.
+- Handle loading, success, and error states globally.
 
-Do not implement frontend.
-Stop after API implementation.
+Implement frontend API connection logic.
+Stop after API integration is verified.
 Generate API testing checklist.
 
 ### Phase 7.7 — Browser Testing
@@ -1281,6 +1304,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -1291,15 +1317,13 @@ Follow all project documents.
 Implement ONLY the API Integration.
 
 Requirements:
-- Request Schema.
-- Response Schema.
-- Validation.
-- Connect to Service layer.
-- Proper HTTP status codes.
-- Error handling.
+- Connect frontend UI to backend APIs.
+- Apply Phase X TanStack Query and Axios API layer standardization.
+- Integrate Zustand State Management for data flow.
+- Handle loading, success, and error states globally.
 
-Do not implement frontend.
-Stop after API implementation.
+Implement frontend API connection logic.
+Stop after API integration is verified.
 Generate API testing checklist.
 
 ### Phase 8.6 — Browser Testing
@@ -1435,6 +1459,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -1445,15 +1472,13 @@ Follow all project documents.
 Implement ONLY the API Integration.
 
 Requirements:
-- Request Schema.
-- Response Schema.
-- Validation.
-- Connect to Service layer.
-- Proper HTTP status codes.
-- Error handling.
+- Connect frontend UI to backend APIs.
+- Apply Phase X TanStack Query and Axios API layer standardization.
+- Integrate Zustand State Management for data flow.
+- Handle loading, success, and error states globally.
 
-Do not implement frontend.
-Stop after API implementation.
+Implement frontend API connection logic.
+Stop after API integration is verified.
 Generate API testing checklist.
 
 ### Phase 9.7 — Browser Testing
@@ -1572,6 +1597,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -1582,15 +1610,13 @@ Follow all project documents.
 Implement ONLY the API Integration.
 
 Requirements:
-- Request Schema.
-- Response Schema.
-- Validation.
-- Connect to Service layer.
-- Proper HTTP status codes.
-- Error handling.
+- Connect frontend UI to backend APIs.
+- Apply Phase X TanStack Query and Axios API layer standardization.
+- Integrate Zustand State Management for data flow.
+- Handle loading, success, and error states globally.
 
-Do not implement frontend.
-Stop after API implementation.
+Implement frontend API connection logic.
+Stop after API integration is verified.
 Generate API testing checklist.
 
 ### Phase 10.6 — Browser Testing
@@ -1709,6 +1735,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -1719,15 +1748,13 @@ Follow all project documents.
 Implement ONLY the API Integration.
 
 Requirements:
-- Request Schema.
-- Response Schema.
-- Validation.
-- Connect to Service layer.
-- Proper HTTP status codes.
-- Error handling.
+- Connect frontend UI to backend APIs.
+- Apply Phase X TanStack Query and Axios API layer standardization.
+- Integrate Zustand State Management for data flow.
+- Handle loading, success, and error states globally.
 
-Do not implement frontend.
-Stop after API implementation.
+Implement frontend API connection logic.
+Stop after API integration is verified.
 Generate API testing checklist.
 
 ### Phase 11.6 — Browser Testing
@@ -1846,6 +1873,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -1856,15 +1886,13 @@ Follow all project documents.
 Implement ONLY the API Integration.
 
 Requirements:
-- Request Schema.
-- Response Schema.
-- Validation.
-- Connect to Service layer.
-- Proper HTTP status codes.
-- Error handling.
+- Connect frontend UI to backend APIs.
+- Apply Phase X TanStack Query and Axios API layer standardization.
+- Integrate Zustand State Management for data flow.
+- Handle loading, success, and error states globally.
 
-Do not implement frontend.
-Stop after API implementation.
+Implement frontend API connection logic.
+Stop after API integration is verified.
 Generate API testing checklist.
 
 ### Phase 12.6 — Browser Testing
@@ -1983,6 +2011,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -1993,15 +2024,13 @@ Follow all project documents.
 Implement ONLY the API Integration.
 
 Requirements:
-- Request Schema.
-- Response Schema.
-- Validation.
-- Connect to Service layer.
-- Proper HTTP status codes.
-- Error handling.
+- Connect frontend UI to backend APIs.
+- Apply Phase X TanStack Query and Axios API layer standardization.
+- Integrate Zustand State Management for data flow.
+- Handle loading, success, and error states globally.
 
-Do not implement frontend.
-Stop after API implementation.
+Implement frontend API connection logic.
+Stop after API integration is verified.
 Generate API testing checklist.
 
 ### Phase 13.6 — Browser Testing
@@ -2120,6 +2149,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -2136,6 +2168,9 @@ Requirements:
 - Error state.
 - Success state.
 - Responsive UI.
+- Adhere to Phase X Folder Structure and Shared Components standards.
+- Enforce strict TypeScript, ESLint compliance, and Code Optimization.
+- Apply Phase X Forms & Validation standardization.
 
 Do not connect APIs.
 Stop after frontend UI.
@@ -2146,15 +2181,13 @@ Follow all project documents.
 Implement ONLY the API Integration.
 
 Requirements:
-- Request Schema.
-- Response Schema.
-- Validation.
-- Connect to Service layer.
-- Proper HTTP status codes.
-- Error handling.
+- Connect frontend UI to backend APIs.
+- Apply Phase X TanStack Query and Axios API layer standardization.
+- Integrate Zustand State Management for data flow.
+- Handle loading, success, and error states globally.
 
-Do not implement frontend.
-Stop after API implementation.
+Implement frontend API connection logic.
+Stop after API integration is verified.
 Generate API testing checklist.
 
 ### Phase 14.7 — Browser Testing

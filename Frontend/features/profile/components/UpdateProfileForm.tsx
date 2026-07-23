@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -10,6 +9,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+
+import { useAuthStore } from "@/store/authStore"
+import { useUpdateProfile } from "../hooks/useProfileMutations"
+import { useEffect } from "react"
 
 const updateProfileSchema = z.object({
   full_name: z.string().min(2, "Full name must be at least 2 characters."),
@@ -21,25 +24,37 @@ const updateProfileSchema = z.object({
 type UpdateProfileValues = z.infer<typeof updateProfileSchema>
 
 export function UpdateProfileForm() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const { user } = useAuthStore()
+  const { mutate: updateProfile, isPending, isSuccess } = useUpdateProfile()
 
   const form = useForm<UpdateProfileValues>({
     resolver: zodResolver(updateProfileSchema),
     defaultValues: {
-      full_name: "Student 1",
-      bio: "",
-      location: "",
-      phone_number: "",
+      full_name: user?.full_name || "",
+      bio: user?.bio || "",
+      location: user?.location || "",
+      phone_number: user?.phone_number || "",
     },
   })
 
-  function onSubmit(data: UpdateProfileValues) {
-    setStatus("loading")
-    // Mock API call
-    setTimeout(() => {
-      setStatus("success")
-      setTimeout(() => setStatus("idle"), 3000)
-    }, 1500)
+  // Update form if user data loads later
+  useEffect(() => {
+    if (user) {
+      form.reset({
+        full_name: user.full_name || "",
+        bio: user.bio || "",
+        location: user.location || "",
+        phone_number: user.phone_number || "",
+      })
+    }
+  }, [user, form])
+
+  async function onSubmit(data: UpdateProfileValues) {
+    try {
+      await updateProfile(data)
+    } catch {
+      // Error is handled by the mutation hook (toast)
+    }
   }
 
   return (
@@ -112,8 +127,8 @@ export function UpdateProfileForm() {
             </div>
 
             <div className="flex items-center gap-4">
-              <Button type="submit" disabled={status === "loading"}>
-                {status === "loading" ? (
+              <Button type="submit" disabled={isPending || !form.formState.isDirty}>
+                {isPending ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
                   <Save className="mr-2 h-4 w-4" />
@@ -121,7 +136,7 @@ export function UpdateProfileForm() {
                 Save Changes
               </Button>
               
-              {status === "success" && (
+              {isSuccess && !form.formState.isDirty && (
                 <span className="text-sm font-medium text-green-600 dark:text-green-400 flex items-center animate-in fade-in">
                   <CheckCircle2 className="mr-2 h-4 w-4" />
                   Saved successfully

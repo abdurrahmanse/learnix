@@ -10,11 +10,14 @@ export function GuestGuard({ children }: { children: React.ReactNode }) {
   const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
-    if (isAuthenticated) {
-      router.replace("/");
-    } else {
-      setIsChecking(false);
-    }
+    const timer = setTimeout(() => {
+      if (isAuthenticated) {
+        router.replace("/");
+      } else {
+        setIsChecking(false);
+      }
+    }, 0);
+    return () => clearTimeout(timer);
   }, [isAuthenticated, router]);
 
   if (isChecking) {

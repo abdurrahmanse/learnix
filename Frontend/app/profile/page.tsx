@@ -1,5 +1,6 @@
 import { AuthGuard } from "@/components/auth/AuthGuard"
 import { ProfileLayout } from "@/features/profile/components/ProfileLayout"
+import { Container } from "@/components/ui/container"
 
 export default function ProfilePage() {
   return (
@@ -8,9 +9,9 @@ export default function ProfilePage() {
         {/* Background Gradients */}
         <div className="absolute top-0 left-0 right-0 h-[300px] bg-gradient-to-b from-primary/5 to-transparent -z-10" />
         
-        <div className="container px-4 py-12 md:py-16 mx-auto">
+        <Container className="py-12 md:py-16">
           {/* Header */}
-          <div className="mb-10 max-w-6xl mx-auto">
+          <div className="mb-10">
             <h1 className="text-4xl font-extrabold tracking-tight">
               User Profile
             </h1>
@@ -20,7 +21,7 @@ export default function ProfilePage() {
           </div>
 
           <ProfileLayout />
-        </div>
+        </Container>
       </div>
     </AuthGuard>
   )

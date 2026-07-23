@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { User, Image as ImageIcon, Shield, LogOut } from "lucide-react"
+import { User, Image as ImageIcon, Shield } from "lucide-react"
 
 import { UpdateProfileForm } from "./UpdateProfileForm"
 import { AvatarUpload } from "./AvatarUpload"
@@ -19,7 +19,7 @@ export function ProfileLayout() {
   ]
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 w-full max-w-6xl mx-auto">
+    <div className="flex flex-col md:flex-row gap-8 w-full">
       {/* Sidebar Navigation */}
       <aside className="w-full md:w-64 shrink-0">
         <nav className="flex space-x-2 md:flex-col md:space-x-0 md:space-y-2 overflow-x-auto pb-4 md:pb-0">

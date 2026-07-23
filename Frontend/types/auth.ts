@@ -6,6 +6,10 @@ export interface User {
   role: string;
   is_active: boolean;
   created_at?: string;
+  avatar_url?: string;
+  bio?: string;
+  location?: string;
+  phone_number?: string;
 }
 
 export interface RegisterRequest {

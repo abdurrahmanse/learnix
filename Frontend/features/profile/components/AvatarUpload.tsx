@@ -5,33 +5,37 @@ import { CheckCircle2, AlertCircle, Loader2 } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
+import { useAuthStore } from "@/store/authStore"
+import { useUploadAvatar } from "../hooks/useProfileMutations"
+import { getMediaUrl } from "@/lib/utils"
+
 export function AvatarUpload() {
+  const { user } = useAuthStore()
   const [file, setFile] = useState<File | null>(null)
   const [preview, setPreview] = useState<string | null>(null)
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const { mutate: uploadAvatar, isPending, isSuccess, isError } = useUploadAvatar()
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const selected = e.target.files[0]
       setFile(selected)
       setPreview(URL.createObjectURL(selected))
-      setStatus("idle")
     }
   }
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     if (!file) return
-
-    setStatus("loading")
-    // Mock upload API call
-    setTimeout(() => {
-      if (Math.random() > 0.1) {
-        setStatus("success")
-      } else {
-        setStatus("error")
-      }
-    }, 1500)
+    try {
+      await uploadAvatar(file)
+    } catch {
+      // Handled by hook
+    }
   }
+
+  // Derive which image to show
+  // If user selected a new file, show the preview
+  // Else if user has an avatar_url, show that (with backend base URL prepended if it's relative)
+  const displayImage = preview || (user?.avatar_url ? getMediaUrl(user.avatar_url) : null)
 
   return (
     <Card className="w-full border-border/40 shadow-lg shadow-primary/5">
@@ -44,11 +48,14 @@ export function AvatarUpload() {
       <CardContent className="space-y-6">
         <div className="flex flex-col sm:flex-row items-center gap-6">
           <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-4 border-muted bg-muted/50">
-            {preview ? (
-              <img src={preview} alt="Avatar Preview" className="h-full w-full object-cover" />
+            {displayImage ? (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img src={displayImage} alt="Avatar Preview" className="h-full w-full object-cover" />
             ) : (
               <div className="flex h-full w-full items-center justify-center bg-primary/10 text-primary">
-                <span className="text-2xl font-semibold">User</span>
+                <span className="text-2xl font-semibold">
+                  {user?.full_name ? user.full_name.charAt(0).toUpperCase() : "U"}
+                </span>
               </div>
             )}
           </div>
@@ -62,7 +69,7 @@ export function AvatarUpload() {
                   className="sr-only"
                   accept="image/png, image/jpeg, image/webp"
                   onChange={handleFileChange}
-                  disabled={status === "loading"}
+                  disabled={isPending}
                 />
               </label>
               <span className="text-sm text-muted-foreground truncate max-w-[200px]">
@@ -72,24 +79,24 @@ export function AvatarUpload() {
 
             <Button
               onClick={handleUpload}
-              disabled={!file || status === "loading" || status === "success"}
+              disabled={!file || isPending}
               className="w-full sm:w-auto"
             >
-              {status === "loading" && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              {status === "loading" ? "Uploading..." : "Upload Avatar"}
+              {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              {isPending ? "Uploading..." : "Upload Avatar"}
             </Button>
           </div>
         </div>
 
         {/* Status Messages */}
-        {status === "success" && (
+        {isSuccess && (
           <div className="rounded-md bg-green-500/15 p-4 text-green-600 dark:text-green-400 border border-green-500/20 flex items-center gap-3 animate-in fade-in slide-in-from-top-2">
             <CheckCircle2 className="h-5 w-5" />
             <p className="text-sm font-medium">Avatar updated successfully!</p>
           </div>
         )}
         
-        {status === "error" && (
+        {isError && (
           <div className="rounded-md bg-destructive/15 p-4 text-destructive border border-destructive/20 flex items-center gap-3 animate-in fade-in slide-in-from-top-2">
             <AlertCircle className="h-5 w-5" />
             <p className="text-sm font-medium">Failed to upload avatar. Please try again.</p>

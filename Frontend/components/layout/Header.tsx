@@ -4,12 +4,21 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { Home, Activity, LogIn, UserPlus, BookOpen, LogOut } from "lucide-react";
+import { Container } from "@/components/ui/container";
+import { Home, Activity, LogIn, UserPlus, BookOpen, LogOut, AppWindow } from "lucide-react";
 import { useAuthStore } from "@/store/authStore";
+import type { NavRoute } from "@/lib/navigation";
+import { usePathname } from "next/navigation";
 
-export function Header() {
+const iconMap: Record<string, React.ElementType> = {
+  "/": Home,
+  "/health": Activity,
+};
+
+export function Header({ routes = [] }: { routes?: NavRoute[] }) {
   const { isAuthenticated, logout } = useAuthStore();
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleLogout = () => {
     logout();
@@ -17,7 +26,7 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-4 z-50 mx-auto w-full max-w-6xl px-4 md:px-8">
+    <Container as="header" className="sticky top-4 z-50">
       <div className="flex h-14 items-center justify-between rounded-2xl border border-border/40 bg-background/60 px-4 md:px-6 shadow-sm backdrop-blur-md">
         <div className="flex items-center space-x-6 text-sm font-medium">
           <Link href="/" className="flex items-center space-x-2 text-primary">
@@ -25,14 +34,20 @@ export function Header() {
             <span className="text-lg font-bold tracking-tight text-foreground">Learnix</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 opacity-80">
-            <Link href="/" className="flex items-center space-x-2 transition-all hover:opacity-100 hover:text-primary">
-              <Home className="h-4 w-4" />
-              <span>Home</span>
-            </Link>
-            <Link href="/health" className="flex items-center space-x-2 transition-all hover:opacity-100 hover:text-primary">
-              <Activity className="h-4 w-4" />
-              <span>System Health</span>
-            </Link>
+            {routes.map((route) => {
+              const Icon = iconMap[route.path] || AppWindow;
+              const isActive = pathname === route.path;
+              return (
+                <Link 
+                  key={route.path} 
+                  href={route.path} 
+                  className={`flex items-center space-x-2 transition-all hover:opacity-100 hover:text-primary ${isActive ? "text-primary opacity-100 font-semibold" : ""}`}
+                >
+                  <Icon className="h-4 w-4" />
+                  <span>{route.name}</span>
+                </Link>
+              );
+            })}
           </nav>
         </div>
         
@@ -65,6 +80,6 @@ export function Header() {
           </nav>
         </div>
       </div>
-    </header>
+    </Container>
   );
 }

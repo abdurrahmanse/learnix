@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
 
 export default function Home() {
   return (
-    <main className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center p-6 md:p-24 overflow-hidden relative">
+    <Container as="main" className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center py-12 md:py-24 overflow-hidden relative">
       {/* Background Glow Effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-3xl -z-10 opacity-50 pointer-events-none" />
       
@@ -52,6 +53,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </main>
+    </Container>
   );
 }

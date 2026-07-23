@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -10,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Button } from "@/components/ui/button"
 import { PasswordInput } from "@/components/ui/password-input"
+import { useUpdatePassword } from "../hooks/useProfileMutations"
 
 const changePasswordSchema = z.object({
   current_password: z.string().min(1, "Current password is required"),
@@ -23,7 +23,7 @@ const changePasswordSchema = z.object({
 type ChangePasswordValues = z.infer<typeof changePasswordSchema>
 
 export function ChangePasswordForm() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const { mutate: updatePassword, isPending, isSuccess } = useUpdatePassword()
 
   const form = useForm<ChangePasswordValues>({
     resolver: zodResolver(changePasswordSchema),
@@ -34,14 +34,13 @@ export function ChangePasswordForm() {
     },
   })
 
-  function onSubmit(data: ChangePasswordValues) {
-    setStatus("loading")
-    // Mock API call
-    setTimeout(() => {
-      setStatus("success")
+  async function onSubmit(data: ChangePasswordValues) {
+    try {
+      await updatePassword(data)
       form.reset()
-      setTimeout(() => setStatus("idle"), 3000)
-    }, 1500)
+    } catch {
+      // Error handled by mutation hook
+    }
   }
 
   return (
@@ -98,8 +97,8 @@ export function ChangePasswordForm() {
             />
 
             <div className="flex items-center gap-4">
-              <Button type="submit" disabled={status === "loading"}>
-                {status === "loading" ? (
+              <Button type="submit" disabled={isPending}>
+                {isPending ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
                   <Save className="mr-2 h-4 w-4" />
@@ -107,7 +106,7 @@ export function ChangePasswordForm() {
                 Update Password
               </Button>
               
-              {status === "success" && (
+              {isSuccess && !form.formState.isDirty && (
                 <span className="text-sm font-medium text-green-600 dark:text-green-400 flex items-center animate-in fade-in">
                   <CheckCircle2 className="mr-2 h-4 w-4" />
                   Password updated
