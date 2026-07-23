@@ -14,6 +14,21 @@ class UserRead(UserBase):
     role: str
     is_active: bool
     is_verified: bool
+    avatar_url: str | None = None
+    bio: str | None = None
+    location: str | None = None
+    phone_number: str | None = None
 
     class Config:
         from_attributes = True
+
+class UserUpdate(BaseModel):
+    full_name: str | None = None
+    bio: str | None = None
+    location: str | None = None
+    phone_number: str | None = None
+
+class UserPasswordUpdate(BaseModel):
+    current_password: str
+    new_password: str = Field(..., min_length=8, description="Password must be at least 8 characters long")
+

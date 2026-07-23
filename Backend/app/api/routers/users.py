@@ -2,10 +2,20 @@ from fastapi import APIRouter, Depends, UploadFile, File, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.session import get_db
 from app.services.import_service import ImportService
-from app.api.deps import get_current_admin
+from app.api.deps import get_current_admin, get_current_user
 from app.db.models.user import User
+from app.schemas.user import UserRead
 
 router = APIRouter()
+
+@router.get("/me", response_model=UserRead)
+async def get_my_profile(
+    current_user: User = Depends(get_current_user)
+):
+    """
+    Get current user's profile.
+    """
+    return current_user
 
 @router.post("/import")
 async def import_users(

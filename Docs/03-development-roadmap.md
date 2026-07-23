@@ -245,7 +245,7 @@ If everything is correct, mark Phase complete.
 
 ## Phase 2: User Profile
 
-### Phase 2.0 — User Profile Planning
+### ✅ Phase 2.0 — User Profile Planning
 Follow the Project Constitution.
 Follow the AI Development Rules.
 Follow the Development Roadmap.
@@ -266,7 +266,7 @@ Before writing any code:
 Do NOT write any code.
 Stop after the planning document.
 
-### Phase 2.1 — Database
+### ✅ Phase 2.1 — Database
 Follow all project documents.
 
 Implement ONLY the database layer for User Profile.
@@ -283,7 +283,7 @@ Do NOT implement APIs.
 Stop after the database layer.
 Generate a testing checklist.
 
-### Phase 2.2 — Profile Service
+### ✅ Phase 2.2 — Profile Service
 Follow all project documents.
 
 Implement ONLY the Profile Service.

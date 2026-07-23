@@ -4,19 +4,17 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { Home, Activity, LogIn, UserPlus, BookOpen, LogOut, LayoutDashboard } from "lucide-react";
+import { Home, Activity, LogIn, UserPlus, BookOpen, LogOut } from "lucide-react";
 import { useAuthStore } from "@/store/authStore";
 
 export function Header() {
-  const { isAuthenticated, user, logout } = useAuthStore();
+  const { isAuthenticated, logout } = useAuthStore();
   const router = useRouter();
 
   const handleLogout = () => {
     logout();
     router.push("/");
   };
-
-  const dashboardLink = user?.role === "admin" ? "/admin" : "/dashboard";
 
   return (
     <header className="sticky top-4 z-50 mx-auto w-full max-w-6xl px-4 md:px-8">

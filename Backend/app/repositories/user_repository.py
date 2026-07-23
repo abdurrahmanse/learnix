@@ -19,3 +19,14 @@ class UserRepository:
         await self.db.commit()
         await self.db.refresh(user)
         return user
+
+    async def get_by_id(self, user_id: str) -> User | None:
+        result = await self.db.execute(select(User).where(User.id == user_id))
+        return result.scalars().first()
+
+    async def update(self, user: User, update_data: dict) -> User:
+        for key, value in update_data.items():
+            setattr(user, key, value)
+        await self.db.commit()
+        await self.db.refresh(user)
+        return user

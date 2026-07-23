@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { api } from "@/lib/axios";
 
 interface HealthCheckResponse {
   success: boolean;
@@ -16,14 +17,14 @@ export default function Home() {
   useEffect(() => {
     const fetchHealth = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/v1/health");
-        if (!res.ok) {
-          throw new Error("Failed to connect to backend");
+        const res = await api.get("/health");
+        setData(res.data);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Backend is unreachable");
         }
-        const json = await res.json();
-        setData(json);
-      } catch (err: any) {
-        setError(err.message || "Backend is unreachable");
       } finally {
         setLoading(false);
       }
