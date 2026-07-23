@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { PasswordInput } from "@/components/ui/password-input"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import {
   InputOTP,
   InputOTPGroup,
@@ -29,24 +29,9 @@ import {
 
 import { UserPlus, Mail, Lock, KeyRound, ArrowRight, User, AtSign } from "lucide-react"
 
-const registerSchema = z.object({
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  username: z.string().min(3, {
-    message: "Username must be at least 3 characters.",
-  }),
-  full_name: z.string().min(1, {
-    message: "Full name is required.",
-  }),
-  password: z.string().min(8, {
-    message: "Password must be at least 8 characters long.",
-  }),
-  confirmPassword: z.string(),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords do not match.",
-  path: ["confirmPassword"],
-})
+import { registerSchema } from "@/lib/validations/auth"
+import { AuthWrapper } from "@/components/layout/AuthWrapper"
+import { AuthCardHeader } from "@/components/layout/AuthCardHeader"
 
 export default function RegisterPage() {
   const router = useRouter()
@@ -118,9 +103,7 @@ export default function RegisterPage() {
   const isSuccess = verifyMutation.isSuccess
 
   return (
-    <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center p-4 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10 opacity-50 pointer-events-none" />
-      
+    <AuthWrapper>
       <Card className="w-full max-w-md shadow-2xl shadow-primary/5 border-border/40 bg-background/60 backdrop-blur-xl rounded-2xl overflow-hidden relative">
         {/* Step Indicator Line */}
         <div className="absolute top-0 left-0 w-full h-1 bg-muted">
@@ -132,15 +115,11 @@ export default function RegisterPage() {
 
         {step === 'form' ? (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <CardHeader className="space-y-2 text-center pb-8 pt-10">
-              <div className="mx-auto bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                <UserPlus className="h-8 w-8 text-primary" />
-              </div>
-              <CardTitle className="text-4xl font-extrabold tracking-tight">Create an account</CardTitle>
-              <CardDescription className="text-base font-light">
-                Enter your details to sign up
-              </CardDescription>
-            </CardHeader>
+            <AuthCardHeader
+              icon={UserPlus}
+              title="Create an account"
+              description="Enter your details to sign up"
+            />
             <CardContent>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -244,16 +223,16 @@ export default function RegisterPage() {
           </div>
         ) : (
           <div className="animate-in fade-in slide-in-from-right-8 duration-500">
-            <CardHeader className="space-y-2 text-center pb-8 pt-10">
-              <div className="mx-auto bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                <Mail className="h-8 w-8 text-primary" />
-              </div>
-              <CardTitle className="text-4xl font-extrabold tracking-tight">Check your email</CardTitle>
-              <CardDescription className="text-base font-light">
-                We&apos;ve sent a 6-digit verification code to <br/>
-                <span className="font-medium text-foreground">{form.getValues().email}</span>
-              </CardDescription>
-            </CardHeader>
+            <AuthCardHeader
+              icon={Mail}
+              title="Check your email"
+              description={
+                <>
+                  We&apos;ve sent a 6-digit verification code to <br/>
+                  <span className="font-medium text-foreground">{form.getValues().email}</span>
+                </>
+              }
+            />
             <CardContent>
               <form onSubmit={handleVerifyOTP} className="space-y-6 flex flex-col items-center">
                 <InputOTP
@@ -293,6 +272,6 @@ export default function RegisterPage() {
           </div>
         )}
       </Card>
-    </div>
+    </AuthWrapper>
   )
 }

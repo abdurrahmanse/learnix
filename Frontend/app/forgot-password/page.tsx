@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { PasswordInput } from "@/components/ui/password-input"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import {
   InputOTP,
   InputOTPGroup,
@@ -29,21 +29,9 @@ import {
 
 import { Mail, KeyRound, ArrowLeft, Lock, ArrowRight } from "lucide-react"
 
-const emailSchema = z.object({
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-})
-
-const resetSchema = z.object({
-  password: z.string().min(8, {
-    message: "Password must be at least 8 characters long.",
-  }),
-  confirmPassword: z.string(),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords do not match.",
-  path: ["confirmPassword"],
-})
+import { emailSchema, resetSchema } from "@/lib/validations/auth"
+import { AuthWrapper } from "@/components/layout/AuthWrapper"
+import { AuthCardHeader } from "@/components/layout/AuthCardHeader"
 
 export default function ForgotPasswordPage() {
   const router = useRouter()
@@ -115,8 +103,7 @@ export default function ForgotPasswordPage() {
   const isSuccess = resetMutation.isSuccess
 
   return (
-    <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center p-4 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10 opacity-50 pointer-events-none" />
+    <AuthWrapper>
       <Card className="w-full max-w-md shadow-2xl shadow-primary/5 border-border/40 bg-background/60 backdrop-blur-xl rounded-2xl relative overflow-hidden">
         
         {/* Step Indicator Line */}
@@ -129,15 +116,11 @@ export default function ForgotPasswordPage() {
 
         {step === 'email' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <CardHeader className="space-y-2 text-center pb-8 pt-10">
-              <div className="mx-auto bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                <KeyRound className="h-8 w-8 text-primary" />
-              </div>
-              <CardTitle className="text-4xl font-extrabold tracking-tight">Reset Password</CardTitle>
-              <CardDescription className="text-base font-light">
-                Enter your email address to receive a verification code.
-              </CardDescription>
-            </CardHeader>
+            <AuthCardHeader
+              icon={KeyRound}
+              title="Reset Password"
+              description="Enter your email address to receive a verification code."
+            />
             <CardContent>
               <Form {...emailForm}>
                 <form onSubmit={emailForm.handleSubmit(onSubmitEmail)} className="space-y-4">
@@ -183,16 +166,16 @@ export default function ForgotPasswordPage() {
 
         {step === 'otp' && (
           <div className="animate-in fade-in slide-in-from-right-8 duration-500">
-            <CardHeader className="space-y-2 text-center pb-8 pt-10">
-              <div className="mx-auto bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                <Mail className="h-8 w-8 text-primary" />
-              </div>
-              <CardTitle className="text-4xl font-extrabold tracking-tight">Check your email</CardTitle>
-              <CardDescription className="text-base font-light">
-                We&apos;ve sent a 6-digit reset code to <br/>
-                <span className="font-medium text-foreground">{emailForm.getValues().email}</span>
-              </CardDescription>
-            </CardHeader>
+            <AuthCardHeader
+              icon={Mail}
+              title="Check your email"
+              description={
+                <>
+                  We&apos;ve sent a 6-digit reset code to <br/>
+                  <span className="font-medium text-foreground">{emailForm.getValues().email}</span>
+                </>
+              }
+            />
             <CardContent>
               <form onSubmit={handleVerifyOTP} className="space-y-6 flex flex-col items-center">
                 <InputOTP
@@ -233,15 +216,11 @@ export default function ForgotPasswordPage() {
 
         {step === 'reset' && (
           <div className="animate-in fade-in slide-in-from-right-8 duration-500">
-             <CardHeader className="space-y-2 text-center pb-8 pt-10">
-              <div className="mx-auto bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                <Lock className="h-8 w-8 text-primary" />
-              </div>
-              <CardTitle className="text-4xl font-extrabold tracking-tight">Set New Password</CardTitle>
-              <CardDescription className="text-base font-light">
-                Please enter your new password below.
-              </CardDescription>
-            </CardHeader>
+             <AuthCardHeader
+              icon={Lock}
+              title="Set New Password"
+              description="Please enter your new password below."
+            />
             <CardContent>
               <Form {...resetForm}>
                 <form onSubmit={resetForm.handleSubmit(onSubmitReset)} className="space-y-4">
@@ -289,6 +268,6 @@ export default function ForgotPasswordPage() {
           </div>
         )}
       </Card>
-    </div>
+    </AuthWrapper>
   )
 }
