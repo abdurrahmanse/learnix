@@ -18,6 +18,8 @@ app = FastAPI(
     debug=settings.DEBUG,
 )
 
+from app.api.routers import auth
+
 # Configure CORS (Task 9)
 app.add_middleware(
     CORSMiddleware,
@@ -27,8 +29,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Create a health check API (Task 11)
-@app.get("/api/health")
+app.include_router(auth.router, prefix=f"{settings.API_V1_STR}/auth", tags=["auth"])
+
+# Create a health check API
+@app.get(f"{settings.API_V1_STR}/health")
 async def health_check():
     logger.info("Health check endpoint called")
-    return {"status": "ok", "message": "Learnix API is healthy"}
+    return {
+      "success": True,
+      "message": "Backend is running",
+      "version": "1.0.0"
+    }
