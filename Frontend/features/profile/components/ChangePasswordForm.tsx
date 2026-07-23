@@ -3,13 +3,13 @@
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { Save, Loader2, CheckCircle2 } from "lucide-react"
+import { Save, CheckCircle2, Lock, KeyRound } from "lucide-react"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Button } from "@/components/ui/button"
-import { PasswordInput } from "@/components/ui/password-input"
+import { Form } from "@/components/ui/form"
 import { useUpdatePassword } from "../hooks/useProfileMutations"
+import { FormInputWithIcon } from "@/components/common/FormInputWithIcon"
+import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
 
 const changePasswordSchema = z.object({
   current_password: z.string().min(1, "Current password is required"),
@@ -44,7 +44,7 @@ export function ChangePasswordForm() {
   }
 
   return (
-    <Card className="w-full border-border/40 shadow-lg shadow-primary/5">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>Change Password</CardTitle>
         <CardDescription>
@@ -54,57 +54,44 @@ export function ChangePasswordForm() {
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-md">
-            <FormField
+            <FormInputWithIcon
               control={form.control}
               name="current_password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Current Password</FormLabel>
-                  <FormControl>
-                    <PasswordInput placeholder="Enter current password" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              placeholder="Enter current password"
+              icon={KeyRound}
+              type="password"
+              disabled={isPending}
             />
 
-            <FormField
+            <FormInputWithIcon
               control={form.control}
               name="new_password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>New Password</FormLabel>
-                  <FormControl>
-                    <PasswordInput placeholder="Enter new password" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              placeholder="Enter new password"
+              icon={Lock}
+              type="password"
+              disabled={isPending}
             />
 
-            <FormField
+            <FormInputWithIcon
               control={form.control}
               name="confirm_password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Confirm New Password</FormLabel>
-                  <FormControl>
-                    <PasswordInput placeholder="Confirm new password" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              placeholder="Confirm new password"
+              icon={Lock}
+              type="password"
+              disabled={isPending}
             />
 
-            <div className="flex items-center gap-4">
-              <Button type="submit" disabled={isPending}>
-                {isPending ? (
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <Save className="mr-2 h-4 w-4" />
-                )}
-                Update Password
-              </Button>
+            <div className="flex items-center gap-4 pt-2">
+              <div className="w-48">
+                <SubmitAuthButton
+                  isLoading={isPending}
+                  defaultText="Update Password"
+                  loadingText="Updating..."
+                  icon={Save}
+                  disabled={isPending}
+                  className="w-full h-10 rounded-md mt-0"
+                />
+              </div>
               
               {isSuccess && !form.formState.isDirty && (
                 <span className="text-sm font-medium text-green-600 dark:text-green-400 flex items-center animate-in fade-in">

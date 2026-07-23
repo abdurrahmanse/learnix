@@ -3,16 +3,16 @@
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { Save, Loader2, CheckCircle2 } from "lucide-react"
+import { Save, CheckCircle2, User, Phone, MapPin, FileText } from "lucide-react"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Form } from "@/components/ui/form"
 
 import { useAuthStore } from "@/store/authStore"
 import { useUpdateProfile } from "../hooks/useProfileMutations"
 import { useEffect } from "react"
+import { FormInputWithIcon } from "@/components/common/FormInputWithIcon"
+import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
 
 const updateProfileSchema = z.object({
   full_name: z.string().min(2, "Full name must be at least 2 characters."),
@@ -58,7 +58,7 @@ export function UpdateProfileForm() {
   }
 
   return (
-    <Card className="w-full border-border/40 shadow-lg shadow-primary/5">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>Personal Information</CardTitle>
         <CardDescription>
@@ -69,73 +69,55 @@ export function UpdateProfileForm() {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <FormField
+              <FormInputWithIcon
                 control={form.control}
                 name="full_name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Full Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="John Doe" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
+                placeholder="Abdur Rahman"
+                icon={User}
+                disabled={isPending}
               />
 
-              <FormField
+              <FormInputWithIcon
                 control={form.control}
                 name="phone_number"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Phone Number</FormLabel>
-                    <FormControl>
-                      <Input placeholder="+1 (555) 000-0000" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
+                placeholder="+880 1712345678"
+                icon={Phone}
+                disabled={isPending}
               />
 
-              <FormField
-                control={form.control}
-                name="location"
-                render={({ field }) => (
-                  <FormItem className="md:col-span-2">
-                    <FormLabel>Location</FormLabel>
-                    <FormControl>
-                      <Input placeholder="New York, USA" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <div className="md:col-span-2">
+                <FormInputWithIcon
+                  control={form.control}
+                  name="location"
+                  placeholder="New York, USA"
+                  icon={MapPin}
+                  disabled={isPending}
+                />
+              </div>
 
-              <FormField
-                control={form.control}
-                name="bio"
-                render={({ field }) => (
-                  <FormItem className="md:col-span-2">
-                    <FormLabel>Bio</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Tell us a little bit about yourself" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <div className="md:col-span-2">
+                <FormInputWithIcon
+                  control={form.control}
+                  name="bio"
+                  placeholder="Tell us a little bit about yourself"
+                  icon={FileText}
+                  disabled={isPending}
+                />
+              </div>
             </div>
 
             <div className="flex items-center gap-4">
-              <Button type="submit" disabled={isPending || !form.formState.isDirty}>
-                {isPending ? (
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <Save className="mr-2 h-4 w-4" />
-                )}
-                Save Changes
-              </Button>
-              
+              <div className="w-48">
+                <SubmitAuthButton
+                  isLoading={isPending}
+                  defaultText="Save Changes"
+                  loadingText="Saving..."
+                  icon={Save}
+                  disabled={isPending || !form.formState.isDirty}
+                  className="w-full h-10 rounded-md mt-0"
+                />
+              </div>
+
               {isSuccess && !form.formState.isDirty && (
                 <span className="text-sm font-medium text-green-600 dark:text-green-400 flex items-center animate-in fade-in">
                   <CheckCircle2 className="mr-2 h-4 w-4" />

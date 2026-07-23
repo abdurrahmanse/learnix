@@ -405,7 +405,7 @@ Implement frontend API connection logic.
 Stop after API integration is verified.
 Generate API testing checklist.
 
-### Phase 2.9 — Browser Testing
+### ✅ Phase 2.9 — Browser Testing
 Follow all project documents.
 
 Review the User Profile module.
@@ -416,7 +416,7 @@ Include all happy paths and error states.
 
 Wait for my confirmation before continuing.
 
-### Phase 2.10 — Final Review
+### ✅ Phase 2.10 — Final Review
 Follow all project documents.
 
 Review the User Profile module.
