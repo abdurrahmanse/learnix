@@ -691,7 +691,22 @@ Do NOT implement APIs.
 Stop after the database layer.
 Generate a testing checklist.
 
-### Phase 5.2 — Lesson Service
+### Phase 5.2 — Repository Layer
+Follow all project documents.
+
+Implement ONLY the Repository Layer for Lesson Management.
+
+Requirements:
+- Database CRUD operations.
+- Clean separation from service logic.
+- Error handling.
+
+Do NOT create API routes.
+Do NOT create frontend.
+Stop after the repository layer.
+Generate unit testing checklist.
+
+### Phase 5.3 — Lesson Service
 Follow all project documents.
 
 Implement ONLY the Lesson Service.
@@ -706,7 +721,19 @@ Do NOT create frontend.
 Stop after the service layer.
 Generate unit testing checklist.
 
-### Phase 5.3 — Lesson CRUD APIs
+### Phase 5.4 — Authorization & Permission
+Follow all project documents.
+
+Implement ONLY Authorization & Permission logic for Lessons.
+
+Requirements:
+- Ensure only course creators/admins can modify lessons.
+- Apply RBAC rules.
+- Write tests or checklist for auth logic.
+
+Stop after auth logic is applied.
+
+### Phase 5.5 — Lesson CRUD APIs
 Follow all project documents.
 
 Implement ONLY the Lesson CRUD APIs.
@@ -723,7 +750,14 @@ Do not implement frontend.
 Stop after API implementation.
 Generate API testing checklist.
 
-### Phase 5.4 — Frontend Curriculum Builder UI
+### Phase 5.6 — Backend Testing
+Follow all project documents.
+
+Implement and run tests for the Lesson Management backend.
+Fix any issues found.
+Stop after backend tests pass.
+
+### Phase 5.7 — Frontend Curriculum Builder UI
 Follow all project documents.
 
 Implement ONLY the frontend Frontend Curriculum Builder UI.
@@ -742,7 +776,7 @@ Requirements:
 Do not connect APIs.
 Stop after frontend UI.
 
-### Phase 5.5 — Frontend Syllabus UI
+### Phase 5.8 — Frontend Syllabus UI
 Follow all project documents.
 
 Implement ONLY the frontend Frontend Syllabus UI.
@@ -761,7 +795,7 @@ Requirements:
 Do not connect APIs.
 Stop after frontend UI.
 
-### Phase 5.6 — API Integration
+### Phase 5.9 — API Integration
 Follow all project documents.
 
 Implement ONLY the API Integration.
@@ -776,7 +810,14 @@ Implement frontend API connection logic.
 Stop after API integration is verified.
 Generate API testing checklist.
 
-### Phase 5.7 — Browser Testing
+### Phase 5.10 — Frontend Testing
+Follow all project documents.
+
+Run all frontend testing tools and checklists for Lesson Management.
+Fix any bugs.
+Stop after frontend tests pass.
+
+### Phase 5.11 — Browser Testing
 Follow all project documents.
 
 Review the Lesson Management module.
@@ -787,7 +828,7 @@ Include all happy paths and error states.
 
 Wait for my confirmation before continuing.
 
-### Phase 5.8 — Final Review
+### Phase 5.12 — Final Review
 Follow all project documents.
 
 Review the Lesson Management module.

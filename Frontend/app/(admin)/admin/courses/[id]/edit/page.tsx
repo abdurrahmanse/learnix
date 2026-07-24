@@ -3,15 +3,18 @@
 import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
 import { CourseForm } from "@/features/courses/components/CourseForm";
 import { Card, CardContent } from "@/components/ui/card";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import { useCourseQuery, useUpdateCourseMutation } from "@/features/courses/hooks/useCourses";
-import { Loader2 } from "lucide-react";
+import { Loader2, AlertCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-export default function EditCoursePage({ params }: { params: { id: string } }) {
+export default function EditCoursePage() {
   const router = useRouter();
-  
-  const { data: course, isLoading, isError } = useCourseQuery(params.id);
-  const { mutate: updateCourse, isPending } = useUpdateCourseMutation(params.id, () => {
+  const params = useParams();
+  const id = params.id as string;
+
+  const { data: course, isLoading, isError, error, refetch } = useCourseQuery(id);
+  const { mutate: updateCourse, isPending } = useUpdateCourseMutation(id, () => {
     router.push("/admin/courses");
   });
 
@@ -30,7 +33,11 @@ export default function EditCoursePage({ params }: { params: { id: string } }) {
   if (isError || !course) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[400px] space-y-4">
-        <p className="text-muted-foreground">Failed to load course.</p>
+        <AlertCircle className="h-12 w-12 text-destructive" />
+        <p className="text-muted-foreground font-medium">Failed to load course.</p>
+        <p className="text-sm text-muted-foreground">Course ID: {id}</p>
+        <Button variant="outline" onClick={() => refetch()}>Try Again</Button>
+        <Button variant="ghost" onClick={() => router.push("/admin/courses")}>Back to Courses</Button>
       </div>
     );
   }

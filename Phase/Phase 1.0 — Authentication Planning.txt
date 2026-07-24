@@ -12,7 +12,7 @@ Before writing any code:
 1. Analyze the Authentication requirements.
 2. List all functional requirements.
 3. List all API endpoints.
-4. Design the database schema.
+4. Design the database schema.  
 5. Explain the authentication flow.
 6. Explain the refresh token flow.
 7. Explain the folder structure.
