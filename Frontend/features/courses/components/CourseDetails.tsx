@@ -10,54 +10,12 @@ import { Course } from "../types"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-
-const MOCK_COURSE: Course = {
-  id: "1",
-  title: "Mastering Next.js 14 with App Router",
-  slug: "mastering-nextjs-14",
-  description: `## About this course\n\nThis course is the ultimate guide to building modern web applications using Next.js 14. You will learn about React Server Components, Server Actions, parallel routing, intercepting routes, and more.\n\n### What you'll learn\n- Deep dive into the App Router\n- Mastering Server Components vs Client Components\n- Data fetching patterns\n- Authentication and Authorization\n- Deployment strategies`,
-  short_summary: "Comprehensive guide to Next.js 14, React Server Components, and advanced data fetching.",
-  thumbnail_url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop",
-  price: 99.99,
-  level: "intermediate",
-  status: "published",
-  instructor_id: "inst-1",
-  created_at: "2023-01-01T00:00:00Z",
-  updated_at: "2023-01-01T00:00:00Z",
-}
+import { useCourseQuery } from "../hooks/useCourses"
 
 export function CourseDetails({ slug }: { slug: string }) {
   const router = useRouter()
-  const [course, setCourse] = useState<Course | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [isError, setIsError] = useState(false)
   const [isEnrolling, setIsEnrolling] = useState(false)
-
-  useEffect(() => {
-    const fetchCourse = async () => {
-      try {
-        setIsLoading(true)
-        // Simulate API fetch delay
-        await new Promise(resolve => setTimeout(resolve, 1000))
-        
-        // Mock 404 condition
-        if (slug === "not-found-mock") {
-          setIsError(true)
-          setCourse(null)
-          return
-        }
-        
-        setCourse({ ...MOCK_COURSE, slug })
-        setIsError(false)
-      } catch (err) {
-        setIsError(true)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-    
-    fetchCourse()
-  }, [slug])
+  const { data: course, isLoading, isError } = useCourseQuery(slug)
 
   const handleEnroll = async () => {
     setIsEnrolling(true)

@@ -8,12 +8,12 @@ learnix/
 │   │   ├── api/                 # FastAPI Route Handlers (Controllers)
 │   │   │   ├── routers/
 │   │   │   │   ├── auth.py      # Phase 1: Authentication
-│   │   │   │   ├── users.py     # Phase 2: User Profile
-│   │   │   │   ├── courses.py   # Phase 3: Course Management
-│   │   │   │   ├── lessons.py   # Phase 4: Lesson Management
-│   │   │   │   ├── progress.py  # Phase 5: Classroom Progress
-│   │   │   │   ├── payments.py  # Phase 6: Subscriptions & Payments
-│   │   │   │   └── admin.py     # Phase 7: Admin Analytics
+│   │   │   │   ├── users.py     # Phase 3: User Profile
+│   │   │   │   ├── courses.py   # Phase 4: Course Management
+│   │   │   │   ├── lessons.py   # Phase 5: Lesson Management
+│   │   │   │   ├── progress.py  # Phase 6: Classroom Progress
+│   │   │   │   ├── payments.py  # Phase 7: Subscriptions & Payments
+│   │   │   │   └── admin.py     # Phase 8: Admin Analytics
 │   │   │   └── deps.py          # Dependency injection (Auth, DB session)
 │   │   ├── core/                # Core Configuration (Env, Security, JWT)
 │   │   ├── db/                  # Database initialization and Models
@@ -34,9 +34,9 @@ learnix/
 ├── frontend/                    # Next.js Frontend Application
 │   ├── app/                     # Next.js App Router (Pages & Layouts)
 │   │   ├── (auth)/              # Phase 1: Login, Register, Verify
-│   │   ├── (public)/            # Phase 3: Landing Page, Course Catalog
-│   │   ├── (student)/           # Phase 2 & 5: Dashboard, Profile, Classroom
-│   │   └── (admin)/             # Phase 7: Admin Dashboard, Curriculum Builder
+│   │   ├── (public)/            # Phase 4: Landing Page, Course Catalog
+│   │   ├── (student)/           # Phase 3 & 5: Dashboard, Profile, Classroom
+│   │   └── (admin)/             # Phase 8: Admin Dashboard, Curriculum Builder
 │   ├── components/              # React Components
 │   │   ├── auth/                # Auth forms and guards
 │   │   ├── courses/             # Course cards and catalog components

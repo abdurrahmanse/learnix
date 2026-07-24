@@ -17,12 +17,14 @@ export function useLoginMutation() {
     onSuccess: async (data) => {
       toast.success("Successfully logged in! Redirecting...");
       try {
-        const userResponse = await authService.getMe();
-        setAuth(userResponse, data.access_token);
-        setTimeout(() => router.push("/"), 1000);
+        const userResponse = await authService.getMe(data.access_token);
+        // Delay state update to allow toast to render.
+        // GuestGuard will automatically handle the role-based redirect once setAuth completes.
+        setTimeout(() => {
+          setAuth(userResponse, data.access_token);
+        }, 1000);
       } catch {
         setAuth({ id: "temp", email: "", username: "", full_name: "", role: "student", is_active: true }, data.access_token);
-        setTimeout(() => router.push("/"), 1000);
       }
     },
   });

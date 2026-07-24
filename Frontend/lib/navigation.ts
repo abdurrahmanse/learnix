@@ -7,7 +7,7 @@ export interface NavRoute {
 }
 
 export function getAvailableRoutes(): NavRoute[] {
-  const appDir = path.join(process.cwd(), "app");
+  const appDir = path.join(process.cwd(), "app", "(public)");
   const routes: NavRoute[] = [];
 
   const excludePaths = [

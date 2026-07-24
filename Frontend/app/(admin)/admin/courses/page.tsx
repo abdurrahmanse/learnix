@@ -1,52 +1,32 @@
-"use client"
+import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { LayoutDashboard } from "lucide-react";
 
-import { useState } from "react"
-import { CourseList } from "@/features/courses/components/CourseList"
-import { Course } from "@/features/courses/types"
-
-const mockCourses: Course[] = [
-  {
-    id: "1",
-    title: "Introduction to React",
-    slug: "intro-to-react",
-    price: 49.99,
-    level: "beginner",
-    status: "published",
-    instructor_id: "inst-1",
-    created_at: "2023-01-01T00:00:00Z",
-    updated_at: "2023-01-01T00:00:00Z",
-  },
-  {
-    id: "2",
-    title: "Advanced Next.js Patterns",
-    slug: "advanced-nextjs",
-    price: 99.99,
-    level: "advanced",
-    status: "draft",
-    instructor_id: "inst-1",
-    created_at: "2023-02-01T00:00:00Z",
-    updated_at: "2023-02-01T00:00:00Z",
-  }
-]
-
-export default function AdminCoursesPage() {
-  const [courses, setCourses] = useState<Course[]>(mockCourses)
-
-  const handleDelete = (id: string) => {
-    // Mock delete
-    if (confirm("Are you sure you want to delete this course?")) {
-      setCourses(courses.filter(c => c.id !== id))
-    }
-  }
-
+export default function CoursesPage() {
   return (
-    <div className="w-full mx-auto py-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <CourseList 
-        courses={courses} 
-        isLoading={false} 
-        isError={false} 
-        onDelete={handleDelete} 
+    <div className="space-y-6 fade-in-up">
+      <AdminPageHeader 
+        title="Courses" 
+        description="Manage your platform's Courses here."
+        breadcrumbs={[{ title: "Courses" }]}
       />
+      
+      <Card className="border-border/50 shadow-sm bg-background/60 backdrop-blur-xl">
+        <CardHeader>
+          <CardTitle className="flex items-center space-x-2">
+            <LayoutDashboard className="h-5 w-5 text-muted-foreground" />
+            <span>Overview</span>
+          </CardTitle>
+          <CardDescription>
+            This module is currently under development.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="h-[400px] rounded-lg border border-dashed border-border/60 bg-muted/20 flex items-center justify-center">
+            <p className="text-muted-foreground text-sm font-medium">Placeholder for Courses Interface</p>
+          </div>
+        </CardContent>
+      </Card>
     </div>
-  )
+  );
 }

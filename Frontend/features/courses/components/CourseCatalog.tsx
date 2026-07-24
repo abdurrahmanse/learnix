@@ -6,77 +6,14 @@ import { Course } from "../types"
 import { PublicCourseCard } from "./PublicCourseCard"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-
-const MOCK_COURSES: Course[] = [
-  {
-    id: "1",
-    title: "Mastering Next.js 14 with App Router",
-    slug: "mastering-nextjs-14",
-    description: "Learn how to build full-stack applications using Next.js 14 App Router.",
-    short_summary: "Comprehensive guide to Next.js 14, React Server Components, and advanced data fetching.",
-    thumbnail_url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop",
-    price: 99.99,
-    level: "intermediate",
-    status: "published",
-    instructor_id: "inst-1",
-    created_at: "2023-01-01T00:00:00Z",
-    updated_at: "2023-01-01T00:00:00Z",
-  },
-  {
-    id: "2",
-    title: "Python for Data Science Bootcamp",
-    slug: "python-data-science",
-    description: "Go from zero to hero in Python and Data Science.",
-    short_summary: "Learn Python, Pandas, NumPy, and Machine Learning from scratch.",
-    thumbnail_url: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop",
-    price: 149.99,
-    level: "beginner",
-    status: "published",
-    instructor_id: "inst-2",
-    created_at: "2023-02-01T00:00:00Z",
-    updated_at: "2023-02-01T00:00:00Z",
-  },
-  {
-    id: "3",
-    title: "Advanced System Design Interview",
-    slug: "advanced-system-design",
-    description: "Prepare for FAANG system design interviews.",
-    short_summary: "Crack the hardest system design interviews with real-world architectural patterns.",
-    thumbnail_url: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1000&auto=format&fit=crop",
-    price: 199.99,
-    level: "advanced",
-    status: "published",
-    instructor_id: "inst-1",
-    created_at: "2023-03-01T00:00:00Z",
-    updated_at: "2023-03-01T00:00:00Z",
-  },
-]
+import { useCoursesQuery } from "../hooks/useCourses"
+import { useCourseStore } from "@/store/courseStore"
 
 export function CourseCatalog() {
-  const [courses, setCourses] = useState<Course[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [isError, setIsError] = useState(false)
-  const [searchQuery, setSearchQuery] = useState("")
+  const { data: courses = [], isLoading, isError, refetch } = useCoursesQuery()
+  const { searchQuery, setSearchQuery } = useCourseStore()
 
-  useEffect(() => {
-    // Simulate API Fetch
-    const fetchCourses = async () => {
-      try {
-        setIsLoading(true)
-        await new Promise(resolve => setTimeout(resolve, 1500))
-        setCourses(MOCK_COURSES)
-        setIsError(false)
-      } catch (err) {
-        setIsError(true)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-    
-    fetchCourses()
-  }, [])
-
-  const filteredCourses = courses.filter(course => 
+  const filteredCourses = courses.filter((course: Course) => 
     course.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
     course.short_summary?.toLowerCase().includes(searchQuery.toLowerCase())
   )
@@ -121,7 +58,7 @@ export function CourseCatalog() {
           </div>
           <h3 className="text-xl font-bold mb-2">Failed to load courses</h3>
           <p className="text-muted-foreground mb-6">We encountered an error while fetching the catalog.</p>
-          <Button onClick={() => window.location.reload()} variant="outline" className="rounded-full">
+          <Button onClick={() => refetch()} variant="outline" className="rounded-full">
             Try Again
           </Button>
         </div>

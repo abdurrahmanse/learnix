@@ -7,22 +7,16 @@ import Link from "next/link"
 import { toast } from "sonner"
 import { CourseForm } from "@/features/courses/components/CourseForm"
 import { CourseCreate } from "@/features/courses/types"
+import { useCreateCourseMutation } from "@/features/courses/hooks/useCourses"
 
 export default function NewCoursePage() {
   const router = useRouter()
-  const [isLoading, setIsLoading] = useState(false)
-
-  const handleSubmit = async (data: CourseCreate) => {
-    setIsLoading(true)
-    
-    // Simulate network delay for loading state
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
-    console.log("Mock Submit Create Course:", data)
-    
-    toast.success("Course created successfully!")
-    setIsLoading(false)
+  const { mutate: createCourse, isPending } = useCreateCourseMutation(() => {
     router.push("/admin/courses")
+  })
+
+  const handleSubmit = (data: CourseCreate) => {
+    createCourse(data)
   }
 
   return (
@@ -37,7 +31,7 @@ export default function NewCoursePage() {
         </Link>
       </div>
       
-      <CourseForm onSubmitAction={handleSubmit} isLoading={isLoading} />
+      <CourseForm onSubmitAction={handleSubmit} isLoading={isPending} />
     </div>
   )
 }

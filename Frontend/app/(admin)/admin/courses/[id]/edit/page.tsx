@@ -7,37 +7,18 @@ import Link from "next/link"
 import { toast } from "sonner"
 import { CourseForm } from "@/features/courses/components/CourseForm"
 import { CourseCreate, Course } from "@/features/courses/types"
-
-const mockInitialData: Course = {
-  id: "1",
-  title: "Introduction to React",
-  slug: "intro-to-react",
-  description: "Learn the basics of React and Next.js.",
-  short_summary: "A quick introduction to frontend frameworks.",
-  thumbnail_url: "https://example.com/thumbnail.png",
-  price: 49.99,
-  level: "beginner",
-  status: "published",
-  instructor_id: "inst-1",
-  created_at: "2023-01-01T00:00:00Z",
-  updated_at: "2023-01-01T00:00:00Z",
-}
+import { useCourseQuery, useUpdateCourseMutation } from "@/features/courses/hooks/useCourses"
 
 export default function EditCoursePage({ params }: { params: { id: string } }) {
   const router = useRouter()
-  const [isLoading, setIsLoading] = useState(false)
-
-  const handleSubmit = async (data: CourseCreate) => {
-    setIsLoading(true)
-    
-    // Simulate network delay for loading state
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
-    console.log("Mock Submit Edit Course ID:", params.id, data)
-    
-    toast.success("Course updated successfully!")
-    setIsLoading(false)
+  const { data: course, isLoading: isFetching } = useCourseQuery(params.id)
+  
+  const { mutate: updateCourse, isPending } = useUpdateCourseMutation(params.id, () => {
     router.push("/admin/courses")
+  })
+
+  const handleSubmit = (data: CourseCreate) => {
+    updateCourse(data)
   }
 
   return (
@@ -52,7 +33,15 @@ export default function EditCoursePage({ params }: { params: { id: string } }) {
         </Link>
       </div>
       
-      <CourseForm initialData={mockInitialData} onSubmitAction={handleSubmit} isLoading={isLoading} />
+      {isFetching ? (
+        <div className="w-full h-96 flex items-center justify-center">
+          <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
+        </div>
+      ) : course ? (
+        <CourseForm initialData={course} onSubmitAction={handleSubmit} isLoading={isPending} />
+      ) : (
+        <div className="text-center py-10">Course not found</div>
+      )}
     </div>
   )
 }
