@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
-import { UserDataTable } from "@/components/users/UserDataTable";
+import { UserDataTable } from "@/features/users/components/UserDataTable";
 import { User } from "@/types/auth";
 import { userService } from "@/lib/api/users";
 import { toast } from "sonner";

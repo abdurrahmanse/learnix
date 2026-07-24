@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { Course } from "@/types/course";
+import { User } from "@/types/auth";
 import {
   Table,
   TableBody,
@@ -13,50 +12,59 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { MoreHorizontal, Pencil, Eye, Trash } from "lucide-react";
-import Link from "next/link";
-import { format } from "date-fns";
+import { MoreHorizontal, ShieldAlert, UserX, CheckCircle2 } from "lucide-react";
+import { formatDate } from "@/lib/formatters";
 
-interface CourseDataTableProps {
-  courses: Course[];
+interface UserDataTableProps {
+  users: User[];
 }
 
-export function CourseDataTable({ courses }: CourseDataTableProps) {
+export function UserDataTable({ users }: UserDataTableProps) {
   return (
     <div className="rounded-md border border-border/50 bg-background/50 backdrop-blur-xl">
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Title</TableHead>
+            <TableHead>Email</TableHead>
+            <TableHead>Username</TableHead>
+            <TableHead>Role</TableHead>
             <TableHead>Status</TableHead>
-            <TableHead>Level</TableHead>
-            <TableHead>Price</TableHead>
-            <TableHead>Created</TableHead>
+            <TableHead>Joined</TableHead>
             <TableHead className="text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {courses.length === 0 ? (
+          {users.length === 0 ? (
             <TableRow>
               <TableCell colSpan={6} className="h-24 text-center text-muted-foreground">
-                No courses found.
+                No users found.
               </TableCell>
             </TableRow>
           ) : (
-            courses.map((course) => (
-              <TableRow key={course.id}>
-                <TableCell className="font-medium">{course.title}</TableCell>
+            users.map((user) => (
+              <TableRow key={user.id}>
+                <TableCell className="font-medium">{user.email}</TableCell>
+                <TableCell>{user.username}</TableCell>
                 <TableCell>
                   <Badge 
-                    variant={course.status === "published" ? "default" : course.status === "archived" ? "destructive" : "secondary"}
+                    variant={user.role === "admin" ? "destructive" : "secondary"}
                     className="capitalize"
                   >
-                    {course.status}
+                    {user.role}
                   </Badge>
                 </TableCell>
-                <TableCell className="capitalize">{course.level}</TableCell>
-                <TableCell>${Number(course.price).toFixed(2)}</TableCell>
-                <TableCell>{format(new Date(course.created_at), "MMM d, yyyy")}</TableCell>
+                <TableCell>
+                  {user.is_active ? (
+                    <span className="flex items-center text-green-500 text-sm">
+                      <CheckCircle2 className="mr-1 h-4 w-4" /> Active
+                    </span>
+                  ) : (
+                    <span className="flex items-center text-red-500 text-sm">
+                      <UserX className="mr-1 h-4 w-4" /> Inactive
+                    </span>
+                  )}
+                </TableCell>
+                <TableCell>{formatDate(user.created_at)}</TableCell>
                 <TableCell className="text-right">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -67,19 +75,12 @@ export function CourseDataTable({ courses }: CourseDataTableProps) {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                      <DropdownMenuItem asChild>
-                        <Link href={`/courses/${course.slug}`} target="_blank">
-                          <Eye className="mr-2 h-4 w-4" /> View Public
-                        </Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link href={`/admin/courses/${course.id}/edit`}>
-                          <Pencil className="mr-2 h-4 w-4" /> Edit
-                        </Link>
+                      <DropdownMenuItem>
+                        Promote to Admin
                       </DropdownMenuItem>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem className="text-destructive focus:text-destructive">
-                        <Trash className="mr-2 h-4 w-4" /> Delete
+                        <ShieldAlert className="mr-2 h-4 w-4" /> Suspend User
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>

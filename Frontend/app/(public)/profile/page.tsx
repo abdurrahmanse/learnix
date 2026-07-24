@@ -1,4 +1,4 @@
-import { AuthGuard } from "@/components/auth/AuthGuard"
+import { AuthGuard } from "@/features/auth/components/AuthGuard"
 import { ProfileLayout } from "@/features/profile/components/ProfileLayout"
 
 export default function ProfilePage() {

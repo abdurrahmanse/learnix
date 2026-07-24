@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
-import { CourseDataTable } from "@/components/courses/CourseDataTable";
+import { CourseDataTable } from "@/features/courses/components/CourseDataTable";
 import { Button } from "@/components/ui/button";
 import { Plus, Loader2 } from "lucide-react";
 import Link from "next/link";

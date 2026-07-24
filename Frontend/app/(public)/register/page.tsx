@@ -19,7 +19,7 @@ import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
 import { OTPInputGroup } from "@/components/common/OTPInputGroup"
 import { useRegisterMutation, useVerifyRegistrationMutation } from "@/features/auth/hooks/useAuthMutations"
 
-import { GuestGuard } from "@/components/auth/GuestGuard"
+import { GuestGuard } from "@/features/auth/components/GuestGuard"
 
 export default function RegisterPage() {
   const router = useRouter()

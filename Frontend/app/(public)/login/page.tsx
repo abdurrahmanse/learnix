@@ -14,7 +14,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { FormInputWithIcon } from "@/components/common/FormInputWithIcon"
 import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
 import { useLoginMutation } from "@/features/auth/hooks/useAuthMutations"
-import { GuestGuard } from "@/components/auth/GuestGuard"
+import { GuestGuard } from "@/features/auth/components/GuestGuard"
 
 export default function LoginPage() {
   const form = useForm<z.infer<typeof loginSchema>>({

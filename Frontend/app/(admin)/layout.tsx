@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@/components/theme-provider";
-import { RoleGuard } from "@/components/auth/RoleGuard";
+import { RoleGuard } from "@/features/auth/components/RoleGuard";
 import { AdminLayoutClient } from "@/components/layout/AdminLayoutClient";
 
 export default function AdminLayout({

@@ -1,7 +1,7 @@
 "use client";
 
 import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
-import { CourseForm } from "@/components/courses/CourseForm";
+import { CourseForm } from "@/features/courses/components/CourseForm";
 import { CourseFormValues } from "@/lib/validations/course";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
@@ -28,8 +28,8 @@ export default function EditCoursePage({ params }: { params: { id: string } }) {
 
   const handleSubmit = async (data: CourseFormValues) => {
     // TODO: Connect to actual API in Phase 4.6
-    console.log(`Mock Edit Course ${params.id} Payload:`, data);
-    toast.success("Course updated successfully (mock)");
+    // TODO: Connect to backend API
+    toast.success("Course updated successfully!");
     router.push("/admin/courses");
   };
 

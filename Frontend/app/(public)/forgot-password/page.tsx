@@ -21,7 +21,7 @@ import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
 import { OTPInputGroup } from "@/components/common/OTPInputGroup"
 import { useForgotPasswordMutation, useResetPasswordMutation } from "@/features/auth/hooks/useAuthMutations"
 
-import { GuestGuard } from "@/components/auth/GuestGuard"
+import { GuestGuard } from "@/features/auth/components/GuestGuard"
 
 export default function ForgotPasswordPage() {
   const router = useRouter()
