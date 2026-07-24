@@ -70,7 +70,9 @@ export function AdminSidebar() {
         <nav className="space-y-1 px-3">
           <TooltipProvider delayDuration={0}>
             {adminRoutes.map((route) => {
-              const isActive = pathname === route.path || pathname.startsWith(`${route.path}/`);
+              const isActive = route.path === "/admin" 
+                ? pathname === "/admin" 
+                : pathname === route.path || pathname.startsWith(`${route.path}/`);
               
               const LinkContent = (
                 <Link
