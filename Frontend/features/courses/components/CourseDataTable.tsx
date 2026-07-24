@@ -19,9 +19,10 @@ import { formatDate, formatCurrency } from "@/lib/formatters";
 
 interface CourseDataTableProps {
   courses: Course[];
+  onDelete?: (id: string) => void;
 }
 
-export const CourseDataTable = memo(function CourseDataTable({ courses }: CourseDataTableProps) {
+export const CourseDataTable = memo(function CourseDataTable({ courses, onDelete }: CourseDataTableProps) {
   return (
     <div className="rounded-md border border-border/50 bg-background/50 backdrop-blur-xl">
       <Table>
@@ -78,7 +79,10 @@ export const CourseDataTable = memo(function CourseDataTable({ courses }: Course
                         </Link>
                       </DropdownMenuItem>
                       <DropdownMenuSeparator />
-                      <DropdownMenuItem className="text-destructive focus:text-destructive">
+                        <DropdownMenuItem 
+                          className="text-destructive focus:text-destructive focus:bg-destructive/10"
+                          onClick={() => onDelete && onDelete(course.id)}
+                        >
                         <Trash className="mr-2 h-4 w-4" /> Delete
                       </DropdownMenuItem>
                     </DropdownMenuContent>

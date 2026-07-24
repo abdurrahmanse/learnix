@@ -7,28 +7,18 @@ import { Button } from "@/components/ui/button";
 import { Plus, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { Course } from "@/types/course";
-import { courseService } from "@/lib/api/courses";
 import { toast } from "sonner";
+import { useAdminCoursesQuery, useDeleteCourseMutation } from "@/features/courses/hooks/useCourses";
 
 export default function CoursesPage() {
-  const [courses, setCourses] = useState<Course[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { data: courses = [], isLoading } = useAdminCoursesQuery();
+  const { mutate: deleteCourse } = useDeleteCourseMutation();
 
-  useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        const data = await courseService.listAllCoursesAdmin();
-        setCourses(data);
-      } catch (error) {
-        toast.error("Failed to fetch courses");
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchCourses();
-  }, []);
+  const handleDelete = (id: string) => {
+    if (confirm("Are you sure you want to delete this course?")) {
+      deleteCourse(id);
+    }
+  };
 
   return (
     <div className="space-y-6 fade-in-up">
@@ -50,7 +40,7 @@ export default function CoursesPage() {
           <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
         </div>
       ) : (
-        <CourseDataTable courses={courses} />
+        <CourseDataTable courses={courses} onDelete={handleDelete} />
       )}
     </div>
   );
