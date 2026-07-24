@@ -6,7 +6,7 @@ import { ArrowLeft, PlayCircle, Star, BarChart, CheckCircle2, Shield, Calendar, 
 import Link from "next/link"
 import { toast } from "sonner"
 
-import { Course } from "../types"
+import { Course } from "@/types/course"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"

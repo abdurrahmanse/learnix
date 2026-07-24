@@ -11,6 +11,8 @@ export function getAvailableRoutes(): NavRoute[] {
   const routes: NavRoute[] = [];
 
   const excludePaths = [
+    "/",
+    "/health",
     "/login",
     "/register",
     "/forgot-password",

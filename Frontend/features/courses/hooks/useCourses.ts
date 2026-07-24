@@ -1,35 +1,27 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { courseService } from "@/lib/api/courses";
-import { useApiMutation } from "@/hooks/useApiMutation";
-import { Course, CourseCreate } from "../types";
+import { Course } from "@/types/course";
+import { CourseFormValues } from "@/components/courses/CourseForm";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
-import { useQueryClient } from "@tanstack/react-query";
-
-export const COURSE_KEYS = {
-  all: ["courses"] as const,
-  published: () => [...COURSE_KEYS.all, "published"] as const,
-  admin: () => [...COURSE_KEYS.all, "admin"] as const,
-  detail: (idOrSlug: string) => [...COURSE_KEYS.all, "detail", idOrSlug] as const,
-};
+import { QUERY_KEYS } from "@/lib/react-query";
 
 export function useCoursesQuery() {
   return useQuery({
-    queryKey: COURSE_KEYS.published(),
+    queryKey: QUERY_KEYS.courses.published(),
     queryFn: () => courseService.listPublishedCourses(),
   });
 }
 
 export function useAdminCoursesQuery() {
   return useQuery({
-    queryKey: COURSE_KEYS.admin(),
+    queryKey: QUERY_KEYS.courses.admin(),
     queryFn: () => courseService.listAllCoursesAdmin(),
   });
 }
 
 export function useCourseQuery(idOrSlug: string) {
   return useQuery({
-    queryKey: COURSE_KEYS.detail(idOrSlug),
+    queryKey: QUERY_KEYS.courses.detail(idOrSlug),
     queryFn: () => courseService.getCourseDetails(idOrSlug),
     enabled: !!idOrSlug,
   });
@@ -38,12 +30,12 @@ export function useCourseQuery(idOrSlug: string) {
 export function useCreateCourseMutation(onSuccessCallback?: () => void) {
   const queryClient = useQueryClient();
   
-  return useApiMutation({
-    mutationFn: async (data: CourseCreate) => {
+  return useMutation({
+    mutationFn: async (data: CourseFormValues) => {
       return await courseService.createCourse(data);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: COURSE_KEYS.all });
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.courses.all });
       toast.success("Course created successfully!");
       if (onSuccessCallback) onSuccessCallback();
     },
@@ -53,15 +45,15 @@ export function useCreateCourseMutation(onSuccessCallback?: () => void) {
 export function useUpdateCourseMutation(courseId: string, onSuccessCallback?: () => void) {
   const queryClient = useQueryClient();
   
-  return useApiMutation({
-    mutationFn: async (data: Partial<CourseCreate>) => {
+  return useMutation({
+    mutationFn: async (data: Partial<CourseFormValues>) => {
       return await courseService.updateCourse(courseId, data);
     },
     onSuccess: (updatedCourse: Course) => {
-      queryClient.invalidateQueries({ queryKey: COURSE_KEYS.all });
-      queryClient.setQueryData(COURSE_KEYS.detail(courseId), updatedCourse);
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.courses.all });
+      queryClient.setQueryData(QUERY_KEYS.courses.detail(courseId), updatedCourse);
       if (updatedCourse.slug) {
-        queryClient.setQueryData(COURSE_KEYS.detail(updatedCourse.slug), updatedCourse);
+        queryClient.setQueryData(QUERY_KEYS.courses.detail(updatedCourse.slug), updatedCourse);
       }
       toast.success("Course updated successfully!");
       if (onSuccessCallback) onSuccessCallback();
@@ -72,12 +64,12 @@ export function useUpdateCourseMutation(courseId: string, onSuccessCallback?: ()
 export function useDeleteCourseMutation(onSuccessCallback?: () => void) {
   const queryClient = useQueryClient();
   
-  return useApiMutation({
+  return useMutation({
     mutationFn: async (courseId: string) => {
       return await courseService.deleteCourse(courseId);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: COURSE_KEYS.all });
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.courses.all });
       toast.success("Course deleted successfully!");
       if (onSuccessCallback) onSuccessCallback();
     },

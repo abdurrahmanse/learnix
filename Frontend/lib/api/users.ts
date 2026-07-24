@@ -4,6 +4,14 @@ import { UpdateProfileRequest, ChangePasswordRequest } from "@/types/users";
 
 export const userService = {
   /**
+   * List all users (Admin only)
+   */
+  listAllUsersAdmin: async (): Promise<User[]> => {
+    const response = await api.get<User[]>("/users/");
+    return response.data;
+  },
+
+  /**
    * Update current user's profile
    */
   updateProfile: async (data: UpdateProfileRequest): Promise<User> => {

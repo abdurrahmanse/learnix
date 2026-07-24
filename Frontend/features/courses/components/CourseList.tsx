@@ -1,6 +1,6 @@
 import { Edit, Trash2, MoreHorizontal, Plus } from "lucide-react"
 import Link from "next/link"
-import { Course } from "../types"
+import { Course } from "@/types/course"
 
 interface CourseListProps {
   courses: Course[]

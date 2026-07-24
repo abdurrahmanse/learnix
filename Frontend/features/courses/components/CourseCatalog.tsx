@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Search, SlidersHorizontal } from "lucide-react"
-import { Course } from "../types"
+import { Course } from "@/types/course"
 import { PublicCourseCard } from "./PublicCourseCard"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"

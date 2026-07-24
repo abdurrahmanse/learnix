@@ -30,3 +30,7 @@ class UserRepository:
         await self.db.commit()
         await self.db.refresh(user)
         return user
+
+    async def get_all(self):
+        result = await self.db.execute(select(User).order_by(User.created_at.desc()))
+        return result.scalars().all()

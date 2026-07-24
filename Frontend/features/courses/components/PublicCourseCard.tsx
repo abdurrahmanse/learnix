@@ -2,7 +2,7 @@ import Link from "next/link"
 import { PlayCircle, BarChart, Clock, Star } from "lucide-react"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Course } from "../types"
+import { Course } from "@/types/course"
 
 interface PublicCourseCardProps {
   course: Course

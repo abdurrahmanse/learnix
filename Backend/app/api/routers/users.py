@@ -8,7 +8,21 @@ from app.schemas.user import UserRead, UserUpdate, UserPasswordUpdate
 
 from app.services.profile_service import ProfileService
 
+from typing import List
+
 router = APIRouter()
+
+@router.get("/", response_model=List[UserRead])
+async def list_all_users(
+    db: AsyncSession = Depends(get_db),
+    current_admin: User = Depends(get_current_admin)
+):
+    """
+    Get all users. Requires admin privileges.
+    """
+    from app.repositories.user_repository import UserRepository
+    repo = UserRepository(db)
+    return await repo.get_all()
 
 @router.get("/me", response_model=UserRead)
 async def get_my_profile(

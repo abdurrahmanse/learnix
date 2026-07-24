@@ -50,8 +50,10 @@ export function Header({ routes = [] }: { routes?: NavRoute[] }) {
             <BookOpen className="h-6 w-6" />
             <span className="text-lg font-bold tracking-tight text-foreground">Learnix</span>
           </Link>
-          
-          <nav className="hidden md:flex items-center space-x-6 opacity-80">
+        </div>
+
+        <div className="flex items-center space-x-4">
+          <nav className="hidden md:flex items-center space-x-6 opacity-80 text-sm font-medium pr-2">
             {routes.filter((route) => {
               // Hide profile from main nav, as it moves to the Account dropdown
               if (route.path === "/profile") return false;
@@ -71,10 +73,8 @@ export function Header({ routes = [] }: { routes?: NavRoute[] }) {
               );
             })}
           </nav>
-        </div>
 
-        <div className="flex items-center space-x-3">
-          <nav className="flex items-center space-x-2">
+          <nav className="flex items-center space-x-2 border-l border-border/40 pl-4">
             {!mounted ? (
               <div className="flex items-center space-x-2">
                 <div className="h-10 w-24 bg-muted animate-pulse rounded-full" />

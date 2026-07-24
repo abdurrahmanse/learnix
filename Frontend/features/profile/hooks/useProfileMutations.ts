@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { userService } from "@/lib/api/users";
-import { handleApiError } from "@/lib/api/utils";
 import { useAuthStore } from "@/store/authStore";
 import { UpdateProfileRequest, ChangePasswordRequest } from "@/types/users";
+import { QUERY_KEYS } from "@/lib/react-query";
 
 export function useUpdateProfile() {
   const queryClient = useQueryClient();
@@ -13,11 +13,8 @@ export function useUpdateProfile() {
     mutationFn: (data: UpdateProfileRequest) => userService.updateProfile(data),
     onSuccess: (data) => {
       updateUser(data);
-      queryClient.invalidateQueries({ queryKey: ["user", "me"] });
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.auth.me });
       toast.success("Profile updated successfully");
-    },
-    onError: (error) => {
-      toast.error(handleApiError(error));
     },
   });
 }
@@ -30,11 +27,8 @@ export function useUploadAvatar() {
     mutationFn: (file: File) => userService.uploadAvatar(file),
     onSuccess: (data) => {
       updateUser(data);
-      queryClient.invalidateQueries({ queryKey: ["user", "me"] });
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.auth.me });
       toast.success("Avatar updated successfully");
-    },
-    onError: (error) => {
-      toast.error(handleApiError(error));
     },
   });
 }
@@ -44,9 +38,6 @@ export function useUpdatePassword() {
     mutationFn: (data: ChangePasswordRequest) => userService.updatePassword(data),
     onSuccess: () => {
       toast.success("Password updated successfully");
-    },
-    onError: (error) => {
-      toast.error(handleApiError(error));
     },
   });
 }

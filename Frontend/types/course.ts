@@ -11,20 +11,8 @@ export interface Course {
   price: number;
   level: CourseLevel;
   status: CourseStatus;
-  instructor_id: string;
+  instructor_id?: string;
   published_at?: string;
   created_at: string;
   updated_at: string;
 }
-
-export interface CourseCreate {
-  title: string;
-  description?: string;
-  short_summary?: string;
-  thumbnail_url?: string;
-  price: number;
-  level: CourseLevel;
-  status: CourseStatus;
-}
-
-export type CourseUpdate = Partial<CourseCreate>;

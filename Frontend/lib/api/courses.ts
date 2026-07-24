@@ -1,6 +1,6 @@
 import { api } from "../axios";
-import { Course, CourseCreate } from "@/features/courses/types";
-
+import { Course } from "@/types/course";
+import { CourseFormValues } from "@/components/courses/CourseForm";
 export const courseService = {
   // Public
   listPublishedCourses: async (): Promise<Course[]> => {
@@ -19,12 +19,12 @@ export const courseService = {
     return response.data;
   },
 
-  createCourse: async (data: CourseCreate): Promise<Course> => {
+  createCourse: async (data: CourseFormValues): Promise<Course> => {
     const response = await api.post("/courses/", data);
     return response.data;
   },
 
-  updateCourse: async (courseId: string, data: Partial<CourseCreate>): Promise<Course> => {
+  updateCourse: async (courseId: string, data: Partial<CourseFormValues>): Promise<Course> => {
     const response = await api.put(`/courses/${courseId}`, data);
     return response.data;
   },
