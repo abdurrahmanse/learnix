@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { Providers } from "./providers";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Container } from "@/components/ui/container";
 import { Toaster } from "sonner";
 
 const rajdhani = Rajdhani({
@@ -36,8 +37,10 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col" suppressHydrationWarning>
         <Providers>
           <Header routes={routes} />
-          <main className="flex-1">
-            {children}
+          <main className="flex-1 flex flex-col">
+            <Container className="flex-1 flex flex-col w-full h-full">
+              {children}
+            </Container>
           </main>
           <Footer />
           <Toaster richColors position="top-right" />

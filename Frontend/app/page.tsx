@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Container } from "@/components/ui/container";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlayCircle, CheckCircle2, Star, Users } from "lucide-react";
 
 export default function Home() {
   return (
-    <Container className="flex flex-col items-center justify-center py-24 md:py-32 overflow-hidden relative min-h-[calc(100vh-8rem)]">
+    <div className="flex flex-col items-center justify-center py-24 md:py-32 overflow-hidden relative min-h-[calc(100vh-8rem)]">
 
 
       {/* Decorative Floating Cards (Hidden on mobile for cleaner look) */}
@@ -92,6 +91,6 @@ export default function Home() {
           </span>
         </div>
       </div>
-    </Container>
+    </div>
   );
 }

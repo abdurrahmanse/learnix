@@ -1,12 +1,14 @@
 "use client"
 
+import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import { toast } from "sonner"
 import { CourseForm } from "@/features/courses/components/CourseForm"
 import { CourseCreate, Course } from "@/features/courses/types"
 
-const mockCourse: Course = {
+const mockInitialData: Course = {
   id: "1",
   title: "Introduction to React",
   slug: "intro-to-react",
@@ -23,17 +25,23 @@ const mockCourse: Course = {
 
 export default function EditCoursePage({ params }: { params: { id: string } }) {
   const router = useRouter()
-  // Mock fetching data using the ID from params
-  // In a real app, this would use a query hook
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = (data: CourseCreate) => {
-    console.log("Mock Submit Edit Course:", params.id, data)
-    alert("Course updated (Mock)")
+  const handleSubmit = async (data: CourseCreate) => {
+    setIsLoading(true)
+    
+    // Simulate network delay for loading state
+    await new Promise(resolve => setTimeout(resolve, 1500))
+    
+    console.log("Mock Submit Edit Course ID:", params.id, data)
+    
+    toast.success("Course updated successfully!")
+    setIsLoading(false)
     router.push("/admin/courses")
   }
 
   return (
-    <div className="container mx-auto py-10 max-w-4xl animate-in fade-in slide-in-from-bottom-4 duration-500">
+    <div className="w-full mx-auto py-10 max-w-4xl animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="mb-6">
         <Link 
           href="/admin/courses" 
@@ -44,7 +52,7 @@ export default function EditCoursePage({ params }: { params: { id: string } }) {
         </Link>
       </div>
       
-      <CourseForm initialData={mockCourse} onSubmitAction={handleSubmit} isLoading={false} />
+      <CourseForm initialData={mockInitialData} onSubmitAction={handleSubmit} isLoading={isLoading} />
     </div>
   )
 }

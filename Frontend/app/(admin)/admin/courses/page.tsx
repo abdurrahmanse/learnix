@@ -40,7 +40,7 @@ export default function AdminCoursesPage() {
   }
 
   return (
-    <div className="container mx-auto py-10 max-w-7xl animate-in fade-in slide-in-from-bottom-4 duration-500">
+    <div className="w-full mx-auto py-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <CourseList 
         courses={courses} 
         isLoading={false} 
