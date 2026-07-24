@@ -3,6 +3,8 @@ export interface UpdateProfileRequest {
   bio?: string;
   location?: string;
   phone_number?: string;
+  avatar_url?: string;
+  avatar_public_id?: string;
 }
 
 export interface ChangePasswordRequest {

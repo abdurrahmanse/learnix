@@ -2553,3 +2553,8 @@ Check:
 Fix every issue found.
 Generate a final report.
 If everything is correct, mark Phase complete.
+
+### Phase X.8 — Cloudinary Media Integration (Completed)
+- Integrated Cloudinary for images and videos with client-side compression.
+- Backend generated signatures using FastAPI.
+- Upgraded `AvatarUpload.tsx` and `CourseForm.tsx` to handle drag-and-drop secure uploads directly from the browser.

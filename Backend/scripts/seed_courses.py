@@ -7,10 +7,11 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.db.session import AsyncSessionLocal
 from app.db.models.user import User
-from app.db.models.course import CourseLevel, CourseStatus
+from app.db.models.course import Course, CourseLevel, CourseStatus
 from app.services.course_service import CourseService
 from app.schemas.course import CourseCreate
 from sqlalchemy.future import select
+from sqlalchemy import delete
 
 # Dummy data for 3 Data Science courses
 MOCK_COURSES = [
@@ -54,6 +55,11 @@ async def seed_courses():
             return
             
         print(f"Found instructor: {instructor.email} (ID: {instructor.id})")
+        
+        # Delete existing courses
+        print("Removing all existing courses from the database...")
+        await db.execute(delete(Course))
+        await db.commit()
         
         course_service = CourseService(db)
         

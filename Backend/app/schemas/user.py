@@ -15,6 +15,7 @@ class UserRead(UserBase):
     is_active: bool
     is_verified: bool
     avatar_url: str | None = None
+    avatar_public_id: str | None = None
     bio: str | None = None
     location: str | None = None
     phone_number: str | None = None
@@ -24,6 +25,8 @@ class UserRead(UserBase):
 
 class UserUpdate(BaseModel):
     full_name: str | None = None
+    avatar_url: str | None = None
+    avatar_public_id: str | None = None
     bio: str | None = None
     location: str | None = None
     phone_number: str | None = None

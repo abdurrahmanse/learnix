@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { MediaUploader } from "@/components/ui/media-uploader";
 import { Course } from "@/types/course";
 import { useRouter } from "next/navigation";
 
@@ -45,6 +46,7 @@ export function CourseForm({ initialData, isSubmitting = false, onSubmit }: Cour
       short_summary: "",
       description: "",
       thumbnail_url: "",
+      thumbnail_public_id: "",
       price: 0.00,
       level: "beginner",
       status: "draft",
@@ -187,12 +189,21 @@ export function CourseForm({ initialData, isSubmitting = false, onSubmit }: Cour
               name="thumbnail_url"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Thumbnail URL</FormLabel>
+                  <FormLabel>Course Thumbnail</FormLabel>
                   <FormControl>
-                    <Input placeholder="https://..." {...field} />
+                    <MediaUploader
+                      onUploadSuccess={(url, publicId) => {
+                        form.setValue("thumbnail_url", url, { shouldValidate: true });
+                        form.setValue("thumbnail_public_id", publicId, { shouldValidate: true });
+                      }}
+                      folder="learnix_courses"
+                      accept="image/*"
+                      maxSizeMB={5}
+                      defaultPreviewUrl={field.value}
+                    />
                   </FormControl>
                   <FormDescription>
-                    Provide a valid image URL. (Direct upload coming soon)
+                    Upload a high quality thumbnail (16:9 recommended).
                   </FormDescription>
                   <FormMessage />
                 </FormItem>

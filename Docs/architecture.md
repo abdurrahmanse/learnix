@@ -59,3 +59,9 @@ learnix/
 │   └── modules/                 # Specific requirements for each phase
 └── docker-compose.yml           # Infrastructure orchestration (Database, App)
 ```
+
+### Media Upload Flow
+
+- **Direct to Cloudinary:** The frontend handles file selection, resizing (using browser-image-compression for images to max 1920px), and uploading directly to Cloudinary.
+- **Secure Signatures:** The backend generates secure Cloudinary upload signatures via the `/api/v1/media/signature` endpoint using the `cloudinary` Python SDK, ensuring API secrets never reach the client.
+- **Database Tracking:** The `User` and `Course` models store the `avatar_public_id` and `thumbnail_public_id` along with the URLs to allow the backend to clean up old media when updated or deleted.

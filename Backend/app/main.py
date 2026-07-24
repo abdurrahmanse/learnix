@@ -30,7 +30,7 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-from app.api.routers import auth, users, courses
+from app.api.routers import auth, users, courses, media
 
 # Configure CORS (Task 9)
 app.add_middleware(
@@ -44,6 +44,7 @@ app.add_middleware(
 app.include_router(auth.router, prefix=f"{settings.API_V1_STR}/auth", tags=["auth"])
 app.include_router(users.router, prefix=f"{settings.API_V1_STR}/users", tags=["users"])
 app.include_router(courses.router, prefix=f"{settings.API_V1_STR}/courses", tags=["courses"])
+app.include_router(media.router, prefix=f"{settings.API_V1_STR}/media", tags=["media"])
 
 # Create a health check API
 @app.get(f"{settings.API_V1_STR}/health")

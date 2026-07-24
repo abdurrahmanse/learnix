@@ -25,6 +25,7 @@ class Course(Base):
     description = Column(Text, nullable=True)
     short_summary = Column(String(500), nullable=True)
     thumbnail_url = Column(Text, nullable=True)
+    thumbnail_public_id = Column(String(255), nullable=True)
     price = Column(Numeric(10, 2), default=0.00, nullable=False)
     level = Column(Enum(CourseLevel), default=CourseLevel.beginner, nullable=False)
     status = Column(Enum(CourseStatus), default=CourseStatus.draft, nullable=False)

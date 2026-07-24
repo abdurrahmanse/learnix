@@ -13,6 +13,10 @@ class Settings(BaseSettings):
     
     RESEND_API_KEY: str | None = None
     EMAIL_FROM: str = "onboarding@resend.dev"
+    
+    CLOUDINARY_CLOUD_NAME: str | None = None
+    CLOUDINARY_API_KEY: str | None = None
+    CLOUDINARY_API_SECRET: str | None = None
 
     class Config:
         env_file = ".env"
