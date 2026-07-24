@@ -36,7 +36,7 @@ export function AdminPageHeader({ title, description, breadcrumbs, action }: Adm
             <BreadcrumbItem>
               <BreadcrumbLink href="/admin">Admin</BreadcrumbLink>
             </BreadcrumbItem>
-            {breadcrumbs.map((crumb, index) => (
+            {breadcrumbs.map((crumb) => (
               <div key={crumb.title} className="flex items-center space-x-2">
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>

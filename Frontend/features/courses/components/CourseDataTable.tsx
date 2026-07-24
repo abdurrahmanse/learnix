@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { memo } from "react";
 import { Course } from "@/types/course";
 import {
   Table,
@@ -21,7 +21,7 @@ interface CourseDataTableProps {
   courses: Course[];
 }
 
-export function CourseDataTable({ courses }: CourseDataTableProps) {
+export const CourseDataTable = memo(function CourseDataTable({ courses }: CourseDataTableProps) {
   return (
     <div className="rounded-md border border-border/50 bg-background/50 backdrop-blur-xl">
       <Table>
@@ -91,4 +91,4 @@ export function CourseDataTable({ courses }: CourseDataTableProps) {
       </Table>
     </div>
   );
-}
+});

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { PlayCircle, BarChart, Clock, Star } from "lucide-react"
+import { PlayCircle, BarChart, Star } from "lucide-react"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Course } from "@/types/course"
@@ -17,11 +17,14 @@ export function PublicCourseCard({ course }: PublicCourseCardProps) {
       {/* Thumbnail Area */}
       <div className="relative w-full aspect-video overflow-hidden bg-muted/30">
         {course.thumbnail_url ? (
-          <img 
-            src={course.thumbnail_url} 
-            alt={course.title}
-            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-          />
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={course.thumbnail_url} 
+              alt={course.title}
+              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
+          </>
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-muted to-muted/50">
             <PlayCircle className="w-12 h-12 text-muted-foreground/30" />

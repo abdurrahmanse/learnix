@@ -1,6 +1,5 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { Search, SlidersHorizontal } from "lucide-react"
 import { Course } from "@/types/course"
 import { PublicCourseCard } from "./PublicCourseCard"

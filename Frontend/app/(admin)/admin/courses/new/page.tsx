@@ -2,7 +2,6 @@
 
 import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
 import { CourseForm } from "@/features/courses/components/CourseForm";
-import { CourseFormValues } from "@/lib/validations/course";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
@@ -10,7 +9,7 @@ import { useRouter } from "next/navigation";
 export default function NewCoursePage() {
   const router = useRouter();
 
-  const handleSubmit = async (data: CourseFormValues) => {
+  const handleSubmit = async () => {
     // TODO: Connect to actual API in Phase 4.6
     // TODO: Connect to backend API
     toast.success("Course created successfully!");

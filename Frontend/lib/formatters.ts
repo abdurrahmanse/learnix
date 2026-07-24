@@ -10,7 +10,7 @@ export function formatDate(date: string | number | Date | null | undefined, form
   if (!date) return "N/A";
   try {
     return format(new Date(date), formatStr);
-  } catch (error) {
+  } catch {
     return "Invalid Date";
   }
 }

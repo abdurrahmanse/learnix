@@ -1,12 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { ArrowLeft, PlayCircle, Star, BarChart, CheckCircle2, Shield, Calendar, Users } from "lucide-react"
 import Link from "next/link"
 import { toast } from "sonner"
 
-import { Course } from "@/types/course"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -51,7 +50,7 @@ export function CourseDetails({ slug }: { slug: string }) {
           <Shield className="w-10 h-10 text-destructive" />
         </div>
         <h2 className="text-3xl font-bold mb-4">Course Not Found</h2>
-        <p className="text-muted-foreground mb-8 max-w-md">The course you're looking for doesn't exist or has been removed from the platform.</p>
+        <p className="text-muted-foreground mb-8 max-w-md">The course you&apos;re looking for doesn&apos;t exist or has been removed from the platform.</p>
         <Button onClick={() => router.push("/courses")} className="rounded-full px-8 h-12">
           Browse All Courses
         </Button>
@@ -73,11 +72,14 @@ export function CourseDetails({ slug }: { slug: string }) {
       <div className="relative w-full aspect-video md:aspect-[21/9] rounded-3xl overflow-hidden mb-12 group">
         <div className="absolute inset-0 bg-black/40 z-10" />
         {course.thumbnail_url ? (
-          <img 
-            src={course.thumbnail_url} 
-            alt={course.title}
-            className="w-full h-full object-cover"
-          />
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={course.thumbnail_url} 
+              alt={course.title}
+              className="w-full h-full object-cover"
+            />
+          </>
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5" />
         )}

@@ -1,13 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
 import { authService } from "@/lib/api/auth";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/store/authStore";
 import { z } from "zod";
 import { loginSchema, registerSchema, emailSchema } from "@/lib/validations/auth";
 
 export function useLoginMutation() {
-  const router = useRouter();
   const setAuth = useAuthStore((state) => state.setAuth);
 
   return useMutation({

@@ -1,5 +1,7 @@
 "use client";
 
+import React, { memo } from "react";
+
 import { User } from "@/types/auth";
 import {
   Table,
@@ -19,7 +21,7 @@ interface UserDataTableProps {
   users: User[];
 }
 
-export function UserDataTable({ users }: UserDataTableProps) {
+export const UserDataTable = memo(function UserDataTable({ users }: UserDataTableProps) {
   return (
     <div className="rounded-md border border-border/50 bg-background/50 backdrop-blur-xl">
       <Table>
@@ -92,4 +94,4 @@ export function UserDataTable({ users }: UserDataTableProps) {
       </Table>
     </div>
   );
-}
+});

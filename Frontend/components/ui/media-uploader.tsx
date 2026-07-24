@@ -60,7 +60,7 @@ export function MediaUploader({
         
         setSuccess(true);
         onUploadSuccess(secure_url, public_id);
-      } catch (err: any) {
+      } catch (err: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
         console.error("Upload failed:", err);
         setError(err.message || "Upload failed. Please try again.");
         if (onUploadError) onUploadError(err);
@@ -109,7 +109,10 @@ export function MediaUploader({
             {accept.includes("video") && previewUrl.match(/\.(mp4|webm|ogg)$/i) ? (
               <video src={previewUrl} className="w-full h-full object-cover" controls />
             ) : (
-              <img src={previewUrl} alt="Preview" className="w-full h-full object-cover" />
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={previewUrl} alt="Preview" className="w-full h-full object-cover" />
+              </>
             )}
             
             {/* Overlay for uploading state */}
