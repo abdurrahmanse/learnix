@@ -12,97 +12,34 @@ from app.services.course_service import CourseService
 from app.schemas.course import CourseCreate
 from sqlalchemy.future import select
 
-# Dummy data for 10 courses
+# Dummy data for 3 Data Science courses
 MOCK_COURSES = [
     CourseCreate(
-        title="Complete React Bootcamp",
-        short_summary="Learn React from scratch to mastery.",
-        description="A complete guide to React, including Hooks, Context, Redux, and Next.js.",
-        thumbnail_url="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=800&auto=format&fit=crop",
-        price=49.99,
+        title="Introduction to Data Science",
+        short_summary="A beginner's guide to Data Science concepts.",
+        description="Learn the basics of Data Science, understanding data pipelines, exploratory data analysis, and fundamental statistics without heavy programming.",
+        thumbnail_url="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+        price=0.00,
         level=CourseLevel.beginner,
         status=CourseStatus.published
     ),
     CourseCreate(
-        title="Advanced Node.js Architectures",
-        short_summary="Master backend development with Node.js and Microservices.",
-        description="Learn how to build scalable microservices using Node.js, Express, Docker, and Kubernetes.",
-        thumbnail_url="https://images.unsplash.com/photo-1627398240411-8bbeb73646f9?q=80&w=800&auto=format&fit=crop",
-        price=89.99,
-        level=CourseLevel.advanced,
-        status=CourseStatus.published
-    ),
-    CourseCreate(
-        title="Python Data Science Masterclass",
-        short_summary="A complete guide to Pandas, NumPy, and Scikit-Learn.",
-        description="Dive deep into Data Science and Machine Learning with Python.",
+        title="Python for Data Science Masterclass",
+        short_summary="Master Python, Pandas, NumPy, and Scikit-Learn.",
+        description="Dive deep into Data Science and Machine Learning with Python. Learn how to clean data, visualize it, and build predictive models.",
         thumbnail_url="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop",
         price=59.99,
         level=CourseLevel.intermediate,
         status=CourseStatus.published
     ),
     CourseCreate(
-        title="Introduction to Machine Learning",
-        short_summary="Your first steps into AI and ML.",
-        description="Basic concepts of Machine learning without heavy math.",
-        thumbnail_url="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800&auto=format&fit=crop",
-        price=29.99,
-        level=CourseLevel.beginner,
-        status=CourseStatus.draft
-    ),
-    CourseCreate(
-        title="Fullstack Web Development with Next.js",
-        short_summary="Build modern web applications using Next.js 14.",
-        description="Learn App Router, Server Actions, and Tailwind CSS.",
-        thumbnail_url="https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=800&auto=format&fit=crop",
+        title="Advanced Machine Learning & Deep Learning",
+        short_summary="Build cutting-edge AI models with PyTorch and TensorFlow.",
+        description="Master deep neural networks, computer vision, natural language processing, and model deployment in production environments.",
+        thumbnail_url="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop",
         price=99.99,
-        level=CourseLevel.intermediate,
-        status=CourseStatus.published
-    ),
-    CourseCreate(
-        title="Mastering TypeScript",
-        short_summary="Write safer and more scalable JavaScript.",
-        description="Advanced types, generics, and configuration for large TS projects.",
-        thumbnail_url="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop",
-        price=39.99,
         level=CourseLevel.advanced,
         status=CourseStatus.published
-    ),
-    CourseCreate(
-        title="UI/UX Design for Developers",
-        short_summary="Learn to design beautiful interfaces.",
-        description="Color theory, typography, spacing, and Figma basics.",
-        thumbnail_url="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop",
-        price=24.99,
-        level=CourseLevel.beginner,
-        status=CourseStatus.published
-    ),
-    CourseCreate(
-        title="Docker and Kubernetes for Beginners",
-        short_summary="Containerize your applications easily.",
-        description="Learn Docker basics and simple K8s deployments.",
-        thumbnail_url="https://images.unsplash.com/photo-1605745341112-85968b19335b?q=80&w=800&auto=format&fit=crop",
-        price=45.00,
-        level=CourseLevel.beginner,
-        status=CourseStatus.draft
-    ),
-    CourseCreate(
-        title="Rust Programming Masterclass",
-        short_summary="Learn memory-safe systems programming.",
-        description="Ownership, borrowing, lifetimes, and building real CLI tools in Rust.",
-        thumbnail_url="https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=800&auto=format&fit=crop",
-        price=79.99,
-        level=CourseLevel.advanced,
-        status=CourseStatus.published
-    ),
-    CourseCreate(
-        title="Legacy jQuery Migration",
-        short_summary="Move off jQuery to modern JS.",
-        description="Strategies to convert legacy codebases safely.",
-        thumbnail_url="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?q=80&w=800&auto=format&fit=crop",
-        price=19.99,
-        level=CourseLevel.intermediate,
-        status=CourseStatus.archived
     ),
 ]
 

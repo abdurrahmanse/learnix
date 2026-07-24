@@ -1,7 +1,8 @@
 "use client";
 
 import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
-import { CourseForm, CourseFormValues } from "@/components/courses/CourseForm";
+import { CourseForm } from "@/components/courses/CourseForm";
+import { CourseFormValues } from "@/lib/validations/course";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";

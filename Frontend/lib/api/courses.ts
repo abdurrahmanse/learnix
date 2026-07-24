@@ -1,6 +1,6 @@
 import { api } from "../axios";
 import { Course } from "@/types/course";
-import { CourseFormValues } from "@/components/courses/CourseForm";
+import { CourseFormValues } from "@/lib/validations/course";
 export const courseService = {
   // Public
   listPublishedCourses: async (): Promise<Course[]> => {

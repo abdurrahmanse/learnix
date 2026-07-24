@@ -14,14 +14,7 @@ import { useEffect } from "react"
 import { FormInputWithIcon } from "@/components/common/FormInputWithIcon"
 import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
 
-const updateProfileSchema = z.object({
-  full_name: z.string().min(2, "Full name must be at least 2 characters."),
-  bio: z.string().max(160, "Bio must not be longer than 160 characters.").optional().or(z.literal("")),
-  location: z.string().max(50, "Location is too long.").optional().or(z.literal("")),
-  phone_number: z.string().max(20, "Phone number is too long.").optional().or(z.literal("")),
-})
-
-type UpdateProfileValues = z.infer<typeof updateProfileSchema>
+import { updateProfileSchema, UpdateProfileValues } from "@/lib/validations/profile"
 
 export function UpdateProfileForm() {
   const { user } = useAuthStore()

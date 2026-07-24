@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { courseService } from "@/lib/api/courses";
 import { Course } from "@/types/course";
-import { CourseFormValues } from "@/components/courses/CourseForm";
+import { CourseFormValues } from "@/lib/validations/course";
 import { toast } from "sonner";
 import { QUERY_KEYS } from "@/lib/react-query";
 

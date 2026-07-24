@@ -11,16 +11,7 @@ import { useUpdatePassword } from "../hooks/useProfileMutations"
 import { FormInputWithIcon } from "@/components/common/FormInputWithIcon"
 import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
 
-const changePasswordSchema = z.object({
-  current_password: z.string().min(1, "Current password is required"),
-  new_password: z.string().min(8, "Password must be at least 8 characters"),
-  confirm_password: z.string()
-}).refine((data) => data.new_password === data.confirm_password, {
-  message: "Passwords do not match",
-  path: ["confirm_password"],
-})
-
-type ChangePasswordValues = z.infer<typeof changePasswordSchema>
+import { changePasswordSchema, ChangePasswordValues } from "@/lib/validations/profile"
 
 export function ChangePasswordForm() {
   const { mutate: updatePassword, isPending, isSuccess } = useUpdatePassword()

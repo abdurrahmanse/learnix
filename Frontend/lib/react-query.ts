@@ -41,4 +41,7 @@ export const QUERY_KEYS = {
   auth: {
     me: ["auth", "me"] as const,
   },
+  system: {
+    health: ["system", "health"] as const,
+  },
 };

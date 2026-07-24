@@ -1,6 +1,6 @@
 "use client";
 
-import { useSystemHealth } from "@/hooks/useSystemHealth";
+import { useSystemHealth } from "@/features/system/hooks/useSystemHealth";
 
 export default function HealthPage() {
   const { data, isLoading: loading, error: queryError } = useSystemHealth();
