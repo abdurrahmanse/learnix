@@ -2,10 +2,7 @@
 
 import { useState } from "react"
 import { Card } from "@learnix/ui"
-import { AuthWrapper } from "@/features/auth/components/AuthWrapper"
-import { GuestGuard } from "@/features/auth/components/GuestGuard"
-import { RegisterForm } from "@/features/auth/components/RegisterForm"
-import { VerifyOTPForm } from "@/features/auth/components/VerifyOTPForm"
+import { AuthWrapper, GuestGuard, RegisterForm, VerifyOTPForm } from "@learnix/auth"
 
 export default function RegisterPage() {
   const [step, setStep] = useState<'register' | 'otp'>('register')

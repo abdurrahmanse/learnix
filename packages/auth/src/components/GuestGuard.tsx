@@ -1,28 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { useAuthStore } from "@/features/auth/store/authStore";
+import { useAuthStore } from "@/store/authStore";
 
-const ADMIN_APP_URL =
-  process.env.NEXT_PUBLIC_ADMIN_URL || "http://localhost:3001";
-const STUDENT_APP_URL =
-  process.env.NEXT_PUBLIC_STUDENT_URL || "http://localhost:3002";
+const ADMIN_APP_URL = process.env.NEXT_PUBLIC_ADMIN_URL || "http://localhost:3002";
+const STUDENT_APP_URL = process.env.NEXT_PUBLIC_STUDENT_URL || "http://localhost:3001";
+const WEB_APP_URL = process.env.NEXT_PUBLIC_WEB_URL || "http://localhost:3000";
 
 export function GuestGuard({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, user } = useAuthStore();
-  const router = useRouter();
   const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       if (isAuthenticated && user) {
         if (user.role === "admin") {
-          // Redirect admins to the standalone admin app
-          window.location.href = ADMIN_APP_URL;
+          window.location.href = ADMIN_APP_URL + "/admin";
+        } else if (user.role === "student") {
+          window.location.href = STUDENT_APP_URL + "/my-courses";
         } else {
-          // Redirect regular users to the student portal
-          window.location.href = STUDENT_APP_URL;
+          window.location.href = WEB_APP_URL + "/profile";
         }
       } else if (isAuthenticated && !user) {
         // Wait for user details to be loaded
@@ -32,7 +29,7 @@ export function GuestGuard({ children }: { children: React.ReactNode }) {
       }
     }, 0);
     return () => clearTimeout(timer);
-  }, [isAuthenticated, user, router]);
+  }, [isAuthenticated, user]);
 
   if (isChecking) {
     return null;

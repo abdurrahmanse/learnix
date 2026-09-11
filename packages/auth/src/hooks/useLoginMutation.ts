@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { authService } from "@learnix/api-client";
 import { toast } from "sonner";
-import { useAuthStore } from "@/features/auth/store/authStore";
+import { useAuthStore } from "@/store/authStore";
 import { z } from "zod";
 import { loginSchema } from "@learnix/utils";
 

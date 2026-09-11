@@ -1,7 +1,5 @@
-import { AuthWrapper } from "@/features/auth/components/AuthWrapper"
+import { AuthWrapper, GuestGuard, LoginForm } from "@learnix/auth"
 import { Card } from "@learnix/ui"
-import { GuestGuard } from "@/features/auth/components/GuestGuard"
-import { LoginForm } from "@/features/auth/components/LoginForm"
 
 export default function LoginPage() {
   return (

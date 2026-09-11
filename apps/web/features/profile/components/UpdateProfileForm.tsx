@@ -7,7 +7,7 @@ import { Save, CheckCircle2, User, Phone, MapPin, FileText } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@learnix/ui"
 import { Form } from "@learnix/ui"
 
-import { useAuthStore } from "@/features/auth/store/authStore"
+import { useAuthStore } from "@learnix/auth"
 import { useUpdateProfile } from "../hooks/useProfileMutations"
 import { useEffect } from "react"
 import { FormInputWithIcon } from "@/features/core/components/common/FormInputWithIcon"

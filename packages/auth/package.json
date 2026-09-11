@@ -1,0 +1,26 @@
+{
+  "name": "@learnix/auth",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@learnix/api-client": "*",
+    "@learnix/types": "*",
+    "@learnix/ui": "*",
+    "@learnix/utils": "*",
+    "@hookform/resolvers": "^5.4.0",
+    "@tanstack/react-query": "^5.101.4",
+    "lucide-react": "^1.25.0",
+    "react": "19.2.4",
+    "react-hook-form": "^7.82.0",
+    "sonner": "^2.0.7",
+    "zod": "^4.4.3",
+    "zustand": "^5.0.14"
+  },
+  "devDependencies": {
+    "@learnix/tsconfig": "*",
+    "@types/react": "^19",
+    "typescript": "^5"
+  }
+}

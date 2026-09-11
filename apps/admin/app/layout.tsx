@@ -3,6 +3,7 @@ import { Rajdhani } from "next/font/google";
 import "@/styles/globals.css";
 import { Providers } from "./providers";
 import { Toaster } from "sonner";
+import { AuthGuard } from "@learnix/auth";
 
 const rajdhani = Rajdhani({
   variable: "--font-rajdhani",
@@ -29,7 +30,9 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col" suppressHydrationWarning>
         <Providers>
-          {children}
+          <AuthGuard requireRole="admin">
+            {children}
+          </AuthGuard>
           <Toaster richColors position="top-right" />
         </Providers>
       </body>

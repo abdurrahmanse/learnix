@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { BookOpen } from "lucide-react";
 import { ThemeToggle, Container, Link } from "@learnix/ui";
-import { useAuthStore } from "@/features/auth/store/authStore";
+import { useAuthStore } from "@learnix/auth";
 import type { NavRoute } from "@/features/core/config/navigation";
 import { NavLinks } from "./NavLinks";
 import { UserMenu } from "./UserMenu";

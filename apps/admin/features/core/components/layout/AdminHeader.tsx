@@ -1,6 +1,6 @@
 "use client";
 
-import { useAuthStore } from "@/features/auth/store/authStore";
+import { useAuthStore } from "@learnix/auth";
 import { AdminThemeToggle } from "@/features/core/components/layout/AdminThemeToggle";
 import { Bell, Menu } from "lucide-react";
 import { Button } from "@learnix/ui";

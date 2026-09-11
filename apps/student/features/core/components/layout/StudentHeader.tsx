@@ -2,7 +2,7 @@
 
 import { BookOpen } from "lucide-react";
 import { Link } from "@learnix/ui";
-import { useAuthStore } from "@/features/auth/store/authStore";
+import { useAuthStore } from "@learnix/auth";
 import { authService } from "@learnix/api-client";
 import { useRouter } from "next/navigation";
 import { StudentNavLinks } from "./StudentNavLinks";

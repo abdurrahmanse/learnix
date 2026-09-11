@@ -7,9 +7,9 @@ import { Mail } from "lucide-react"
 
 import { CardContent, CardFooter } from "@learnix/ui"
 import { AuthCardHeader } from "./AuthCardHeader"
-import { SubmitAuthButton } from "@/features/core/components/common/SubmitAuthButton"
-import { OTPInputGroup } from "@/features/core/components/common/OTPInputGroup"
-import { useVerifyRegistrationMutation } from "@/features/auth/hooks/useAuthMutations"
+import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
+import { OTPInputGroup } from "@/components/common/OTPInputGroup"
+import { useVerifyRegistrationMutation } from "@/hooks/useAuthMutations"
 
 interface VerifyOTPFormProps {
   email: string;

@@ -1,4 +1,4 @@
-import { AuthGuard } from "@/features/auth/components/AuthGuard"
+import { AuthGuard } from "@learnix/auth"
 import { ProfileLayout } from "@/features/profile/components/ProfileLayout"
 import { Heading, Text } from "@learnix/ui";
 

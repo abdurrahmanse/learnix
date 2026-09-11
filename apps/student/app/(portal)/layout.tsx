@@ -1,6 +1,6 @@
 "use client";
 
-import { AuthGuard } from "@/features/auth/components/AuthGuard";
+import { AuthGuard } from "@learnix/auth";
 import { StudentHeader } from "@/features/core/components/layout/StudentHeader";
 
 export default function StudentPortalLayout({

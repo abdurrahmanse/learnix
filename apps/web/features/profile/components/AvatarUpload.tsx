@@ -4,7 +4,7 @@ import { CheckCircle2, AlertCircle, Loader2 } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, Text } from "@learnix/ui"
 import { MediaUploader } from "@learnix/ui"
 
-import { useAuthStore } from "@/features/auth/store/authStore"
+import { useAuthStore } from "@learnix/auth"
 import { useUpdateProfile } from "../hooks/useProfileMutations"
 import { getMediaUrl } from "@learnix/utils"
 

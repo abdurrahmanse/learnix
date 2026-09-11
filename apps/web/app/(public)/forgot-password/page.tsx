@@ -9,12 +9,12 @@ import { useRouter } from "next/navigation";
 import { Mail, KeyRound, ArrowLeft, Lock, ArrowRight } from "lucide-react";
 import { Form, Card, CardContent, CardFooter, Link } from "@learnix/ui";
 import { emailSchema, resetSchema } from "@learnix/utils";
-import { AuthWrapper } from "@/features/auth/components/AuthWrapper";
+import { AuthWrapper } from "@learnix/auth";
 import { AuthCardHeader } from "@/features/auth/components/AuthCardHeader";
 import { FormInputWithIcon } from "@/features/core/components/common/FormInputWithIcon";
 import { SubmitAuthButton } from "@/features/core/components/common/SubmitAuthButton";
 import { OTPInputGroup } from "@/features/core/components/common/OTPInputGroup";
-import { GuestGuard } from "@/features/auth/components/GuestGuard";
+import { GuestGuard } from "@learnix/auth";
 import { StepProgressBar } from "@/features/auth/components/StepProgressBar";
 import {
   useForgotPasswordMutation,
