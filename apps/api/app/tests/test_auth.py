@@ -1,12 +1,6 @@
-import pytest
 from fastapi.testclient import TestClient
-from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
-from sqlalchemy.orm import sessionmaker
 from app.main import app
-from app.db.session import get_db
-from app.db.base import Base
 
-import os
 
 # Create an in-memory SQLite database for testing, or a test Postgres DB.
 # For simplicity, assuming a mocked DB or similar dependency override in actual CI.

@@ -1,6 +1,5 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from sqlalchemy import or_
 from app.db.models.course import Course, CourseStatus
 from typing import List, Optional
 import uuid

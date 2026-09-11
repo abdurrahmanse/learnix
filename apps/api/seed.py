@@ -2,7 +2,6 @@ import asyncio
 from app.db.session import AsyncSessionLocal
 from app.db.models.user import User
 from app.core.security import get_password_hash
-import uuid
 
 async def seed():
     async with AsyncSessionLocal() as session:

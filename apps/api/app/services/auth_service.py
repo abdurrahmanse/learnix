@@ -1,5 +1,4 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.future import select
 from app.repositories.user_repository import UserRepository
 from fastapi import HTTPException, status
 from app.db.models.user import User

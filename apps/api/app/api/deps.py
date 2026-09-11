@@ -1,4 +1,4 @@
-from jose import jwt, JWTError
+from jose import JWTError
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.ext.asyncio import AsyncSession
