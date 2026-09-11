@@ -9,9 +9,9 @@ import { loginSchema } from "@learnix/utils"
 import { AuthCardHeader } from "./AuthCardHeader"
 import { Form, Link } from "@learnix/ui";
 import { CardContent, CardFooter } from "@learnix/ui"
-import { FormInputWithIcon } from "@/components/common/FormInputWithIcon"
-import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
-import { useLoginMutation } from "@/hooks/useAuthMutations"
+import { FormInputWithIcon } from "./common/FormInputWithIcon"
+import { SubmitAuthButton } from "./common/SubmitAuthButton"
+import { useLoginMutation } from "../hooks/useAuthMutations"
 
 export function LoginForm() {
   const form = useForm<z.infer<typeof loginSchema>>({

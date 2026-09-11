@@ -1,5 +1,4 @@
 import { ThemeProvider } from "@learnix/ui";
-import { RoleGuard } from "@/features/auth/components/RoleGuard";
 import { AdminLayoutClient } from "@/features/core/components/layout/AdminLayoutClient";
 
 export default function DashboardLayout({
@@ -14,9 +13,7 @@ export default function DashboardLayout({
       enableSystem={false}
       storageKey="learnix-theme-admin"
     >
-      <RoleGuard allowedRoles={["admin"]}>
-        <AdminLayoutClient>{children}</AdminLayoutClient>
-      </RoleGuard>
+      <AdminLayoutClient>{children}</AdminLayoutClient>
     </ThemeProvider>
   );
 }

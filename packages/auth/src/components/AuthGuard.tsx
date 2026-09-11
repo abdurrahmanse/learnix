@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useAuthStore } from "@/store/authStore";
+import { useAuthStore } from "../store/authStore";
 
 const WEB_APP_URL = process.env.NEXT_PUBLIC_WEB_URL || "http://localhost:3000";
 

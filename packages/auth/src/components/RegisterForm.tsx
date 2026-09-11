@@ -9,9 +9,9 @@ import { Form, Link } from "@learnix/ui";
 import { CardContent, CardFooter } from "@learnix/ui"
 import { registerSchema } from "@learnix/utils"
 import { AuthCardHeader } from "./AuthCardHeader"
-import { FormInputWithIcon } from "@/components/common/FormInputWithIcon"
-import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
-import { useRegisterMutation } from "@/hooks/useAuthMutations"
+import { FormInputWithIcon } from "./common/FormInputWithIcon"
+import { SubmitAuthButton } from "./common/SubmitAuthButton"
+import { useRegisterMutation } from "../hooks/useAuthMutations"
 
 interface RegisterFormProps {
   onSuccess: () => void;

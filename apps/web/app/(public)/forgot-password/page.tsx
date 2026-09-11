@@ -9,17 +9,17 @@ import { useRouter } from "next/navigation";
 import { Mail, KeyRound, ArrowLeft, Lock, ArrowRight } from "lucide-react";
 import { Form, Card, CardContent, CardFooter, Link } from "@learnix/ui";
 import { emailSchema, resetSchema } from "@learnix/utils";
-import { AuthWrapper } from "@learnix/auth";
-import { AuthCardHeader } from "@/features/auth/components/AuthCardHeader";
-import { FormInputWithIcon } from "@/features/core/components/common/FormInputWithIcon";
-import { SubmitAuthButton } from "@/features/core/components/common/SubmitAuthButton";
-import { OTPInputGroup } from "@/features/core/components/common/OTPInputGroup";
-import { GuestGuard } from "@learnix/auth";
-import { StepProgressBar } from "@/features/auth/components/StepProgressBar";
-import {
-  useForgotPasswordMutation,
-  useResetPasswordMutation,
-} from "@/features/auth/hooks/useAuthMutations";
+import { 
+  AuthWrapper, 
+  GuestGuard, 
+  AuthCardHeader, 
+  FormInputWithIcon, 
+  SubmitAuthButton, 
+  OTPInputGroup, 
+  StepProgressBar, 
+  useForgotPasswordMutation, 
+  useResetPasswordMutation 
+} from "@learnix/auth";
 
 type Step = "email" | "otp" | "reset";
 

@@ -50,3 +50,8 @@ typing_extensions==4.16.0
 urllib3==2.7.0
 uvicorn==0.51.0
 cloudinary
+redis
+fastapi-limiter
+structlog
+arq
+sentry-sdk[fastapi]

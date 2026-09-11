@@ -1,28 +1,49 @@
 import logging
+import sentry_sdk
+import redis.asyncio as redis
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.core.config import settings
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
+from contextlib import asynccontextmanager
+from fastapi_limiter import FastAPILimiter
 
-# Configure logging (Task 12)
-logging.basicConfig(
-    level=logging.DEBUG if settings.DEBUG else logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-)
+from app.core.config import settings
+from app.core.logging import setup_logging
+from app.db.init_db import init_admin_user
+from app.db.session import engine
+
+# 1. Setup Structured Logging
+setup_logging()
 logger = logging.getLogger(__name__)
 
-from contextlib import asynccontextmanager
-from app.db.init_db import init_admin_user
+# 2. Setup Sentry
+if settings.SENTRY_DSN:
+    sentry_sdk.init(
+        dsn=settings.SENTRY_DSN,
+        environment=settings.ENVIRONMENT,
+        traces_sample_rate=1.0 if settings.ENVIRONMENT != "production" else 0.1,
+    )
+    logger.info("Sentry initialized")
 
+# 3. Setup Lifespan (Redis, Limiter, DB)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Run at startup
+    # Initialize Redis & Rate Limiter
+    redis_client = redis.from_url(settings.REDIS_URL, encoding="utf-8", decode_responses=True)
+    await FastAPILimiter.init(redis_client)
+    logger.info("FastAPILimiter initialized with Redis")
+    
+    # Initialize Admin User
     await init_admin_user()
+    
     yield
-    # Run at shutdown
-    pass
+    
+    # Cleanup
+    await redis_client.close()
+    await engine.dispose()
+    logger.info("Shutdown cleanup complete")
 
-# Initialize FastAPI (Task 4)
-# Configure development settings (Task 13)
+# 4. Initialize FastAPI
 app = FastAPI(
     title=settings.PROJECT_NAME,
     openapi_url=f"{settings.API_V1_STR}/openapi.json",
@@ -30,28 +51,57 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-from app.api.routers import auth, users, courses, media
+# 5. Security Middlewares
+app.add_middleware(
+    TrustedHostMiddleware, allowed_hosts=["*"] if settings.ENVIRONMENT != "production" else ["api.learnix.com", "localhost"]
+)
 
-# Configure CORS (Task 9)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=settings.BACKEND_CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+from app.api.routers import auth, users, courses, media
 
 app.include_router(auth.router, prefix=f"{settings.API_V1_STR}/auth", tags=["auth"])
 app.include_router(users.router, prefix=f"{settings.API_V1_STR}/users", tags=["users"])
 app.include_router(courses.router, prefix=f"{settings.API_V1_STR}/courses", tags=["courses"])
 app.include_router(media.router, prefix=f"{settings.API_V1_STR}/media", tags=["media"])
 
-# Create a health check API
+# 6. Robust Health Check
 @app.get(f"{settings.API_V1_STR}/health")
 async def health_check():
-    logger.info("Health check endpoint called")
-    return {
-      "success": True,
-      "message": "Backend is running",
-      "version": "1.0.0"
+    health_status = {
+        "status": "ok",
+        "environment": settings.ENVIRONMENT,
+        "database": "unreachable",
+        "redis": "unreachable"
     }
+    
+    # Ping Redis
+    try:
+        r = redis.from_url(settings.REDIS_URL, encoding="utf-8", decode_responses=True)
+        await r.ping()
+        health_status["redis"] = "ok"
+        await r.close()
+    except Exception as e:
+        logger.error(f"Redis health check failed: {e}")
+
+    # Ping DB
+    try:
+        async with engine.connect() as conn:
+            from sqlalchemy import text
+            await conn.execute(text("SELECT 1"))
+        health_status["database"] = "ok"
+    except Exception as e:
+        logger.error(f"Database health check failed: {e}")
+
+    if health_status["database"] != "ok" or health_status["redis"] != "ok":
+        from fastapi import Response
+        import json
+        return Response(content=json.dumps(health_status), status_code=503, media_type="application/json")
+
+    return health_status

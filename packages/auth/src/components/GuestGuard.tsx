@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useAuthStore } from "@/store/authStore";
+import { useAuthStore } from "../store/authStore";
 
 const ADMIN_APP_URL = process.env.NEXT_PUBLIC_ADMIN_URL || "http://localhost:3002";
 const STUDENT_APP_URL = process.env.NEXT_PUBLIC_STUDENT_URL || "http://localhost:3001";

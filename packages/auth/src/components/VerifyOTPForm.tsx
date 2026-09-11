@@ -7,9 +7,9 @@ import { Mail } from "lucide-react"
 
 import { CardContent, CardFooter } from "@learnix/ui"
 import { AuthCardHeader } from "./AuthCardHeader"
-import { SubmitAuthButton } from "@/components/common/SubmitAuthButton"
-import { OTPInputGroup } from "@/components/common/OTPInputGroup"
-import { useVerifyRegistrationMutation } from "@/hooks/useAuthMutations"
+import { SubmitAuthButton } from "./common/SubmitAuthButton"
+import { OTPInputGroup } from "./common/OTPInputGroup"
+import { useVerifyRegistrationMutation } from "../hooks/useAuthMutations"
 
 interface VerifyOTPFormProps {
   email: string;
@@ -52,7 +52,7 @@ export function VerifyOTPForm({ email, onGoBack }: VerifyOTPFormProps) {
       />
       <CardContent>
         <form onSubmit={handleVerifyOTP} className="space-y-6 flex flex-col items-center">
-          <OTPInputGroup value={otp} onChange={(value) => setOtp(value)} disabled={isLoading} />
+          <OTPInputGroup value={otp} onChange={(value: string) => setOtp(value)} disabled={isLoading} />
 
           <SubmitAuthButton
             isLoading={isLoading}
