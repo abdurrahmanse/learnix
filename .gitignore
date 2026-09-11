@@ -1,1 +1,105 @@
-uploads/
+# ===========================================================
+# Learnix Monorepo — .gitignore
+# Covers: Turborepo, Next.js (3 apps), FastAPI, Python, Node
+# ===========================================================
+
+# ---- Secrets & Environment --------------------------------
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.template
+
+# ---- Node.js / npm ----------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+# Keep package-lock.json committed (reproducible installs)
+
+# ---- Turborepo --------------------------------------------
+.turbo/
+
+# ---- Next.js (all apps) -----------------------------------
+**/.next/
+**/out/
+apps/*/build/
+
+# ---- TypeScript -------------------------------------------
+*.tsbuildinfo
+next-env.d.ts
+
+# ---- Dist / Build outputs (packages) ---------------------
+packages/*/dist/
+packages/*/.tsbuildinfo
+
+# ---- Python / FastAPI -------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+# Virtual environments
+apps/api/.venv/
+apps/api/venv/
+apps/api/env/
+apps/api/ENV/
+# API-specific env
+apps/api/.env
+apps/api/.env.local
+# Uploaded media (local dev only)
+apps/api/uploads/
+apps/api/static/uploads/
+# Python build artifacts
+*.egg-info/
+*.egg
+.eggs/
+
+# ---- Testing ----------------------------------------------
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+*.cover
+coverage.xml
+coverage/
+.nyc_output/
+
+# ---- IDEs & Editors ---------------------------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# ---- OS generated files -----------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V7
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ---- Logs -------------------------------------------------
+*.log
+logs/
+npm-debug.log*
+lerna-debug.log*
+
+# ---- Misc -------------------------------------------------
+.cache/
+.eslintcache
+.stylelintcache
+.parcel-cache/
+.vercel
+.netlify
+
+# ---- Email previews (dev only) ---------------------------
+.react-email/
+
+# ---- Storybook --------------------------------------------
+storybook-static/

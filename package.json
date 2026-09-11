@@ -1,12 +1,23 @@
 {
   "name": "learnix",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Learnix — Data Science Learning Platform",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev:backend": "cd Backend && source .venv/bin/activate && uvicorn app.main:app --reload",
-    "dev:frontend": "cd frontend && npm run dev",
-    "dev": "concurrently --kill-others \"npm run dev:backend\" \"npm run dev:frontend\""
+    "dev": "turbo run dev",
+    "dev:web": "turbo run dev --filter=@learnix/web",
+    "dev:admin": "turbo run dev --filter=@learnix/admin",
+    "dev:student": "turbo run dev --filter=@learnix/student",
+    "dev:api": "cd apps/api && source .venv/bin/activate && uvicorn app.main:app --reload",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json}\" --ignore-path .gitignore"
   },
   "repository": {
     "type": "git",
@@ -15,12 +26,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/abdurrahmanse/learnix/issues"
   },
   "homepage": "https://github.com/abdurrahmanse/learnix#readme",
   "devDependencies": {
-    "concurrently": "^10.0.3"
+    "prettier": "^3.5.0",
+    "ts-morph": "^28.0.0",
+    "turbo": "^2.5.4"
+  },
+  "packageManager": "npm@10.9.2",
+  "engines": {
+    "node": ">=18"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "extends": "../../packages/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "paths": {
+      "@learnix/utils": ["../utils/src/index.ts"],
+      "@learnix/api-client": ["../api-client/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "dist"]
+}
