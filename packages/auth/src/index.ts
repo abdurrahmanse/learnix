@@ -1,10 +1,8 @@
 export * from "./components/AuthGuard"
 export * from "./components/GuestGuard"
-export * from "./components/AuthWrapper"
 export * from "./components/login/LoginForm"
 export * from "./components/register/RegisterForm"
 export * from "./components/VerifyOTPForm"
-export * from "./components/AuthCardHeader"
 export * from "./components/StepProgressBar"
 
 export * from "./hooks/useAuthMutations"

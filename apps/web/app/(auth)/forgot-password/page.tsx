@@ -6,10 +6,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { Card } from "@learnix/ui";
 import { emailSchema, resetSchema } from "@learnix/utils";
 import { 
-  AuthWrapper, 
   GuestGuard, 
   StepProgressBar, 
   useForgotPasswordMutation, 
@@ -53,46 +51,44 @@ export default function ForgotPasswordPage() {
 
   return (
     <GuestGuard>
-      <AuthWrapper>
-        <Card className="w-full max-w-md shadow-2xl shadow-primary/5 border-border/40 bg-background/60 backdrop-blur-xl rounded-2xl relative overflow-hidden">
-          <StepProgressBar width={stepWidths[step]} />
+      <div className="w-full relative">
+        <StepProgressBar width={stepWidths[step]} />
 
-          {/* Step 1 — Email */}
-          {step === "email" && (
-            <EmailStep 
-              form={emailForm} 
-              onSubmit={(v) => emailMutation.mutate(v)} 
-              isLoading={isLoading} 
-            />
-          )}
+        {/* Step 1 — Email */}
+        {step === "email" && (
+          <EmailStep 
+            form={emailForm} 
+            onSubmit={(v) => emailMutation.mutate(v)} 
+            isLoading={isLoading} 
+          />
+        )}
 
-          {/* Step 2 — OTP */}
-          {step === "otp" && (
-            <OtpStep 
-              email={emailForm.getValues().email}
-              otp={otp}
-              setOtp={setOtp}
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (otp.length !== 6) { toast.error("Please enter a valid 6-digit code."); return; }
-                setStep("reset");
-              }}
-              onBack={() => setStep("email")}
-              isLoading={isLoading}
-            />
-          )}
+        {/* Step 2 — OTP */}
+        {step === "otp" && (
+          <OtpStep 
+            email={emailForm.getValues().email}
+            otp={otp}
+            setOtp={setOtp}
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (otp.length !== 6) { toast.error("Please enter a valid 6-digit code."); return; }
+              setStep("reset");
+            }}
+            onBack={() => setStep("email")}
+            isLoading={isLoading}
+          />
+        )}
 
-          {/* Step 3 — New Password */}
-          {step === "reset" && (
-            <ResetStep 
-              form={resetForm}
-              onSubmit={(v) => resetMutation.mutate({ email: emailForm.getValues().email, otp_code: otp, new_password: v.password })}
-              isLoading={isLoading}
-              isSuccess={isSuccess}
-            />
-          )}
-        </Card>
-      </AuthWrapper>
+        {/* Step 3 — New Password */}
+        {step === "reset" && (
+          <ResetStep 
+            form={resetForm}
+            onSubmit={(v) => resetMutation.mutate({ email: emailForm.getValues().email, otp_code: otp, new_password: v.password })}
+            isLoading={isLoading}
+            isSuccess={isSuccess}
+          />
+        )}
+      </div>
     </GuestGuard>
   );
 }
