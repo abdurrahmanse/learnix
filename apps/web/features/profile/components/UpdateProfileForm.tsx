@@ -9,7 +9,8 @@ import { Form } from "@learnix/ui"
 
 import { useAuthStore } from "@learnix/auth"
 import { useUpdateProfile } from "../hooks/useProfileMutations"
-import { FormInputWithIcon, SubmitAuthButton } from "@learnix/auth";
+import { SubmitAuthButton } from "@learnix/auth";
+import { FormInput } from "@learnix/ui";
 
 import { updateProfileSchema, UpdateProfileValues } from "@learnix/utils"
 
@@ -54,7 +55,7 @@ export function UpdateProfileForm() {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <FormInputWithIcon
+              <FormInput
                 control={form.control}
                 name="full_name"
                 placeholder="Abdur Rahman"
@@ -62,7 +63,7 @@ export function UpdateProfileForm() {
                 disabled={isPending}
               />
 
-              <FormInputWithIcon
+              <FormInput
                 control={form.control}
                 name="phone_number"
                 placeholder="+880 1712345678"
@@ -71,7 +72,7 @@ export function UpdateProfileForm() {
               />
 
               <div className="md:col-span-2">
-                <FormInputWithIcon
+                <FormInput
                   control={form.control}
                   name="location"
                   placeholder="New York, USA"
@@ -81,7 +82,7 @@ export function UpdateProfileForm() {
               </div>
 
               <div className="md:col-span-2">
-                <FormInputWithIcon
+                <FormInput
                   control={form.control}
                   name="bio"
                   placeholder="Tell us a little bit about yourself"

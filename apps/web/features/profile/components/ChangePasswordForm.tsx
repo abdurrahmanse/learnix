@@ -7,7 +7,8 @@ import { Save, CheckCircle2, Lock, KeyRound } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@learnix/ui"
 import { Form } from "@learnix/ui"
 import { useUpdatePassword } from "../hooks/useProfileMutations"
-import { FormInputWithIcon, SubmitAuthButton } from "@learnix/auth";
+import { SubmitAuthButton } from "@learnix/auth";
+import { FormInput } from "@learnix/ui";
 
 import { changePasswordSchema, ChangePasswordValues } from "@learnix/utils"
 
@@ -43,7 +44,7 @@ export function ChangePasswordForm() {
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-md">
-            <FormInputWithIcon
+            <FormInput
               control={form.control}
               name="current_password"
               placeholder="Enter current password"
@@ -52,7 +53,7 @@ export function ChangePasswordForm() {
               disabled={isPending}
             />
 
-            <FormInputWithIcon
+            <FormInput
               control={form.control}
               name="new_password"
               placeholder="Enter new password"
@@ -61,7 +62,7 @@ export function ChangePasswordForm() {
               disabled={isPending}
             />
 
-            <FormInputWithIcon
+            <FormInput
               control={form.control}
               name="confirm_password"
               placeholder="Confirm new password"

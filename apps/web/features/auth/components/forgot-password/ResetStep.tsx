@@ -1,7 +1,8 @@
 import { UseFormReturn } from "react-hook-form";
 import { Lock, KeyRound } from "lucide-react";
 import { Form, CardContent } from "@learnix/ui";
-import { AuthCardHeader, FormInputWithIcon, SubmitAuthButton } from "@learnix/auth";
+import { AuthCardHeader, SubmitAuthButton } from "@learnix/auth";
+import { FormInput } from "@learnix/ui";
 import * as z from "zod";
 import { resetSchema } from "@learnix/utils";
 
@@ -19,8 +20,8 @@ export function ResetStep({ form, onSubmit, isLoading, isSuccess }: ResetStepPro
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormInputWithIcon control={form.control} name="password" icon={Lock} placeholder="New Password" type="password" disabled={isLoading || isSuccess} />
-            <FormInputWithIcon control={form.control} name="confirmPassword" icon={KeyRound} placeholder="Confirm New Password" type="password" disabled={isLoading || isSuccess} />
+            <FormInput control={form.control} name="password" icon={Lock} placeholder="New Password" type="password" disabled={isLoading || isSuccess} />
+            <FormInput control={form.control} name="confirmPassword" icon={KeyRound} placeholder="Confirm New Password" type="password" disabled={isLoading || isSuccess} />
             <SubmitAuthButton isLoading={isLoading} loadingText="Resetting Password..." defaultText="Reset Password" disabled={isLoading || isSuccess} />
           </form>
         </Form>

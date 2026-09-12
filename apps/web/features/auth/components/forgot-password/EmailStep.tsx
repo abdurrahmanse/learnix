@@ -1,7 +1,8 @@
 import { UseFormReturn } from "react-hook-form";
 import { Mail, KeyRound, ArrowLeft, ArrowRight } from "lucide-react";
 import { Form, CardContent, CardFooter, Link } from "@learnix/ui";
-import { AuthCardHeader, FormInputWithIcon, SubmitAuthButton } from "@learnix/auth";
+import { AuthCardHeader, SubmitAuthButton } from "@learnix/auth";
+import { FormInput } from "@learnix/ui";
 import * as z from "zod";
 import { emailSchema } from "@learnix/utils";
 
@@ -22,7 +23,7 @@ export function EmailStep({ form, onSubmit, isLoading }: EmailStepProps) {
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormInputWithIcon control={form.control} name="email" icon={Mail} placeholder="Email Address" type="email" disabled={isLoading} />
+            <FormInput control={form.control} name="email" icon={Mail} placeholder="Email Address" type="email" disabled={isLoading} />
             <SubmitAuthButton isLoading={isLoading} loadingText="Sending Code..." defaultText="Send Reset Code" icon={ArrowRight} iconPosition="right" disabled={isLoading} />
           </form>
         </Form>
