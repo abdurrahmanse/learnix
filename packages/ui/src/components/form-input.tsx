@@ -1,5 +1,5 @@
 import { Control, FieldPath, FieldValues } from "react-hook-form"
-import { FormField, FormItem, FormControl, FormMessage } from "./form"
+import { FormField, FormItem, FormControl, FormMessage, FormLabel, FormDescription } from "./form"
 import { Input } from "./input"
 import { PasswordInput } from "./password-input"
 import { LucideIcon } from "lucide-react"
@@ -7,7 +7,9 @@ import { LucideIcon } from "lucide-react"
 export interface FormInputProps<TFieldValues extends FieldValues> {
   control: Control<TFieldValues>
   name: FieldPath<TFieldValues>
-  icon?: LucideIcon
+  icon?: LucideIcon // Kept for backwards compatibility but unused
+  label?: string
+  description?: string
   placeholder: string
   disabled?: boolean
   type?: "text" | "password" | "email"
@@ -16,7 +18,8 @@ export interface FormInputProps<TFieldValues extends FieldValues> {
 export function FormInput<TFieldValues extends FieldValues>({
   control,
   name,
-  icon: Icon,
+  label,
+  description,
   placeholder,
   disabled,
   type = "text",
@@ -27,29 +30,24 @@ export function FormInput<TFieldValues extends FieldValues>({
       name={name}
       render={({ field }) => (
         <FormItem>
+          {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
-            <div className="relative w-full">
-              {type === "password" ? (
-                <PasswordInput
-                  placeholder={placeholder}
-                  className={Icon ? "pl-11 h-12 rounded-lg bg-background shadow-sm" : "h-12 rounded-lg bg-background shadow-sm"}
-                  {...field}
-                  disabled={disabled}
-                />
-              ) : (
-                <Input
-                  type={type}
-                  placeholder={placeholder}
-                  className={Icon ? "pl-11 h-12 rounded-lg bg-background shadow-sm" : "h-12 rounded-lg bg-background shadow-sm"}
-                  {...field}
-                  disabled={disabled}
-                />
-              )}
-              {Icon && (
-                <Icon className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none z-20" />
-              )}
-            </div>
+            {type === "password" ? (
+              <PasswordInput
+                placeholder={placeholder}
+                {...field}
+                disabled={disabled}
+              />
+            ) : (
+              <Input
+                type={type}
+                placeholder={placeholder}
+                {...field}
+                disabled={disabled}
+              />
+            )}
           </FormControl>
+          {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />
         </FormItem>
       )}

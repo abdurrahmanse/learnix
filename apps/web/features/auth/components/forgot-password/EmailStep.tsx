@@ -1,6 +1,6 @@
 import { UseFormReturn } from "react-hook-form";
 import { Mail, KeyRound, ArrowLeft, ArrowRight } from "lucide-react";
-import { Form, Link } from "@learnix/ui";
+import { Form, Link, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@learnix/ui";
 import { SubmitAuthButton } from "@learnix/auth";
 import { FormInput } from "@learnix/ui";
 import * as z from "zod";
@@ -14,27 +14,43 @@ interface EmailStepProps {
 
 export function EmailStep({ form, onSubmit, isLoading }: EmailStepProps) {
   return (
-    <div className="w-full max-w-md mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500 mt-6">
-      <div className="text-center space-y-2 mb-10">
-        <h1 className="text-3xl font-bold tracking-tight">Reset Password</h1>
-        <p className="text-muted-foreground">Enter your email address to receive a verification code.</p>
-      </div>
-
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-          <FormInput control={form.control} name="email" icon={Mail} placeholder="Email Address" type="email" disabled={isLoading} />
-          <SubmitAuthButton isLoading={isLoading} loadingText="Sending Code..." defaultText="Send Reset Code" icon={ArrowRight} iconPosition="right" disabled={isLoading} />
-        </form>
-      </Form>
-
-      <div className="flex flex-col space-y-4 pb-8 pt-8 text-center">
-        <div className="text-sm text-muted-foreground">
-          Remembered your password?{" "}
-          <Link href="/login" className="font-semibold text-primary hover:underline inline-flex items-center">
-            <ArrowLeft className="mr-1 h-3 w-3" /> Back to login
-          </Link>
-        </div>
-      </div>
-    </div>
+    <Card className="w-full max-w-md mx-auto shadow-md animate-in fade-in slide-in-from-right-8 duration-500 mt-6">
+      <CardHeader className="space-y-1 text-center">
+        <CardTitle className="text-2xl font-semibold tracking-tight">Forgot Password</CardTitle>
+        <CardDescription>
+          Enter your email address and we'll send you a reset code.
+        </CardDescription>
+      </CardHeader>
+      
+      <CardContent>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 px-4 py-2">
+            <FormInput
+              control={form.control}
+              name="email"
+              label="Email Address"
+              placeholder="m@example.com"
+              type="email"
+              disabled={isLoading}
+            />
+            <div className="pt-2">
+              <SubmitAuthButton 
+                isLoading={isLoading} 
+                loadingText="Sending Code..." 
+                defaultText="Send Reset Code" 
+                disabled={isLoading} 
+              />
+            </div>
+          </form>
+        </Form>
+      </CardContent>
+      
+      <CardFooter className="flex flex-col text-center text-sm text-muted-foreground">
+        <Link href="/login" className="flex items-center justify-center gap-2 hover:text-primary transition-colors">
+          <ArrowLeft className="h-4 w-4" />
+          Back to login
+        </Link>
+      </CardFooter>
+    </Card>
   );
 }

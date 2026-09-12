@@ -1,5 +1,6 @@
-import { Mail, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { SubmitAuthButton, OTPInputGroup } from "@learnix/auth";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@learnix/ui";
 
 interface OtpStepProps {
   email: string;
@@ -12,29 +13,44 @@ interface OtpStepProps {
 
 export function OtpStep({ email, otp, setOtp, onSubmit, onBack, isLoading }: OtpStepProps) {
   return (
-    <div className="w-full max-w-md mx-auto animate-in fade-in slide-in-from-right-8 duration-500 mt-6">
-      <div className="text-center space-y-2 mb-10">
-        <h1 className="text-3xl font-bold tracking-tight">Check your email</h1>
-        <p className="text-muted-foreground">
-          We've sent a 6-digit reset code to <br/>
+    <Card className="w-full max-w-md mx-auto shadow-md animate-in fade-in slide-in-from-right-8 duration-500 mt-6">
+      <CardHeader className="space-y-1 text-center">
+        <CardTitle className="text-2xl font-semibold tracking-tight">Check your email</CardTitle>
+        <CardDescription>
+          We've sent a 6-digit verification code to <br/>
           <span className="font-medium text-foreground">{email}</span>
-        </p>
-      </div>
-
-      <form onSubmit={onSubmit} className="space-y-6 flex flex-col items-center">
-        <OTPInputGroup value={otp} onChange={setOtp} disabled={isLoading} />
-        <div className="w-full">
-          <SubmitAuthButton isLoading={isLoading} loadingText="Verifying..." defaultText="Verify Code" disabled={otp.length !== 6 || isLoading} />
-        </div>
-      </form>
-
-      <div className="flex flex-col space-y-4 pb-8 pt-8 text-center">
-        <div className="text-sm text-muted-foreground">
-          <button type="button" className="font-semibold text-primary hover:underline inline-flex items-center" disabled={isLoading} onClick={onBack}>
-            <ArrowLeft className="mr-1 h-3 w-3" /> Use a different email
-          </button>
-        </div>
-      </div>
-    </div>
+        </CardDescription>
+      </CardHeader>
+      
+      <CardContent>
+        <form onSubmit={onSubmit} className="flex flex-col items-center px-4 py-2">
+          <OTPInputGroup 
+            value={otp} 
+            onChange={setOtp} 
+            disabled={isLoading}
+          />
+          <div className="w-full mt-8">
+            <SubmitAuthButton 
+              isLoading={isLoading} 
+              loadingText="Verifying..." 
+              defaultText="Verify Code" 
+              disabled={otp.length !== 6 || isLoading} 
+            />
+          </div>
+        </form>
+      </CardContent>
+      
+      <CardFooter className="flex flex-col text-center text-sm text-muted-foreground">
+        <button 
+          onClick={onBack}
+          type="button"
+          className="flex items-center justify-center gap-2 hover:text-primary transition-colors disabled:opacity-50"
+          disabled={isLoading}
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Use a different email
+        </button>
+      </CardFooter>
+    </Card>
   );
 }
