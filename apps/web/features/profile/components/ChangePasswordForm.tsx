@@ -7,8 +7,7 @@ import { Save, CheckCircle2, Lock, KeyRound } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@learnix/ui"
 import { Form } from "@learnix/ui"
 import { useUpdatePassword } from "../hooks/useProfileMutations"
-import { FormInputWithIcon } from "@/features/core/components/common/FormInputWithIcon"
-import { SubmitAuthButton } from "@/features/core/components/common/SubmitAuthButton"
+import { FormInputWithIcon, SubmitAuthButton } from "@learnix/auth";
 
 import { changePasswordSchema, ChangePasswordValues } from "@learnix/utils"
 

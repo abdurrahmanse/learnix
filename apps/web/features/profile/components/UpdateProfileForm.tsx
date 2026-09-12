@@ -9,8 +9,7 @@ import { Form } from "@learnix/ui"
 
 import { useAuthStore } from "@learnix/auth"
 import { useUpdateProfile } from "../hooks/useProfileMutations"
-import { FormInputWithIcon } from "@/features/core/components/common/FormInputWithIcon"
-import { SubmitAuthButton } from "@/features/core/components/common/SubmitAuthButton"
+import { FormInputWithIcon, SubmitAuthButton } from "@learnix/auth";
 
 import { updateProfileSchema, UpdateProfileValues } from "@learnix/utils"
 
