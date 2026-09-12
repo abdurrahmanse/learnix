@@ -3,7 +3,7 @@
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { LogIn } from "lucide-react"
+import { LogIn, Mail, Lock } from "lucide-react"
 
 import { loginSchema } from "@learnix/utils"
 import { 
@@ -21,18 +21,23 @@ import { SubmitAuthButton } from "../common/SubmitAuthButton"
 import { useLoginMutation } from "../../hooks/useAuthMutations"
 import { LoginFooterLinks } from "./LoginFooterLinks"
 
-export function LoginForm() {
+interface LoginFormProps {
+  onSuccess?: () => void;
+  defaultEmail?: string;
+}
+
+export function LoginForm({ onSuccess, defaultEmail = "" }: LoginFormProps) {
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      email: "",
+      email: defaultEmail,
       password: "",
     },
   })
 
   const loginMutation = useLoginMutation()
 
-  function onSubmit(values: z.infer<typeof loginSchema>) {
+  async function onSubmit(values: z.infer<typeof loginSchema>) {
     loginMutation.mutate(values)
   }
 
@@ -41,9 +46,9 @@ export function LoginForm() {
   return (
     <Card className="w-full max-w-md mx-auto shadow-md">
       <CardHeader className="space-y-1 text-center">
-        <CardTitle className="text-2xl font-semibold tracking-tight">Welcome Back</CardTitle>
+        <CardTitle className="text-2xl font-semibold tracking-tight">Welcome back</CardTitle>
         <CardDescription>
-          Sign in to your account to continue
+          Enter your email and password to sign in
         </CardDescription>
       </CardHeader>
       
@@ -57,6 +62,7 @@ export function LoginForm() {
               placeholder="m@example.com"
               type="email"
               disabled={isLoading}
+              icon={Mail}
             />
             
             <div className="space-y-1">
@@ -67,6 +73,7 @@ export function LoginForm() {
                 placeholder="Enter your password"
                 type="password"
                 disabled={isLoading}
+                icon={Lock}
               />
               <div className="flex justify-end pt-1">
                 <Link

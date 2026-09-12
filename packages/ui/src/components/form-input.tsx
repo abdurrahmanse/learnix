@@ -3,11 +3,12 @@ import { FormField, FormItem, FormControl, FormMessage, FormLabel, FormDescripti
 import { Input } from "./input"
 import { PasswordInput } from "./password-input"
 import { LucideIcon } from "lucide-react"
+import { cn } from "../utils"
 
 export interface FormInputProps<TFieldValues extends FieldValues> {
   control: Control<TFieldValues>
   name: FieldPath<TFieldValues>
-  icon?: LucideIcon // Kept for backwards compatibility but unused
+  icon?: LucideIcon
   label?: string
   description?: string
   placeholder: string
@@ -23,6 +24,7 @@ export function FormInput<TFieldValues extends FieldValues>({
   placeholder,
   disabled,
   type = "text",
+  icon: Icon,
 }: FormInputProps<TFieldValues>) {
   return (
     <FormField
@@ -35,16 +37,23 @@ export function FormInput<TFieldValues extends FieldValues>({
             {type === "password" ? (
               <PasswordInput
                 placeholder={placeholder}
+                icon={Icon}
                 {...field}
                 disabled={disabled}
               />
             ) : (
-              <Input
-                type={type}
-                placeholder={placeholder}
-                {...field}
-                disabled={disabled}
-              />
+              <div className="relative flex w-full items-center">
+                {Icon && (
+                  <Icon className="absolute left-3.5 h-5 w-5 text-muted-foreground" aria-hidden="true" />
+                )}
+                <Input
+                  type={type}
+                  placeholder={placeholder}
+                  className={cn(Icon && "pl-11")}
+                  {...field}
+                  disabled={disabled}
+                />
+              </div>
             )}
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}

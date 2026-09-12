@@ -1,5 +1,5 @@
 import { UseFormReturn } from "react-hook-form";
-import { Lock, KeyRound } from "lucide-react";
+import { CheckCircle2, Lock } from "lucide-react";
 import { Form, Card, CardHeader, CardTitle, CardDescription, CardContent } from "@learnix/ui";
 import { SubmitAuthButton } from "@learnix/auth";
 import { FormInput } from "@learnix/ui";
@@ -33,6 +33,7 @@ export function ResetStep({ form, onSubmit, isLoading, isSuccess }: ResetStepPro
               placeholder="Create a strong password"
               type="password"
               disabled={isLoading || isSuccess}
+              icon={Lock}
             />
             <FormInput
               control={form.control}
@@ -41,6 +42,7 @@ export function ResetStep({ form, onSubmit, isLoading, isSuccess }: ResetStepPro
               placeholder="Re-enter your password"
               type="password"
               disabled={isLoading || isSuccess}
+              icon={Lock}
             />
             <div className="pt-2">
               <SubmitAuthButton 

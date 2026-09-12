@@ -3,7 +3,7 @@
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { UserPlus } from "lucide-react"
+import { UserPlus, Mail, User, Lock } from "lucide-react"
 
 import { 
   Form, 
@@ -68,6 +68,7 @@ export function RegisterForm({ onSuccess, defaultEmail = "", onEmailChange }: Re
               placeholder="m@example.com"
               type="email"
               disabled={isLoading}
+              icon={Mail}
             />
             <FormInput
               control={form.control}
@@ -76,6 +77,7 @@ export function RegisterForm({ onSuccess, defaultEmail = "", onEmailChange }: Re
               placeholder="johndoe123"
               type="text"
               disabled={isLoading}
+              icon={User}
             />
             <FormInput
               control={form.control}
@@ -84,6 +86,7 @@ export function RegisterForm({ onSuccess, defaultEmail = "", onEmailChange }: Re
               placeholder="John Doe"
               type="text"
               disabled={isLoading}
+              icon={User}
             />
             <FormInput
               control={form.control}
@@ -92,6 +95,7 @@ export function RegisterForm({ onSuccess, defaultEmail = "", onEmailChange }: Re
               placeholder="Create a strong password"
               type="password"
               disabled={isLoading}
+              icon={Lock}
             />
             <FormInput
               control={form.control}
@@ -100,6 +104,7 @@ export function RegisterForm({ onSuccess, defaultEmail = "", onEmailChange }: Re
               placeholder="Re-enter your password"
               type="password"
               disabled={isLoading}
+              icon={Lock}
             />
             
             <div className="pt-2">

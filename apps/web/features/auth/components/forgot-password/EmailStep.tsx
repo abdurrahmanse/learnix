@@ -32,6 +32,7 @@ export function EmailStep({ form, onSubmit, isLoading }: EmailStepProps) {
               placeholder="m@example.com"
               type="email"
               disabled={isLoading}
+              icon={Mail}
             />
             <div className="pt-2">
               <SubmitAuthButton 
