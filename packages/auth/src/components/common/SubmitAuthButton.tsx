@@ -18,7 +18,7 @@ export function SubmitAuthButton({
   icon: Icon,
   iconPosition = "left",
   disabled,
-  className = "w-full h-12 rounded-xl mt-4",
+  className = "w-full h-12 rounded-xl mt-6 font-medium text-base shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all active:scale-[0.98]",
 }: SubmitAuthButtonProps) {
   return (
     <Button className={className} type="submit" disabled={isLoading || disabled}>

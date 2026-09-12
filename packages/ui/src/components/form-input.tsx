@@ -28,14 +28,11 @@ export function FormInput<TFieldValues extends FieldValues>({
       render={({ field }) => (
         <FormItem>
           <FormControl>
-            <div className="relative">
-              {Icon && (
-                <Icon className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
-              )}
+            <div className="relative w-full flex items-center">
               {type === "password" ? (
                 <PasswordInput
                   placeholder={placeholder}
-                  className={Icon ? "pl-10 h-12 rounded-xl" : "h-12 rounded-xl"}
+                  className={Icon ? "pl-11 h-12 rounded-xl bg-background shadow-sm" : "h-12 rounded-xl bg-background shadow-sm"}
                   {...field}
                   disabled={disabled}
                 />
@@ -43,10 +40,13 @@ export function FormInput<TFieldValues extends FieldValues>({
                 <Input
                   type={type}
                   placeholder={placeholder}
-                  className={Icon ? "pl-10 h-12 rounded-xl" : "h-12 rounded-xl"}
+                  className={Icon ? "pl-11 h-12 rounded-xl bg-background shadow-sm" : "h-12 rounded-xl bg-background shadow-sm"}
                   {...field}
                   disabled={disabled}
                 />
+              )}
+              {Icon && (
+                <Icon className="absolute left-3.5 h-5 w-5 text-muted-foreground pointer-events-none z-20" />
               )}
             </div>
           </FormControl>

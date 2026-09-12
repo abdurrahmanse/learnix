@@ -20,15 +20,15 @@ export function EmailStep({ form, onSubmit, isLoading }: EmailStepProps) {
         title="Reset Password"
         description="Enter your email address to receive a verification code."
       />
-      <CardContent>
+      <CardContent className="px-8">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
             <FormInput control={form.control} name="email" icon={Mail} placeholder="Email Address" type="email" disabled={isLoading} />
             <SubmitAuthButton isLoading={isLoading} loadingText="Sending Code..." defaultText="Send Reset Code" icon={ArrowRight} iconPosition="right" disabled={isLoading} />
           </form>
         </Form>
       </CardContent>
-      <CardFooter className="flex flex-col space-y-4 pb-8">
+      <CardFooter className="flex flex-col space-y-4 px-8 pb-8 pt-4">
         <div className="text-sm text-center text-muted-foreground">
           Remembered your password?{" "}
           <Link href="/login" className="font-semibold text-primary hover:underline inline-flex items-center">

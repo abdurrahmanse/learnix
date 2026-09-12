@@ -9,12 +9,12 @@ interface AuthCardHeaderProps {
 
 export function AuthCardHeader({ icon: Icon, title, description }: AuthCardHeaderProps) {
   return (
-    <CardHeader className="space-y-2 text-center pb-8 pt-10">
-      <div className="mx-auto bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-        <Icon className="h-8 w-8 text-primary" />
+    <CardHeader className="space-y-3 text-center px-8 pb-6 pt-10">
+      <div className="mx-auto w-20 h-20 rounded-2xl bg-gradient-to-tr from-primary/20 to-primary/5 flex items-center justify-center mb-4 ring-1 ring-primary/20 shadow-inner">
+        <Icon className="h-10 w-10 text-primary drop-shadow-md" />
       </div>
-      <CardTitle className="text-4xl font-extrabold tracking-tight">{title}</CardTitle>
-      <CardDescription className="text-base font-light">{description}</CardDescription>
+      <CardTitle className="text-3xl font-bold tracking-tight text-foreground">{title}</CardTitle>
+      <CardDescription className="text-base text-muted-foreground">{description}</CardDescription>
     </CardHeader>
   );
 }

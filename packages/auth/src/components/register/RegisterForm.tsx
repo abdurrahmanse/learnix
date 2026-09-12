@@ -49,9 +49,9 @@ export function RegisterForm({ onSuccess, defaultEmail = "", onEmailChange }: Re
         title="Create an account"
         description="Enter your details to sign up"
       />
-      <CardContent>
+      <CardContent className="px-8">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
             <RegisterFormFields control={form.control} isLoading={isLoading} />
             <SubmitAuthButton
               isLoading={isLoading}

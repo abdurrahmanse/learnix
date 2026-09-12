@@ -37,9 +37,9 @@ export function LoginForm() {
         title="Welcome Back" 
         description="Enter your email to sign in to your account" 
       />
-      <CardContent>
+      <CardContent className="px-8">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
             <LoginFormFields control={form.control} isLoading={isLoading} />
 
             <div className="flex justify-end mb-1">

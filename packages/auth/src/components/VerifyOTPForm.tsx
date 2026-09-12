@@ -50,7 +50,7 @@ export function VerifyOTPForm({ email, onGoBack }: VerifyOTPFormProps) {
           </>
         }
       />
-      <CardContent>
+      <CardContent className="px-8">
         <form onSubmit={handleVerifyOTP} className="space-y-6 flex flex-col items-center">
           <OTPInputGroup value={otp} onChange={(value: string) => setOtp(value)} disabled={isLoading} />
 
@@ -62,7 +62,7 @@ export function VerifyOTPForm({ email, onGoBack }: VerifyOTPFormProps) {
           />
         </form>
       </CardContent>
-      <CardFooter className="flex flex-col space-y-4 pb-8">
+      <CardFooter className="flex flex-col space-y-4 px-8 pb-8 pt-4">
         <div className="text-sm text-center text-muted-foreground">
           Didn&apos;t receive the code?{" "}
           <button 

@@ -17,9 +17,9 @@ export function ResetStep({ form, onSubmit, isLoading, isSuccess }: ResetStepPro
   return (
     <div className="animate-in fade-in slide-in-from-right-8 duration-500">
       <AuthCardHeader icon={Lock} title="Set New Password" description="Please enter your new password below." />
-      <CardContent>
+      <CardContent className="px-8 pb-8">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
             <FormInput control={form.control} name="password" icon={Lock} placeholder="New Password" type="password" disabled={isLoading || isSuccess} />
             <FormInput control={form.control} name="confirmPassword" icon={KeyRound} placeholder="Confirm New Password" type="password" disabled={isLoading || isSuccess} />
             <SubmitAuthButton isLoading={isLoading} loadingText="Resetting Password..." defaultText="Reset Password" disabled={isLoading || isSuccess} />

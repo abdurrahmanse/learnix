@@ -5,7 +5,7 @@ export default function LoginPage() {
   return (
     <GuestGuard>
       <AuthWrapper>
-        <Card className="w-full max-w-md shadow-2xl shadow-primary/5 border-border/40 bg-background/60 backdrop-blur-xl rounded-2xl">
+        <Card className="w-full max-w-[440px] shadow-2xl shadow-black/10 border-white/10 bg-background/50 backdrop-blur-2xl rounded-3xl overflow-hidden ring-1 ring-white/5 dark:bg-black/40">
           <LoginForm />
         </Card>
       </AuthWrapper>
