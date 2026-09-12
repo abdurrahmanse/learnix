@@ -10,6 +10,5 @@ export * from "./components/StepProgressBar"
 export * from "./hooks/useAuthMutations"
 export * from "./store/authStore"
 
-export * from "./components/common/FormInputWithIcon"
 export * from "./components/common/SubmitAuthButton"
 export * from "./components/common/OTPInputGroup"

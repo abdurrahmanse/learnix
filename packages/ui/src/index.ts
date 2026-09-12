@@ -53,6 +53,7 @@ export {
   FormMessage,
   useFormField,
 } from "./components/form";
+export * from "./components/form-input";
 export { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "./components/input-otp";
 export { Input } from "./components/input";
 export { Label } from "./components/label";
