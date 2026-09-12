@@ -28,6 +28,11 @@ if settings.SENTRY_DSN:
 # 3. Setup Lifespan (Redis, Limiter, DB)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    if not settings.is_setup_complete:
+        logger.warning("Starting in SETUP MODE. Bypassing DB/Redis initialization.")
+        yield
+        return
+
     # Initialize Redis & Rate Limiter
     redis_client = redis.from_url(settings.REDIS_URL, encoding="utf-8", decode_responses=True)
     await FastAPILimiter.init(redis_client)
@@ -39,8 +44,10 @@ async def lifespan(app: FastAPI):
     yield
     
     # Cleanup
-    await redis_client.close()
-    await engine.dispose()
+    if redis_client:
+        await redis_client.close()
+    if engine:
+        await engine.dispose()
     logger.info("Shutdown cleanup complete")
 
 # 4. Initialize FastAPI
@@ -64,23 +71,46 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-from app.api.routers import auth, users, courses, media  # noqa: E402
+from fastapi import Request, Response
+import json
 
-app.include_router(auth.router, prefix=f"{settings.API_V1_STR}/auth", tags=["auth"])
-app.include_router(users.router, prefix=f"{settings.API_V1_STR}/users", tags=["users"])
-app.include_router(courses.router, prefix=f"{settings.API_V1_STR}/courses", tags=["courses"])
-app.include_router(media.router, prefix=f"{settings.API_V1_STR}/media", tags=["media"])
+@app.middleware("http")
+async def setup_middleware(request: Request, call_next):
+    if not settings.is_setup_complete:
+        path = request.url.path
+        if path.startswith(f"{settings.API_V1_STR}/setup") or path.startswith(f"{settings.API_V1_STR}/health") or path == "/docs" or path == "/openapi.json":
+            return await call_next(request)
+        return Response(
+            content=json.dumps({"setup_required": True, "message": "Application is not configured."}),
+            status_code=503,
+            media_type="application/json"
+        )
+    return await call_next(request)
+
+from app.api.routers import auth, users, courses, media, setup  # noqa: E402
+
+app.include_router(setup.router, prefix=f"{settings.API_V1_STR}/setup", tags=["setup"])
+
+if settings.is_setup_complete:
+    app.include_router(auth.router, prefix=f"{settings.API_V1_STR}/auth", tags=["auth"])
+    app.include_router(users.router, prefix=f"{settings.API_V1_STR}/users", tags=["users"])
+    app.include_router(courses.router, prefix=f"{settings.API_V1_STR}/courses", tags=["courses"])
+    app.include_router(media.router, prefix=f"{settings.API_V1_STR}/media", tags=["media"])
 
 # 6. Robust Health Check
 @app.get(f"{settings.API_V1_STR}/health")
 async def health_check():
     health_status = {
-        "status": "ok",
+        "status": "ok" if settings.is_setup_complete else "setup_required",
+        "setup_required": not settings.is_setup_complete,
         "environment": settings.ENVIRONMENT,
         "database": "unreachable",
         "redis": "unreachable"
     }
     
+    if not settings.is_setup_complete:
+        return health_status
+
     # Ping Redis
     try:
         r = redis.from_url(settings.REDIS_URL, encoding="utf-8", decode_responses=True)
@@ -100,8 +130,6 @@ async def health_check():
         logger.error(f"Database health check failed: {e}")
 
     if health_status["database"] != "ok" or health_status["redis"] != "ok":
-        from fastapi import Response
-        import json
         return Response(content=json.dumps(health_status), status_code=503, media_type="application/json")
 
     return health_status

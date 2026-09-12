@@ -20,13 +20,13 @@ class Settings(BaseSettings):
         raise ValueError(v)
 
     # Database
-    DATABASE_URL: str
+    DATABASE_URL: str | None = None
     
     # Redis
     REDIS_URL: str = "redis://localhost:6379/0"
 
     # Authentication
-    SECRET_KEY: str
+    SECRET_KEY: str | None = None
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
@@ -42,6 +42,10 @@ class Settings(BaseSettings):
 
     # Observability
     SENTRY_DSN: str | None = None
+
+    @property
+    def is_setup_complete(self) -> bool:
+        return bool(self.DATABASE_URL and self.SECRET_KEY)
 
     class Config:
         env_file = ".env"
