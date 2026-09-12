@@ -4,14 +4,13 @@ import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 
 export function SetupGuard({ children }: { children: React.ReactNode }) {
-  const [isReady, setIsReady] = useState(false);
-  const router = useRouter();
   const pathname = usePathname();
+  const [isReady, setIsReady] = useState(pathname === "/setup");
+  const router = useRouter();
 
   useEffect(() => {
     // Skip guard if we are already on the setup page
     if (pathname === "/setup") {
-      setIsReady(true);
       return;
     }
 
@@ -25,7 +24,7 @@ export function SetupGuard({ children }: { children: React.ReactNode }) {
         } else {
           setIsReady(true);
         }
-      } catch (err) {
+      } catch (_err) {
         // If the backend is completely down, we might want to still show children or an error.
         // For now, let it render if it fails to connect so we don't infinitely block.
         setIsReady(true);

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Input, Button } from "@learnix/ui";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Button } from "@learnix/ui";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SetupFormData, setupSchema, defaultSetupValues } from "../schemas";
@@ -15,7 +15,6 @@ import { AdminStep } from "./steps/AdminStep";
 export function SetupWizard() {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const router = useRouter();
 
   const {
     register,
@@ -60,8 +59,8 @@ export function SetupWizard() {
         window.location.href = "/";
       }, 3000);
 
-    } catch (err: any) {
-      toast.error(err.message, { id: loadingToast });
+    } catch (err: unknown) {
+      toast.error(err instanceof Error ? err.message : "An error occurred", { id: loadingToast });
       setIsSubmitting(false);
     }
   };

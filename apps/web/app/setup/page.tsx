@@ -15,7 +15,7 @@ export default function SetupPage() {
             Welcome to Learnix
           </h1>
           <p className="text-neutral-400">
-            Let's get your platform configured and ready for production.
+            Let&apos;s get your platform configured and ready for production.
           </p>
         </div>
         
