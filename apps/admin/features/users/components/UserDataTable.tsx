@@ -8,7 +8,9 @@ import {
   TableBody,
   TableCell,
   TableHead,
-import { Badge } from "@learnix/ui";
+  TableHeader,
+  TableRow,
+} from "@learnix/ui";
 import { Button } from "@learnix/ui";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@learnix/ui";
 import { UserDataTableRow } from "./UserDataTableRow";
