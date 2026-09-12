@@ -3,15 +3,15 @@
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { LogIn, Mail, Lock, KeyRound } from "lucide-react"
+import { LogIn, KeyRound } from "lucide-react"
 
 import { loginSchema } from "@learnix/utils"
-import { AuthCardHeader } from "./AuthCardHeader"
-import { Form, Link } from "@learnix/ui";
-import { CardContent, CardFooter } from "@learnix/ui"
-import { FormInputWithIcon } from "./common/FormInputWithIcon"
-import { SubmitAuthButton } from "./common/SubmitAuthButton"
-import { useLoginMutation } from "../hooks/useAuthMutations"
+import { AuthCardHeader } from "../AuthCardHeader"
+import { Form, Link, CardContent } from "@learnix/ui";
+import { SubmitAuthButton } from "../common/SubmitAuthButton"
+import { useLoginMutation } from "../../hooks/useAuthMutations"
+import { LoginFormFields } from "./LoginFormFields"
+import { LoginFooterLinks } from "./LoginFooterLinks"
 
 export function LoginForm() {
   const form = useForm<z.infer<typeof loginSchema>>({
@@ -40,23 +40,7 @@ export function LoginForm() {
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormInputWithIcon
-              control={form.control}
-              name="email"
-              icon={Mail}
-              placeholder="Email Address"
-              type="email"
-              disabled={isLoading}
-            />
-
-            <FormInputWithIcon
-              control={form.control}
-              name="password"
-              icon={Lock}
-              placeholder="Password"
-              type="password"
-              disabled={isLoading}
-            />
+            <LoginFormFields control={form.control} isLoading={isLoading} />
 
             <div className="flex justify-end mb-1">
               <Link
@@ -77,14 +61,7 @@ export function LoginForm() {
           </form>
         </Form>
       </CardContent>
-      <CardFooter className="flex flex-col space-y-4">
-        <div className="text-sm text-center text-muted-foreground">
-          Don&apos;t have an account?{" "}
-          <Link href="/register" className="font-semibold text-primary hover:underline">
-            Sign up
-          </Link>
-        </div>
-      </CardFooter>
+      <LoginFooterLinks />
     </>
   )
 }

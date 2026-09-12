@@ -1,5 +1,5 @@
 {
-  "extends": "@learnix/tsconfig/react-library.json",
+  "extends": "@learnix/tsconfig/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
