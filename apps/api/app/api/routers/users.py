@@ -4,7 +4,7 @@ from app.db.session import get_db
 from app.services.import_service import ImportService
 from app.api.deps import get_current_admin, get_current_user
 from app.db.models.user import User
-from app.schemas.user import UserRead, UserUpdate, UserPasswordUpdate
+from app.schemas.user import UserRead, UserUpdate, UserPasswordUpdate, ImportResponse
 
 from app.services.profile_service import ProfileService
 
@@ -71,7 +71,7 @@ async def update_my_password(
     profile_service = ProfileService(db)
     return await profile_service.update_password(current_user, password_data)
 
-@router.post("/import")
+@router.post("/import", response_model=ImportResponse)
 async def import_users(
     file: UploadFile = File(...),
     db: AsyncSession = Depends(get_db),

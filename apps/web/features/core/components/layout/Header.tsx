@@ -1,23 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { BookOpen } from "lucide-react";
 import { ThemeToggle, Container, Link } from "@learnix/ui";
 import { useAuthStore } from "@learnix/auth";
 import type { NavRoute } from "@/features/core/config/navigation";
 import { NavLinks } from "./NavLinks";
-import { UserMenu } from "./UserMenu";
+import dynamic from "next/dynamic";
+
+// Dynamically import UserMenu with ssr: false to avoid hydration mismatch 
+// with the persisted auth state in Zustand.
+const UserMenu = dynamic(() => import("./UserMenu").then(mod => mod.UserMenu), { 
+  ssr: false,
+  loading: () => <div className="w-8 h-8 rounded-full bg-muted animate-pulse" />
+});
 
 export function Header({ routes = [] }: { routes?: NavRoute[] }) {
   const { isAuthenticated, user, logout } = useAuthStore();
   const router = useRouter();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-  }, []);
 
   const handleLogout = () => {
     logout();
@@ -39,10 +39,10 @@ export function Header({ routes = [] }: { routes?: NavRoute[] }) {
 
           <nav className="flex items-center space-x-2 border-l border-border/40 pl-4">
             <UserMenu
-              mounted={mounted}
               isAuthenticated={isAuthenticated}
               user={user}
               onLogout={handleLogout}
+              mounted={true} // Since it's ssr: false, it's always mounted when rendered
             />
 
             <div className="pl-2 border-l border-border/40 ml-2 h-6 flex items-center">

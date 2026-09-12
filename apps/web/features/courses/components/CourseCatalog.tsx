@@ -6,15 +6,37 @@ import { PublicCourseCard } from "./PublicCourseCard"
 import { Input, Heading, Text } from "@learnix/ui"
 import { Button } from "@learnix/ui"
 import { useCoursesQuery } from "../hooks/useCourses"
-import { useCourseStore } from "@/features/courses/store/courseStore"
+import { useRouter, usePathname, useSearchParams } from "next/navigation"
+import { useTransition } from "react"
 
-export function CourseCatalog() {
-  const { data: courses = [], isLoading, isError, refetch } = useCoursesQuery()
-  const { searchQuery, setSearchQuery } = useCourseStore()
+export function CourseCatalog({ initialSearchQuery = "" }: { initialSearchQuery?: string }) {
+  // Using React Query; it will instantly return data from the HydrationBoundary
+  const { data: courses = [], isError, refetch } = useCoursesQuery()
+  
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const [isPending, startTransition] = useTransition()
+
+  // State is now URL-driven instead of local state
+  const currentQuery = searchParams.get("q") ?? initialSearchQuery
+
+  const handleSearch = (value: string) => {
+    const params = new URLSearchParams(searchParams)
+    if (value) {
+      params.set("q", value)
+    } else {
+      params.delete("q")
+    }
+    // Update the URL without a full page reload, and in a transition
+    startTransition(() => {
+      router.replace(`${pathname}?${params.toString()}`, { scroll: false })
+    })
+  }
 
   const filteredCourses = courses.filter((course: Course) => 
-    course.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-    course.short_summary?.toLowerCase().includes(searchQuery.toLowerCase())
+    course.title.toLowerCase().includes(currentQuery.toLowerCase()) || 
+    course.short_summary?.toLowerCase().includes(currentQuery.toLowerCase())
   )
 
   return (
@@ -31,10 +53,15 @@ export function CourseCatalog() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input 
               placeholder="Search courses..." 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              value={currentQuery}
+              onChange={(e) => handleSearch(e.target.value)}
               className="pl-10 rounded-full h-12 bg-background/50 border-white/10"
             />
+            {isPending && (
+              <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                <div className="h-4 w-4 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+              </div>
+            )}
           </div>
           <Button variant="outline" className="rounded-full h-12 px-6 border-white/10 hidden sm:flex">
             <SlidersHorizontal className="mr-2 h-4 w-4" />
@@ -44,13 +71,7 @@ export function CourseCatalog() {
       </div>
 
       {/* States */}
-      {isLoading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="h-[400px] rounded-2xl bg-muted/20 animate-pulse border border-white/5" />
-          ))}
-        </div>
-      ) : isError ? (
+      {isError ? (
         <div className="flex flex-col items-center justify-center py-24 text-center">
           <div className="w-16 h-16 rounded-full bg-destructive/10 flex items-center justify-center mb-4">
             <span className="text-destructive font-bold text-2xl">!</span>

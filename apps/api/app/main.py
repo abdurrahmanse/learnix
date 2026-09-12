@@ -64,7 +64,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-from app.api.routers import auth, users, courses, media
+from app.api.routers import auth, users, courses, media  # noqa: E402
 
 app.include_router(auth.router, prefix=f"{settings.API_V1_STR}/auth", tags=["auth"])
 app.include_router(users.router, prefix=f"{settings.API_V1_STR}/users", tags=["users"])

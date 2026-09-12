@@ -26,7 +26,7 @@ class OTPService:
             select(OTPCode).where(
                 OTPCode.user_id == user.id,
                 OTPCode.purpose == purpose,
-                OTPCode.is_used == False
+                OTPCode.is_used.is_(False)
             )
         )
         existing_otps = result.scalars().all()
@@ -62,7 +62,7 @@ class OTPService:
             return True
 
         try:
-            r = resend.Emails.send({
+            resend.Emails.send({
                 "from": settings.EMAIL_FROM,
                 "to": user.email,
                 "subject": subject,
@@ -79,7 +79,7 @@ class OTPService:
                 OTPCode.user_id == user.id,
                 OTPCode.purpose == purpose,
                 OTPCode.otp_code == otp_code,
-                OTPCode.is_used == False,
+                OTPCode.is_used.is_(False),
                 OTPCode.expires_at > datetime.now(timezone.utc)
             )
         )

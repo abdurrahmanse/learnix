@@ -16,14 +16,14 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-import os
-import sys
+import os  # noqa: E402
+import sys  # noqa: E402
 
 # Add the Backend directory to the sys.path
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from app.core.config import settings
-from app.db.base import Base
+from app.core.config import settings  # noqa: E402
+from app.db.base import Base  # noqa: E402
 
 # add your model's MetaData object here
 # for 'autogenerate' support

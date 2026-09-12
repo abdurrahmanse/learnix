@@ -9,7 +9,6 @@ import { Form } from "@learnix/ui"
 
 import { useAuthStore } from "@learnix/auth"
 import { useUpdateProfile } from "../hooks/useProfileMutations"
-import { useEffect } from "react"
 import { FormInputWithIcon } from "@/features/core/components/common/FormInputWithIcon"
 import { SubmitAuthButton } from "@/features/core/components/common/SubmitAuthButton"
 
@@ -21,25 +20,20 @@ export function UpdateProfileForm() {
 
   const form = useForm<UpdateProfileValues>({
     resolver: zodResolver(updateProfileSchema),
-    defaultValues: {
+    // Use `values` to automatically sync with external state without useEffect
+    values: {
       full_name: user?.full_name || "",
       bio: user?.bio || "",
       location: user?.location || "",
       phone_number: user?.phone_number || "",
     },
+    defaultValues: {
+      full_name: "",
+      bio: "",
+      location: "",
+      phone_number: "",
+    },
   })
-
-  // Update form if user data loads later
-  useEffect(() => {
-    if (user) {
-      form.reset({
-        full_name: user.full_name || "",
-        bio: user.bio || "",
-        location: user.location || "",
-        phone_number: user.phone_number || "",
-      })
-    }
-  }, [user, form])
 
   async function onSubmit(data: UpdateProfileValues) {
     try {

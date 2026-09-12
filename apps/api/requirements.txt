@@ -51,7 +51,7 @@ urllib3==2.7.0
 uvicorn==0.51.0
 cloudinary
 redis
-fastapi-limiter
+fastapi-limiter==0.1.6
 structlog
 arq
 sentry-sdk[fastapi]
