@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { Providers } from "./providers";
 import { Toaster } from "sonner";
 import { AuthGuard } from "@learnix/auth";
+import { ThemeProvider } from "@learnix/ui";
 
 const rajdhani = Rajdhani({
   variable: "--font-rajdhani",
@@ -29,12 +30,14 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen flex flex-col" suppressHydrationWarning>
-        <Providers>
-          <AuthGuard requireRole="admin">
-            {children}
-          </AuthGuard>
-          <Toaster richColors position="top-right" />
-        </Providers>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} storageKey="learnix-theme-admin">
+          <Providers>
+            <AuthGuard requireRole="admin">
+              {children}
+            </AuthGuard>
+            <Toaster richColors position="top-right" />
+          </Providers>
+        </ThemeProvider>
       </body>
     </html>
   );
